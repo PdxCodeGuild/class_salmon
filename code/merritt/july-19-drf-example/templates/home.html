@@ -1,0 +1,39 @@
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username }}!</h1>
+<p><a href="{% url 'logout' %}">Logout</a><p>
+{% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+<div id="app">
+  <div v-for="student in students" v-bind:key="student.id">
+    <h3>[[ student.first_name ]] [[ student.last_name ]]</h3>
+    <p>[[ student.cohort ]]</p>
+    <p>[[ student.favorite_topic ]]</p>
+    <p>[[ student.favorite_teacher ]]</p>
+    <p><a v-bind:href="student.capstone">[[ student.capstone ]]</a></p>
+  </div>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  let vm = new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'],
+    data: {
+      students: []
+    },
+    methods: {
+      list: function () {
+        axios({
+          method: 'get',
+          url: 'api/students/',
+
+        }).then(response => {console.log(response); this.students = response.data});
+      }
+    },
+    mounted: function () {
+      this.list();
+    }
+  });
+</script>

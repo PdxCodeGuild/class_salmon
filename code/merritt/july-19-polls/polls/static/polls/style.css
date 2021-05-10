@@ -1,0 +1,11 @@
+h1 {
+  color: teal;
+}
+
+li a {
+  color: coral;
+}
+
+body {
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,.5), rgba(255,255,255,1)), url("images/background.gif");
+}

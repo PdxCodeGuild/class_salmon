@@ -1,0 +1,55 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#more-specific {
+    color: black;
+}
+
+.specific {
+    color: green;
+    font-size: 2em;
+    margin: 120px;
+}
+
+.paragraphs {
+    font-size: 2em;
+    width: 50%
+}
+
+p {
+    color: red;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: purple;
+}
+
+.ugly {
+    color: darkkhaki;
+    background-color: darkolivegreen;
+}
+
+#cool-paragraph {
+    color: #0f4c81;
+    width: 800px;
+    text-align: justify;
+    background-color: coral;
+    padding: 12px 24px 48px 96px;
+    margin: 120px;
+}
+
+input[type="text"] {
+    background-color: pink;
+}
+
+.paragraphs p {
+    color: brown;
+}
+
+ol > li {
+    color: coral;
+}

@@ -1,0 +1,71 @@
+{% extends 'grocery/base.html' %}
+
+{% block title %}
+Super Cool Grocery List Application Thing
+{% endblock %}
+
+{% block content %}
+<div id="app">
+  {% if error %}
+  <h2 class="error-message"><strong>{{ error }}</strong></h2>
+  {% endif %}
+
+  <h3>Add an item to your grocery list:</h3>
+  <form action="{% url 'grocery:add_item' %}" method="post">
+    {% csrf_token %}
+    {% comment %} <label for="add_name">Item name:</label>
+    <input type="text" name="name" id="add_name"> {% endcomment %}
+    {{ form }}
+    <input type="submit" value="List me">
+  </form>
+  
+
+  <h3>Grocery list</h3>
+  <div>
+    <div class="item" v-for="item in incomplete_items">
+      <p>[[ item.fields.name ]]</p>
+      <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="I did it!">
+      </form>
+      <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="I don't want to do it!">
+      </form>
+    </div>
+  </div>
+
+
+  <h3>Completed items</h3>
+    <div>
+      <div class="item" v-for="item in complete_items">
+        <p>[[ item.fields.name ]]</p>
+        <form action="" method="post">
+          
+          <input type="submit" value="Delete me!">
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+  {{ complete_items|json_script:"init-complete" }}
+  {{ incomplete_items|json_script:"init-incomplete" }}
+  <script>
+    let json_incomplete_items = JSON.parse(JSON.parse(document.getElementById('init-incomplete').textContent));
+    let json_complete_items = JSON.parse(JSON.parse(document.getElementById('init-complete').textContent));
+    let app = new Vue({
+      el: '#app',
+      delimiters: ['[[', ']]'],
+      data: {
+        incomplete_items: json_incomplete_items,
+        complete_items: json_complete_items
+      },
+      methods: {
+
+      },
+      mounted: function() {console.log("boo!")}
+    });
+  </script>
+{% endblock %}

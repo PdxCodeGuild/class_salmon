@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movies That Are Cool</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Movies That Are Cool</h1>
+      <h3>Created by Merritt</h3>
+    </header>
+    <main>
+      <h2>Here are the movies:</h2>
+      <section class="container">
+        <div class="item">
+          <h3>Dragon Ball Super: Broly</h3>
+          <img src="https://blogs.forbes.com/olliebarder/files/2018/07/dragon_ball_super_broly1.jpg">
+          <p>Letterpress ennui meggings af vape twee street art. Pitchfork af disrupt hell of iceland kinfolk, woke bicycle rights. Crucifix hammock VHS marfa ethical hella mumblecore narwhal disrupt vegan hell of tattooed retro ennui. Everyday carry waistcoat polaroid venmo pour-over lumbersexual. Raw denim kombucha vape, plaid skateboard live-edge tofu kogi organic. Direct trade literally hammock, letterpress wolf kombucha church-key craft beer sustainable schlitz photo booth chillwave semiotics jianbing.</p>
+        </div>
+        <div class="item position-test">
+          <h3>The Death Of Stalin</h3>
+          <img src="https://www.telegraph.co.uk/content/dam/films/2017/10/19/TELEMMGLPICT000143866086_trans%2B%2BaRL1kC4G7DT9ZsZm6Pe3PehAFAI_f6ud569StXyOKH0.jpeg">
+          <p>Small batch succulents prism, irony flexitarian pitchfork artisan pug. Street art roof party franzen pork belly snackwave etsy. Snackwave four dollar toast adaptogen authentic listicle, austin iPhone roof party. Affogato 3 wolf moon edison bulb VHS sriracha.</p>
+        </div>
+        <div class="item">
+          <h3>Being There</h3>
+          <img src="https://s3.amazonaws.com/criterion-production/images/8117-e500e023275d3b3cd9ea510122eb9699/sellers_copy_medium.jpg">
+          <p>Kogi chartreuse migas, squid enamel pin activated charcoal health goth unicorn pug literally whatever adaptogen distillery. Irony hashtag trust fund literally cronut chartreuse keffiyeh messenger bag. Farm-to-table succulents synth, intelligentsia neutra air plant trust fund palo santo chambray umami drinking vinegar chillwave kickstarter waistcoat. Marfa PBR&B street art try-hard listicle. Offal ennui actually next level distillery lyft put a bird on it trust fund pork belly keffiyeh chartreuse poutine ugh cloud bread try-hard. Health goth meggings literally, williamsburg ennui etsy meh microdosing.</p>
+        </div>
+        <div class="item">
+          <h3>Just Mercy</h3>
+          <img src="https://images.indianexpress.com/2020/01/just-mercy-review-1200.jpg">
+          <p>Ugh aesthetic mustache plaid kombucha pinterest ethical cred shoreditch farm-to-table flexitarian yr echo park unicorn pug. Chambray biodiesel helvetica photo booth hell of snackwave, taiyaki listicle. Hella kombucha try-hard brooklyn shoreditch vinyl. Palo santo activated charcoal master cleanse before they sold out dreamcatcher vape gluten-free viral beard.</p>
+        </div>
+        <div class="item">
+          <h3>The Godfather</h3>
+          <img src="https://cdn.britannica.com/55/188355-050-D5E49258/Salvatore-Corsitto-The-Godfather-Marlon-Brando-Francis.jpg">
+          <p>Twee live-edge pug subway tile. Enamel pin activated charcoal poke, dreamcatcher palo santo taiyaki pour-over gentrify irony organic fam master cleanse meggings cornhole mlkshk. IPhone mlkshk jianbing, kale chips enamel pin cliche chambray dreamcatcher. Roof party knausgaard selfies pickled live-edge squid cray.</p>
+        </div>
+        <div class="item">
+          <h3>Silver Linings Playbook</h3>
+          <img src="https://static01.nyt.com/images/2016/06/14/watching/silver-linings-playbook-watching-recommendation/silver-linings-playbook-recommendation-videoSixteenByNineJumbo1600.jpg">
+          <p>Tumeric quinoa direct trade forage artisan readymade. Mlkshk pop-up kickstarter biodiesel typewriter retro, vinyl williamsburg chillwave. Tumeric flexitarian hashtag palo santo edison bulb chartreuse venmo woke +1. Mlkshk poke single-origin coffee helvetica. Direct trade narwhal unicorn pop-up brunch.</p>
+        </div>
+      </section>
+      <form action="https://webhook.site/c889aae7-1c7f-4d0f-990a-209af596debb" method="POST">
+        <fieldset>
+          <legend>Which of these movies do you like best?</legend>
+          <input type="radio" name="fav-movie" required id="fav-dragon" value="dragon-ball-super">
+          <label for="fav-dragon">Dragon Ball Super: Broly</label><br>
+          <input type="radio" name="fav-movie" required id="fav-stalin" value="death-of-stalin">
+          <label for="fav-stalin">The Death Of Stalin</label><br>
+          <input type="radio" name="fav-movie" required id="fav-being" value="being-there">
+          <label for="fav-being">Being There</label><br>
+          <input type="radio" name="fav-movie" required id="fav-mercy" value="just-mercy">
+          <label for="fav-mercy">Just Mercy</label><br>
+          <input type="radio" name="fav-movie" required id="fav-godfather" value="godfather">
+          <label for="fav-godfather">The Godfather</label><br>
+          <input type="radio" name="fav-movie" required id="fav-playbook" value="silver-linings-playbook">
+          <label for="fav-playbook">Silver Linings Playbook</label>
+        </fieldset>
+        <fieldset>
+          <legend>What other movies do you like?</legend>
+          <input type="text" name="movie-1" id="movie-1">
+          <label for="movie-1">Movie #1</label><br>
+          <input type="text" name="movie-2" id="movie-2" disabled>
+          <label for="movie-2">Movie #2</label><br>
+          <input type="text" name="movie-3" id="movie-3">
+          <label for="movie-3">Movie #3</label>
+        </fieldset>
+        <fieldset>
+          <legend>Tell me about yourself:</legend>
+          <input type="text" name="first" id="first" placeholder="First Name">
+          <input type="text" name="last" id="last" placeholder="Last Name"><br>
+          <input type="text" name="address" id="address" placeholder="Street Address"><br>
+          <input type="text" name="city" id="city" placeholder="City">
+          <select name="state">
+            <option value="" disabled selected>State</option>
+            <option value="ca">CA</option>
+            <option value="or">OR</option>
+            <option value="wa">WA</option>
+          </select>
+          <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Please enter a valid 5-digit zip code."><br>
+          <input type="tel" name="phone" id="phone" placeholder="Telephone Number"><br>
+          <input type="email" name="email" id="email" placeholder="Email Address">
+        </fieldset>
+        <input type="submit" value="Tell us!">
+      </form>
+    </main>
+    <footer>
+      <p>&copy; 2020</p>
+    </footer>
+  </body>
+</html>

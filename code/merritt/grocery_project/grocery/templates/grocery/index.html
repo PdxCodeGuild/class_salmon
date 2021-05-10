@@ -1,0 +1,59 @@
+{% extends 'grocery/base.html' %}
+
+{% block title %}
+Super Cool Grocery List Application Thing
+{% endblock %}
+
+{% block content %}
+  {% if error %}
+  <h2 class="error-message"><strong>{{ error }}</strong></h2>
+  {% endif %}
+
+  <h3>Add an item to your grocery list:</h3>
+  <form action="{% url 'grocery:add_item' %}" method="post">
+    {% csrf_token %}
+    {% comment %} <label for="add_name">Item name:</label>
+    <input type="text" name="name" id="add_name"> {% endcomment %}
+    {{ form }}
+    <input type="submit" value="List me">
+  </form>
+  
+
+  <h3>Grocery list</h3>
+  {% if incomplete_items %}
+    <div>
+    {% for item in incomplete_items %}
+      <div class="item">
+        <p>{{ item.name }}</p>
+        <form action="{% url 'grocery:mark_complete' item.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="I did it!">
+        </form>
+        <form action="{% url 'grocery:delete' item.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="I don't want to do it!">
+        </form>
+      </div>
+    {% endfor %}
+    </div>
+  {% else %}
+    <p>Add an item! There's nothing here!</p>
+  {% endif %}
+
+  <h3>Completed items</h3>
+  {% if complete_items %}
+    <div>
+    {% for item in complete_items %}
+      <div class="item">
+        <p>{{ item.name }}</p>
+        <form action="{% url 'grocery:delete' item.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="Delete me!">
+        </form>
+      </div>
+    {% endfor %}
+    </div>
+  {% else %}
+    <p>You haven't completed anything! Get shopping!</p>
+  {% endif %}
+{% endblock %}

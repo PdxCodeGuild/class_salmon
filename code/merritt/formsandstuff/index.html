@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun with Forms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <input type="text">
+    <form action="https://webhook.site/165b7720-7847-489e-884d-265831d9e65b" method="post">
+      <fieldset>
+        <legend>Form Elements!</legend>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Type name here!" required/>
+        <label for="role">Role</label>
+        <input type="text" name="role" id="role"/>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required/>
+        <br>
+        <input type="date" name="today"/>
+        <input type="color" name="favorite-color" value="#FA7268"/>
+        <input type="password" name="most-secure-password"/>
+        <input type="radio" name="option1" value="answer1" id="answer1"/>
+        <label for="answer1">Answer 1</label>
+        <input type="radio" name="option1" value="answer2" id="answer2"/>
+        <label for="answer2">Answer 2</label>
+        <input type="radio" name="option1" value="answer3" id="answer3"/>
+        <label for="answer3">Answer 3</label>
+        <input type="radio" name="option1" value="answer4" id="answer4"/>
+        <label for="answer4">Answer 4</label>
+        <input type="checkbox" name="am-i-checked" disabled/>
+        <select name="car">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+        <textarea name="extra-words">Default Value!</textarea>
+        <input type="text" name="patterntest" pattern="[a-z]{1,15}" title="username must be between 1 and 15 characters, all lowercase" required/>
+        <input type="reset" value="Reset me!"/>
+        <input type="submit" value="Submit me!"/>
+      </fieldset>
+    </form>
+  </body>
+</html>

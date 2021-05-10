@@ -1,0 +1,43 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+form {
+    max-width: 900px;
+    margin: auto;
+    font-family: "IBM Plex Sans", sans-serif;
+    display: flex;
+}
+
+fieldset {
+    width: 20%;
+}
+
+input[type=text],
+input[type=date],
+input[type=email],
+input[type=password] {
+    box-shadow: 0 0 6px;
+}
+
+input[type=text]:hover,
+input[type=date]:hover,
+input[type=email]:hover,
+input[type=password]:hover {
+    box-shadow: 0 0 12px;
+}
+
+input[type=text]:focus,
+input[type=date]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+    box-shadow: 0 0 12px;
+    background-color: brown;
+    width: 200px;
+    height: 200px;
+    transition: all 2s ease;
+    color: white;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun with Forms</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <form action="http://webhook.site/4defdfc6-0718-4fb6-a5ae-ab58deb38a6a" method="post">
+      <fieldset>
+        <legend>Input Elements</legend>
+        <input type="text" name="text" placeholder="TEXT GOES HERE" />
+        <input type="date" name="date" disabled/>
+        <input type="color" name="color" />
+        <input type="password" name="pw" required/>
+        <input type="checkbox" name="checked" />
+        <input type="email" name="email" required />
+      </fieldset>
+      <fieldset>
+        <legend>Radio Buttons with &lt;br&gt;</legend>
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+      </fieldset>
+      <fieldset>
+        <legend>Radio Buttons with Labels</legend>
+        <input type="radio" name="gender" value="male" id="radio-male">
+        <label for="radio-male">Male</label>
+        <input type="radio" name="gender" value="female" id="radio-female">
+        <label for="radio-female">Female</label>
+        <input type="radio" name="gender" value="other" id="radio-other">
+        <label for="radio-other">Other</label>
+      </fieldset>
+      <fieldset>
+        <legend>The Rest</legend>
+        <input type="text" pattern="[a-z]{1,15}" title="username must be between 1 and 15 characters, all lowercase" required/>
+        <label for="select-car">Select a car:</label>
+        <select name="car" id="select-car">
+          <option value="" disabled selected>---</option>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+        <input type="text" name="name" value="jane"/>
+        <input type="text" name="othername" value="bob"/>
+      </fieldset>
+      <fieldset>
+        <legend>Buttons</legend>
+        <button>Button One</button>
+        <input type="button" value="Button Two">
+        <input type="submit">
+        <button type="reset">reset</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
+
+
+

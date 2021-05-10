@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div class="post-entry">
+            <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
+            <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a> -- {{ post.created }}</em></h4>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
+
+
+
+
+
+!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+        <link rel="stylesheet" href="home.css" />
+        <meta charset="UTF-8">
+        <meta name="author" content="">
+        <title> Home - Grocery List </title>
+    </head>
+
+    <body>
+
+        <h1>GROCERY LIST <h1>
+        <p> incomplete items </p>
+        {%for item in incomplete_items%}
+            <ul>
+                <li>{{item}}</li>
+                <input type="radio" id="complete" value="complete" name="items"> </input>
+                <label for="complete">complete</label>
+                <input type="radio" id="incomplete" value="incomplete" name="items"></input>
+                <label for="incomplete">incomplete</label>
+                <input id="delete" type="radio"  name="items"> </input>
+                <label for="delete"> Delete</label>
+            </ul>
+        {% endfor %}
+
+
+        <p> complete items </p>
+        {%for item in complete_items%}
+            <ul>
+                <li>{{item}}</li>
+                <input type="radio" id="complete" value="complete" name="items"> </input>
+                <label for="complete">complete</label>
+                <input type="radio" id="incomplete" value="incomplete" name="items"></input>
+                <label for="incomplete">incomplete</label>
+                <input action="{% url 'grocery_list:delete' %}" method="post" id="delete" type="radio"  name="items"> </input>
+                <label for="delete"> Delete</label>
+            </ul>
+        {% endfor %}
+        <form action="{% url 'item:add' %}" method="POST">
+            {% csrf_token %}
+            <label for="text_field">New Item:</label>
+            <input id="text_field" name="text_field" type="text">
+            <br>
+            <input type="submit" class="save_button" value="Save"></input>
+         </form>
+    </body>
+</html>
+
+
+
+def index(request):
+    context = {
+    "incomplete_items": GroceryItem.objects.filter(completed= False),
+    "complete_items": GroceryItem.objects.filter(completed = True)
+}
+    return render(request, 'grocery_list/index.html', context)
+
+def add(request):
+# this answer is generated from the input field in my form on index.html
+    user_input = request.POST['text_field']
+# input_answer = request.POST['text_field']
+# its creating and adding whatever the user types in and adding it to the Grocery list and the time it was published
+    GroceryItem.objects.create(item = user_input, created_date= timezone.now())
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def completed(request,completed_id):
+    completed = get_object_or_404(GroceryItem, pk=completed_id)
+    completed.is_comp = True
+    completed.comp_date = timezone.now()
+    completed.save()
+
+def delete(request):
+    delete_item = GroceryItem.objects.filter(completed=True)
+    for items in delete_item:
+        items.delete()
+    return HttpResponseRedirect(reverse('grocery_list:user'))

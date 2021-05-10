@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue!</title>
+    </head>
+    <body>
+        <div id="app">
+            <button @click="loadQuotes">Quote me!</button>
+            <div v-for="quote in results.quotes" :key="quote.id">
+                <p>{{ quote.body }}</p>
+                <p><a :href="quote.url">{{ quote.author }}</a></p>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="secrets.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

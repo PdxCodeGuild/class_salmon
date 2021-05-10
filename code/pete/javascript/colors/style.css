@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.color {
+  height: 100px;
+  width: 100px;
+  margin: 25px;
+  border: 2px solid black;
+}
+
+
+body {
+  background-color: whitesmoke;
+}

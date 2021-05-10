@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    {% for post in object_list %}
+      <div class="post-entry">
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.body }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Welcome to Bloggy McBlogface! This is a really awesome blog site thing, but it costs $499.99 per month to view! Once you've sent your bank routing number and account number to Merritt, click <a href="{% url 'signup' %}">HERE</a> to create an account!!!</p>
+  {% endif %}
+  
+{% endblock content %}

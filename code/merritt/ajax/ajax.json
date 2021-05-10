@@ -1,0 +1,20 @@
+[{
+  "name": "Peter",
+  "age": 4,
+  "good": "good"
+},
+{
+  "name": "Fido",
+  "age": 2,
+  "good": "good"
+},
+{
+  "name": "Rex",
+  "age": 13,
+  "good": "good"
+},
+{
+  "name": "Spike",
+  "age": 0.25,
+  "good": "very good"
+}]

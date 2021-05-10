@@ -1,0 +1,79 @@
+{% csrf_token %}
+<div id="app">
+    <div>
+        <article v-for="post in posts" :key="post.id">
+            <h2>[[ post.title ]]</h2>
+            <h3>[[ post.author_detail.username ]]</h3>
+            <h4>[[ post.created ]]</h4>
+            <p>[[ post.body ]]</p>
+        </article>
+    </div>
+    <div>
+        <select v-model="newPost.author">
+            <option v-for="user in users" :value="user.id">[[ user.username ]]</option>
+        </select><br>
+        <input type="text" v-model="newPost.title" placeholder="title"><br>
+        <textarea v-model="newPost.body" placeholder="body"></textarea><br>
+        <button @click="postPost">Post</button>
+    </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    delimiters: ['[[',']]'],
+    data: {
+        csrf_token: "",
+        posts: [],
+        newPost: {
+            "author": "",
+            "title": "",
+            "body": ""
+        },
+        users: []
+    },
+    methods: {
+      getPosts() {
+          axios({
+              method: "get",
+              url: "/api/v1/"
+          }).then(response => this.posts = response.data);
+      },
+      getUserList: function() {
+          axios({
+              method: "get",
+              url: "/api/v1/users/"
+          }).then(response => this.users = response.data);
+      },
+      postPost() {
+          axios({
+              method: "post",
+              url: "/api/v1/",
+              data: this.newPost,
+              headers: {
+                "X-CSRFToken": this.csrf_token
+              }
+          }).then(response => {
+              this.newPost = {
+                "author": "",
+                "title": "",
+                "body": ""
+              }
+              this.getPosts()
+          }).catch(error => {
+              let message = error.response.statusText;
+              for (let key in error.response.data) {
+                  message += `\n${key}: ${error.response.data[key]}`;
+              };
+              alert(message);
+          });
+      }
+    },
+    mounted: function () {
+        this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+        this.getPosts();
+        this.getUserList();
+    }
+  });
+</script>

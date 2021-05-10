@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for post in object_list %}
+    <div class="post-entry">
+      <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
+      <h4><em>Posted at {{ post.created }} by {{ post.author }}</em></h4>
+      {% if post.created_updated_differ %}
+        <h4><em>Post last updated at {{ post.updated }}</em></h4>
+      {% endif %}
+      <p>{{ post.body }}</p>
+    </div>
+  {% endfor %}
+{% endblock content %}

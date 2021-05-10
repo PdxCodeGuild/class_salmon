@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+        <p :title="message">{{ message }}</p>
+        <button @click="reverseMessage">reverse</button>
+        <h3 v-show="incompleteTodos.length">Incomplete Items</h3>
+        <ul v-show="incompleteTodos.length">
+            <todo-item v-for="todo in incompleteTodos" :key="todo.id" :todo="todo" @delete="removeTodo"></todo-item>
+        </ul>
+        <h3 v-show="completeTodos.length">Complete Items</h3>
+        <ul v-show="completeTodos.length">
+            <todo-item v-for="todo in completeTodos" :key="todo.id" :todo="todo" @delete="removeTodo"></todo-item>
+        </ul>
+        <add-todo @add="addTodo">TODOS ROCK!</add-todo>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

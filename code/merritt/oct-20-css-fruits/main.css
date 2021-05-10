@@ -1,0 +1,137 @@
+/* Colors
+
+#03A6A6 green
+#038C8C darker green
+#80BFBF lighter green
+#F2EDEB cream
+#D9D7D7 gray
+
+*/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    /* box-shadow: 15px 15px 25px coral;
+    border-radius: 500px 0; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+    color: #D9D7D7;
+    /* line-height: .75; */
+}
+
+p {
+    text-align: justify;
+    /* text-shadow: -5px -5px 5px black; */
+}
+
+/* p {
+    width: calc(50%-50px);
+} */
+
+body {
+    background-color: #038C8C;
+    color: #F2EDEB;
+    padding: 12px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header, footer, main {
+    padding: 12px;
+    background-color: #03A6A6;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav a {
+    color: slategrey;
+    text-decoration: none;
+    transition: all .1s ease-in-out;
+}
+
+nav a:hover {
+    color: blanchedalmond;
+    text-decoration: underline;
+    transition: all .1s ease-in-out;
+}
+
+input, textarea, select {
+    background-color: coral;
+    border: 2px solid darkred;
+    border-radius: 4px;
+    transition: all .5s ease-in-out;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="submit"],
+input[type="reset"],
+select,
+textarea {
+    width: 150px;
+}
+
+input::placeholder {
+    color: #555;
+}
+
+input:hover, textarea:hover {
+    box-shadow: 0 0 12px black;
+}
+
+input:focus, textarea:focus {
+    background-color: black;
+    color: white;
+    transition: all .5s ease-in-out;
+}
+
+/* #banana {
+    position: fixed;
+    top: 200px;
+    left: 200px;
+    z-index: -1;
+} */
+
+@media (min-width: 700px) {
+    body, header, footer, main {
+        padding: 24px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav p {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .gallery-item {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1100px) {
+    .gallery-item {
+        width: 30%;
+    }
+}

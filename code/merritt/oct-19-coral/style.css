@@ -1,0 +1,193 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Alata', sans-serif;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0), rgba(0,0,0,1)), radial-gradient( red, purple) ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Reem Kufi', serif;
+}
+
+/* p {
+  line-height: 1.5;
+  text-shadow: 1px 1px 4px black;
+} */
+
+header, main, footer, form {
+  margin: 5px;
+  
+  padding: 12px;
+  
+  border: 6px solid coral;
+
+  box-shadow: 0 0 12px coral;
+
+  background-color: white;
+}
+
+.flex-nav p {
+  border: 1px solid rgb(203, 100, 63);
+  margin: 6px;
+  padding: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+footer {
+  display: none;
+}
+
+a {
+  color: black;
+  transition: all 1s ease;
+}
+
+a:hover {
+  color: coral;
+  font-size: 2em;
+  transition: all 1s ease;
+}
+
+.grid-form-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title"
+    "why-label why-input"
+    "when-label when-input"
+    "much-label much-select"
+    "opinion-label opinion-radios"
+    ". submit";
+  column-gap: 6px;
+  row-gap: 6px;
+  justify-items: start;
+}
+
+form h3 {
+  grid-area: title;
+}
+
+form label[for="why-coral"] {
+  grid-area: why-label;
+  justify-self: end;
+}
+
+form input[type="text"] {
+  grid-area: why-input;
+  transition: background-color .125s ease;
+}
+
+form input[type="text"]:hover {
+  background-color: coral;
+  transition: background-color .125s ease;
+}
+
+form input[type="text"]:active {
+  background-color: cornflowerblue;
+  transition: background-color .125s ease;
+}
+
+form input[type="text"]:focus {
+  background-color: crimson;
+  transition: background-color .125s ease;
+}
+
+form label[for="when-coral"] {
+  grid-area: when-label;
+  justify-self: end;
+}
+
+form input[type="date"] {
+  grid-area: when-input;
+}
+
+form input[type="submit"] {
+  grid-area: submit;
+}
+
+#opinion-title {
+  grid-area: opinion-label;
+  justify-self: end;
+}
+
+#opinion-radios {
+  grid-area: opinion-radios;
+}
+
+form label[for="how-much"] {
+  grid-area: much-label;
+  justify-self: end;
+}
+
+form select {
+  grid-area: much-select;
+}
+
+#opinion-radios input {
+  margin-right: 6px;
+}
+
+legend {
+  color: white;
+  background-color: black;
+  padding: 3px;
+}
+
+@media (min-width: 768px) {
+
+  header, main, footer, form {
+    margin: 18px auto;
+    width: 760px;
+  }
+
+  .flex-nav {
+    display: flex;
+  }
+
+  .flex-three-column {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    width: 320px;
+  }
+
+  footer {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  header, main, footer, form {
+    width: 960px;
+    /* width: calc(50% - 24px);
+    margin: 12px; */
+  }
+
+  /* body {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+
+  .flex-three-column {
+    display: nowrap;
+  }
+
+  .item {
+    width: 280px;
+  }
+
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ object.username }}</h1>
+    <h5><em>Writing stuff since {{ object.date_joined }}!</em></h5>
+
+    {% for post in object.post_set.all %}
+        <div class="post-entry">
+            <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
+            <p><img src="{{ post.photo.url }}"></p>
+            <p>{{ post.caption|linebreaks }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

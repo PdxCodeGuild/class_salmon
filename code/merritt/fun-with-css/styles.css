@@ -1,0 +1,96 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1, h2, h3 {
+  color: green;
+}
+
+a:hover {
+  background-color: lightgrey;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+ul li {
+  color:red;
+}
+
+
+ul {
+  border: 3px solid darkgoldenrod;
+  font-family: 'Courier New', Courier, monospace;
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)),
+  url("https://media.mnn.com/assets/images/2016/05/Fresh-fruit-pretty.jpg.653x0_q80_crop-smart.jpg");
+}
+
+#box-model p {
+  border: 2px solid salmon;
+  text-align: justify;
+  font-family: 'IBM Plex Sans', sans-serif;
+  padding: 20px;
+  margin: 5%;
+  box-shadow: 0 0 20px -4px darkred;
+}
+
+#tablets-suck {
+  display: none;
+}
+
+#position {
+  position: absolute;
+  top: 200px;
+  left: 20px;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: green;
+  color: lightsteelblue;
+  z-index: -1;
+}
+#header > h1 {
+  background-color: green;
+  color: lightsteelblue;
+}
+
+.first-div {
+  margin-top: 80px; 
+}
+
+@media (min-width: 800px) {
+  #box-model p {
+    width: 40%;
+    float: left;
+    padding: 100px 50px 25px 250px;
+  }
+
+  #tablets-suck {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  #box-model p {
+    width: 23.333%;
+  }
+
+  #tablets-suck {
+    display: none;
+  }
+}

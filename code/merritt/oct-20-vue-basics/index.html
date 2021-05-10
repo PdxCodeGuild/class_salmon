@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+  </head>
+  <body>
+    <div id="app-5">
+      <p :title="message">{{ message }}</p>
+      <p :title="reverse">{{ reverse }}</p>
+      <input type="text" v-model="message">
+      <button @click="reverseMessage">Reverse Message</button>
+      <hr>
+      <p>This thing is {{ completed ? "done" : "not done" }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

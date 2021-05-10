@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <button @click="loadQuote">Quote me!</button>
+      <div v-if="Object.keys(quoteResponse).length">
+        <p>{{quoteResponse.quote.body}}</p>
+        <p><i><a :href="quoteResponse.quote.url">{{quoteResponse.quote.author}}</a></i></p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

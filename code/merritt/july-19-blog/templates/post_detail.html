@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="post-entry">
+  <h2>{{ post.title }}</h2>
+  <h4>Posted by: {{ post.author.username }}</h4>
+  <h4>Posted at: {{ post.created }}</h4>
+  <p>{{ post.body }}</p>
+</div>
+
+{% if user.is_authenticated %}
+<p><a href="{% url 'posts:edit' post.pk %}">+ Edit Blog Post</a></p>
+<p><a href="{% url 'posts:delete' post.pk %}">+ Delete Blog Post</a></p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Todos</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>My Tasks</h1>
+      <add-todo @add="addTodo"></add-todo>
+      <ul v-if="incompleteTodos.length">
+        <todo-item
+            v-for="todo in incompleteTodos"
+            :key="todo.id"
+            :todo="todo"
+            @remove="removeTodo"
+            ></todo-item>
+      </ul>
+      <p v-else>No incomplete todos. Everything is done!</p>
+      <ul v-if="completeTodos.length">
+        <todo-item
+            v-for="todo in completeTodos"
+            :key="todo.id"
+            :todo="todo"
+            ></todo-item>
+      </ul>
+      <p v-else>No complete todos. Get to work!</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Todos</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>My Tasks</h1>
+      <input type="text" placeholder="What do you want to do?" @keyup.enter="addTodo" v-model="newTodoText">
+      <button @click="addTodo">Add to List</button>
+      <ul v-if="incompleteTodos.length">
+        <li v-for="todo in incompleteTodos" :key="todo.id">
+            <input type="checkbox" v-model="todo.completed">
+            {{ todo.text }}
+            <button @click="removeTodo(todo, $event)">×</button>
+        </li>
+      </ul>
+      <p v-else>No incomplete todos. Everything is done!</p>
+      <ul v-if="completeTodos.length">
+        <li v-for="todo in completeTodos" :key="todo.id">
+            <input type="checkbox" v-model="todo.completed">
+            {{ todo.text }}
+            <button @click="removeTodo(todo, $event)">×</button>
+        </li>
+      </ul>
+      <p v-else>No complete todos. Get to work!</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html> -->

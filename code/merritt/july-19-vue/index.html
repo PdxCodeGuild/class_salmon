@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <div id="app">
+      <p :title="titleMessage">{{ message }}</p>
+      <p v-if="exists">This is true.</p>
+      <template v-show="incompleteTodos">
+        <h4>Incomplete:</h4>
+        <ul>
+          <todo-item v-for="todo in incompleteTodos" v-bind:key="todo.id" v-bind:todo="todo" v-on:remove-todo="removeTodo($event)"></todo-item>
+        </ul>
+      </template>
+      <template v-show="completeTodos">
+        <h4>Complete:</h4>
+        <ul>
+          <todo-item v-for="todo in completeTodos" v-bind:key="todo.id" v-bind:todo="todo" v-on:remove-todo="removeTodo($event)"></todo-item>
+        </ul>
+      </template>
+      <button @click="reverseMessage">Reverse Message</button>
+      <div>
+        <input type="text" placeholder="enter new thing" v-model="newTodo.text" @keyup.enter="addTodo">
+        <input type="checkbox" v-model="newTodo.isCompleted">
+        <input type="color" v-model="newTodo.color">
+        <button @click="addTodo">Add todo</button>
+      </div>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

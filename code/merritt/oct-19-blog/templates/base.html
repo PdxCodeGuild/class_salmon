@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Duper Django Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  </head>
+  <body>
+    <header>
+      <div class="nav-left">
+        <h1><a href="{% url 'posts:home' %}">Super Duper Django Blog</a></h1>
+      </div>
+      <div class="nav-right">
+        {% if user.is_authenticated %}
+        <p>Hello, <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a></p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+        <p><a href="{% url 'posts:new' %}">+ New Blog Post</a></p>
+        {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+        <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+      </div>
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>

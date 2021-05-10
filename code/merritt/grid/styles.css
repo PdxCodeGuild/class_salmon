@@ -1,0 +1,58 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 200px 800px auto auto;
+  grid-template-columns: 200px repeat(3, 1fr);
+}
+
+nav {
+  grid-row: 1 / 5 ;
+  grid-column: 1 / span 1;
+}
+
+main {
+  grid-row: 1 / 5 ;
+  grid-column: 2 / span 3;
+}
+
+.container-title {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 3;
+}
+
+.container-hero {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 3;
+}
+
+.container-items {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 3;
+  display: flex;
+}
+
+.item {
+  width: 33%;
+}
+
+.container-paragraph {
+  grid-row: 4 / span 1;
+  grid-column: 2 / span 3;
+}

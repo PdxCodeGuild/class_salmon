@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Groceries</title>
+    <meta name="author" content="merritt">
+    <meta name="description" content="groceries and stuff">
+    <meta name="keywords" content="groceries, stuff">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Libre+Barcode+39+Text|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'grocery/styles.css' %}" type="text/css">
+  </head>
+  <body>
+    <header>
+      <h1>{% block title %}{% endblock %}</h1>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

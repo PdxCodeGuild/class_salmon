@@ -1,0 +1,62 @@
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 18px;
+  background-color: #B565A7;
+  color: whitesmoke;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'EB Garamond', serif;
+}
+
+header {
+  border-bottom: 1px solid #999;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+header h1 a {
+  color: #0f4c81;
+  text-decoration: none;
+}
+
+.nav-left {
+  margin-right: auto;
+}
+
+.nav-right {
+  display: flex;
+  padding-top: 2rem;
+}
+
+.nav-right p {
+  margin-left: .25rem;
+  margin-right: .25rem;
+}
+
+.post-entry {
+  margin-bottom: 2rem;
+}
+
+.post-entry h2 {
+  margin: 0.5rem 0;
+}
+
+.post-entry h2 a, .post-entry h2 a:visited {
+  color: #92A8D1;
+  text-decoration: none;
+}
+
+.post-entry h5, .post-entry h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.post-entry p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.post-entry h2 a:hover {
+  color: #0f4c81;
+}

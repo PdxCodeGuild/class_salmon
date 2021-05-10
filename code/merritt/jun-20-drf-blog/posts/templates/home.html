@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+</head>
+<body>
+{% csrf_token %}
+    <div id="app">
+        <h1>My Super Cool Vue And DRF Blog</h1>
+        <ul>
+            <li v-for="post in posts" :key="post.id">
+                <h3>[[ post.title ]]</h3>
+                <h4>[[ post.author_detail.username ]]</h4>
+                <h4>[[ post.created ]]</h4>
+                <p>[[ post.body ]]</p>
+            </li>
+        </ul>
+        <div>
+            <input type="text" v-model="newPost.title" placeholder="title"><br>
+            <select v-model="newPost.author">
+                <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
+            </select><br>
+            <textarea v-model="newPost.body" placeholder="body"></textarea><br>
+            <button @click="createPost">New Post</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    
+    let vm = new Vue({
+        el: '#app',
+        delimiters: ['[[',']]'],
+        data: {
+            posts: [],
+            users: [],
+            csrf_token: "",
+            newPost: {
+                title: "",
+                author: "",
+                body: ""
+            }
+        },
+        methods: {
+            loadPosts: function () {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/posts/',
+                }).then(response => {
+                    this.posts = response.data;
+                });
+            },
+            loadUsers: function () {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/users/',
+                }).then(response => {
+                    this.users = response.data;
+                });
+            },
+            createPost: function () {
+                axios({
+                    method: 'post',
+                    url: '/api/v1/posts/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: this.newPost
+                }).then(response => {
+                    this.loadPosts();
+                }).catch(error => {
+                    console.log(error.response);
+                });
+            }
+        },
+        mounted: function () {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+            this.loadPosts();
+            this.loadUsers();
+        }
+    })
+    
+    </script>
+</body>
+</html>

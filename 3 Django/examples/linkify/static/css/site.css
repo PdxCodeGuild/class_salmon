@@ -1,0 +1,89 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #43CCC8;
+    color: #f3f3f3;
+    min-height: 100vh;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+}
+
+h1 img {
+    width: 70px;
+}
+
+.content {
+    padding: 2rem;
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.content form {
+    background-color: #3CB8B4;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.content input {
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+
+.content button {
+    background-color: #FFC86D;
+    margin-bottom: 0;
+}
+
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    position: relative;
+
+    background: #ADECFF;
+    padding: 4rem;
+    border-radius: 10px;
+    color: #555;
+    text-shadow: 1px 1px #f3f3f3;
+    box-shadow: 0px 5px 52px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.cover.hide {
+    display: none;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

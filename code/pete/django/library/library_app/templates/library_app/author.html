@@ -1,0 +1,30 @@
+<a href="{% url 'library:index' %}">
+<button>Home</button>
+</a>
+
+<h3>{{ author.name }}</h3>
+
+{% comment %} Delete button goes here {% endcomment %}
+
+<h4>Books:</h4>
+
+{% if author.books.all %}
+
+  <ul>
+  {% for book in author.books.all %}
+    <li>"{{ book.title }}", by {{ book.author.name }}</li>
+  {% endfor %}
+  </ul>
+
+{% else %}
+
+  <p>No books by {{ author.name }}.  Would you like to donate one?</p>
+
+{% endif %}
+
+<h5>Donate a book by {{ author.name }}:</h5>
+<form action="{% url 'library:add_book' author.id %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="title"/>
+  <input type="submit" value="Donate Book"/>
+</form>

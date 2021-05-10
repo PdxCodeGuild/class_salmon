@@ -1,0 +1,110 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+}
+
+.coral {
+  background-color: coral;
+}
+
+.column {
+  margin: 6px;
+  padding: 12px;
+  border: 1px solid gray;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.big-and-red {
+  font-size: 48px;
+  background-color: red;
+}
+
+#left p {
+  background-color: coral;
+  line-height: 1.5;
+}
+
+#right p {
+  background-color: teal;
+}
+
+#right li {
+  background-color: aquamarine;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+nav > p {
+  margin: 4px;
+  padding: 4px;
+  border: solid 1px gray;
+  float: left;
+}
+
+nav > p:hover {
+  background-color: coral;
+  transition: .125s
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#cage {
+  position: fixed;
+  top: 500px;
+  left: 100px;
+  width: 64px;
+  z-index: -1;
+}
+
+/* header {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+} */
+
+@media (min-width: 768px) {
+
+  .column {
+    float: left;
+    width: calc(50% - 12px);
+  }
+
+  header > h1 {
+    width: 400px;
+    float: left;
+  }
+  
+  header > nav {
+    float: right;
+  }
+  
+}
+
+@media (min-width: 1024px) {
+
+  .column {
+    padding: 50px;
+    width: 42%;
+    margin: 4%;
+    /* margin-top: 86px; */
+  }
+}

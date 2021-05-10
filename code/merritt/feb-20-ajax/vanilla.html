@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+  </head>
+  <body>
+    <button id="get-quote">Quote me!</button>
+    <div id="target"></div>
+    <script>
+        let target = document.getElementById("target");
+        let getQuoteButton = document.getElementById("get-quote");
+
+        getQuoteButton.addEventListener("click", function() {
+            let req = new XMLHttpRequest();
+
+            req.addEventListener("progress", function(e) {
+                console.log(e.loaded);
+            });
+            req.addEventListener("error", function(e) {
+                console.log(e.status);
+            });
+            req.addEventListener("load", function(e) {
+                console.log(req.responseText);
+                let response = JSON.parse(req.responseText);
+                console.log(response);
+                
+                let resultHTML = `
+                    <p>${response.quote.body}</p>
+                    <p><i><a href="${response.quote.url}">${response.quote.author}</a></i></p>
+                    `
+                target.innerHTML = resultHTML;
+            });
+
+            req.open("GET", "https://favqs.com/api/qotd");
+
+            // req.setRequestHeader("Authorization", 'Token token="YOUR_TOKEN_GOES_HERE"');
+
+            req.send();
+        });
+    </script>
+  </body>
+</html>

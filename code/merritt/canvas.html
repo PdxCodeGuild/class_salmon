@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Canvas</title>
+  </head>
+  <body>
+    <canvas id="cnv" width="500" height="500">Upgrade to a less stupid browser.</canvas>
+    <script>
+    
+      let cnv = document.getElementById('cnv');
+      let ctx = cnv.getContext('2d');
+
+      ctx.fillStyle = 'ivory';
+      ctx.fillRect(0, 0, 500, 500);
+
+      ctx.fillStyle = 'coral';
+      ctx.strokeStyle = 'teal';
+      ctx.lineWidth = 25;
+      ctx.rect(100, 100, 300, 300);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(250, 250, 112.5, 0, 2*Math.PI, false);
+      ctx.fillStyle = 'ivory';
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(250, 250, 87.5, 0, Math.PI, true);
+      ctx.fillStyle = 'coral';
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(112.5,250);
+      ctx.lineTo(387.5,250);
+      ctx.strokeStyle = 'ivory';
+      ctx.stroke();
+
+      ctx.font = '50px Futura';
+      // ctx.strokeStyle = 'teal';
+      // ctx.lineWidth = 2;
+      // ctx.strokeText('Merritt', 250 - (ctx.measureText('Merritt').width / 2), 300)
+      ctx.fillText('Merritt', 250 - (ctx.measureText('Merritt').width / 2), 300)
+
+
+
+      cnv.addEventListener('click', function(e) {
+        ctx.beginPath();
+        ctx.arc(e.clientX, e.clientY, 10, 0, 2*Math.PI, false);
+        ctx.fillStyle = 'lightcoral';
+        ctx.fill();
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>Writing stuff since {{ user_profile.date_joined }}!</em></h5>
+
+    {% for post in user_profile.post_set.all %}
+        <div class="post-entry">
+            <h2><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a></h2>
+            <h4><em>{{ post.author.username }}</em> -- {{ post.created }}</h4>
+            {% comment %} {{ post.body|linebreaks }} {% endcomment %}
+            <p>{{ post.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

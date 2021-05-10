@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+</head>
+<body>
+    {% csrf_token %}
+    <div id="app">
+        <h1>DRF Blog!</h1>
+        <ul>
+            <li v-for="post in posts">
+                <h3>[[ post.title ]]</h3>
+                <h4>[[ post.author_detail.username ]]</h4>
+                <h4>[[ post.created ]]</h4>
+                <p>[[ post.body ]]</p>
+            </li>
+        </ul>
+        <div>
+            <input type="text" placeholder="Title" v-model="newPost.title"><br>
+            <template v-if="postErrors.title">
+                <p v-for="error in postErrors.title">[[ error ]]<p>
+            </template>
+            <!-- <select v-model="newPost.author">
+                <option v-for="user in users" :value="user.id" :key="user.id">[[ user.username ]]</option>
+            </select><br>
+            <template v-if="postErrors.author">
+                <p v-for="error in postErrors.author">[[ error ]]<p>
+            </template> -->
+            <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
+            <template v-if="postErrors.body">
+                <p v-for="error in postErrors.body">[[ error ]]<p>
+            </template>
+            <button @click="createPost">New Post</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+    const vm = new Vue({
+        el: '#app',
+        delimiters: ['[[',']]'],
+        data: {
+            posts: [],
+            newPost: {
+                "title": "",
+                "author": null,
+                "body": ""
+            },
+            csrf_token: "",
+            users: [],
+            currentUser: {},
+            postErrors: {},
+        },
+        methods: {
+            loadPosts: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/posts/'
+                }).then(response => {
+                    this.posts = response.data
+                })
+            },
+            createPost: function() {
+                axios({
+                    method: 'post',
+                    url: '/api/v1/posts/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: {
+                        "title": this.newPost.title,
+                        "author": this.currentUser.id,
+                        "body": this.newPost.body
+                    }
+                }).then(response => {
+                    this.loadPosts()
+                    this.postErrors = {}
+                    this.newPost = {
+                        "title": "",
+                        "author": null,
+                        "body": ""
+                    }
+                }).catch(error => {
+                    if (error.response.status === 400) {
+                        this.postErrors = error.response.data
+                    }
+                })
+            },
+            loadUsers: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/users/'
+                }).then(response => {
+                    this.users = response.data
+                })
+            },
+            loadCurrentUser: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/currentuser/'
+                }).then(response => {
+                    this.currentUser = response.data
+                })
+            }
+        },
+        created: function() {
+            this.loadPosts()
+            this.loadUsers()
+            this.loadCurrentUser()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        }
+    })
+    </script>
+</body>
+</html>

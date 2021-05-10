@@ -1,0 +1,174 @@
+/* color: rgb(24, 149, 153); */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Crimson Pro', serif;
+  background-image: url("https://media.giphy.com/media/1AeAt980lm4GUndEG6/giphy.gif");
+  padding-top: 79px;
+
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cabin', sans-serif;
+}
+
+p {
+  margin: 12px;
+}
+
+table {
+  margin: auto;
+}
+
+hr {
+  width: 320px;
+}
+
+q, blockquote, table {
+  font-family: 'Cabin', sans-serif;
+}
+
+q {
+  margin: 48px;
+}
+
+.red-text {
+  color: red;
+}
+
+.black-border {
+  border: 4px solid black;
+}
+
+.header {
+  margin: 24px auto 36px;
+  border: 5px dashed coral;
+  width: 320px;
+  padding: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 24px coral;
+  background-color: rgba(0,0,0,.15);
+  z-index: 10;
+}
+
+#silly-paragraph {
+  font-family: fantasy;
+  color: coral;
+}
+
+.silly-paragraph {
+  color: purple;
+}
+
+input[type="text"] {
+  background-color: coral;
+}
+
+ul li {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ol li {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body > h3 {
+  border: 1px solid red;
+}
+
+.box {
+  margin: 36px;
+  padding: 12px;
+  background-color: blanchedalmond;
+  text-shadow: 0 0 12px black;
+  line-height: 1.5;
+
+  /* position: fixed;
+  top: 0;
+  left:0;
+  z-index: -1; */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+img.murray {
+  border-radius: 100%;
+  transition: filter .0625s ease-in-out;
+}
+
+img.murray:hover {
+  filter: blur(12px);
+  transition: all .0625s ease-in-out;
+}
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.two-column {
+  background-color: rgba(255,255,255,.5);
+}
+
+.two-column.murray {
+  border-radius: 50% 50% 0 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 6px;
+
+  width: 100%;
+  text-align: center;
+
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,.5), rgba(255,255,255,1)), center/5.5% url("https://celebritypets.net/wp-content/uploads/2018/08/bertiebertthepom-bertram-nyc.jpg")
+}
+
+a:hover {
+  text-shadow: 0 0 6px black;
+  transition: all .025s ease;
+}
+
+@media (min-width: 768px) {
+
+  .header {
+    width: 680px;
+  }
+  
+  .two-column {
+    width: calc(50% - 24px);
+    margin: 12px;
+    float: left;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  
+  .header {
+    width: 960px;
+  }
+
+  .two-column {
+    width: calc(33% - 24px);
+  }
+
+}

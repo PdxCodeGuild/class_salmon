@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="searchTerm">
+      <button @click="loadQuote">Get Quotes</button>
+      <div v-for="quote in quotes" :key="quote.id">
+        <p>{{ quote.body }}</p>
+        <p><i><a :href="quote.url">{{ quote.author }}</a></i></p>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="secrets.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
