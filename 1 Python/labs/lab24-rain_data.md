@@ -34,7 +34,7 @@ print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
 
 ## Version 2
 
-Now that you've successfully extracted the data, let's done some statistics.
+Now that you've successfully extracted the data, let's do some statistics.
 
 Calculate the mean of the data:
 
