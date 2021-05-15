@@ -1,5 +1,14 @@
 # File IO
 
+- [Relative and Absolute Paths](#relative-and-absolute-paths)
+- [Opening Files](#opening-files)
+- [Modes](#modes)
+- [Encoding](#encoding)
+- [Reading](#reading)
+- [Writing](#writing)
+- [Examples](#examples)
+- [Traversing Directories](#traversing-directories)
+
 Often programs will want to read or write data on the hard-drive. The core python library provides several different tools for manipulating files. The built-in functions `open` and `close` use the [io module](https://docs.python.org/3.6/library/io.html). This course doesn't cover working with functions that process binary or raw data, you can read about those [here](https://docs.python.org/3/library/io.html#buffered-streams) and [here](https://docs.python.org/3/library/io.html#io.RawIOBase) if you're curious.
 
 
@@ -9,7 +18,7 @@ In case you aren't familiar with how paths on a computer are represented, there 
 
 **Relative paths** are followed relative to the file they're found in.
 
-- `file.txt` or `./file.txt` represents a file in the current directory
+- `file.txt` or `./file.txt` represents the current directory
 - `./folder/file.txt` to represent a child directory
 - `../file.txt` represents the parent directory
 - `../../project/files/data.txt` these can can be used to move up and down, relative to the current file 

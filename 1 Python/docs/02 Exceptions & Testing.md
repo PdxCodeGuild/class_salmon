@@ -1,5 +1,20 @@
 # Exception Handling
 
+- [Exceptions](#exceptions)
+  - [SyntaxError](#syntaxerror)
+  - [IndentationError](#indentationerror)
+  - [NameError](#nameerror)
+  - [AttributeError](#attributeerror)
+  - [TypeError](#typeerror)
+  - [IndexError](#indexerror)
+  - [KeyError](#keyerror)
+  - [ValueError](#valueerror)
+- [Raising Exceptions](#raising-exceptions)
+- [Catching Exceptions](#catching-exceptions)
+- [Else and Finally](#else-and-finally)
+- [Writing Custom Exceptions](#writing-custom-exceptions)
+- [Testing](#testing)
+
 Exceptions are raised by Python when it can't interpret what your program is trying to do. You can read more about exceptions in the [official docs](https://docs.python.org/3.6/tutorial/errors.html).
 
 For example, the following occurs when we attempt to concatenate a string an an int (e.g. `print('your age is: ' + 23)`)
@@ -10,7 +25,10 @@ Traceback (most recent call last):
 TypeError: cannot concatenate 'str' and 'int' objects
 ```
 
-## Common Types of Exceptions
+
+## Exceptions
+
+Exceptions can occur for many different reasons: poorly formatted code, referring to objects and attributes that don't exist, passing the wrong types of parameters to functions, etc. When you get an error be sure to read the message and what line it occurred on. Some common exceptions are below. You can read more about Python exceptions [here](https://www.tutorialsteacher.com/python/error-types-in-python).
 
 
 
@@ -21,6 +39,12 @@ A SyntaxError occurs if your code is poorly formatted.
 ```python
 if: # SyntaxError: invalid syntax
 ```
+**SyntaxError: invalid syntax**
+```python
+print(
+```
+
+
 
 ### IndentationError
 
@@ -29,6 +53,10 @@ An IndentationError occurs when a block (`if`, `elif`, `else`, `while`, `for`, `
 ```python
 if True:
 print('hi') # IndentationError: expected an indented block
+
+if 5 < 10:
+        print('test')
+    print('test 2') # IndentationError: unindent does not match any outer indentation level
 ```
 
 ### NameError
@@ -38,17 +66,29 @@ A NameError occurs when one attempts to use a variable or call a function that h
 ```python
 print(a) # NameError: name 'a' is not defined
 a() # NameError: name 'a' is not defined
+a + 1 # NameError: name 'a' is not defined
 ```
 
+### AttributeError
+
+An AttributeError occurs when one attempts to access a property or method that does not exist that does not exist.
+
+****
+```python
+x = 5
+x.myprop # AttributeError: 'int' object has no attribute 'myprop'
+x.mymethod() # AttributeError: 'int' object has no attribute 'mymethod'
+```
 
 ### TypeError
 
 ```python
 age = 23
-print(age[0]) # TypeError: 'int' object is not subscriptable
-print('your age is ' + age) # TypeError: must be str, not int
-print(len(age)) # TypeError: object of type 'int' has no len()
+age[0] # TypeError: 'int' object is not subscriptable
+'your age is ' + age # TypeError: can only concatenate str (not "int") to str
+len(age) # TypeError: object of type 'int' has no len()
 ```
+
 
 ### IndexError
 
@@ -77,14 +117,6 @@ A ValueError occurs when you try to perform an invalid type conversion.
 x = int('hi') # ValueError: invalid literal for int() with base 10: 'hi'
 ```
 
-### AttributeError
-
-An AttributeError occurs when you try to call a method on a class that doesn't exist. Often, this is because you called a method on a type that doesn't have that method built in.
-
-```python
-x = 'one two three'
-x.append('four') # AttributeError: 'str' object has no attribute 'append'
-```
 
 ## Raising Exceptions
 
@@ -136,7 +168,7 @@ If you want to catch multiple exceptions, use a tuple, or use multiple blocks.
 ```python
 import random
 
-# using a tuple
+ # using a tuple
 try:
     if random.randint(0, 1) == 0:
         raise KeyError('index error')
@@ -147,7 +179,7 @@ except (KeyError, IndexError) as e:
     print(type(e) == KeyError)
     print(type(e) == IndexError)
 
-# using multiple except blocks
+ # using multiple except blocks
 try:
     if random.randint(0, 1) == 0:
         raise IndexError('index error')
@@ -159,8 +191,6 @@ except IndexError as e:
     print(e)
 ```
 
-### Catching All Exceptions
-
 You can also leave the type of exception absent, which will catch all exceptions.
 
 ```python
@@ -170,7 +200,7 @@ except: # catch anything!
     # handle error
 ```
 
-### Else and Finally
+## Else and Finally
 
 An optional else block may be added to the end of a try-catch block as well. The else block is executed if no exception is thrown.
 
@@ -190,6 +220,7 @@ finally:
 ```
 
 
+
 ## Writing Custom Exceptions
 
 You can write your own exceptions by writing a custom [class](https://github.com/PdxCodeGuild/PythonFullStack2/blob/master/1%20Python/docs/15%20-%20Classes.md) for it and inheriting from `Exception`. This is useful if you had a particular name for your exception, or wanted it to carry particular information.
@@ -205,4 +236,22 @@ try:
     raise MyException('hi', 5)
 except MyException as e:
     print(e.id)
+```
+
+
+## Testing
+
+We can use the `pytest` module to write test code for our functions. First run `pip install pytest` to install the library. Then write a function to test and a separate 'test' method which has the function name but `test_` in front. Finally, run `pytest example.py`, which should run all the tests and tell you if any failed.
+
+`pytest add.py`
+
+```python
+# add.py
+import pytest
+
+def add(a, b):
+    return a + b
+
+def test_add():
+    assert add(5, 2) == 7
 ```

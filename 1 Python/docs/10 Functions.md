@@ -1,25 +1,44 @@
+# Functions
 
-# Defining Functions
+Functions are isolated pieces of code that take input, perform some operation, and return a result. Functions we've used so far include `input()`, `print()`, `len()`, etc. Python provides many built-in functions for you to use. For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
+
+
+- [Defining Functions](#defining-functions)
+- [Parameters](#parameters)
+  - [Passing by Position](#passing-by-position)
+  - [Optional Arguments](#optional-arguments)
+  - [Passing by Keyword](#passing-by-keyword)
+  - [\*args & \*\*kwargs](#args--kwargs)
+- [Returning](#returning)
+  - [Implicit Return - None](#implicit-return---none)
+  - [Returning Multiple Values](#returning-multiple-values)
+- [Decorators](#decorators)
+- [Recursion](#recursion)
+- [Lambda Functions](#lambda-functions)
+
+
+
+## Defining Functions
 
 We can define our own functions using the `def` keyword. This allows us to execute sections of code repeatedly.
+
 
 ```python
 def say_hello():
     print('hello!')
-
 say_hello()
 say_hello()
 say_hello()
-
->>> hello!
->>> hello!
->>> hello!
 ```
+> hello!
+> hello!
+> hello!
 
-The function above takes no parameters and returns no values. You can specify parameters by listing variables in the parantheses of the function definition.
 
 
 ## Parameters
+
+You can specify parameters by listing variables in the parantheses of the function definition.
 
 ```python
 def say_hello(first_name, last_name):
@@ -39,9 +58,7 @@ Thus far, we’ve been passing arguments to functions **by position.** The value
 ```python
 def subtract(a, b):
   return a - b
-
-subtract(5, 8)  #> -3
-# a = 5; b = 8
+subtract(5, 8)  #> -3 (a=5, b=8)
 ```
 
 ### Optional Arguments
@@ -51,12 +68,8 @@ Most positional arguments are like the above, **required arguments.** But it’s
 ```python
 def subtract(a, b=1):
   return a - b
-
-subtract(5)  #> 4
-# a = 5; b = 1
-
-subtract(5, 8)  #> -3
-# a = 5; b = 8
+subtract(5)  #> 4 (a=5, b=1)
+subtract(5, 8) # -3 (a=5, b=8)
 ```
 
 ### Passing by Keyword
@@ -66,15 +79,9 @@ Optional arguments may also be passed **by keyword** _in any order,_ as long as 
 ```python
 def subtract(a, b=1, c=0):
   return a - b - c
-
-subtract(5, b=8)  #> -3
-# a = 5; b = 8; c = 1
-
-subtract(5, c=9)  #> -5
-# a = 5; b = 1; c = 9
-
-subtract(5, c=9, b=8)  #> -12
-# a = 5; b = 8; c = 9
+subtract(5, b=8) # -3 (a = 5, b = 8, c = 0)
+subtract(5, c=9) # -5 (a=5, b=1, c=9)
+subtract(5, c=9, b=8) # -12 (a=5, b=8, c=9)
 ```
 
 ### \*args & \*\*kwargs
@@ -108,7 +115,7 @@ Within the function above, `*args` is defined as a tuple of the positional argum
 
 ## Returning
 
-We can also return values from a function, which is often the result of some computation or operation. The code below returns the lesser of two values.
+We can also return values from a function, which is often the result of some computation or operation. The code below returns the lesser of two values. Notice we don't need an `else`, once a the interpreter reaches a `return`, it immediately exits a function.
 
 ```python
 def min(a, b):
@@ -116,40 +123,45 @@ def min(a, b):
         return a
     return b
 x = min(5, 2)
-print(x)
->>> 2
+print(x) # 2
 ```
 
-Notice we don't need an `else`, once a the interpreter reaches a `return`, it immediately exits a function.
+
+### Implicit Return - None
+
+If a function does not return anything, it implicitly returns `None`
 
 ```python
-if condition:
-    return a
-else:
-    return b
-
-#better written as...
-if condition:
-    return a
-return b
+def say_hi():
+    print('hi')
+x = say_hi()
+print(x) None
 ```
+
 
 ### Returning Multiple Values
 
 You can return multiple values using **automatic tuple packing and unpacking**.
 
-
 ```python
 def get_dimensions():
     return 500, 200
-
 width, height = get_dimensions()
 print(width)
 print(height)
-
->>> 500
->>> 200
 ```
+> 500
+> 200
+
+
+
+
+## Decorators
+
+
+TODO
+
+
 
 ## Recursion
 
@@ -170,7 +182,7 @@ def fibonacci(n):
 ```
 
 ```python
-# this only works on sorted lists
+ # this only works on sorted lists
 def binary_search_recurse(num, nums, low, high):
     if low >= high:
         return None

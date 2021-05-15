@@ -1,8 +1,15 @@
 # Sets
 
-**Sets** are an _unordered_, mutable, unique, iterable, collection of values. They are similar to the sets in mathematics. You can find more info [here](https://docs.python.org/3/tutorial/datastructures.html#sets).
+1. [Overview](#overview)
+2. [Operators](#operators)
+3. [Set Comprehensions](#set-comprehensions)
 
-Set literals are written using curly braces and commas. The empty set is  written as `set()` to not conflict with the empty dict.
+
+## Overview
+
+**Sets** are an _unordered_, mutable, unique, iterable, collection of values. They are similar to the sets in mathematics. Logically you can picture them behaving much like a venn diagram would, with each set being one of the circles in the diagram. You can find more info [here](https://docs.python.org/3/tutorial/datastructures.html#sets).
+
+Set literals are written using curly braces and . The empty set is  written as `set()` to not conflict with the empty dict.
 
 ```python
 {2, 4, 6, 8}
@@ -33,23 +40,33 @@ You can convert any iterable to a set using the `set()` function.
 |`x not in s`|test x for non-membership in s|
 |`s.issubset(t)` or `s <= t`|test whether every element in `s is in t`|
 |`s.issuperset(t)` or `s >= t` |test whether every element in t is in s|
-|`s.union(t)` or `s <pipe> t` | new set with elements from both s and t|
+|`s.union(t)` or `s &#124; t` | new set with elements from both s and t|
 |`s.intersection(t)` or `s & t` | new set with elements common to s and t|
 |`s.difference(t)` or `s - t` |new set with elements in s but not in t|
 |`s.symmetric_difference(t)` or `s ^ t`|new set with elements in either s or t but not both|
 |`s.copy()` |new set with a shallow copy of s|
 
 
+
+
+
 ```python
->>> 2 in {1, 2, 4}
-True
->>> {1, 2, 3} | {3, 4}
-{1, 2, 3, 4}
->>> {1, 2, 3} & {3, 4}
-{3}
->>> {1, 2, 3} - {3, 4}
-{1, 2}
+2 in {1, 2, 4}
 ```
+> True
+```python
+{1, 2, 3} | {3, 4}
+```
+> {1, 2, 3, 4}
+```python
+{1, 2, 3} & {3, 4}
+```
+> {3}
+```python
+> {1, 2, 3} - {3, 4}
+```
+> {1, 2}
+
 
 Check out the [standard library docs for sets](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset) for an overview of all the things you can do.
 
@@ -57,4 +74,12 @@ Check out the [standard library docs for sets](https://docs.python.org/3/library
 ```python
 >>> even_nums = {x * 2 for x in range(4)}
 {0, 2, 4}
+```
+
+## Set Comprehensions
+
+Set comprehensions can be written much like list comprehensions. Remember that sets can only contain unique elements, so any duplicates will be removed.
+
+```python
+{x // 10 for x in range(100)}
 ```
