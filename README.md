@@ -19,7 +19,7 @@ July 5th -- Independence Day
     - pete@pdxcodeguild.com
 
 - John Fial, TA
-    - email@domain.com
+    - johnfialblog@gmail.com
 
 ## Capstone Dates:
 
