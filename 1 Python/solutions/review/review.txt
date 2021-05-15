@@ -1,0 +1,94 @@
+
+
+
+Types
+    None
+    boolean
+    int
+    float
+    string
+    tuple
+    list
+    dict
+    range
+    datetime
+    response
+    file
+    set
+    module
+Operators
+    +, +=
+    -, -=
+    *, *=
+    /, /=
+    //
+    %, %=
+    **, **=
+    ==, !=
+    =
+    >, >=
+    <, <=
+    is
+    in
+    or
+    and
+    not, not in, is not
+    [], [:], [::]
+    ()
+    del
+Built-In Functions
+    https://docs.python.org/3/library/functions.html
+    print()
+    input()
+    len()
+    type()
+    exit()
+    open()
+    sum()
+    min(), max()
+    ord(), chr()
+String Methods
+    not methods but ways of writing literals - f-string, raw string
+    https://www.w3schools.com/python/python_ref_string.asp
+    upper(), lower(), title()
+    split(), join()
+    strip()
+    format()
+        https://www.w3schools.com/python/ref_string_format.asp
+    count()
+    find(), index()
+    startswith(), endswith()
+    replace()
+List Methods
+    append()
+    insert()
+    extend()
+    pop()
+    remove()
+    reverse()
+    sort()
+    copy()
+    index()
+Dictionary Methods
+    get()
+    update()
+Keywords
+    break, continue
+    def, return
+    class
+    while, for
+    if, elif, else
+    try, except, finally
+    import, from, as
+    with
+        https://stackoverflow.com/questions/3012488/what-is-the-python-with-statement-designed-for
+literals
+    None
+    True, False
+    {}
+    []
+Concepts
+    JSON
+    type
+
+

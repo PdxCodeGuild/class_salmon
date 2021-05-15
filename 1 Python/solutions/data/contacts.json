@@ -1,0 +1,29 @@
+{
+    "contacts": [
+        {
+            "name": "Dora M. Smith",
+            "phone_number": "919-781-7129",
+            "email": "doramsmith@hotmail.com"
+        },
+        {
+            "name": "Annette D. Berube",
+            "phone_number": "662-319-6954",
+            "email": "annette@gmail.com"
+        },
+        {
+            "name": "Austin M. Pigott",
+            "phone_number": "478-777-8878",
+            "email": "austin@aol.com"
+        },
+        {
+            "name": "Christopher M. Staples",
+            "phone_number": "903-724-7725",
+            "email": "chris@gmail.com"
+        },
+        {
+            "name": "Christopher M. Staples",
+            "phone_number": "903-724-7725",
+            "email": "chris@gmail.com"
+        }
+    ]
+}
