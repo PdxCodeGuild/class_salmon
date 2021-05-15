@@ -1,14 +1,21 @@
 
 # Markdown
 
+- [Headings](#headings)
+- [Formatted Text](#formatted-text)
+- [Unordered Lists](#unordered-lists)
+- [Ordered Lists](#ordered-lists)
+- [Horizontal Rules](#horizontal-rules)
+- [Block Quotes](#block-quotes)
+
 Markdown is a simple way to write formatted text in a plain text document. Markdown can be translated directly into HTML. Check out this [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 ## Headings
 
 ```markdown
-# Heading 1
-## Heading 2
-### Heading 3
+ # Heading 1
+ ## Heading 2
+ ### Heading 3
 ```
 
 ```html
