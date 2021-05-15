@@ -149,3 +149,7 @@ Slack is an instant messaging service we'll use to communicate. If you send me a
   4. `git push`
 10. Go to the repository on GitHub and you should see your file.
 
+## Resources for futher reading:
+
+1. [A very, very gentle introduction to the Linux Command Line](http://chrisyoung.net/prose/blog/posts/2009-11-28-very-very-gentle-introduction-linux-command-line/)
+1. Django Girls [Introduction to the command-line interface](http://tutorial.djangogirls.org/en/intro_to_command_line/)
