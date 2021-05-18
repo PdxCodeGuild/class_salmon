@@ -32,4 +32,4 @@ ave_total = ave(number_list)
 print(f"\nYou entered {number_list}")
 
 # prints the average of said numbers
-print(f"\nThe average of the numbers is {ave_total}.\n") 
+print(f"\nThe average of the numbers is {ave_total:.4f}.\n") 
