@@ -2,31 +2,11 @@
 
 Author: Jeremy Bush
 Project: Programming Boot Camp Lab 02
-Version: 2
+Version: 4
 Date: 5/18/2021
 
 """
 
-"""
-This code was used for version 1.
-
-# List of numbers
-nums = [3, 4, 5]
-"""
-
-"""
-# Version 2 code for obtaining input.
-# Get user to input numbers.
-nums = []
-number_entered = ''
-print("Enter integers to average.  Once numbers have been entered, enter 'done'.")
-while True:
-    number_entered = input("Enter an integer: ")
-    if number_entered.lower() == 'done':
-        break
-    else:
-        nums.append(int(number_entered))
-"""
 
 # Version 3 code
 # Let user input everything in one input statement.
@@ -36,8 +16,13 @@ numbers_entered = input("Enter integers: ")
 # find and replace any spaces in the string.
 numbers_entered = numbers_entered.replace(" ", "")
 
-# split string and convert values into integers.
+# split string
 numbers_entered = numbers_entered.split(",")
+
+# Check for and remove any non-integer characters.
+numbers_entered = [number for number in numbers_entered if number.isdigit()]  # more list comprehension
+
+# convert values into integers.
 nums = [int(number) for number in numbers_entered]  # Conversion via list comprehension.
 
 
