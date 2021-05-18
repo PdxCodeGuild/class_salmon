@@ -9,10 +9,11 @@ conversion_table = {
 }
 
 
-def convert_input_distance(unit, distance):
-    unit = user_input_unit
+def convert_input_distance(from_unit, to_unit, distance):
+    from_unit = user_input_unit
+    to_unit = user_output_unit
     distance = user_input_distance
-    return distance * conversion_table[unit]
+    return (distance * conversion_table[from_unit]) / conversion_table[to_unit]
 
 
 while True:
@@ -28,34 +29,8 @@ while True:
     # Convert user input to int
     user_input_distance = int(user_input_distance)
 
-    # Call dictionary for conversion values
-    #convert_from =
-
     # Convert the original input to meter output
-    meter_conversion_input = {convert_input_distance(user_input_unit, user_input_distance)}
-    print(meter_conversion_input)
+    meter_conversion = convert_input_distance(user_input_unit, user_output_unit, user_input_distance)
 
     # Output result
-    print(f"{user_input_distance} {user_input_unit} is {convert_input_distance(user_input_unit, user_input_distance)} m.")
-
-# Enter the distance
-# Assign to base variable(base_num)
-
-# enter the starting unit
-# call dictionary for key value
-# assign to variable(convert_from)
-
-# enter the converting unit
-# call dictionary for key value
-# assign to variable(convert_to)
-
-# Function
-# given the base, convert_from, and convert_to value
-# multiply the base and convert_from
-# assign to variable(base_result)
-# divide the (base_result) by the convert_to value
-# assign to variable(final_result)
-# return (final_result)
-
-# output the (final_result)
-
+    print(f"{user_input_distance} {user_input_unit} is {meter_conversion} {user_output_unit}.")
