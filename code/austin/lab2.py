@@ -9,9 +9,9 @@ def average(list_of_nums):
     if len(list_of_nums) == 0:
         return 'Error: empty list!'
     else:
-        #divide sum by length of list and return the average
-        average = num_sum / len(list_of_nums)
-        return round(average,4)
+        #divide sum by length of list and return the average rounded to the 4th decimal place
+        average = round(num_sum / len(list_of_nums),4)
+        return f'{list_of_nums}\nThe average is {average}'
 def create_num_list():
     #empty list to store values
     user_list = []
