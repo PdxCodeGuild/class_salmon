@@ -1,4 +1,4 @@
-# Lab 26: Tic-Tac-Toe 
+# Lab 13: Tic-Tac-Toe 
 
 [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) is a game.
 Players take turns placing tokens (a 'O' or 'X') into a 3x3 grid.

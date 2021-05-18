@@ -1,4 +1,4 @@
-# Lab 15: Number to Phrase
+# Lab 3: Number to Phrase
 
 Convert a given number into its english representation. For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.
 
