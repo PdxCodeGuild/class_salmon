@@ -20,12 +20,12 @@ convert_to_meters = {
 
 # Version 4
 # Now we'll ask the user for the distance, the starting units, and the units to convert to.
-while True:
-    distance = input("what is the distance? ")
-    input_units = input("what are the input units? ")
-    output_units = input("what are the output units? ")
-    total_meters = int(distance) * convert_to_meters[input_units]
-    final_conversion = total_meters / convert_to_meters[output_units]
-    print(f'{distance} {input_units} is {final_conversion} {output_units}')
-    break
+
+distance = input("what is the distance? ")
+input_units = input("what are the input units? ")
+output_units = input("what are the output units? ")
+total_meters = int(distance) * convert_to_meters[input_units]
+final_conversion = total_meters / convert_to_meters[output_units]
+print(f'{distance} {input_units} is {final_conversion} {output_units}')
+
     
