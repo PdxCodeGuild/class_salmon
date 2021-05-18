@@ -1,8 +1,12 @@
-x = 5
-y = x
+fruits = ["apples", "banana", "orange"]
+vegetables = ["tomato", "potato", "beans"]
 
-print(x)
-print(y == x)
+grocery = [fruits, vegetables]
 
-print(id(y))
-print(id(x))
+print(grocery, fruits, vegetables)
+print(grocery[0][1])
+
+for g in grocery:
+    print(g)
+    for p in g:
+        print(p)
