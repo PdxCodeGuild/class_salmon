@@ -2,7 +2,7 @@
 # Ask the user for the number of feet, and print out the equivalent distance in meters. Hint: 1 ft is 0.3048 m. So we can get the output in meters by multiplying the input distance by 0.3048. Below is some sample input/output.
 foot = {'meters': 0.3048}
 number_of_feet = int(input(f'what is the distance in feet? '))
-print(foot['meters'] * number_of_feet)
+print(f"{foot['meters'] * number_of_feet:.4f}")
 
 # Version 2
 # Allow the user to also enter the units. Then depending on the units, convert the distance into meters. The units we'll allow are feet, miles, meters, and kilometers.
@@ -26,6 +26,6 @@ input_units = input("what are the input units? ")
 output_units = input("what are the output units? ")
 total_meters = int(distance) * convert_to_meters[input_units]
 final_conversion = total_meters / convert_to_meters[output_units]
-print(f'{distance} {input_units} is {final_conversion} {output_units}')
+print(f'{distance} {input_units} is {final_conversion:.4f} {output_units}')
 
     
