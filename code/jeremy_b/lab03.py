@@ -9,9 +9,11 @@ Date: 5/19/2021
 
 
 # Define function to translate 10s digit.
-def get_tens_digit(digit):
+def translate_number(number):
+
+    # Tens digit
     tens = {
-        1: "teen",
+        1: "teen",  # Only for numbers 14 & 16 - 19
         2: "twenty",
         3: "thirty",
         4: "forty",
@@ -22,11 +24,8 @@ def get_tens_digit(digit):
         9: "ninety",
         0: ""
     }
-    return tens[digit]
 
-
-# Define function to translate 1s digit.
-def get_ones_digit(digit):
+    # Ones digit
     ones = {
         1: "one",
         2: "two",
@@ -40,15 +39,41 @@ def get_ones_digit(digit):
         0: ""
     }
 
-    return ones[digit]
+    # calculate 10s digit.
+    if number == 10:
+        tens_digit = 'ten'
+    elif 10 < number < 16:
+        if number == 11:
+            tens_digit = "eleven"
+        elif number == 12:
+            tens_digit = "twelve"
+        elif number == 13:
+            tens_digit = "thirteen"
+        elif number == 15:
+            tens_digit = "fifteen"
+    elif number == 0:
+        tens_digit = ""
+    else:
+        tens_digit = tens[number // 10]
+
+    # Calculate 1s digit
+    ones_digit = ones[number % 10]
+
+    # Translate the number from digits to string.
+    if (10 < number < 16) and number != 14:
+        return tens_digit
+    elif number < 20:
+        return ones_digit + tens_digit
+    else:
+        return tens_digit + '-' + ones_digit
 
 
 # get number to convert to phrase
-number = int(input("Enter an integer from 0 - 99: "))
+number_to_translate = int(input("Enter an integer from 0 - 99: "))
 
 # Check number is in range
-if number > 99:
+if number_to_translate > 99:
     print("Number entered is out of range.")
 
 # Output translated number.
-print(f"{get_tens_digit(number//10)}-{get_ones_digit(number%10)}")
+print(translate_number(number_to_translate))
