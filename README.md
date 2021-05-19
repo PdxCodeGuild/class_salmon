@@ -46,15 +46,18 @@ Presentation Day: August 27th, 2021
 
 
 
-#### Optional HTML/CSS Labs
+#### Optional HTML/CSS Labs -->
 
 
 
 ## Python Labs Assigned:
 
+01 Unit Converter  
+02 Average Numbers  
+03 Number To Phrase  
+04 Blackjack Advice  
 
-
-#### Optional Python Labs -->
+<!-- #### Optional Python Labs -->
 
 
 
