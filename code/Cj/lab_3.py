@@ -1,4 +1,7 @@
-num = int(input('Enter a number from 1 to 99: '))
+num = int(input('Enter a number from 1 to 999: '))
+while num > 999:
+    print('User Error. Number too large.')
+    num = int(input('Enter a number from 1 to 999: '))
 hundreds_digit = num//100
 x = num//10
 tens_digit = x%10
@@ -35,10 +38,20 @@ ones_table = {
     18: 'Eighteen',
     19: 'Ninteen',
 }
-if tens_digit < 2:
-    output = ones_table[num]
-elif ones_digit == 0:
-    output = tens_table[tens_digit] 
-else:
-    output = f'{ones_table[hundreds_digit]}-Hundred {tens_table[tens_digit]}-{ones_table[ones_digit]} '
+if num > 99:
+    if tens_digit < 2:
+        output = ones_table[num]
+    elif ones_digit == 0:
+        output = tens_table[tens_digit] 
+    else:
+        output = f'{ones_table[hundreds_digit]}-Hundred {tens_table[tens_digit]}-{ones_table[ones_digit]} '
+else:   
+    if tens_digit < 2:
+        output = ones_table[num]
+    elif ones_digit == 0:
+        output = tens_table[tens_digit] 
+    else:
+        output = f'{tens_table[tens_digit]}-{ones_table[ones_digit]} '
+    
+    
 print(output)
