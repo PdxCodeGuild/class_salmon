@@ -7,12 +7,6 @@ def split(number):
 
 number = split(number) # [*'tens_digit', 'ones_digit']
 
-def number_to_phrase(ones_digit, tens_digit=0):
-    tens_digit = number // 10
-    ones_digit = number % 10
-    number_as_word = tens_digit + ones_digit
-    return 
-
 ones_digit_dict = {
     '0': '',
     '1': 'one',
@@ -27,8 +21,6 @@ ones_digit_dict = {
 }
 
 tens_digit_dict = {
-    '0': '',
-    '10': 'teen',
     '2': 'twenty',
     '3': 'thirty',
     '4': 'forty',
@@ -39,15 +31,24 @@ tens_digit_dict = {
     '9': 'ninety'
 }
 
+tens_digit = number[0]
+ones_digit = number[1]
 
-# x = 67
-# tens_digit = x//10
-# ones_digit = x%10
+tens_to_word = tens_digit_dict.get(tens_digit)
+ones_to_word = ones_digit_dict.get(ones_digit)
 
-# Hint 2: use the digit as an index for a list of strings OR as a key for a dict of digit:phrase pairs.
+print(tens_to_word + '-' + ones_to_word)
+
+# def number_to_phrase(tens_digit=0, ones_digit):
+#     tens_digit = number // 10
+#     ones_digit = number % 10
+#     number_as_word = tens_digit + ones_digit
+#     return 
+
 
 # Version 2
 # Handle numbers from 100-999.
+big_num = input('Enter a number 100-999: ')
 
 # Version 3 (optional)
 # Convert a number to roman numerals.
