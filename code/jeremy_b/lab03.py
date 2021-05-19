@@ -8,8 +8,25 @@ Date: 5/19/2021
 """
 
 
+# define function to translate 100s digit
+def translate_hundreds_digit(number):
+    # Hundreds digit
+    hundreds = {
+        1: "one hundred",
+        2: "two hundred",
+        3: "three Hundred",
+        4: "four hundred",
+        5: "five hundred",
+        6: "six hundred",
+        7: "seven hundred",
+        8: "eight hundred",
+        9: "nine hundred"
+    }
+    return hundreds[number]
+
+
 # Define function to translate 10s digit.
-def translate_number(number):
+def translate_tens_digit(number):
 
     # Tens digit
     tens = {
@@ -24,7 +41,10 @@ def translate_number(number):
         9: "ninety",
         0: ""
     }
+    return tens[number]
 
+
+def translate_ones_digit(number):
     # Ones digit
     ones = {
         1: "one",
@@ -36,44 +56,56 @@ def translate_number(number):
         7: "seven",
         8: "eight",
         9: "nine",
-        0: ""
+        0: "zero"
     }
 
+    return ones[number]
+
+
+def special_tens_digit(number):
+    # Get rid of hundreds digit if it exists.
+    if len(number) == 3:
+        number.pop(0)
+
     # calculate 10s digit.
-    if number == 10:
+    if number[0] == 1 and number[1] == 0:
         tens_digit = 'ten'
-    elif 10 < number < 16:
-        if number == 11:
+    elif number[0] == 1 and number[1] in [1, 2, 3, 5]:
+        if number[1] == 1:
             tens_digit = "eleven"
-        elif number == 12:
+        elif number[1] == 2:
             tens_digit = "twelve"
-        elif number == 13:
+        elif number[1] == 3:
             tens_digit = "thirteen"
-        elif number == 15:
+        elif number[1] == 5:
             tens_digit = "fifteen"
-    elif number == 0:
-        tens_digit = ""
     else:
-        tens_digit = tens[number // 10]
+        tens_digit = translate_tens_digit(number)
 
-    # Calculate 1s digit
-    ones_digit = ones[number % 10]
-
-    # Translate the number from digits to string.
-    if (10 < number < 16) and number != 14:
-        return tens_digit
-    elif number < 20:
-        return ones_digit + tens_digit
-    else:
-        return tens_digit + '-' + ones_digit
+    return tens_digit
 
 
 # get number to convert to phrase
-number_to_translate = int(input("Enter an integer from 0 - 99: "))
+number_to_translate = input("Enter an integer from 0 - 999: ")
 
-# Check number is in range
-if number_to_translate > 99:
-    print("Number entered is out of range.")
+# Convert number to string of ints
+number_to_translate = [int(number) for number in number_to_translate]  # Some more list comprehension
+if len(number_to_translate) == 1:
+    print(translate_ones_digit(number_to_translate[0]))
 
-# Output translated number.
-print(translate_number(number_to_translate))
+elif len(number_to_translate) == 2 and (number_to_translate[0] == 1 and number_to_translate[1] in [0, 1, 2, 3, 5]):
+    print(special_tens_digit(number_to_translate))
+
+elif len(number_to_translate) == 2 and (number_to_translate[0] == 1 and number_to_translate[1] not in [0, 1, 2, 3, 5]):
+    print(f"{translate_ones_digit(number_to_translate[1])}{translate_tens_digit(number_to_translate[0])}")
+
+elif (len(number_to_translate) == 3) and (number_to_translate[0] == 1 and number_to_translate[1] in [0, 1, 2, 3, 5]):
+    print(f"{translate_hundreds_digit(number_to_translate[0])} {special_tens_digit(number_to_translate)}")
+
+elif len(number_to_translate) == 2 and (number_to_translate[0] == 1 and number_to_translate[1] not in [0, 1, 2, 3, 5]):
+    print(f"{translate_hundreds_digit(number_to_translate[0])} {translate_ones_digit(number_to_translate[2])}"
+          f"{translate_tens_digit(number_to_translate[1])}")
+
+else:
+    print(f"{translate_hundreds_digit(number_to_translate[0])} {translate_tens_digit(number_to_translate[1])}-"
+          f"{translate_ones_digit(number_to_translate[2])}")
