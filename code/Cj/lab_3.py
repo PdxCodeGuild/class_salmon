@@ -1,5 +1,7 @@
 num = int(input('Enter a number from 1 to 99: '))
-tens_digit = num//10
+hundreds_digit = num//100
+x = num//10
+tens_digit = x%10
 ones_digit = num%10
 
 tens_table = {
@@ -38,5 +40,5 @@ if tens_digit < 2:
 elif ones_digit == 0:
     output = tens_table[tens_digit] 
 else:
-    output = f'{tens_table[tens_digit]}-{ones_table[ones_digit]} '
+    output = f'{ones_table[hundreds_digit]}-Hundred {tens_table[tens_digit]}-{ones_table[ones_digit]} '
 print(output)
