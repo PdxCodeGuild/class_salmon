@@ -1,6 +1,7 @@
 user_input = int(input('Enter a number between 0 and 999: '))
 
 hundreds = user_input//100
+teens = user_input%100
 tens = (user_input%100)//10
 ones = user_input%10
 
@@ -46,7 +47,10 @@ hundreds_dict = { 1: 'one-hundered',
 9: 'nine-hundred',
 }
 
-if tens < 2 and hundreds == 0:
+if hundreds > 0 and teens < 20:
+    result = f'{hundreds_dict[hundreds]} {ones_dict[teens]}'   
+
+elif tens < 2 and hundreds == 0:
     result = ones_dict[user_input]
 
 elif hundreds == 0:
@@ -54,5 +58,5 @@ elif hundreds == 0:
 
 elif hundreds > 0:
     result = f'{hundreds_dict[hundreds]}-{tens_dict[tens]}-{ones_dict[ones]}'
-
+ 
 print(result)
