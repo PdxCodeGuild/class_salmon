@@ -6,7 +6,7 @@ numeral_conversion = {
     100: "C"
 }
 
-input_number = 6
+input_number = 91
 
 input_number_floor = input_number // 10
 input_number_mod = input_number % 10
@@ -19,15 +19,60 @@ print(input_number_mod)
 # VII = 7 (5 + 2 = 7)
 # If a letter is placed before another letter of greater value, subtract that amount
 # IX = 9 ( 10 – 1 = 9 )
+final_output = []
 
-if input_number_mod != 0 and input_number_mod < 4:
-    first = numeral_conversion[1] * input_number_mod
+#------------------------------- First Digit -------------------------------#
+# If modulus of first digit is 0, do nothing
+if input_number_mod:
 
-if input_number_mod != 0 and input_number_mod >= 4:
-    first = 5 - input_number_mod
+    # Is the modulus a 9?
+    # If so, assign "one less than 10"
+    if input_number_mod == 9:
+        final_output.append(numeral_conversion[1] + numeral_conversion[10])
 
+    # Is the modulus a 4?
+    # If yes, assign "one less than 5"
+    elif input_number_mod == 4:
+        final_output.append(numeral_conversion[1] + numeral_conversion[5])
 
+    # Can the current modulus be divided by 5?
+    # If yes, call the value of 5
+    elif input_number_mod // 5:
+        # Remove the remainder
+        input_number_mod = input_number_mod - 5
+        # Add the remaining "i"
+        count_i = "I" * input_number_mod
+        final_output.append(numeral_conversion[5]+count_i)
 
+    # What if the modulus can't be divided by 5?
+    # Print the "i"s
+    elif not input_number_mod // 5:
+        count_i = "I" * input_number_mod
+        final_output.append(count_i)
+
+#------------------------------- Second Digit -------------------------------#
+
+# Up to 40, numbers will be assigned an "X" for each modulus
+if input_number_floor < 4:
+    final_output.append(numeral_conversion[10] * input_number_floor)
+
+# Any numbers in the 40's range have XL prefix
+if input_number_floor == 4:
+    final_output.append(numeral_conversion[10] + numeral_conversion[50])
+
+# Any numbers above 50 have a "L" first
+# Following "X"s  are decided by the remaining floor
+if 9 > input_number_floor >= 5:
+    count_x = numeral_conversion[10] * (input_number_floor - 5)
+    final_output.append(numeral_conversion[50] + count_x)
+
+# Any numbers in the 90's range have XC prefix
+if input_number_floor == 9:
+    final_output.append(numeral_conversion[10] + numeral_conversion[100])
+
+final_output.reverse()
+final_output_string = "".join(final_output)
+print(final_output_string)
 """
 for n in numerals:
 
