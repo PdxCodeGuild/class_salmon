@@ -16,13 +16,19 @@ card_value = {'A' : 1,
 'K' : 10
 }
 
-hand = (card_1 + card_2 + card_3)
+card_1 = card_value[card_1]
+card_2 = card_value[card_2]
+card_3 = card_value[card_3]
+
+hand = card_1 + card_2 + card_3
+
+print(hand)
 
 if hand < 17:
     output = 'Hit'
-elif hand >= 17 but > 21:
+elif hand >= 17 and hand < 21:
     output = 'Stay'    
-elif hand = 21:
+elif hand == 21:
     output = 'Blackjack!'
 else: 
     output = 'Bust'    
