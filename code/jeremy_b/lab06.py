@@ -52,5 +52,3 @@ if cc_num > 9:
     print(cc_num % 10 == check_digit)
 else:
     print(cc_num == check_digit)
-
-
