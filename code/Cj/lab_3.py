@@ -1,6 +1,6 @@
 num = int(input('Enter a number from 1 to 999: '))
 while num > 999:
-    print('User Error: Number too large!')
+    print('User Error: Number too large! ')
     num = int(input('Enter a number from 1 to 999: '))
 hundreds_digit = num//100
 x = num//10
@@ -30,7 +30,8 @@ ones_table = {
     9: 'Nine',
     10: 'Ten',
     11: 'Eleven',
-    12: 'Thirteen',
+    12: 'Twelve',
+    13: 'Thirteen',
     14: 'Fourteen',
     15: 'Fifteen',
     16: 'Sixteen',
@@ -38,13 +39,19 @@ ones_table = {
     18: 'Eighteen',
     19: 'Ninteen',
 }
+
+
+
 if num > 99:
-    if tens_digit < 2:
+    teens = num % 100
+    if teens < 20:
+        output = f'{ones_table[hundreds_digit]} Hundred {ones_table[teens]} '
+    elif tens_digit < 2:
         output = ones_table[num]
-    elif ones_digit == 0:
-        output = tens_table[tens_digit] 
+    # elif ones_digit == 0:
+    #     output = tens_table[tens_digit] 
     else:
-        output = f'{ones_table[hundreds_digit]}-Hundred {tens_table[tens_digit]}-{ones_table[ones_digit]} '
+        output = f'{ones_table[hundreds_digit]} Hundred {tens_table[tens_digit]} {ones_table[ones_digit]} '
 else:   
     if tens_digit < 2:
         output = ones_table[num]

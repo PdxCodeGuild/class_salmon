@@ -33,32 +33,37 @@ def num_matches(winners, ticket):
 
 # print(num_matches(winners, ticket))
 
-rules = {0: (0-2),
-         1: (4-2),
-         2: (7-2),
-         3: (100-2),
-         4: (50000-2),
-         5: (1000000-2),
-         6: (25000000-2)}
+rules = {0: (0),
+         1: (4),
+         2: (7),
+         3: (100),
+         4: (50000),
+         5: (1000000),
+         6: (25000000)}
 
 
 current_matches = 0
 how_many = int(input('How many tickets do you want to buy?  '))
-balance = 0
+winnings = 0
 count_loops = 0
-
+expenses = how_many * 2
 while True:
     if count_loops == (how_many):
         break
     else:
         current_matches = (num_matches(winners, ticket))
         count_loops += 1
-        balance += rules[current_matches]
+        winnings += rules[current_matches]
 
+balance = winnings - expenses
 
 if balance < 0:
     print(
-        f'You bought {how_many} tickets and LOST ${abs(balance)}! \nYou should have used that money to invest in Dogecoin!')
+        f'You bought {how_many} tickets and are now ${abs(balance)} poorer! \nYou should have used that money to invest in Dogecoin!')
 else:
     print(
         f'You bought {how_many} tickets and won ${balance}!! \nNow go invest your winnings in Dogecoin.')
+
+
+print(
+    f'Your earnings are: ${winnings}  \nYour expenses are: ${expenses} \nYour ROI is {(winnings - expenses) / expenses}')

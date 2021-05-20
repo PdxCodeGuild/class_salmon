@@ -1,7 +1,7 @@
 # program will break if user inputs any value outside of the dictionary
 
 playing_cards = {
-    "A": 11,
+    "A": 1,
     "2": 2,
     "3": 3,
     "4": 4,

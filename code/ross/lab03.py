@@ -25,7 +25,10 @@ if num >= 0 and num < 10:
 elif num >= 10 and num <20:
     print(teens[num])
 elif num >= 20 and num < 100:
-    print(english_tens[tens_digit], "-", english_ones[ones_digit])
+    if ones_digit == 0:
+        print(english_tens[tens_digit])
+    else:
+        print(english_tens[tens_digit], "-", english_ones[ones_digit])
 elif num >= 100:
     over_hundred(hundreds_digit, tens_digit, ones_digit, num)
 else:
