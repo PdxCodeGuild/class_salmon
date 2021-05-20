@@ -45,13 +45,13 @@ ones_table = {
 if num > 99:
     teens = num % 100
     if teens < 20:
-        output = f'{ones_table[hundreds_digit]}-Hundred {ones_table[teens]} '
+        output = f'{ones_table[hundreds_digit]} Hundred {ones_table[teens]} '
     elif tens_digit < 2:
         output = ones_table[num]
-    elif ones_digit == 0:
-        output = tens_table[tens_digit] 
+    # elif ones_digit == 0:
+    #     output = tens_table[tens_digit] 
     else:
-        output = f'{ones_table[hundreds_digit]}-Hundred {tens_table[tens_digit]}-{ones_table[ones_digit]} '
+        output = f'{ones_table[hundreds_digit]} Hundred {tens_table[tens_digit]} {ones_table[ones_digit]} '
 else:   
     if tens_digit < 2:
         output = ones_table[num]
