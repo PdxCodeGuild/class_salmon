@@ -47,12 +47,12 @@ hundreds_dict = { 1: 'one-hundered',
 }
 
 if tens < 2 and hundreds == 0:
-    output = ones_dict[user_input]
+    result = ones_dict[user_input]
 
 elif hundreds == 0:
-    output = f'{tens_dict[tens]}-{ones_dict[ones]}'
+    result = f'{tens_dict[tens]}-{ones_dict[ones]}'
 
 elif hundreds > 0:
-    output = f'{hundreds_dict[hundreds]}-{tens_dict[tens]}-{ones_dict[ones]}'
-    
-print(output)
+    result = f'{hundreds_dict[hundreds]}-{tens_dict[tens]}-{ones_dict[ones]}'
+
+print(result)
