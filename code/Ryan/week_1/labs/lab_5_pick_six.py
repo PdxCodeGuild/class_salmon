@@ -19,8 +19,8 @@ player_numbers = pick_6()
 player_numbers.sort()
 print(player_numbers)
 
-def num_matches(winning_numbers, player_numbers):
-
+def num_matches():
+    output = ""
     i = 0
     for each_number in player_numbers:
 
@@ -32,3 +32,5 @@ def num_matches(winning_numbers, player_numbers):
         i += 1
 
     return output
+
+print(num_matches())
