@@ -87,9 +87,18 @@ def number_to_word(number):
     # If number is 3 digits long
     if len(number_input) == 3:
         digit_1 = word_number[number_input[0]]
-        digit_2 = word_number[number_input[1]]
-        digit_3 = word_number[number_input[2]]
-        output = f"{digit_1} hundred and {digit_2}ty {digit_3}"
+
+        if word_number[number_input[1]] == "Zero":
+            digit_2 = ""
+        elif word_number[number_input[1]] != "Zero":
+            digit_2 = f"and {word_number[number_input[1]]}ty"
+
+        if word_number[number_input[2]] == "Zero":
+            digit_3 = ""
+        elif word_number[number_input[2]] != "Zero":
+            digit_3 = f" {word_number[number_input[2]]}"
+
+        output = f"{digit_1} hundred {digit_2}{digit_3}"
 
     return output
 
@@ -100,6 +109,7 @@ if menu_select == "1":
 
 else:
     exit()
+
 # ---------------------- Tried and failed ideas ---------------------- #
 # Function to separate numbers
 """
