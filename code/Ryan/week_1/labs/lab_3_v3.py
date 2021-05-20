@@ -6,19 +6,14 @@ numeral_conversion = {
     100: "C"
 }
 
-input_number = 91
+input_number = int(input("Enter a number: "))
 
+input_number_ceiling = input_number // 100
 input_number_floor = input_number // 10
 input_number_mod = input_number % 10
 print(input_number_floor)
 print(input_number_mod)
 
-# Roman numeral rules
-# A letter can only be repeated 3x
-# If 1>= letters are placed after another letter of greater value, add the amount
-# VII = 7 (5 + 2 = 7)
-# If a letter is placed before another letter of greater value, subtract that amount
-# IX = 9 ( 10 – 1 = 9 )
 final_output = []
 
 #------------------------------- First Digit -------------------------------#
@@ -70,9 +65,15 @@ if 9 > input_number_floor >= 5:
 if input_number_floor == 9:
     final_output.append(numeral_conversion[10] + numeral_conversion[100])
 
+#------------------------------- Third Digit -------------------------------#
+# Any numbers in the 90's range have XC prefix
+if input_number_floor >= 10:
+    final_output.append(numeral_conversion[100])
+
 final_output.reverse()
 final_output_string = "".join(final_output)
 print(final_output_string)
+
 """
 for n in numerals:
 

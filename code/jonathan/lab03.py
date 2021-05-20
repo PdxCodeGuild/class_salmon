@@ -8,16 +8,17 @@ def numbers_to_words(y):
     english_phrase = ""
 
     if x >= 100:
-        # takes the digit from line 50 and finds the correct key from the dictionary
+        # takes the digit and finds the correct key from the dictionary
         hundreds = numbers_to_words_hundreds[hundreds_digit]
         # if the second digit is a zero
         if tens_digit == 0:
             # if the ones digit is not a zero
             if ones_digit > 0:
-                # takes the digit from line 54 and finds the correct key from the dictionary
+                # takes the digit and finds the correct key from the dictionary
                 ones = numbers_to_words_ones[ones_digit]
                 # prints the hundreds and ones as words since we don't say the middle zero in English
                 english_phrase = (f"{hundreds} and {ones}.")
+                return english_phrase
             # this is for any case the tens and ones digit are zeros
             else: 
                 # if the tens and ones digits are zeros we only need to print the hundreds
@@ -25,15 +26,15 @@ def numbers_to_words(y):
                 return english_phrase
         # if the tens digit is greater than zero 
         if tens_digit >=1 and ones_digit == 0:
-            # takes the digit from line 52 and finds the correct key from the dictionary
-            tens = numbers_to_words_tens[tens_digit]
+            # takes the digit and finds the correct key from the dictionary
+            tens = numbers_to_words_t[tens_digit]
             # prints the hundreds, tens, and ones digits adding in "and" and "-"
             english_phrase = (f"{hundreds} and {tens}.")
             return english_phrase
         if tens_digit >=1:
-            # takes the digit from line 52 and finds the correct key from the dictionary
+            # takes the digit and finds the correct key from the dictionary
             tens = numbers_to_words_tens[tens_digit]
-            # takes the digit from line 54 and finds the correct key from the dictionary
+            # takes the digit and finds the correct key from the dictionary
             ones = numbers_to_words_ones[ones_digit]
             # prints the hundreds, tens, and ones digits adding in "and" and "-"
             english_phrase = (f"{hundreds} and {tens}-{ones}.")
@@ -42,11 +43,11 @@ def numbers_to_words(y):
     if x < 100:
         # if the input is between 20 and 99
         if tens_digit >= 2: 
-            # takes the digit from line 52 and finds the correct key from the dictionary
+            # takes the digit and finds the correct key from the dictionary
             tens = numbers_to_words_tens[tens_digit]
             # if the ones digit is greater than zero
             if ones_digit > 0:
-                # takes the digit from line 54 and finds the correct key from the dictionary
+                # takes the digit and finds the correct key from the dictionary
                 ones = numbers_to_words_ones[ones_digit]
                 # print out both tens and ones digit
                 english_phrase = (f"{tens}-{ones}")
@@ -72,7 +73,7 @@ def numbers_to_words(y):
                 return english_phrase
     # if the input is below 10            
     if x < 10: 
-        # takes the digit from line 54 and finds the correct key from the dictionary
+        # takes the digit and finds the correct key from the dictionary
         ones = numbers_to_words_ones[ones_digit] 
         # needs to only print the ones digit
         english_phrase = (f"{ones}.")
@@ -128,6 +129,12 @@ def numbers_to_numerals(y):
                 english_phrase = (f"{hundreds}{tens}{ones}.")
                 return english_phrase
     # for cases when the input is less than 100
+    # for cases when the input is less than 10
+    if x < 10: 
+        # retrieves the ones digit from the dictionary
+        ones = roman_numerals_ones[ones_digit]
+        english_phrase = (f"{ones}.")
+        return english_phrase
     if x < 100:
         # retrieves the tens digit from the dictionary
         tens = roman_numerals_tens[tens_digit]
@@ -140,12 +147,6 @@ def numbers_to_numerals(y):
         else: # if the number ends in a zero no need to print the ones digit
                 english_phrase = (f"{tens}.")
                 return english_phrase
-    # for cases when the input is less than 10
-    if x < 10: 
-        # retrieves the ones digit from the dictionary
-        ones = roman_numerals_ones[ones_digit]
-        english_phrase = (f"{ones}.")
-        return english_phrase
 
 def numbers_to_time(y):
     # ask the user for a time in 12 hour format with a colon
@@ -257,7 +258,10 @@ numbers_to_words_outliers = {
     2: "twelve",
     3: "thirteen",
     4: "fourteen",
-    5: "fifteen"
+    5: "fifteen",
+}
+numbers_to_words_t = {
+    1: "ten"
 }
 # the ones digit for the numbers to words portion
 numbers_to_words_ones = {
