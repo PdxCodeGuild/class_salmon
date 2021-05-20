@@ -1,6 +1,6 @@
 num = int(input('Enter a number from 1 to 999: '))
 while num > 999:
-    print('User Error. Number too large.')
+    print('User Error: Number too large!')
     num = int(input('Enter a number from 1 to 999: '))
 hundreds_digit = num//100
 x = num//10
