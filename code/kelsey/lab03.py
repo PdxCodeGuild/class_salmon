@@ -5,7 +5,9 @@ number = input('Enter a number 0-99: ')
 def split(number):
     return [num for num in number]
 
-number = split(number) # [*'tens_digit', 'ones_digit']
+# number_2 = split(number) # [*'tens_digit', 'ones_digit']
+# number_2.reverse()
+number_2 = number.zfill(2)
 
 ones_digit_dict = {
     '0': '',
@@ -17,10 +19,21 @@ ones_digit_dict = {
     '6': 'six',
     '7': 'seven',
     '8': 'eight',
-    '9': 'nine'
+    '9': 'nine',
+    '10': 'ten',
+    '11': 'eleven',
+    '12': 'twelve',
+    '13': 'thirteen',
+    '14': 'fourteen',
+    '15': 'fifteen',
+    '16': 'sixteen',
+    '17': 'seventeen',
+    '18': 'eighteen',
+    '19': 'nineteen'
 }
 
 tens_digit_dict = {
+    '0': '',
     '2': 'twenty',
     '3': 'thirty',
     '4': 'forty',
@@ -31,20 +44,15 @@ tens_digit_dict = {
     '9': 'ninety'
 }
 
-tens_digit = number[0]
-ones_digit = number[1]
-
-tens_to_word = tens_digit_dict.get(tens_digit)
-ones_to_word = ones_digit_dict.get(ones_digit)
-
-print(tens_to_word + '-' + ones_to_word)
-
-# def number_to_phrase(tens_digit=0, ones_digit):
-#     tens_digit = number // 10
-#     ones_digit = number % 10
-#     number_as_word = tens_digit + ones_digit
-#     return 
-
+if int(number) == 0:
+    print('zero')
+elif int(number) < 20:
+    print(ones_digit_dict[number])
+else:
+    if int(number[1]) == 0:
+        print(tens_digit_dict[number[0]])
+    else:
+        print(tens_digit_dict[number[0]] + '-' + ones_digit_dict[number[1]])
 
 # Version 2
 # Handle numbers from 100-999.
