@@ -1,8 +1,9 @@
 import random
 
+#____________________Random Card______________________________##
+#digits = [(random.randint(1, 9)) for i in range(16)]
+# print(digits)
 
-digits = [(random.randint(1, 9)) for i in range(16)]
-print(digits)
 #________________________TEST CARD_________________________________##
 #digits = [int(input(f'Enter the first digit of your card:  '))]
 # while len(digits) != 16:
@@ -11,7 +12,7 @@ print(digits)
 # print(digits)
 
 #________________________TEST CARD______________________________##
-#digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+digits = [4, 5, 5, 6, 7, 3, 7, 5, 8, 6, 8, 9, 9, 8, 5, 5]
 
 check_digit = digits.pop(15)
 
