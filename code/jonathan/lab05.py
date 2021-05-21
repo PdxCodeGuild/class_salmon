@@ -7,12 +7,13 @@ def takara(takarakuji, ticket):
     '''
     Function to take the lottery numbers and compare them to each lottery ticket
     and keep a running total of winnings and mostly losings. 
+    Flavor messages included but just add time finish running program.
     '''
 
     lotto_message = ""
 
     global balance
-
+    
     if len(matching_numbers) == 1:
         balance += 4
         lotto_message = (f"Matched one number! You win $4 and your new balance is ${balance}")
