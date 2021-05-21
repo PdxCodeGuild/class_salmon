@@ -47,25 +47,25 @@ tens_digit_dict = {
     '9': 'ninety'
 }
 
-if int(user_number) == 0:
+if int(user_number) == 0: # 0 only
     print('zero')
-elif 0 < int(user_number) < 10:
+elif 0 < int(user_number) < 10: # 1-9
     print(f'{ones_digit_dict[user_number]}')
-elif 10 <= int(user_number) < 20:
+elif 10 <= int(user_number) < 20: # 10-19
     print(f'{tweens_dict[user_number]}')
-elif hundreds_digit == 0 and ones_digit == 0:
+elif hundreds_digit == 0 and ones_digit == 0: # straight tens (10, 20, 30, etc.)
     print(f'{tens_digit_dict[user_number[0]]}')
-elif 21 <= int(user_number) <= 99:
+elif 21 <= int(user_number) <= 99: # any two-digit number greater than 20, where both digits are not 0
     print(f'{tens_digit_dict[user_number[0]]}-{ones_digit_dict[user_number[1]]}')
 elif hundreds_digit != 0 and int(user_number[1]) == 0 and ones_digit == 0:
-    print(f'{ones_digit_dict[user_number[0]]}-hundred')
-elif hundreds_digit != 0 and int(user_number[1]) == 0 and ones_digit != 0:
+    print(f'{ones_digit_dict[user_number[0]]}-hundred') # straight hundreds (100, 200, 300, etc.)
+elif hundreds_digit != 0 and int(user_number[1]) == 0 and ones_digit != 0: # hundreds + only 1-9
     print(f'{ones_digit_dict[user_number[0]]}-hundred and {ones_digit_dict[user_number[2]]}')
-elif hundreds_digit != 0 and int(user_number[1]) == 1:
+elif hundreds_digit != 0 and int(user_number[1]) == 1: # hundreds + only 10-19
     tween = int(user_number) - int(user_number[0])*100
     tween = str(tween)
     print(f'{ones_digit_dict[user_number[0]]}-hundred and {tweens_dict[tween]}')
-elif int(user_number[1]) != 0 and ones_digit == 0:
+elif int(user_number[1]) != 0 and ones_digit == 0: # straight hundreds + straight tens// all ones digits are zero
     print(f'{ones_digit_dict[user_number[0]]}-hundred and {tens_digit_dict[user_number[1]]}')
-else:
+else: # remaining three-digit numbers, where all three digits are not zero
     print(f'{ones_digit_dict[user_number[0]]}-hundred and {tens_digit_dict[user_number[1]]}-{ones_digit_dict[user_number[2]]}')
