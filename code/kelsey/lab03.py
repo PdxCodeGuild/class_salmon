@@ -1,6 +1,13 @@
 # Lab 3: Number to Phrase
 # Convert a given number into its English representation. For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.
-number = input('Enter a number 0-99: ')
+# Version 2
+# Handle numbers 100-999.
+
+user_number = input('Enter a number 0-999: ')
+
+hundreds_digit = int(user_number) // 100
+tens_digit = int(user_number) // 10
+ones_digit = int(user_number) % 10
 
 ones_digit_dict = {
     '0': '',
@@ -13,6 +20,9 @@ ones_digit_dict = {
     '7': 'seven',
     '8': 'eight',
     '9': 'nine',
+}
+
+tweens_dict = {
     '10': 'ten',
     '11': 'eleven',
     '12': 'twelve',
@@ -37,28 +47,25 @@ tens_digit_dict = {
     '9': 'ninety'
 }
 
-if int(number) == 0:
+if int(user_number) == 0:
     print('zero')
-elif int(number) < 20:
-    print(ones_digit_dict[number])
+elif 0 < int(user_number) < 10:
+    print(f'{ones_digit_dict[user_number]}')
+elif 10 <= int(user_number) < 20:
+    print(f'{tweens_dict[user_number]}')
+elif hundreds_digit == 0 and ones_digit == 0:
+    print(f'{tens_digit_dict[user_number[0]]}')
+elif 21 <= int(user_number) <= 99:
+    print(f'{tens_digit_dict[user_number[0]]}-{ones_digit_dict[user_number[1]]}')
+elif hundreds_digit != 0 and int(user_number[1]) == 0 and ones_digit == 0:
+    print(f'{ones_digit_dict[user_number[0]]}-hundred')
+elif hundreds_digit != 0 and int(user_number[1]) == 0 and ones_digit != 0:
+    print(f'{ones_digit_dict[user_number[0]]}-hundred and {ones_digit_dict[user_number[2]]}')
+elif hundreds_digit != 0 and int(user_number[1]) == 1:
+    tween = int(user_number) - int(user_number[0])*100
+    tween = str(tween)
+    print(f'{ones_digit_dict[user_number[0]]}-hundred and {tweens_dict[tween]}')
+elif int(user_number[1]) != 0 and ones_digit == 0:
+    print(f'{ones_digit_dict[user_number[0]]}-hundred and {tens_digit_dict[user_number[1]]}')
 else:
-    if int(number[1]) == 0:
-        print(tens_digit_dict[number[0]])
-    else:
-        print(tens_digit_dict[number[0]] + '-' + ones_digit_dict[number[1]])
-
-
-# Version 2
-# Handle numbers from 100-999.
-
-big_num = input('Enter a number 100-999: ')
-
-def number_to_phrase(number):
-    hundreds_digit = f'{ones_digit_dict[number[0]]}-hundred'
-    tens_digit = f' and {tens_digit_dict[number[1]]}'
-    ones_digit = f'-{ones_digit_dict[number[2]]}'
-
-    number_as_phrase = hundreds_digit + tens_digit + ones_digit
-    return number_as_phrase
-
-print(number_to_phrase(big_num))
+    print(f'{ones_digit_dict[user_number[0]]}-hundred and {tens_digit_dict[user_number[1]]}-{ones_digit_dict[user_number[2]]}')

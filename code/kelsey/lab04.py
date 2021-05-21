@@ -43,6 +43,3 @@ elif total_points == 21:
 elif total_points > 21:
     print('Already Busted')
 
-
-# Version 2 (optional)
-# Aces can be worth 11 if they won't put the total point value of both cards over 21. Remember that you can have multiple aces in a hand. Try generating a list of all possible hand values by doubling the number of values in the output whenever you encounter an ace. For one half, add 1, for the other, add 11. This ensures if you have multiple aces that you account for the full range of possible values.
