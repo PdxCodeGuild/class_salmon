@@ -50,6 +50,12 @@ def buy_ticket():
     return ticket
 
 
+# def get_percentage(x, y):
+#     return f'{(x / y) * 100}%'
+
+
+
+
 winning_ticket = winning_nums()
 
 for i in range(100000):
@@ -59,6 +65,10 @@ for i in range(100000):
     ticket = []
     matches = 0
 
-
-print(f'You spent ${expenses} and gained ${income}.')
+# loss = abs(income - expenses)
+# loss_percent = get_percentage(loss, expenses)
+roi = (income - expenses) / expenses
+# print(loss_percent)
+output = (f'You spent ${expenses} and gained ${income}. And your return on investment was {roi}')
+print(output)
 
