@@ -31,18 +31,13 @@ def sum_value(card_1, card_2, card_3):
 
 total_points = sum_value(first_card, second_card, third_card)
 
-print(total_points)
-
 # Use the following rules to determine the advice:
 if total_points < 17:
-    print('Hit')
+    print(f'{total_points} Hit')
 elif 21 > total_points >= 17:
-    print('Stay')
+    print(f'{total_points} Stay')
 elif total_points == 21:
-    print('Blackjack!')
+    print(f'{total_points} Blackjack!')
 elif total_points > 21:
-    print('Already Busted')
+    print(f'{total_points} Already Busted')
 
-
-# Version 2 (optional)
-# Aces can be worth 11 if they won't put the total point value of both cards over 21. Remember that you can have multiple aces in a hand. Try generating a list of all possible hand values by doubling the number of values in the output whenever you encounter an ace. For one half, add 1, for the other, add 11. This ensures if you have multiple aces that you account for the full range of possible values.
