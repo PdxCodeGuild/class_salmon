@@ -27,13 +27,13 @@ def numbers_to_words(y):
         # if the tens digit is greater than zero 
         if tens_digit >=1 and ones_digit == 0:
             # takes the digit and finds the correct key from the dictionary
-            tens = numbers_to_words_t[tens_digit]
+            tens = numbers_to_words_tens[tens_digit]
             # prints the hundreds, tens, and ones digits adding in "and" and "-"
             english_phrase = (f"{hundreds} and {tens}.")
             return english_phrase
         if tens_digit >=1:
             # takes the digit and finds the correct key from the dictionary
-            tens = numbers_to_words_tens[tens_digit]
+            tens = numbers_to_words_ten_hun[tens_digit]
             # takes the digit and finds the correct key from the dictionary
             ones = numbers_to_words_ones[ones_digit]
             # prints the hundreds, tens, and ones digits adding in "and" and "-"
@@ -50,7 +50,7 @@ def numbers_to_words(y):
                 # takes the digit and finds the correct key from the dictionary
                 ones = numbers_to_words_ones[ones_digit]
                 # print out both tens and ones digit
-                english_phrase = (f"{tens}-{ones}")
+                english_phrase = (f"{tens}-{ones}.")
                 return english_phrase
             # if the number ends in a zero    
             else: 
@@ -59,18 +59,11 @@ def numbers_to_words(y):
                 return english_phrase
         # if the input is between 10 and 19
         if tens_digit == 1: 
-            # if ones digit is 6 through 9 
-            if ones_digit >= 6:
-                # just adding "teen" to the ones digit in English
-                english_phrase = (f"{ones_digit}teen.")
-                return english_phrase
-            # if the ones place is 15 or below    
-            if ones_digit <= 5: 
-                # refers to outliers dictionary due to English language rules
-                outliers = numbers_to_words_outliers[ones_digit]
-                # prints directly from the dictionary
-                english_phrase = (f"{outliers}.")
-                return english_phrase
+            # refers to outliers dictionary due to English language rules
+            outliers = numbers_to_words_outliers[ones_digit]
+            # prints directly from the dictionary
+            english_phrase = (f"{outliers}.")
+            return english_phrase
     # if the input is below 10            
     if x < 10: 
         # takes the digit and finds the correct key from the dictionary
@@ -259,6 +252,10 @@ numbers_to_words_outliers = {
     3: "thirteen",
     4: "fourteen",
     5: "fifteen",
+    6: "sixteen",
+    7: "seventeen",
+    8: "eighteen",
+    9: "nineteen"
 }
 numbers_to_words_t = {
     1: "ten"
@@ -276,9 +273,21 @@ numbers_to_words_ones = {
     8: "eight",
     9: "nine",
 }
+# the tens digit for the numbers to words portion for numbers over 100
+numbers_to_words_ten_hun = {
+    1: "teen",
+    2: "twenty",
+    3: "thirty",
+    4: "forty",
+    5: "fifty",
+    6: "sixty",
+    7: "seventy",
+    8: "eighty",
+    9: "ninety"
+}
 # the tens digit for the numbers to words portion
 numbers_to_words_tens = {
-    1: "teen",
+    1: "ten",
     2: "twenty",
     3: "thirty",
     4: "forty",
