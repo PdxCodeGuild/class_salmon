@@ -76,7 +76,7 @@ while len(test_player_ticket) < 6:
 
 test_player_ticket.sort()
 
-total_tickets = 10000
+total_tickets = 1000
 
 # Pick6 tickets
 test_pick6_tickets =  []
@@ -143,5 +143,5 @@ while len(test_pick6_tickets) != total_tickets:
     print(remaining_tickets)
 
 ticket_cost = len(test_pick6_tickets) * 2
-roi = (total_ticket_winnings - ticket_cost)/total_ticket_winnings
-print(f"Spent ${ticket_cost}. Won ${total_ticket_winnings} with an ROI of {roi}")
+roi = ((total_ticket_winnings - ticket_cost)/ticket_cost)*100
+print(f"Spent ${ticket_cost}. Won ${total_ticket_winnings} with an ROI of {roi}%")
