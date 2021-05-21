@@ -68,7 +68,7 @@ balance_commas = "{:,}".format(balance)
 # adding the $ to ending balance
 new_balance = "${:,.2f}".format(balance)
 
-roi = (balance - 200000)/200000 
+roi = ((balance - (x*2))/(x*2))*100 
 # adding two decimal places to roi
 number_two_decimal = "{:.2f}".format(roi)
 # adding commas to roi
