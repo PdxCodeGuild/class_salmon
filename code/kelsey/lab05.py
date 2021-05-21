@@ -1,33 +1,41 @@
 # Lab 5: Pick6
 
-# a ticket costs $2
-# if 1 number matches, you win $4
-# if 2 numbers match, you win $7
-# if 3 numbers match, you win $100
-# if 4 numbers match, you win $50,000
-# if 5 numbers match, you win $1,000,000
-# if 6 numbers match, you win $25,000,000
-# One function you might write is pick6() which will generate a list of 6 random numbers, which can then be used for both the winning numbers and tickets. Another function could be num_matches(winning, ticket) which returns the number of matches between the winning numbers and the ticket.
-
-# Steps
 # Generate a list of 6 random numbers representing the winning tickets
 import random
 
+# One function you might write is pick6() which will generate a list of 6 random numbers, which can then be used for both the winning numbers and tickets.
 def pick6():
-    return [random.randint(1, 99) for num in range(6)]
+    return [random.randint(1, 99) for i in range(6)]
   
 winning_ticket = pick6()
 player_ticket = pick6()
 
-def num_matches(winning_ticket, player_ticket):
-    
-    returns matches
-if winning_ticket[1] == user_ticket[1]
-
-
+# Another function could be num_matches(winning, ticket) which returns the number of matches between the winning numbers and the ticket.
+def num_matches(winning_ticket, player_ticket): # just returning numbers of matches
+    number_of_matches = 0
+    number_of_matches += 1
+    if winning_ticket[i] == player_ticket[i]: # if statement inside of a loop
+        return number_of_matches
 
 # Start your balance at 0
-balance = [0]
+balance = 0
+# a ticket costs $2
+balance -= 2
+
+
+if num_matches == 1:
+    balance += 4
+elif num_matches ==2:
+    balance += 7
+elif num_matches == 3:
+    balance += 100
+elif num_matches == 4:
+    balance += 50000
+elif num_matches == 5:
+    balance += 1000000
+elif num_matches == 6:
+    balance += 25000000
+
 
 # Loop 100,000 times, for each loop:
 # Generate a list of 6 random numbers representing the ticket
