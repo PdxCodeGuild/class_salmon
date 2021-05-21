@@ -61,14 +61,14 @@ for x in range(1, 100001):
     # print(takarakuji) # if you want to print out the lottery ticket
     # print(ticket) # if you want to print out each of your tickets
 
-    print(takara(takarakuji, ticket))
+    takara(takarakuji, ticket)
 
 # adding commas to ending balance
 balance_commas = "{:,}".format(balance)
 # adding the $ to ending balance
 new_balance = "${:,.2f}".format(balance)
 
-roi = ((balance - (x*2))/(x*2))*100 
+roi = (balance - (x*2)) - (x*2)/(x*2) 
 # adding two decimal places to roi
 number_two_decimal = "{:.2f}".format(roi)
 # adding commas to roi
