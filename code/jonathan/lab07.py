@@ -49,4 +49,14 @@ rot_letters = {
     "x": 24,
     "y": 25,
     "z": 26
+<<<<<<< HEAD
 }
+=======
+}
+
+# take the letter and find the number value from the rot_letters dictionary
+# add 13 to each number and IF the (number is > 26) - 26 
+# # find the new value from the same dictionary 
+
+
+>>>>>>> f27848dcf0c6bb1791555a036794346a611f48bc
