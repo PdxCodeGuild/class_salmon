@@ -308,7 +308,7 @@ Single item tuples need a trailing comma to distinguish them from grouping paren
 tuple()
 ```
 
-Why use tuples over lists? Lists tend to be used for _homogenous_ data, tuples tend to be used for "pairs", "triplets" or "n-tuples"; groupings of _heterogenous_ data. For example, a list of friends is a list because it doesn't matter exactly how many there are and all are names. A pair of address and phone number would be a tuple, since each is interpreted differently and if there was another item, it you wouldn't know what to do with it.
+Why use tuples over lists? Lists tend to be used for _heterogenous_ data, tuples tend to be used for "pairs", "triplets" or "n-tuples"; groupings of _homogenous_ data. For example, a list of friends is a list because it doesn't matter exactly how many there are and all are names. A pair of address and phone number would be a tuple, since each is interpreted differently and if there was another item, it you wouldn't know what to do with it.
 
 ```python
 friend_names = ['Kate', 'Al']
