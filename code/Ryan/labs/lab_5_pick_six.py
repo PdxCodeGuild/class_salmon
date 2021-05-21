@@ -1,63 +1,43 @@
 """
-
 import random
-
 number_generator = random.randint(1, 99)
-
 def pick_6():
-
     pick_6 = []
-
     while len(pick_6) < 7:
         pick_6.append(random.randint(1, 99))
-
     return pick_6
-
 # winning_numbers = pick_6()
 winning_numbers = [23, 25, 30, 50, 70, 89, 98]
 winning_numbers.sort()
 print(winning_numbers)
-
 # player_numbers = pick_6()
 player_numbers = [2, 12, 23, 50, 93, 95, 99]
 player_numbers.sort()
 print(player_numbers)
-
 def num_matches():
     output = []
     i = 0
     for each_number in player_numbers:
-
         # Does this number match the winning number at the same index?
         if each_number == winning_numbers[i]:
             output.append("w")
             continue
-
         else:
             output.append("l")
             continue
-
     i += 1
-
     return output.count("w")
-
 def pnl():
     player_numbers.count()
-
-
-
 def play(plays):
     plays = int(plays)
-
     while p < plays:
         pick_6
         num_matches
     
     return 
-
 p = 0
 plays = 5
-
 while p < plays:
         print(pick_6())
         print(num_matches())

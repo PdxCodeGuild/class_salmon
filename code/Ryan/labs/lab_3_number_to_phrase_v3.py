@@ -76,22 +76,14 @@ print(final_output_string)
 
 """
 for n in numerals:
-
     if ones_digit == 0:
         ones_digit = ""
-
     elif ones_digit == n:
         ones_digit = numerals[n]
-
     if tens_digit == n < 4:
         tens_digit = "X" * n
-
     if tens_digit == n == 4:
         tens_digit = "XL"
-
     if tens_digit == n >= 5:
         tens_digit = "L"
-
 """
-
-
