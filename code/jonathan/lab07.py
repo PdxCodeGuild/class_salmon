@@ -1,28 +1,5 @@
-import string
-
-raw_list = []
-
-# takes the input and converts to lowercase
-raw_message = input("Enter a message to encode: ").lower() 
-
-# if punctuation in raw_list 
-for x in raw_message: 
-# checking message for punctuation
-    if x in string.punctuation: 
-    # replace punctuation with blank strings
-        raw_message = raw_message.replace(x, "") 
-# if numbers in user raw_list             
-for z in raw_message:  
-# checking message for numbers
-    if z in string.digits: 
-    # replace numbers with blank strings
-        raw_message = raw_message.replace(z, "") 
-
-raw_list = list(raw_message)
-
-print(raw_list)
-
-rot_letters = {
+unencrypted_message = input("Please enter a message to encrypt: ")
+caesar_letters = {
     "a": 1,
     "b": 2,
     "c": 3,
@@ -49,14 +26,32 @@ rot_letters = {
     "x": 24,
     "y": 25,
     "z": 26
-<<<<<<< HEAD
 }
-=======
+caesar_numbers = {
+    1: "a",
+    2: "b",
+    3: "c",
+    4: "d",
+    5: "e",
+    6: "f",
+    7: "g",
+    8: "h",
+    9: "i",
+    10: "j",
+    11: "k",
+    12: "l",
+    13: "m",
+    14: "n",
+    15: "o",
+    16: "p",
+    17: "q",
+    18: "r",
+    19: "s",
+    20: "t",
+    21: "u",
+    22: "v",
+    23: "w",
+    24: "x",
+    25: "y",
+    26: "z"
 }
-
-# take the letter and find the number value from the rot_letters dictionary
-# add 13 to each number and IF the (number is > 26) - 26 
-# # find the new value from the same dictionary 
-
-
->>>>>>> f27848dcf0c6bb1791555a036794346a611f48bc
