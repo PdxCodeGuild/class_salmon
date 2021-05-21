@@ -1,7 +1,5 @@
 import random
 
-menu_nav =''
-
 user_error = "Error! Please make a valid entry: "
 
 rules = '''
@@ -41,26 +39,66 @@ return_menu = '''
     Enter: '''
 
 
-while True:
+while True: ### Beginning game loop.  Only break with exit()
+    menu_nav = input(f'{main_menu}')
+    try:
+        if menu_nav.isnumeric():
+            menu_nav = int(menu_nav)
+            if menu_nav == 3: ###### Exit game
+                exit()
+            elif menu_nav == 2: #### Print rules and enter retuen menu loop
+                print(rules)
+                # menu_nav = '' # Reseting navigation value to entey condition of next loop
+                while menu_nav.isnumeric():
+                    menu_nav = (input(f'{return_menu}'))
+                    try:
+                        if menu_nav.isnumeric():
+                            menu_nav =int(menu_nav)
+                            try:
+                                if menu_nav == 1:
+                                    break
 
-    UI = int(input(f'{main_menu}'))
-    
-    if UI == 1 or UI == 3:
-        break
-    if UI == 2:
-        print(rules)
-        while menu_nav != 1 or menu_nav != 2:
-            if menu_nav == '':
-                menu_nav = input(f'{return_menu}')
-            elif menu_nav == 1:
-                break
 
-            else:
-                menu_nav = input(f'{return_menu.replace("Enter: ", user_error)}')
-      
-        
-    else: 
+                                                while menu_nav != '':
+                                                    try:
+                                                        if menu_nav.isnumeric():
+                                                            menu_nav = int(menu_nav)
+                                                        
+                                                            try:
+                                                                if menu_nav.isnumeric() and int(menu_nav) == 1 or int(menu_nav) == 2:
+                                                                    menu_nav = int(menu_nav)
+                                                                    if menu_nav ==1:
+                                                                        break
+                                                                    else:
+                                                                        exit()
+                                                                else:
+                                                                    raise ValueError('Incorrect input ')
+                                                            except ValueError:
+                                                                menu_nav = input(f'{return_menu.replace("Enter: ", user_error)}')
+                                                        else:
+                                                            raise ValueError('Incorrect input ')
+                                                    except ValueError:
+                                                        menu_nav = input(f'{return_menu.replace("Enter: ", user_error)}')
+                                                       
+                                                        
+                        else:
+                            raise ValueError
+                    except ValueError:
+                        return_menu = return_menu.replace("Enter: ", user_error)
+
+            # elif menu_nav == 1: ############# Start of Game
+
+
+            else: 
+                main_menu = main_menu.replace("Enter: ", user_error)
+        else:
+            raise ValueError('Incorrect input ')   
+    except ValueError:
         main_menu = main_menu.replace("Enter: ", user_error)
+              
+        
+
+
 
 
         
