@@ -1,6 +1,7 @@
 import string
 
-def caesar(unencrypted_message):   
+def caesar_encrypt(unencrypted_message):   
+    global encrypted_message
     '''
     Takes the unencrypted message and finds each character in the string "alphabet" 
     and adds the user inputted shift to determine their new position. 
@@ -9,7 +10,18 @@ def caesar(unencrypted_message):
     '''
     encrypted_message = "".join([alphabet[(alphabet.find(c) + encrypt_shift) % 26] for c in unencrypted_message])
     return encrypted_message
-    
+
+def caesar_decrypt(encrypted_message):   
+    decrypted_message = ""
+    '''
+    Takes the encrypted message and finds each character in the string "alphabet" 
+    and subtracts the user inputted shift to determine their new(original) position. 
+    For numbers greater than 25 the (% 26) will get their value under 25
+    or back within the alphabet and joins them together in the encrypted message string
+    '''
+    decrypted_message = "".join([alphabet[(alphabet.find(c) - encrypt_shift) % 26] for c in encrypted_message])
+    return decrypted_message
+
 # list of letters we're working with
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
@@ -36,4 +48,7 @@ for n in unencrypted_message: # if numbers in user word1
         # replace numbers with blank strings
         unencrypted_message = unencrypted_message.replace(n, "") 
 
-print(caesar(unencrypted_message))
+# print the encrypted message
+print(caesar_encrypt(unencrypted_message))
+# print the decrypted message
+print(caesar_decrypt(encrypted_message))
