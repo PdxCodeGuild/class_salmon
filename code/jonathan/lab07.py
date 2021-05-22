@@ -1,57 +1,39 @@
-unencrypted_message = input("Please enter a message to encrypt: ")
-caesar_letters = {
-    "a": 1,
-    "b": 2,
-    "c": 3,
-    "d": 4,
-    "e": 5,
-    "f": 6,
-    "g": 7,
-    "h": 8,
-    "i": 9,
-    "j": 10,
-    "k": 11,
-    "l": 12,
-    "m": 13,
-    "n": 14,
-    "o": 15,
-    "p": 16,
-    "q": 17,
-    "r": 18,
-    "s": 19,
-    "t": 20,
-    "u": 21,
-    "v": 22,
-    "w": 23,
-    "x": 24,
-    "y": 25,
-    "z": 26
-}
-caesar_numbers = {
-    1: "a",
-    2: "b",
-    3: "c",
-    4: "d",
-    5: "e",
-    6: "f",
-    7: "g",
-    8: "h",
-    9: "i",
-    10: "j",
-    11: "k",
-    12: "l",
-    13: "m",
-    14: "n",
-    15: "o",
-    16: "p",
-    17: "q",
-    18: "r",
-    19: "s",
-    20: "t",
-    21: "u",
-    22: "v",
-    23: "w",
-    24: "x",
-    25: "y",
-    26: "z"
-}
+import string
+
+def caesar(unencrypted_message):   
+    '''
+    Takes the unencrypted message and finds each character in the string "alphabet" 
+    and adds the user inputted shift to determine their new position. 
+    For numbers greater than 25 the (% 26) will get their value under 25
+    or back within the alphabet and joins them together in the encrypted message string
+    '''
+    encrypted_message = "".join([alphabet[(alphabet.find(c) + encrypt_shift) % 26] for c in unencrypted_message])
+    return encrypted_message
+    
+# list of letters we're working with
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+# user inputs their unencrypted message and 
+unencrypted_message = input("Enter a message to be encrypted: ").lower()
+
+# asks the user for their desired shift
+encrypt_shift = input("Enter the shift: ")
+# cast to integer
+encrypt_shift = int(encrypt_shift)
+
+# removes any spaces in the unencrypted message
+unencrypted_message = unencrypted_message.replace(" ", "")
+# removes any symbols in the unencrypted message
+
+for p in unencrypted_message: # if punctuation in user word1
+    if p in string.punctuation: # checking word for punctuation
+        # replace punctuation with blank strings
+        unencrypted_message = unencrypted_message.replace(p, "") 
+
+# removes any numbers in the unencrypted message
+for n in unencrypted_message: # if numbers in user word1       
+    if n in string.digits: # checking word1 for numbers
+        # replace numbers with blank strings
+        unencrypted_message = unencrypted_message.replace(n, "") 
+
+print(caesar(unencrypted_message))
