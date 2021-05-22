@@ -1,35 +1,50 @@
 import random
 
 balance = 0
-winning_numbers = []
-matches = 0
-winning_value = 0
-user_numbers = []
-y = ''
-confirm = False
 
-def win_checker(*parameters):
-    for parameter in parameters: 
-        if parameter in winning_numbers:
-            matches += 1
-    return matches
+match1 = 4
+match2 = 7
+match3 = 100
+match4 = 50000
+match5 = 1000000
+match6 = 25000000
 
-def winning_ticket():
+
+def create_ticket():
+    ticket = []
     for x in range(6):
-    x = (random.randint(0,99))
-    winning_numbers.append(x)
-    print(winning_numbers)
+        x = (random.randint(0,99))
+        ticket.append(x)
+    return ticket    
 
-def 
-    for x in range(10):
-    balance += (-2)
+def compare_tickets(winning_ticket, your_ticket):
+    number_matches = 0
+    for item,value in enumerate(your_ticket):
+        print(winning_ticket[item],value) 
+        if winning_ticket[item] == value:
+            number_matches += 1
+    return number_matches
 
-for x in range(6):
-    y = int(input('Enter your ticket numbers: '))
-    while y > 99:
-        y = input('Please make a valid entry: ')
-    user_numbers.append(y)
-print(user_numbers)
+def pick_ticket():
+    ticket = []
+    for x in range(6):
+        num = random.randint(0,99)
+        ticket.append(int(num))
+    return ticket    
+
+chosen_ticket = pick_ticket()
+print(chosen_ticket)
+
+test_ticket = create_ticket()
+print(test_ticket)
+
+winning_ticket = create_ticket()
+x = compare_tickets(test_ticket,winning_ticket)
+print(x)
+
+def money_balance():
+         balance += (-2)
+    if matches 
 
 
 
