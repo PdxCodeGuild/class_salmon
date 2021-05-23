@@ -60,8 +60,8 @@ winning_ticket = winning_nums()
 
 for i in range(100000):
     ticket = buy_ticket()
-    x = validate(ticket)
-    income += win_value(x)
+    validation = validate(ticket)
+    income += win_value(validation)
     ticket = []
     matches = 0
 
