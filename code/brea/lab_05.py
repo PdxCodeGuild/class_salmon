@@ -1,16 +1,23 @@
 import random
 
-balance = 0
+cost = 0
+winnings = 0
 
-match1 = 4
-match2 = 7
-match3 = 100
-match4 = 50000
-match5 = 1000000
-match6 = 25000000
+winnings_dict = { 0: 0,
+1: 4,
+2: 7,
+3: 100,
+4: 50000,
+5: 1000000,
+6: 25000000,
+}
+
+number_matches = 0
+ticket = []
 
 
 def create_ticket():
+    global ticket
     ticket = []
     for x in range(6):
         x = (random.randint(0,99))
@@ -18,34 +25,22 @@ def create_ticket():
     return ticket    
 
 def compare_tickets(winning_ticket, your_ticket):
+    global number_matches
     number_matches = 0
-    for item,value in enumerate(your_ticket):
-        print(winning_ticket[item],value) 
-        if winning_ticket[item] == value:
+    for index, value in enumerate(your_ticket):
+        # print(winning_ticket[index],value) 
+        if winning_ticket[index] == value:
             number_matches += 1
-    return number_matches
+    return number_matches 
 
-def pick_ticket():
-    ticket = []
-    for x in range(6):
-        num = random.randint(0,99)
-        ticket.append(int(num))
-    return ticket    
+for x in range(100000):
+    cost = cost+2
+    win_ticket = create_ticket()
+    your_ticket = create_ticket()
+    number_matches = compare_tickets(win_ticket,your_ticket)
+    win_value = winnings_dict[number_matches]
+    winnings += win_value
+roi = (winnings - cost) / cost
 
-chosen_ticket = pick_ticket()
-print(chosen_ticket)
-
-test_ticket = create_ticket()
-print(test_ticket)
-
-winning_ticket = create_ticket()
-x = compare_tickets(test_ticket,winning_ticket)
-print(x)
-
-def money_balance():
-         balance += (-2)
-    if matches 
-
-
-
-# print(output)
+output = f'You won {winnings}, and you spent {cost}, your investment return value was {roi}'
+print(output)
