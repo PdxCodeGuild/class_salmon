@@ -1,37 +1,32 @@
-numbers = []
-test_number = '4556737586899855'
-check_digit = 0
-y = ''
-evens = user_input%2
-doubled_nums = []
-
-
 def convert_string(y): # loop string, convert item in string into an integer
-   convert_string
-    return numbers int
+    converted_list = []
+    for i, value in enumerate(credit_card):
+       converted_list.append(int(value))
+    return converted_list
 
-def credit_card_number():
-    for x in range(16):
-        y = int(input('Enter your card number: '))  
-        numbers.append(x)
+def double_evens(x):
+    converted_list = []
+    for i, value in enumerate(x):
+        if i % 2 == 0:
+            y = value * 2
+            converted_list.append(y)
+        else: 
+            y = value
+            converted_list.append(y)
+    return converted_list
+        
 
-numbers.pop
+credit_card = '4556737586899858'
+credit_card = list(credit_card)
+credit_card = convert_string(credit_card)
 
-# def slicing_last_num(slice):
-#     for x in numbers:
-#     print(s[0:15])
+check_digit = credit_card.pop(-1)
+credit_card.reverse()    
+credit_card = double_evens(credit_card)
 
-.reverse(numbers)    
-print(numbers)
- 
-if numbers > 9:
-    x - 9
+credit_card = [num - 9 if num > 9 else num for num in credit_card]
 
-sum(x)    
+total = sum(credit_card)
 
-
-if numbers == check_digit:
-    print('Valid card!')
-
-else:
-    print('Invalid card!')
+output = 'Card Validated! ' if total % 10 == check_digit else 'Card not Valid '
+print(output)
