@@ -4,18 +4,22 @@
 import string
 
 letters = string.ascii_lowercase
-
+    
 code = input('Enter your letters: ')
 
-if i <= 12:
-    cipher = letters[i + 13]
-elif 12 < i < 25: 
-    cipher = letters[i - 12]
-    
-print(cipher[22])
+i = 0
+
+while True:
+    i += 1
+    if i <= 12:
+        cipher = letters[i + 13]
+    elif 12 < i < 25: 
+        cipher = letters[i - 12]
+    break
+print(cipher)
 
 
-# code_tuple = tuple(code)
+code_tuple = tuple(code)
 
 # def rot13(*args):
 
