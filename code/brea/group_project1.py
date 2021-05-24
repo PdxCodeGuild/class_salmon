@@ -16,16 +16,21 @@ def populate():
     global year, population
 
     while len(population) < 1000:
+        print(population)
         year += 1
         pairs = 0
         # population = [(population.remove(i) if i == 10 else i + 1) for i in population]
+        population = [i + 1 for i in population]
+
         for i in population:
-            if i != 10:
-                i += 1
-            else:
+            if i >= 10:
                 population.remove(i)
 
-
+        # for i in population:
+        #     if i != 10:
+        #         i += 1
+        #     else:
+        #         population.remove(i)
 
         mating_age = 0
         for jackelope in population:

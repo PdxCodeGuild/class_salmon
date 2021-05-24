@@ -25,11 +25,12 @@ counter = 0
 expenses = 0
 earnings = 0
 
+winning_ticket = pick6()
+
 # Calculate your net winnings (the sum of all expenses and earnings).
 while counter <= 100000:
     counter += 1
     expenses += 2
-    winning_ticket = pick6()
     player_ticket = pick6()
     if num_matches(winning_ticket, player_ticket) == 1:
         earnings += 4
