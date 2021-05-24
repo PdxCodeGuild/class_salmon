@@ -5,7 +5,7 @@ import string
 
 letters = string.ascii_lowercase
     
-code = input('Enter your letters: ')
+coded_msg = input('Enter your letters: ')
 
 i = 0
 
@@ -20,8 +20,6 @@ print(cipher)
 
 
 code_tuple = tuple(code)
-
-# def rot13(*args):
 
   
 # Index	    0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	23	24	25
