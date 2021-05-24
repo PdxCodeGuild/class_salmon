@@ -4,6 +4,8 @@ winning_ticket = []
 
 ticket = []
 
+balance = 0
+
 expenses = 0
 
 income = 0
@@ -43,6 +45,8 @@ def winning_nums():
 
 def buy_ticket():
     global expenses
+    global balance
+    balance -= 2
     expenses += 2
     for i in range(6):
         x = random.randint(1, 99)

@@ -16,6 +16,7 @@ def encrypt(msg):
             else:
                 char -= 13
                 word.append(char)
+        
     # msg = [char - 13  if char >= ord('a') and char <= ord('z') else char + 13 for char in msg] # tried using rot_num instead of 13. can result in non letter characters
     msg = [chr(char) for char in word]
     for char in msg:
