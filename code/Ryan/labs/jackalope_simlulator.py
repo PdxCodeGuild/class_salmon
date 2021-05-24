@@ -1,14 +1,16 @@
 jackalope_count = [0, 0]
-
+breeders = 0
 counter = 1
 # while jackalope population is less than (1000 = target)
 while len(jackalope_count) < 10:
     for i in range(len(jackalope_count)):
         jackalope_count[i] += 1
     # for values at range 4:9, += 1 for offspring
-    # needs to be summed, then %2(?) to count breeding PAIRS
-    if i in jackalope_count >= 4 and jackalope_count <= 8:
-        jackalope_count.append(counter)
+    # ony IF it has matching pair.
+    # maybe add to separate variable(breeders), then len(breeders) %2?
+    for i in jackalope_count:
+        if i >= 4 and i <= 8:
+            breeders.append(i)
 
 
 print(jackalope_count)
