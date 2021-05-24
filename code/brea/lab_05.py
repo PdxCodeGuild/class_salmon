@@ -1,36 +1,46 @@
 import random
 
-balance = 0
-winning_numbers = []
-matches = 0
-winning_value = 0
-user_numbers = []
-y = ''
-confirm = False
+cost = 0
+winnings = 0
 
-def win_checker(*parameters):
-    for parameter in parameters: 
-        if parameter in winning_numbers:
-            matches += 1
-    return matches
+winnings_dict = { 0: 0,
+1: 4,
+2: 7,
+3: 100,
+4: 50000,
+5: 1000000,
+6: 25000000,
+}
 
-def winning_ticket():
+number_matches = 0
+ticket = []
+
+
+def create_ticket():
+    global ticket
+    ticket = []
     for x in range(6):
-    x = (random.randint(0,99))
-    winning_numbers.append(x)
-    print(winning_numbers)
+        x = (random.randint(0,99))
+        ticket.append(x)
+    return ticket    
 
-def 
-    for x in range(10):
-    balance += (-2)
+def compare_tickets(winning_ticket, your_ticket):
+    global number_matches
+    number_matches = 0
+    for index, value in enumerate(your_ticket):
+        # print(winning_ticket[index],value) 
+        if winning_ticket[index] == value:
+            number_matches += 1
+    return number_matches 
 
-for x in range(6):
-    y = int(input('Enter your ticket numbers: '))
-    while y > 99:
-        y = input('Please make a valid entry: ')
-    user_numbers.append(y)
-print(user_numbers)
+for x in range(100000):
+    cost = cost+2
+    win_ticket = create_ticket()
+    your_ticket = create_ticket()
+    number_matches = compare_tickets(win_ticket,your_ticket)
+    win_value = winnings_dict[number_matches]
+    winnings += win_value
+roi = (winnings - cost) / cost
 
-
-
-# print(output)
+output = f'You won {winnings}, and you spent {cost}, your investment return value was {roi}'
+print(output)

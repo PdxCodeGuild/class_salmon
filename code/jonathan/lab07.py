@@ -1,62 +1,54 @@
 import string
 
-raw_list = []
+def caesar_encrypt(unencrypted_message):   
+    global encrypted_message
+    '''
+    Takes the unencrypted message and finds each character in the string "alphabet" 
+    and adds the user inputted shift to determine their new position. 
+    For numbers greater than 25 the (% 26) will get their value under 25
+    or back within the alphabet and joins them together in the encrypted message string
+    '''
+    encrypted_message = "".join([alphabet[(alphabet.find(c) + encrypt_shift) % 26] for c in unencrypted_message])
+    return encrypted_message
 
-# takes the input and converts to lowercase
-raw_message = input("Enter a message to encode: ").lower() 
+def caesar_decrypt(encrypted_message):   
+    decrypted_message = ""
+    '''
+    Takes the encrypted message and finds each character in the string "alphabet" 
+    and subtracts the user inputted shift to determine their new(original) position. 
+    For numbers greater than 25 the (% 26) will get their value under 25
+    or back within the alphabet and joins them together in the encrypted message string
+    '''
+    decrypted_message = "".join([alphabet[(alphabet.find(c) - encrypt_shift) % 26] for c in encrypted_message])
+    return decrypted_message
 
-# if punctuation in raw_list 
-for x in raw_message: 
-# checking message for punctuation
-    if x in string.punctuation: 
-    # replace punctuation with blank strings
-        raw_message = raw_message.replace(x, "") 
-# if numbers in user raw_list             
-for z in raw_message:  
-# checking message for numbers
-    if z in string.digits: 
-    # replace numbers with blank strings
-        raw_message = raw_message.replace(z, "") 
+# list of letters we're working with
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-raw_list = list(raw_message)
+# user inputs their unencrypted message and 
+unencrypted_message = input("Enter a message to be encrypted: ").lower()
 
-print(raw_list)
+# asks the user for their desired shift
+encrypt_shift = input("Enter the shift: ")
+# cast to integer
+encrypt_shift = int(encrypt_shift)
 
-rot_letters = {
-    "a": 1,
-    "b": 2,
-    "c": 3,
-    "d": 4,
-    "e": 5,
-    "f": 6,
-    "g": 7,
-    "h": 8,
-    "i": 9,
-    "j": 10,
-    "k": 11,
-    "l": 12,
-    "m": 13,
-    "n": 14,
-    "o": 15,
-    "p": 16,
-    "q": 17,
-    "r": 18,
-    "s": 19,
-    "t": 20,
-    "u": 21,
-    "v": 22,
-    "w": 23,
-    "x": 24,
-    "y": 25,
-    "z": 26
-<<<<<<< HEAD
-}
-=======
-}
+# removes any spaces in the unencrypted message
+unencrypted_message = unencrypted_message.replace(" ", "")
+# removes any symbols in the unencrypted message
 
-# take the letter and find the number value from the rot_letters dictionary
-# add 13 to each number and IF the (number is > 26) - 26 
-# # find the new value from the same dictionary 
+for p in unencrypted_message: # if punctuation in user word1
+    if p in string.punctuation: # checking word for punctuation
+        # replace punctuation with blank strings
+        unencrypted_message = unencrypted_message.replace(p, "") 
 
+# removes any numbers in the unencrypted message
+for n in unencrypted_message: # if numbers in user word1       
+    if n in string.digits: # checking word1 for numbers
+        # replace numbers with blank strings
+        unencrypted_message = unencrypted_message.replace(n, "") 
 
->>>>>>> f27848dcf0c6bb1791555a036794346a611f48bc
+# print the encrypted message
+print(caesar_encrypt(unencrypted_message))
+# print the decrypted message
+print(caesar_decrypt(encrypted_message))

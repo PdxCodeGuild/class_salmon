@@ -47,14 +47,20 @@ hundreds_dict = { 1: 'one-hundered',
 9: 'nine-hundred',
 }
 
-if hundreds > 0 and teens < 20:
-    result = f'{hundreds_dict[hundreds]} {ones_dict[teens]}'   
+if tens == 0 and ones == 0:
+    result = f'{hundreds_dict[hundreds]}'
+
+elif hundreds > 0 and teens < 20:
+    result = f'{hundreds_dict[hundreds]} - {ones_dict[teens]}'   
 
 elif tens < 2 and hundreds == 0:
     result = ones_dict[user_input]
 
-elif hundreds == 0:
-    result = f'{tens_dict[tens]}-{ones_dict[ones]}'
+elif hundreds == 0: 
+    if ones == 0:
+        result = f'{tens_dict[tens]}'
+    else:
+        result = f'{tens_dict[tens]}-{ones_dict[ones]}'
 
 elif hundreds > 0:
     result = f'{hundreds_dict[hundreds]}-{tens_dict[tens]}-{ones_dict[ones]}'

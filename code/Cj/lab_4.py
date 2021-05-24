@@ -39,7 +39,7 @@ return_menu = '''
     Enter: '''
 
 
-while True: ### Beginning game loop.  Only break with exit()
+while True: ### Menu navigtion system
     menu_nav = input(f'{main_menu}')
     try:
         if menu_nav.isnumeric():

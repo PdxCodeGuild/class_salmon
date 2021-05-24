@@ -4,6 +4,8 @@ winning_ticket = []
 
 ticket = []
 
+balance = 0
+
 expenses = 0
 
 income = 0
@@ -43,6 +45,8 @@ def winning_nums():
 
 def buy_ticket():
     global expenses
+    global balance
+    balance -= 2
     expenses += 2
     for i in range(6):
         x = random.randint(1, 99)
@@ -50,15 +54,25 @@ def buy_ticket():
     return ticket
 
 
+# def get_percentage(x, y):
+#     return f'{(x / y) * 100}%'
+
+
+
+
 winning_ticket = winning_nums()
 
 for i in range(100000):
     ticket = buy_ticket()
-    x = validate(ticket)
-    income += win_value(x)
+    validation = validate(ticket)
+    income += win_value(validation)
     ticket = []
     matches = 0
 
-
-print(f'You spent ${expenses} and gained ${income}.')
+# loss = abs(income - expenses)
+# loss_percent = get_percentage(loss, expenses)
+roi = (income - expenses) / expenses
+# print(loss_percent)
+output = (f'You spent ${expenses} and gained ${income}. And your return on investment was {roi}')
+print(output)
 
