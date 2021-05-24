@@ -1,58 +1,17 @@
 jackalope_count = [0, 0]
-breeders = 0
-counter = 1
-# while jackalope population is less than (1000 = target)
-while len(jackalope_count) < 10:
+breeding_min = 4
+breeding_max = 8
+integer_to_add = 0
+loop_counter = 0
+total_population = len(jackalope_count)
+
+while len(jackalope_count) <= 1000:
+    loop_counter += 1
     for i in range(len(jackalope_count)):
         jackalope_count[i] += 1
-    # for values at range 4:9, += 1 for offspring
-    # ony IF it has matching pair.
-    # maybe add to separate variable(breeders), then len(breeders) %2?
     for i in jackalope_count:
-        if i >= 4 and i <= 8:
-            breeders.append(i)
-
-
-print(jackalope_count)
-
-
-"""
-jackalope_count.append
-
-jackalope_baby = []
-
-jackalope_old = []
-
-
-# total_pop = (jackalope_baby + jackalope_pop) - jackalope_old
-
-while jackalope_age < 11:
-    jackalope_age += 1
-
-    if 8 >= jackalope_age >= 4:
-        jackalope_baby += 2
-
-
-jackalope_pop_at_each_age = [range(0, 10)]
-print(jackalope_pop_at_each_age)
-
-#generation  = [2, 2, 2, 4, 6, 8, 10]
-jack_dict = {'0': 2, '1': 0, '2': 0, '3': 0, '4': 0,
-             '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0}
-jackos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-for i in jackos:
-    breeders = jackos[4:9]
-
-breeders // 2 = x
-jackos[0] += x
-
-
-x = generation[4:7]
-for x in x:
-    x += 1
-    print(x)
-
-print(x)
-print(generation[4:7])
-"""
+        if i >= breeding_min and i <= breeding_max:
+            jackalope_count.append(integer_to_add)
+    while 11 in jackalope_count: jackalope_count.remove(11)
+    print(len(jackalope_count))
+    print(f"end of year {loop_counter}\n")
