@@ -26,10 +26,9 @@ expenses = 0
 earnings = 0
 
 # Calculate your net winnings (the sum of all expenses and earnings).
-while counter < 10:
+while counter <= 100000:
     counter += 1
     expenses += 2
-    balance = earnings - expenses
     winning_ticket = pick6()
     player_ticket = pick6()
     if num_matches(winning_ticket, player_ticket) == 1:
@@ -44,12 +43,12 @@ while counter < 10:
         earnings += 1000000
     elif num_matches(winning_ticket, player_ticket) == 6:
         earnings += 25000000
+    balance = earnings - expenses
     print(f'Winning numbers: {winning_ticket}\nPlayer numbers: {player_ticket}')
     print(f'Number of matches: {num_matches(winning_ticket, player_ticket)}')
     print(f'Your balance: {balance}')
 
 # Version 2
 # The ROI (return on investment) is defined as (earnings - expenses)/expenses. Calculate your ROI, print it out along with your earnings and expenses.
-
-return_on_investment = (earnings - expenses)// expenses
+return_on_investment = (earnings - expenses)/ expenses
 print(f'Spent: {expenses}\nEarned: {earnings}\nR.O.I: {return_on_investment}')
