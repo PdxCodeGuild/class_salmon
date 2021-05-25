@@ -49,7 +49,7 @@ else:
     if ones == 0 and x < 100:
         print(tens_dict[tens])
     else:
-        if x < 99:
+        if x <= 99:
             print(f'{tens_dict[tens]} {ones_dict[ones]}')
         else:
             print(

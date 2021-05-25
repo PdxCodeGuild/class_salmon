@@ -9,6 +9,7 @@ card_list = [int(num) for num in card_list]
 # removes last digit from list and stores it in a variable (check digit)
 check_digit = card_list[-1]
 del card_list[-1]
+# this could be done more simply with .pop(), per Merritt's example
 
 # print(f"Check digit = {check_digit}")
 # print(f"Card list= {card_list}")
