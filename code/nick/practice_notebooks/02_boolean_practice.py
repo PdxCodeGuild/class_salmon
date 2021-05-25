@@ -35,9 +35,17 @@ def test_go_hiking():
 #stopped here 25May2021
 # Double Digit
 # Write a function that returns True if the number is a double digit
-
+#ask the user for an input
+num = input('Hey. I can count digits in a number. Pick any number: ')
 def double_digit(num):
-    ...
+    #start a blank counter
+    counter = 0
+    #while loop to count digits
+    while num > 0:
+        #if number is greater than zero, floor divide number to remove one digit from num
+        num = num//10
+        #for each iteration add one to the counter
+        counter +=1
 
 def test_double_digit():
     assert double_digit(5) == False
