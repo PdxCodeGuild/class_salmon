@@ -444,24 +444,34 @@ result_list.append(diff_20)
 
 print(result_list)
 
+peaks_list = []
+valleys_list = []
+
 def peaks(data):
     #print(data)
     if result_list[data] == -1:
         output = print(f"Peak @ index {data}")
+        peaks_list.append(data)
     else:
         output = ""
     return {output}
+
 
 def valleys(data):
     #print(data)
     if result_list[data] == 1:
         output = print(f"Valley @ index {data}")
+        valleys_list.append(data)
     else:
         output = ""
     return {output}
 
+
 def peaks_and_valleys(peaks, valleys):
-    return peaks + valleys
+    output = peaks + valleys
+    output.sort()
+    return output
+
 
 #start = 0
 running_total = 0
@@ -485,4 +495,6 @@ for each_difference in result_list:
         running_total = 0
     i_counter += 1
 
-print(peaks_and_valleys(peaks,valleys))
+
+valleys
+print(peaks_and_valleys(peaks_list, valleys_list))
