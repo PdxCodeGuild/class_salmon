@@ -454,7 +454,7 @@ def peaks(data):
         peaks_list.append(data)
     else:
         output = ""
-    return {output}, peaks_list
+    return [output]
 
 
 def valleys(data):
@@ -498,5 +498,5 @@ for each_difference in result_list:
 
 #print(peaks_list)
 #print(valleys_list)
-#print(peaks)
-print(peaks_and_valleys(peaks_list, valleys_list))
+peaks
+print(peaks_and_valleys(peaks(), valleys_list))
