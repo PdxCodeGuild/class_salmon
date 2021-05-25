@@ -1,4 +1,4 @@
-#Credit card validation
+'''#Credit card validation
 input_string = input('What is the credit card number?')
 #convert from string to list
 input_list = list(input_string)
@@ -33,4 +33,43 @@ if removed_digit_summed_values_list == removed_input:
     print('Valid!')
 else:
     print('Invalid!')
-#I am not sure if this is correct. Everything is coming out invalid, but the example also appears incorrect.
+#I am not sure if this is correct.
+#update. I am an idiot. I did not double everyother digit. I doubled every digit
+#merritt's demonstration
+def cc_validation(original_number):
+    list_of_ints = list(original_number)
+    #better to allow the number of digits to vary with the input
+    for i in range(len(list_of_ints)):
+        list_of_ints[i] = int(list_of_ints[i])
+    #remove the last digit save it to variable
+    check_digit = list_of_ints.pop()
+    #reverses in place
+    list_of_ints.reverse()
+
+    for i in range(len(list_of_ints)):
+        #if index divisible by 2
+        if i % 2 == 0:
+            list_of_ints[i] *=2
+    for i in range(len(list_of_ints)):
+        if list_of_ints[i] > 9:
+            list_of_ints[i] -= 9
+    
+    #use built-in sum funct
+    list_of_ints_sum = sum(list_of_ints)
+    #get the remainder of the sum
+    second_digit_of_sum = list_of_ints_sum % 10
+    
+    return second_digit_of_sum == check_digit
+print(cc_validation('4556737586899855'))
+'''
+# a better way to do it all
+def cc_valid(original_number):
+    list_of_original_number = list(original_number)
+    list_of_ints = [int(num) for num in list_of_original_number]
+    #pop removes the last digit by default, unless specified
+    check_digit = list_of_ints.pop()
+    #
+    reversed_digits = list(reversed(list_of_ints))
+    #needs to have the same numbers going into the list comprehension as coming out
+    #if the digit is divisible by 2, then double the digit for each index i
+    every_other_doubled = [(digit * 2 if i %2 ==0) for i, digit in enumerate(reversed_digits)]

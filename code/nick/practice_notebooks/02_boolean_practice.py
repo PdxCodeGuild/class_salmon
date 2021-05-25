@@ -25,6 +25,7 @@ def go_hiking(weather, energy):
             return True
 #Call the function to test it
 print(go_hiking(weather, energy))
+#right now, everything is returning True. Something not right. 
 
 def test_go_hiking():
     assert go_hiking('tired', 'rainy') == False
@@ -36,17 +37,20 @@ def test_go_hiking():
 # Double Digit
 # Write a function that returns True if the number is a double digit
 #ask the user for an input
-num = input('Hey. I can count digits in a number. Pick any number: ')
+num = int(input('Hey. I can count digits in a number. Pick any number: '))
 def double_digit(num):
     #start a blank counter
     counter = 0
+    discard = 0
     #while loop to count digits
-    while num > 0:
-        #if number is greater than zero, floor divide number to remove one digit from num
-        num = num//10
+    while (num > 0):
+        #if number is greater than zero, remove last number
+        discard = num.pop()
         #for each iteration add one to the counter
-        counter +=1
-
+        counter += 1
+    
+print(double_digit(num))
+#something is not right in the print statement
 def test_double_digit():
     assert double_digit(5) == False
     assert double_digit(55) == True
