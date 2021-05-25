@@ -73,3 +73,8 @@ def cc_valid(original_number):
     #needs to have the same numbers going into the list comprehension as coming out
     #if the digit is divisible by 2, then double the digit for each index i
     every_other_doubled = [(digit * 2 if i %2 ==0) for i, digit in enumerate(reversed_digits)]
+    subtract_nine = [(digit - 9 if digit >9 else digit) for digit in every_other_doubled]
+    digit_sum = sum(subtract_nine)
+    second_digit = digit_sum %10
+    return second_digit == check_digit
+    #you cannot put any statements after this because it will not read after return
