@@ -11,20 +11,17 @@
 energy = input("What is your energy level? spry or tired")
 #Ask user the weather conditions
 weather = input("What are the weather conditions? rainy or sunny")
-
-def go_hiking(weather, energy):
-    zipped = zip(weather, energy)
-    for x,y in zipped:
-        if x == 'tired' and y == 'rainy':
-            return False
-        elif x == 'tired' and y == 'sunny':
-            return False
-        elif x == 'spry' and y == 'rainy':
-            return False
-        else:
-            return True
+def go_hiking(energy, weather):
+    if energy == 'tired' and weather == 'rainy':
+        return False
+    elif energy == 'tired' and weather == 'sunny':
+        return False
+    elif energy == 'spry' and weather == 'rainy':
+        return False
+    elif energy == 'spry' and weather == 'sunny':
+        return True
 #Call the function to test it
-print(go_hiking(weather, energy))
+print(go_hiking(energy, weather))
 #right now, everything is returning True. Something not right. 
 
 def test_go_hiking():
@@ -37,7 +34,7 @@ def test_go_hiking():
 # Double Digit
 # Write a function that returns True if the number is a double digit
 #ask the user for an input
-num = int(input('Hey. I can count digits in a number. Pick any number: '))
+'''num = int(input('Hey. I can count digits in a number. Pick any number: '))
 def double_digit(num):
     #start a blank counter
     counter = 0
@@ -47,9 +44,9 @@ def double_digit(num):
         #if number is greater than zero, remove last number
         discard = num.pop()
         #for each iteration add one to the counter
-        counter += 1
+        counter += 1'''
     
-print(double_digit(num))
+#print(double_digit(num))
 #something is not right in the print statement
 def test_double_digit():
     assert double_digit(5) == False

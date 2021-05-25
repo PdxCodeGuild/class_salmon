@@ -17,7 +17,10 @@ while len(populations) <= 1000:
     years += 1
     adds_jackalopes()
 print(years)
+<<<<<<< HEAD
 
+=======
+>>>>>>> a5fcdd5 (Jackalope Group Lab)
 
 
 '''for i in population:
