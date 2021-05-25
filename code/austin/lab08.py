@@ -1,5 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
 
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 def peaks(lst):
@@ -21,7 +19,3 @@ def valleys(lst):
 def peaks_and_valleys(lst):
     peaks_and_valleys= sorted(peaks(lst) +valleys(lst))
     return peaks_and_valleys
-print(peaks_and_valleys(data))
-plt.hist(data, bins=len(data))  # density=False would make counts
-plt.ylabel('Probability')
-plt.xlabel('Data');
