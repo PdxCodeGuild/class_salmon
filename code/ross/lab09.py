@@ -21,7 +21,7 @@ def ARI(file_name):
     with open(file_name, 'r') as f:
         contents = f.read()
         word_count = contents.count(' ')
-        sentence_count = contents.count('.')
+        sentence_count = contents.count('.') + contents.count('!') + contents.count('?')
         # print("sentences:", sentence_count)
         # print("words: ", word_count)
         char_num = len(contents.replace(" ", ""))
