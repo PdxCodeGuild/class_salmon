@@ -445,28 +445,44 @@ result_list.append(diff_20)
 print(result_list)
 
 def peaks(data):
-    return
+    #print(data)
+    if result_list[data] == -1:
+        output = print(f"Peak @ index {data}")
+    else:
+        output = ""
+    return {output}
 
 def valleys(data):
-    return
+    #print(data)
+    if result_list[data] == 1:
+        output = print(f"Valley @ index {data}")
+    else:
+        output = ""
+    return {output}
 
 def peaks_and_valleys(peaks, valleys):
-    return
+    return peaks + valleys
 
-start = 0
+#start = 0
 running_total = 0
-
+i_counter = 0
 for each_difference in result_list:
+    start = 0
     running_total += each_difference
-    print(f"Start: {result_list(each_difference)}")
-    print(f"Running total: {running_total}")
+    #print(f"Start: {start}")
+    #print(f"Running total: {running_total}")
 
     if start < running_total:
-        print("Going up")
+        #print(f"Going up @ index {i_counter}")
         running_total = 1 
     elif start > running_total:
-        print("Going down")
+        #print(f"Going down @ index {i_counter}")
         running_total = -1
     elif start == running_total:
-        print("Direction change")
+        #print(f"Direction change @ index {i_counter}")
+        peaks(i_counter)
+        valleys(i_counter)
         running_total = 0
+    i_counter += 1
+
+print(peaks_and_valleys(peaks,valleys))
