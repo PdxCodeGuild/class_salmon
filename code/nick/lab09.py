@@ -6,7 +6,7 @@ title = input('what is the name of your text?')
 #you could ask for the directory name but I will not here
 #read the contents of the file
 #testing this by adding a text file to my repo folder (absolute path)
-with open('C:/Users/Nick/Documents/GitHub/class_salmon/code/nick/some.txt', 'r') as f:
+with open('some.txt', 'r') as f:
     contents = f.read()
     #define variables from the ARI formula
     #start tallying the sentences, characters, words
