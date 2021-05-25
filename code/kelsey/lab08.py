@@ -6,18 +6,18 @@ def peaks(data):
     peaks_list = []
     i = 0
     for i, num in enumerate(data):
-        i += 1
         if data[i-1] < data[i] < data[i-1]:
             peaks_list.append(i)
+            i += 1
 
 def valleys(data):
     valleys_list = []
     i = 0
     for i, num in enumerate(data):
-        i += 1
         if data[i-1] > data[i] > data[i-1]:
             valleys_list.append(i)
-
+            i += 1
+            
 def peaks_and_valleys(peaks, valleys):
     peaks_valleys_list = [peaks(data) + valleys(data)]
     return peaks_valleys_list
