@@ -23,5 +23,25 @@ def findit(data):
 
 findit(data)
 
-print(
-    f'Peak indices:  {peak} \nValley indices: {valley}\nPeaks and Valleys: {all_pv}')
+# print(
+#    f'Peak indices:  {peak} \nValley indices: {valley}\nPeaks and Valleys: {all_pv}')
+# ___________________________Testing some other stuff_______________________________
+
+
+highest = max(data)
+counter = 0
+while counter < 9:
+    data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+    printer1 = []
+    for num in data:
+        if num < highest:
+            printer1.append(' ')
+        elif num >= highest:
+            printer1.append('x')
+
+    counter += 1
+    highest -= 1
+    print(' '.join(printer1))
+
+
+print(' '.join([str(num) for num in data]))

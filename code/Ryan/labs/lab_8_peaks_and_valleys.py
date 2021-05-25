@@ -1,18 +1,37 @@
+import warnings
+
+warnings.filterwarnings('ignore')
+
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
-i = 0
+#print(data)
+
+peaks_list = []
+valleys_list = []
 
 def peaks(data):
-    return [6, 14]
+    for i in range(0, len(data)):
+        print(i, data[i])
+
+        if (data[i] - data[i - 1]) == (data[i + 1] - data[i]):
+            print("up")
+    return 
 
 def valleys(data):
-    return [9, 17]
+    for i in range(0, len(data)):
+        print(i, data[i])
 
-def peaks_and_valleys(data):
-    return peaks(data), valleys(data)
+        if (data[i] - data[i - 1]) == (data[i + 1] - data[i]):
+            print("down")
+    return
 
-for each_number in data:
-    print(each_number*"x")
-print(peaks(data))
-print(valleys(data))
-print(peaks_and_valleys(data))
+def peaks_and_valleys(peaks, valleys):
+    return
+
+
+
+print(peaks_list)
+peaks(data)
+
+print(valleys_list)
+valleys(data)
