@@ -7,15 +7,20 @@ def peaks(data):
     i = 0
     for i, num in enumerate(data):
         i += 1
-        if (data[i-1][1]) < (data[i][1]) < (data[i-1][1]):
+        if data[i-1] < data[i] < data[i-1]:
             peaks_list.append(i)
-        
-print(peaks(data))
 
-# def valleys(data):
+def valleys(data):
+    valleys_list = []
+    i = 0
+    for i, num in enumerate(data):
+        i += 1
+        if data[i-1] > data[i] > data[i-1]:
+            valleys_list.append(i)
 
-# def peaks_and_valleys(peaks, valleys):
+def peaks_and_valleys(peaks, valleys):
+    peaks_valleys_list = [peaks(data) + valleys(data)]
+    return peaks_valleys_list
 
-
-# print(f'Peaks in this dataset: {peaks(data)}\nValleys in this dataset: {valleys(data)}\nPeaks and valleys: {peaks_and_valleys(data)}')
+print(f'Peaks: {peaks(data)}\nValleys: {valleys(data)}\nPeaks and valleys: {peaks_and_valleys(data)}')
 
