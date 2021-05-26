@@ -3,24 +3,25 @@
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
 def peaks(data):
-    peaks_list = []
-    i = 0
-    for i, num in enumerate(data):
-        if data[i-1] < data[i] < data[i-1]:
-            peaks_list.append(i)
-            i += 1
+    peaks = []
+    for i in range(len(data)-1): 
+        if data[i - 1] < data[i] > data[i + 1]:
+            peaks.append(i)
+    return peaks
 
 def valleys(data):
-    valleys_list = []
-    i = 0
-    for i, num in enumerate(data):
-        if data[i-1] > data[i] > data[i-1]:
-            valleys_list.append(i)
-            i += 1
-            
-def peaks_and_valleys(peaks, valleys):
-    peaks_valleys_list = [peaks(data) + valleys(data)]
-    return peaks_valleys_list
+    valleys= []
+    for i in range(len(data)-1):
+        if i == 0:
+            continue
+        if data[i-1] > data[i] < data[i+1]:
+            valleys.append(i)
+    return valleys   
+
+def peaks_and_valleys(peaks_and_valleys):
+    pav = peaks(data) + valleys(data)
+    return sorted(pav)
+    
 
 print(f'Peaks: {peaks(data)}\nValleys: {valleys(data)}\nPeaks and valleys: {peaks_and_valleys(data)}')
 
