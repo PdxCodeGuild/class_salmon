@@ -75,4 +75,16 @@ end procedure'''
 b = [5,3,7,8,1,2,0,4]
 def bubble_sort(b):
     n = len(b)
-    
+    #so we know the number of elements n and we want to check index in range of all elements minus one
+    for i in range(n-1):
+        #???
+        if b[i-1] > b[i]: #the index(another index?)
+            #swap them and remember something changed
+            #to do this I think we store the value at the small position, bigger value
+            store_bigger_value = b[i - 1]
+            #now the big value can take the small value position
+            b[i] = b[i-1]
+            #now the small value in store can be assigned to the ...
+            b[i] = store_bigger_value
+            return print(b[i], b[i-1])
+            #saving progress, need to start here later.
