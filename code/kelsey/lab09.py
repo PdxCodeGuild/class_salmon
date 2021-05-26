@@ -50,4 +50,4 @@ ari_scale = {
 grade = ari_scale[ari]['grade_level']
 age = ari_scale[ari]['ages']
 
-print(f'The ARI for {f} is {ari}\nThis corresponds to a(n) {grade} Grade level of difficulty that is suitable for an average person {age} years old.')
+print(f'The ARI for {f} is {ari}\nThis corresponds to a(n) {grade} level of difficulty that is suitable for an average person {age} years old.')
