@@ -7,22 +7,22 @@ def pick6():
     #     ticket.append(random.randint(1,99))
     # return ticket
 
-# def num_matches(winning, ticket):
-#     matches = 0
-#     # for i in range(len(winning)):
-#     #     if winning[i] == ticket[i]:
-#     #         matches += 1
-#     for win, tix in zip(winning, ticket):
-#         if win == tix:
-#             matches += 1
-#     return matches
-
 def num_matches(winning, ticket):
     matches = 0
-    for num in ticket:
-        if num in winning:
+    # for i in range(len(winning)):
+    #     if winning[i] == ticket[i]:
+    #         matches += 1
+    for win, tix in zip(winning, ticket):
+        if win == tix:
             matches += 1
     return matches
+
+# def num_matches(winning, ticket):
+#     matches = 0
+#     for num in ticket:
+#         if num in winning:
+#             matches += 1
+#     return matches
 
 winnings = {6: 25000000, 5: 1000000, 4: 50000, 3: 100, 2: 0, 1: 0, 0: 0}
 
