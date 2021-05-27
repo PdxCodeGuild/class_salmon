@@ -39,7 +39,11 @@ for x in range(1, len(lines)):
 
 list_of_dictionaries = [{'name': 'Sarah', 'favorite animal': 'dog', 'favorite color': 'blue'}, {'name': 'Taylor', 'favorite animal': 'giraffe', 'favorite color': 'green'}, {'name': 'Taylor', 'favorite animal': 'giraffe', 'favorite color': 'green'}, {'name': 'Kyle', 'favorite animal': 'monkey', 'favorite color': 'red'}]
 string_to_output = ''
-for x in range(1,len(list_of_dictionaries)):
+for x in range(len(list_of_dictionaries)):
+    if x == 0:
+        headers = list(list_of_dictionaries[x].keys())
+        headers_string = ','.join(headers)
+        string_to_output += headers_string + '\n'
     list_new = list(list_of_dictionaries[x].values())
     # print(list_new)
     string_new = ','.join(list_new) 
