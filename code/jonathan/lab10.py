@@ -1,12 +1,9 @@
 with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 
+
 # create new user information
-def tsukuru(a):
-    # grab info for user contact
-    user_name = input("\nPlease enter your name: \n").capitalize()
-    user_fruit = input("Please enter your favorite fruit: \n").capitalize()
-    user_color = input("and your favorite color please: \n").capitalize()
+def tsukuru(a, b, c):
     user_list_values = []
     # insert them into list
     user_list_values.append(user_name)
@@ -17,6 +14,10 @@ def tsukuru(a):
     # add to master list
     contacts.append(user_dict)
     return contacts
+# list to strings
+def back_to_strings(list):
+    user_string = ""
+    return (user_string.join(user_list_values))
 # find if user is in contacts
 def sagasu(a, b):    
             for contact in range(len(contacts)):
@@ -60,7 +61,27 @@ user_choice = input("What would you like to do today?\n[CREATE][RETRIEVE][UPDATE
 
 # create
 if user_choice == "create":
-    print(f"Updated list of contacts:\n{tsukuru(contacts)}")
+    # grab info for user contact
+    user_name = input("\nPlease enter your name: \n").capitalize()
+    user_fruit = input("Please enter your favorite fruit: \n").capitalize()
+    user_color = input("and your favorite color please: \n").capitalize()
+    user_list_values = []
+    # insert them into list
+    user_list_values.append(user_name + ",")
+    user_list_values.append(user_fruit + ",")
+    user_list_values.append(user_color)
+    print(f"Here is the updated user information:\n\n{tsukuru(user_name, user_fruit, user_color)}")
+    # adding user info to csv
+    updated_string = back_to_strings(user_list_values)
+    # add the new user info to contacts
+    lines += [updated_string]
+    # add a line break
+    line_split = "\n"
+    # split the string back up with the line break
+    new_contacts = line_split.join(lines)
+    # write new contact information back into file
+    with open('contacts.csv', 'w') as file:
+        file.write(new_contacts)
 # retrieve
 if user_choice == "retrieve":
     user_search = input("Please enter the usersname you would like to search for:\n").capitalize()
@@ -104,5 +125,5 @@ if user_choice == "delete":
             print("\nGoodbye")
             quit()
 else:
-    print("\nGoodbye")
+    #print("\nGoodbye")
     quit()
