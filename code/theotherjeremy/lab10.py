@@ -1,4 +1,4 @@
-with open('contacts.csv', 'r') as file:
+with open('./other/contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 #print('lines: ', lines)
 
@@ -108,5 +108,5 @@ for x in range(len(contacts)):
     string_new = ','.join(list_new)
     newlines += '\n' + string_new
 
-with open('contacts.csv', 'w') as f:
+with open('./other/contacts.csv', 'w') as f:
     f.write(newlines)

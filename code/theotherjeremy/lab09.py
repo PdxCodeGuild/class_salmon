@@ -1,5 +1,5 @@
 import math
-with open('./origin.txt', encoding='utf-8') as orig:
+with open('./other/origin.txt', encoding='utf-8') as orig:
     contents = orig.read()
 
 alpha = 'abcdefg[hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
