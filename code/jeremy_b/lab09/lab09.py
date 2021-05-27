@@ -8,7 +8,9 @@ Date: 5/25/2021
 """
 
 # import libraries
-import os, re
+import os
+import re
+import math
 
 # Dict for ARI scale.
 ari_scale = {
@@ -29,6 +31,16 @@ ari_scale = {
 }
 
 
+def calculate_ari(words, characters, sentences):
+    global ari_scale
+    ari = (4.71 * (characters/words)) + (.5 * (words/sentences)) - 21.43
+    print(f"ARI: {ari}; Rounded ARI: {math.ceil(ari)}")
+    print(f"Chars: {characters}, Words: {words}, Sentences: {sentences}")
+    ari = math.ceil(ari)
+    return f"The ARI for this text is {math.ceil(ari)}. This corresponds to the {ari_scale[ari]['grade_level']} level of " \
+           f"difficulty that is suitable for an average person {ari_scale[ari]['ages']} years old."
+
+
 # function for opening and reading a file.
 def fread():
     # get filename from user.
@@ -43,7 +55,8 @@ def fread():
         with open(filename, "r+") as file_to_check:
             print("File is ready for use!")
             text = file_to_check.read()
-            return wordcount(text)
+
+            return calculate_ari(wordcount(text), charactercount(text), sentencecount(text))
 
     except FileNotFoundError:
         print(f"{filename} does not exist in the current directory!")
@@ -51,6 +64,15 @@ def fread():
 
 def wordcount(text):
     return len(re.findall(r"[a-zA-Z]\w*", text))
+
+
+def charactercount(text):
+    return len(re.findall(r"[A-Za-z]\s*", text))
+
+
+def sentencecount(text):
+    return len(re.findall(r"[A-Z][^\.!?]*[\.!?]", text))
+
 
 
 def end():
@@ -71,7 +93,7 @@ while True:
     choice = int(input("Choice: "))
     try:
         if choice == 1:
-            print(f"Word count: {fread()}")
+            print(fread())
 
         elif choice == 2:
             end()
