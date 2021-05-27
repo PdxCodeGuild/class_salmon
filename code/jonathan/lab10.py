@@ -30,7 +30,7 @@ def lists(list):
             name_list.append(hako)    
             return name_list
 # clones the list
-def clones(list):
+def fukusha(list):
     clone = name1.copy()
     return clone
 # get names
@@ -65,10 +65,10 @@ clean_list = text_to_list(lines)
 
 # set up the five lists
 name1 = lists(clean_list)
-name2 = clones(name1)
-name3 = clones(name1)
-name4 = clones(name1)
-name5 = clones(name1)
+name2 = fukusha(name1)
+name3 = fukusha(name1)
+name4 = fukusha(name1)
+name5 = fukusha(name1)
 
 # get info for 1
 me = get_namae(clean_list)
@@ -116,16 +116,34 @@ name5.insert(3, food5)
 name5.insert(5, shade5)
 
 # convert list to dict
-name_dict1 = (henshin(name1))
-name_dict2 = (henshin(name2))
-name_dict3 = (henshin(name3)) 
-name_dict4 = (henshin(name4))
-name_dict5 = (henshin(name5)) 
+name_dict1 = henshin(name1)
+name_dict2 = henshin(name2)
+name_dict3 = henshin(name3) 
+name_dict4 = henshin(name4)
+name_dict5 = henshin(name5)
 
-# add to a list
+# add to master list
 contacts = []
 contacts.append(name_dict1)
 contacts.append(name_dict2)
 contacts.append(name_dict3)
 contacts.append(name_dict4)
 contacts.append(name_dict5)
+
+# grab info for user contact
+user_name = input("\nPlease enter your name: \n")
+user_fruit = input("Please enter your favorite fruit: \n")
+user_color = input("and your favorite color please: \n")
+user_list = ["Name", "Favorite Fruit", "Favorite Color"]
+
+# insert them into list
+user_list.insert(1, user_name)
+user_list.insert(3, user_fruit)
+user_list.insert(5, user_color)
+
+# convert list to dict
+user_dict = henshin(user_list)
+# add to master list
+contacts.append(user_dict)
+
+#print(contacts)
