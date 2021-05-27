@@ -41,7 +41,7 @@ with open('some.csv', 'r') as file:
         answer[key][int(year)] = (int(count), None)'''
 #for list_of_lines[0]
 #print each step. make a dictionary with key:value pair unique variable for headers first line.
-fillable_list = [{'name': 'nick', 'fruit': 'orange'}]  
+'''fillable_list = [{'name': 'nick', 'fruit': 'orange'}]  
 def retrieve():
     name_wanted = input('what is the name you are looking for?').lower()
     for key in enumerate(fillable_list):
@@ -49,4 +49,23 @@ def retrieve():
             return fillable_list[key]
     else:
         ('bummer, no entry by that name')
-print(retrieve())
+print(retrieve())'''
+
+#below is a code snippet I took from John about collating the list of dictionaries into a list without list comprehension
+list_of_dictionaries = [{'name': 'Sarah', 'favorite animal': 'dog', 'favorite color': 'blue'}, {'name': 'Taylor', 'favorite animal': 'giraffe', 'favorite color': 'green'}, {'name': 'Taylor', 'favorite animal': 'giraffe', 'favorite color': 'green'}, {'name': 'Kyle', 'favorite animal': 'monkey', 'favorite color': 'red'}]
+string_to_output = ''
+for x in range(len(list_of_dictionaries)):
+    if x == 0:
+        headers = list(list_of_dictionaries[x].keys())#this takes the keys and puts them in a list
+        print(headers)
+        headers_string = ','.join(headers)#.join()combines the elements of a list into a single string, separated by a delimiter
+        print(headers_string)
+        string_to_output += headers_string + '\n'#this puts headers in the first positions for the whole .csv
+        print(string_to_output)
+    list_new = list(list_of_dictionaries[x].values())
+    #print(list_new)
+    string_new = ','.join(list_new) 
+    #print(string_new)
+    string_to_output += string_new + '\n'
+
+#print(string_to_output)
