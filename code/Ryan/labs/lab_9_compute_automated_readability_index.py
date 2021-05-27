@@ -56,8 +56,6 @@ def ari_score(chars, words, sentences):
     grade = ari_scale[ari]["grade_level"]
     age = ari_scale[ari]["ages"]
     output = f"The ARI for {file} is {ari}\nThis corresponds to a {grade} Grade level of difficulty\nthat is suitable for an average person {age} years old."
-    #grade_level = ari_scale.values
-    #print(grade_level)
     return output
 
 print(ari_score(total_chars_count,words,sentences))
