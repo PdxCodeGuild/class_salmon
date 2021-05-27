@@ -1,16 +1,13 @@
-from os import unlink
-
-
 with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
-# print(lines)
+#print('lines: ', lines)
 
 
 lines2 = []
 for i in lines:
     lines2.append(i.split(','))
 
-# print('Lines2 :  ', lines2)
+#print('Lines2 :  ', lines2)
 titles = lines2.pop(0)
 
 
@@ -99,6 +96,17 @@ while True:
     elif crud == 'done':
         break
 
-print(contacts)
-'''
-'''
+# print(contacts)
+
+
+newlines = ''
+newlines += (','.join(titles))
+
+
+for x in range(len(contacts)):
+    list_new = list(contacts[x].values())
+    string_new = ','.join(list_new)
+    newlines += '\n' + string_new
+
+with open('contacts.csv', 'w') as f:
+    f.write(newlines)
