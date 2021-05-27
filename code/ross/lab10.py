@@ -56,7 +56,7 @@ def update():
     print(f"Which attribute of {cont_name}'s would you like to update?")
     update_att = input("Enter 'n' for name, 'f' for favorite fruit, or 'c' for color: ")
     new_att = input(f"What is the updated info for {cont_name}'s attribute: ")
-    print("Matched contact list = ", matched_contacts)
+    # print("Matched contact list = ", matched_contacts)
     for i, contact in enumerate(matched_contacts):
         if matched_contacts[i]['name'] == cont_name:
             if update_att == 'n':
@@ -77,7 +77,7 @@ def delete():
     for i, contact in enumerate(matched_contacts):
         if matched_contacts[i]['name'] == cont_name:
             del matched_contacts[i]
-    print(matched_contacts)
+    # print(matched_contacts)
     return f"You successfully deleted {cont_name}"
 
 # Prompt user to create, retrieve, update, or delete a record
@@ -102,6 +102,12 @@ while again == 'y':
     again = input("Would you like to make further changes to the list of users? 'y' or 'n': ")
 
 # -------------------- VERSION 3 ---------------------
-# This writes the updated into to the CSV file after running user through the REPL
+# This writes the updated info to the CSV file after running user through the REPL
 with open('sample_copy.csv', 'w') as f:
-    f.write(str(matched_contacts))
+    f.write(','.join(keys))
+    f.write('\n')
+    for key, contact in enumerate(matched_contacts):
+        for k in contact:
+            f.write(contact[k])
+            f.write(',')
+        f.write('\n')
