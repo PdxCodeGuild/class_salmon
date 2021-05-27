@@ -2,7 +2,7 @@ with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 
 # create new user information
-def tsukuru(str):
+def tsukuru(a):
     # grab info for user contact
     user_name = input("\nPlease enter your name: \n").capitalize()
     user_fruit = input("Please enter your favorite fruit: \n").capitalize()
@@ -17,19 +17,20 @@ def tsukuru(str):
     # add to master list
     contacts.append(user_dict)
     return contacts
-# retrieve if user is in contacts
-def sagasu(str, list):    
+# find if user is in contacts
+def sagasu(a, b):    
             for contact in range(len(contacts)):
                 if contacts[contact]["Name"] == user_search:      
                     return True
             else: 
                 return False
 # finds the user and returns their data
-def search(str):
+def search(a):
     for contact in contacts:
         if contact["Name"] == user_search:
             return contact
 
+# blank list
 contacts = []
 
 # lines into lists
@@ -54,18 +55,13 @@ contacts.append(person_dict3)
 contacts.append(person_dict4)
 contacts.append(person_dict5)
 
-# ask the user if they would like to :
-    # create a new user
-    # retrieve by username
-    # update a username
-        # ask name
-            # then what info to update
-    # delete by username
-
+# crud
 user_choice = input("What would you like to do today?\n[CREATE][RETRIEVE][UPDATE][DELETE][QUIT]\n").lower()
 
+# create
 if user_choice == "create":
     print(f"Updated list of contacts:\n{tsukuru(contacts)}")
+# retrieve
 if user_choice == "retrieve":
     user_search = input("Please enter the usersname you would like to search for:\n").capitalize()
     if sagasu(user_search, contacts) == True:
@@ -73,11 +69,12 @@ if user_choice == "retrieve":
     else:
         print("\nThere was no user with that username.\nGoodbye")
         quit()      
+# update
 if user_choice == "update":
     user_search = input("Please enter the username you would like to update:\n").capitalize()
     if sagasu(user_search, contacts) == True:
         target_contact = search(user_search)
-        edit_choice = input("Select what you would like to edit.\n[NAME][FAVORITE FRUIT][FAVORITE COLOR]\n").lower()
+        edit_choice = input("Select what you would like to update:\n[NAME][FAVORITE FRUIT][FAVORITE COLOR]\n").lower()
         if edit_choice == "name":
             edit_answer = input("Please enter the new name:\n").capitalize()
             target_contact["Name"] = edit_answer
@@ -93,17 +90,19 @@ if user_choice == "update":
     else:
         print("\nThere was no user with that username.\nGoodbye")
         quit()
+# delete
 if user_choice == "delete":
     user_search = input("Please enter the username you would like to delete:\n").capitalize()
     if sagasu(user_search, contacts) == True:
         target_contact = search(user_search)
-        rusure = input(f"Are you sure you would like to delete {user_search.capitalize()} Y/N?").capitalize()
+        rusure = input(f"Are you sure you would like to delete {user_search.capitalize()} \nY/N?\n").capitalize()
         if rusure == "Y":
-            del target_contact #NOT DELETING
+            target_index = contacts.index(target_contact)
+            del contacts[target_index]
             print(f"Updated list of contacts:\n{contacts}")
         else:
             print("\nGoodbye")
             quit()
-if user_choice == "quit":
+else:
     print("\nGoodbye")
     quit()
