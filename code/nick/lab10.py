@@ -124,14 +124,32 @@ print(decide_to_do_something())
 #Version 3
 #write the updated contact info to a CSV
 print(fillable_list)
-with open('output_lab10.csv', 'w') as output_list_file:
-    for name, fruit, color  in fillable_list.items():
-        line = f'{name} {fruit} {color}\n'
-        output_list_file.write(line)
-#reading 
-'''with open('output_lab10.csv') as output_list_file:
-    output_data = output_list_file.read().split('\n')
+#make a list
+cols = ['name', 'fruit', 'color']
 
+#try list comprehension where the column headers I deleted earlier will serve as keys 
+list_of_lists = [[row[key] for key in cols] for row in fillable_list]
+#just_a_list = [row[key] for key in cols for row in fillable_list] #this is just a list. I could put this through a function to sort. That would be more work.
+#this looks like [['merritt', 'cherry', 'red'], ['pete', 'banana', 'aquamarine'], ['john', 'apple', 'yellow']]
+#now need to append with cols
+list_of_lists.insert(0, cols)#0 is the positional, the second arg is what goes into list.
+print(list_of_lists)#now looks like [['name', 'fruit', 'color'], ['merritt', 'cherry', 'red'], ['pete', 'banana', 'aquamarine'], ['john', 'apple', 'yellow']]
+
+with open('some_output_lab10.csv', 'w') as output_list_file: 
+        for name, fruit, color in list_of_lists:
+            list_entry = f'{name}, {fruit}, {color}\n'
+            output_list_file.write(list_entry)
+#below this line is a bunch of useless junk           
+'''#reading 
+with open('some_output_lab10.csv') as output_list_file:
+    output_data = output_list_file.read().split('\n')
+#with open('some_output_lab10.csv', 'r') as output_list_file:
+    lines2 = output_list_file.read()    
+    #print(lines) #I am not sure if lines and list_of_lines are any different. They appear to be printing the same way. 
+    list_of_lines2 = lines2.replace('\n', ',').split(',')#now the pattern is the same - name, fruit, color
+    print(list_of_lines2)
+    len_list_lines2 = len(list_of_lines2)
+    #print(len_list_lines2)
 phone_book = {}
 for line in phone_book_data:
     name, number = line.split()
