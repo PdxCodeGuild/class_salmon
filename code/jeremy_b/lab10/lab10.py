@@ -26,7 +26,7 @@ def parse_contacts(filename):
 
 # define function for creating contacts
 def create_contact(filename):
-    print("\n Add Contact ".center(24, "="))
+    print("\n" + "Add Contact ".center(24, "="))
     name = input("Contact Name: ")
     fruit = input(f"{name}'s favorite fruit: ")
     color = input(f"{name}'s favorite color: ")
@@ -63,6 +63,20 @@ def update_contact(contact_list):
             print("Name entered is not a valid contact.")
 
 
+def delete_contact(contact_list):
+    contact_to_delete = input("Enter name of of contact to delete: ")
+    print('\n')
+    for contact in contact_list:
+        if contact['name'] == contact_to_delete:
+            print(f"Delete contact: {contact_to_delete}")
+            if input("Do you want to permanently delete this contact y/n?") in ['y', 'Y']:
+                contact_list.pop(contact_list.index(contact))
+                print(f"{contact_to_delete} was removed!")
+            else:
+                print("The operation was not completed.  No contacts were removed.")
+    return contact_list
+
+
 # Program runtime starts here
 print(" Contact Management ".center(24, '*'))
 # Get file name for contacts list.  This is only needed on initial startup.  The same file will be used until the
@@ -85,12 +99,17 @@ while True:
             contacts.append(create_contact(file))
         elif int(choice) == 2:
             contacts = update_contact(contacts)
+        elif int(choice) == 3:
+            contacts = delete_contact(contacts)
         elif int(choice) == 4:
             # reinsert header into list before writing CSV file
-            contacts.insert(0,{'name': 'name', 'fav_fruit': 'fav_fruit', 'fav_color': 'fav_color'})
+            contacts.insert(0, {'name': 'name', 'fav_fruit': 'fav_fruit', 'fav_color': 'fav_color'})
             with open(file, 'w') as outfile:
                 for contact in contacts:
-                    outfile.write(f"{contact['name']},{contact['fav_fruit']},{contact['fav_color']}\n")
+                    if contacts.index(contact) != len(contacts) - 1:
+                        outfile.write(f"{contact['name']},{contact['fav_fruit']},{contact['fav_color']}\n")
+                    else:
+                        outfile.write(f"{contact['name']},{contact['fav_fruit']},{contact['fav_color']}")
             print("\nThank you for using Contact Manager")
             break
         else:
