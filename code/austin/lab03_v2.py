@@ -17,16 +17,19 @@ def num_to_words(num):
         tens_dig = ((num-hunds_dig) // 10) * 10
         ones_dig = num % 10
         under_20 = num - hunds_dig
-        if ones_dig == 0:
+        if num - hunds_dig < 20 and ones_dig != 0:
+            return dict1[hunds_dig] + ' and ' + dict1[under_20]
+        elif ones_dig == 0:
             if tens_dig == 0:
                 return dict1[hunds_dig]
             else:
                 return dict1[hunds_dig] + ' and ' + dict1[tens_dig]
         elif tens_dig == 0:
             return dict1[hunds_dig] + ' and ' + dict1[tens_dig]
-        elif num - hunds_dig < 20:
-            return dict1[hunds_dig] + ' and ' + dict1[under_20]
         else:
             return dict1[hunds_dig]+ ' and ' + dict1[tens_dig] + '-' + dict1[ones_dig]
     else:
         return "Input not valid."
+
+for num in range(0,1000):
+    print(num_to_words(num))

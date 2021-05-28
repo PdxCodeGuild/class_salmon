@@ -1,6 +1,8 @@
+import os
+
 with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
-    print(lines)
+    print(file)
 # with open('contacts.csv', 'r') as file:
 #     firstline = True
 #     a = []
