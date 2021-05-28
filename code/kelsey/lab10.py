@@ -22,16 +22,16 @@ for i in range(len(lines)):
 
 # Create a record: ask the user for each attribute, add a new contact to your contact list with the attributes that the user entered.
 def create_record():   
-    enter_name = input('Enter your name: ')
-    enter_fav_animal = input('Enter your favorite animal: ')
-    enter_fav_color = input('Enter your favorite color: ')
+    enter_name = input('Enter name: ')
+    enter_fav_animal = input('Enter favorite animal: ')
+    enter_fav_color = input('Enter favorite color: ')
     created_dict = {'name': enter_name, 'favorite animal': enter_fav_animal, 'favorite color': enter_fav_color}
     list_of_dicts.append(created_dict)
 
 # Retrieve a record: ask the user for the contact's name, find the user with the given name, and display their information
 def retrieve_record():
     results = []
-    enter_name = input('Enter your name: ')
+    enter_name = input('Whose record would you like to retrieve? ')
     for item in list_of_dicts:
         if enter_name == item['name']:
             results.append(item)
