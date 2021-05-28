@@ -194,6 +194,15 @@ http://www.eecs.ucf.edu/~leavens/ComS541Fall97/hw-pages/paradigms/major.html
 More Programming Paradigms  
 http://cs.lmu.edu/~ray/notes/paradigms/
 
+Big-O Cheat Sheet  
+https://www.bigocheatsheet.com
+
+More about sorting  
+https://visualgo.net/en/sorting?slide=1
+
+15 Sorting Algorithims in 6 Minutes  
+https://www.youtube.com/watch?v=kPRA0W1kECg
+
 Awesome Python (list of frameworks/libraries/software/resources)  
 https://awesome-python.com/
 
