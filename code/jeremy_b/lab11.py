@@ -8,6 +8,9 @@ Date: 5/24/2021
 """
 
 
+import random
+
+
 def linear_search(nums, to_find):
     for num in nums:
         if to_find == num:
@@ -30,6 +33,15 @@ def binary_search(nums, to_find):
     return -1
 
 
+def bubble_sort(nums):
+
+    for i in range(len(nums) - 1):
+        for j in range(0, len(nums) - 1 - 1):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j+1], nums[j]
+    return nums
+
+
 # Linear search:
 sample = [1, 2, 3, 4, 5, 6, 7, 8]
 number = int(input("Enter an integer: "))
@@ -48,3 +60,6 @@ else:
     print(index)
 
 # bubble search
+sample = [random.randint(1, 100) for i in range(20)]
+print(f"Original List: {sample}")
+print(f"  Sorted List: {bubble_sort(sample)}")
