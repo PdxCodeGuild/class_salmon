@@ -1,7 +1,6 @@
 with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 
-
 # create new user information
 def tsukuru(a, b, c):
     user_list_values = []
@@ -100,14 +99,17 @@ if user_choice == "update":
             edit_answer = input("Please enter the new name:\n").capitalize()
             target_contact["Name"] = edit_answer
             print(target_contact)
+            
         if edit_choice == "favorite fruit":
             edit_answer = input("Please enter the new favorite fruit:\n").capitalize()
             target_contact["Favorite Fruit"] = edit_answer
             print(target_contact)
+
         if edit_choice == "favorite color":
             edit_answer = input("Please enter the new favorite color:\n").capitalize()
             target_contact["Favorite Color"] = edit_answer
             print(target_contact)
+            
     else:
         print("\nThere was no user with that username.\nGoodbye")
         quit()
