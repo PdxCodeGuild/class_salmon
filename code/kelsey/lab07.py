@@ -4,7 +4,7 @@
 import string
 
 letters = string.ascii_lowercase
-coded_msg = list(input('Enter your letters: ').lower()) # list of letters
+coded_msg = list(input('Enter your letters: ').lower()) 
 
 def rot13(coded_msg):
     output = []
