@@ -17,36 +17,50 @@ for i in range(len(lines)):
         individual_info[headers[2]] = contact[2]
         list_of_dicts.append(individual_info)
 
-print(list_of_dicts)
 
 #Version 2 -Implement a CRUD REPL
 
 # Create a record: ask the user for each attribute, add a new contact to your contact list with the attributes that the user entered.
-def created_record():
+def create_record():   
     enter_name = input('Enter your name: ')
     enter_fav_animal = input('Enter your favorite animal: ')
     enter_fav_color = input('Enter your favorite color: ')
     created_dict = {'name': enter_name, 'favorite animal': enter_fav_animal, 'favorite color': enter_fav_color}
-    return list_of_dicts.append(created_dict)
+    list_of_dicts.append(created_dict)
 
 
 # Retrieve a record: ask the user for the contact's name, find the user with the given name, and display their information
 def retrieve_record():
-    retrieve_name = input("What is the contact's name? ")
-    return individual_info[]
+    results = []
+    enter_name = input('Enter your name: ')
+    for item in list_of_dicts:
+        if enter_name == item['name']:
+            results.append(item)
+    return results
+
 # Update a record: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
-def update_record(retrieve_record):
-    retrieve_record()
+def update_record():
+    update_record = input('Whose record would you like to update? ')
+    for index, item in enumerate(list_of_dicts):
+        if update_record == item['name']:
+            print('What do you want to update it to? ')
+            enter_name = input('Enter name you\'d like to update to: ')
+            enter_fav_animal = input('Enter animal you\'d like to update to: ')
+            enter_fav_color = input('Enter color you\'d like to update to: ')
+            created_dict = {'name': enter_name, 'favorite animal': enter_fav_animal, 'favorite color': enter_fav_color}
+            list_of_dicts[index] = created_dict
 
 
 # Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
-def delete_record(retrieve_record):
-    retrieve_record()
+def delete_record():
     remove_record = input('Whose record would you like to remove? ')
-    return
+    for index, item in enumerate(list_of_dicts):
+        if remove_record == item['name']:
+            list_of_dicts.pop(index)
+    
 
 # Version 3 - write the updated contact info to the CSV file to be saved
-with open('contacts_copy.csv', 'w') as f:
+with open('contacts.csv', 'w') as f:
     f.write(','.join(headers))
     for contact in list_of_dicts:
         f.write('\n')
