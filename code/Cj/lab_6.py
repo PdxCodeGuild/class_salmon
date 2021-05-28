@@ -1,18 +1,18 @@
-def validate(card_number):
-    card_number = list(card_number)
-    card_number = [int(index) for index in card_number]   
-    check_digit = card_number.pop(-1)
-    card_number.reverse()
-    card_number = [card_number[index] * 2 if index % 2 == 0 else card_number[index] for index in range(len(card_number))]
-    card_number = [card_number[index] - 9 if card_number[index] > 9 else card_number[index] for index in range(len(card_number))]
-    total = sum(card_number)
+def validate(cc_num):
+    cc_num = list(cc_num)
+    cc_num = [int(index) for index in cc_num]   
+    check_digit = cc_num.pop(-1)
+    cc_num.reverse()
+    cc_num = [cc_num[index] * 2 if index % 2 == 0 else cc_num[index] for index in range(len(cc_num))]
+    cc_num = [cc_num[index] - 9 if cc_num[index] > 9 else cc_num[index] for index in range(len(cc_num))]
+    total = sum(cc_num)
     if total % 10 == check_digit:
         return True
     else:
         return False
      
-card_number = input('Enter Credit Card Number: ')
-output = 'Card Number Valid!' if validate(card_number) is True else 'Invalid Card Number! '
+cc_num = input('Enter Credit Card Number: ')
+output = 'Card Number Valid!' if validate(cc_num) is True else 'Invalid Card Number! '
 print(output)
 # card_number = input('Enter Credit Card Number: ')
 # if validate(card_number) is True:

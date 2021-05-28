@@ -90,6 +90,9 @@ number_to_translate = input("Enter an integer from 0 - 999: ")
 
 # Convert number to string of ints
 number_to_translate = [int(number) for number in number_to_translate]  # Some more list comprehension
+
+# Perform the translation
+# Note: This is very ugly!  Is there a better way?
 if len(number_to_translate) == 1:
     print(translate_ones_digit(number_to_translate[0]))
 
