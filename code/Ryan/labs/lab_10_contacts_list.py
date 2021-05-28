@@ -294,21 +294,27 @@ def menu(selection):
     #fav_food = str(input("Enter a favorite food: "))
     #fav_color = str(input("Enter a favorite color: "))
     switch_menu = {
-        1: create_record(),
-
+        1: create_record(gather_input()),
         2: retrieve_record(),
-
         3: update_record(),
-
         4: delete_record(),
     }
 
     # key = N
-    # value = switch_menu.get(key, "default")
+    # print(switch_menu.get(1, "Invalid Choice"))
     return switch_menu.get(selection, "Invalid Choice")
 
-def create_record():
-    add_record = []
+def gather_input():
+    name = input("Enter a name: ")
+    fav_food = input("Enter a food: ")
+    fav_color = input("Enter a color: ")
+    return {"name": name}
+
+def create_record(gather):
+    #print(gather)
+    #print(contacts_list)
+    #for item in range(len(contacts_list)):
+    #    print(contacts_list[item][gather])
     return
 
 def retrieve_record():
@@ -470,7 +476,7 @@ for l in lines:
 # switch_menu = {
 # 1: create_record(),
 
-# 2: retrieve_record(),
+# 2: retrieve_record(),1
 
 # 3: update_record(),
 
@@ -482,10 +488,10 @@ for l in lines:
 # key = N
 # value = switch_menu.get(key, "default")
 
-print(menu(input(f"""
+print(menu(int(input(f"""
 Make a selection
 1) Create Record
 2) Retrieve Record
 3) Update Record
 4) Delete Record
-Choice: """)))
+Choice: """))))
