@@ -56,6 +56,13 @@ Presentation Day: August 27th, 2021
 02 Average Numbers  
 03 Number To Phrase  
 04 Blackjack Advice  
+05 Pick 6  
+06 Credit Card Validation  
+07 ROT13  
+08 Peaks And Valleys  
+09 ARI  
+10 Contact List  
+11 Searching And Sorting  
 
 <!-- #### Optional Python Labs -->
 
@@ -193,6 +200,15 @@ http://www.eecs.ucf.edu/~leavens/ComS541Fall97/hw-pages/paradigms/major.html
 
 More Programming Paradigms  
 http://cs.lmu.edu/~ray/notes/paradigms/
+
+Big-O Cheat Sheet  
+https://www.bigocheatsheet.com
+
+More about sorting  
+https://visualgo.net/en/sorting?slide=1
+
+15 Sorting Algorithims in 6 Minutes  
+https://www.youtube.com/watch?v=kPRA0W1kECg
 
 Awesome Python (list of frameworks/libraries/software/resources)  
 https://awesome-python.com/

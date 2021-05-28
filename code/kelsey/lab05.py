@@ -10,10 +10,10 @@ def pick6():
 # Another function could be num_matches(winning, ticket) which returns the number of matches between the winning numbers and the ticket.
 def num_matches(winning_ticket, player_ticket): 
     matches = 0
-    for win, tix in zip(winning_ticket, player_ticket):
-        if win == tix:
+    for i in range(len(winning_ticket)):
+        if winning_ticket[i] == player_ticket[i]:
             matches += 1
-        return matches
+    return matches
 
 winning_ticket = pick6()
 
@@ -24,7 +24,7 @@ expenses = 0
 earnings = 0
 
 # Calculate your net winnings (the sum of all expenses and earnings).
-while counter <= 100000: 
+while counter <= 5: 
     counter += 1
     expenses += 2
     player_ticket = pick6()

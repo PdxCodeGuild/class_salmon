@@ -52,52 +52,9 @@ def ari_score(chars, words, sentences):
 
     ari = math.ceil((left_half + right_half) - 21.43)
 
-    #ari_scale.get(ari) 
-    #print(ari_scale[ari])
-    #grade_level = ari_scale.values
-    #print(grade_level)
-    if ari == 1:
-        grade = "Kindergarten"
-        age = "5-6"
-    if ari == 2:
-        grade = "1st"
-        age = "6-7"    
-    if ari == 3:
-        grade = "2nd"
-        age = "7-8"
-    if ari == 4:
-        grade = "3rd"
-        age = "8-9"    
-    if ari == 5:
-        grade = "4th"
-        age = "9-10"
-    if ari == 6:
-        grade = "5th"
-        age = "10-11"
-    if ari == 7:
-        grade = "6th"
-        age = "11-12"
-    if ari == 8:
-        grade = "7th"
-        age = "12-13"
-    if ari == 9:
-        grade = "8th"
-        age = "13-14"
-    if ari == 10:
-        grade = "9th"
-        age = "14-15"
-    if ari == 11:
-        grade = "10th"
-        age = "15-16"
-    if ari == 12:
-        grade = "11th"
-        age = "16-17"
-    if ari == 13:
-        grade = "12th"
-        age = "17-18"
-    if ari == 14:
-        grade = "College"
-        age = "18-22"
+    ari_scale.get(ari) 
+    grade = ari_scale[ari]["grade_level"]
+    age = ari_scale[ari]["ages"]
     output = f"The ARI for {file} is {ari}\nThis corresponds to a {grade} Grade level of difficulty\nthat is suitable for an average person {age} years old."
     return output
 

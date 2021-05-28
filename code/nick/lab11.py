@@ -34,7 +34,7 @@ n = len(A)
 #print(n)
 #T is the target value of the binary search, according to wiki
 #I guess this means we cannot have duplicates in A?
-T = 5 #int(input('pick a number to search for in the binary search algo: '))
+T = int(input('pick a number to search for in the binary search algo: '))
 def binary_search(A, n, T):
     low = 0
     print(low)
@@ -57,7 +57,7 @@ print(binary_search(A,n,T))
 #Part 3 Bubble Sort
 '''procedure bubbleSort(A : list of sortable items)
     n := length(A)
-    repeat
+    repeat #while some condition not met while == True: break
         swapped = false
         for i := 1 to n - 1 inclusive do
             /* if this pair is out of order */
@@ -67,35 +67,47 @@ print(binary_search(A,n,T))
                 swapped := true
             end if
         end for
-    until not swapped
+    until not swapped #starts at the repeat
 end procedure'''
 #pseudocode for bubble sort
 #the point of the algorithm is to sort out an unsorted list
 #make an unsorted list
 b = [5,3,7,8,1,2,0,4]
+
 def bubble_sort(b):
     n = len(b)
     #so we know the number of elements n and we want to check index in range of all elements minus one
-    for i in range(n-1):#so this is running a bunch of times through the list
+    for iteration in range(n-1):#so this is running a bunch of times through the list or it is meant to
         #??? make a marker, I guess
-        marker = 0
-        while marker < n:
-            if b[i-1] > b[i]: #the index(another index?)
+        marker = 0 #this starts as zero then it goes up to one if the for loop sorts the list correctly.
+        for x in range(n-1):#range(start, stop[, step]) I tried this for the whole length n-1 but it does not work
+            #print(x)
+            #print(marker)
+            if b[x] > b[x+1]: #the index(another index?)
                 #swap them and remember something changed
                 #to do this I think we store the value at the small position, bigger value
-                store_bigger_value = b[i - 1]
-                store_small_value = b[i]
+                store_bigger_value = b[x]
+                #print(b)
+                #print(b[i])
+                #print(b[i+1])
+                store_small_value = b[x+1]
                 #now the big value can take the small value position
-                b[i] = store_bigger_value
+                b[x+1] = store_bigger_value
                 #now the small value in store can be assigned to the ...
-                b[i - 1] = store_small_value
-                #return b[i], b[i-1]
-                marker += 1                
+                b[x] = store_small_value
+                marker = 1 #I tried doing this += beforehand and it does not work, the point is that the i position either is sorted correctly or is not.
+                #it does not make sense to use a counter here.
+            #else:
+            #    break
+        if marker == 1:#
+            return bubble_sort(b)
+    #print(b)
+    return b             
         #I think this will compare the length in marker to the length in the now sorted list
         #when they are the same the for loop should exit then return b
-        if marker == n:
-            break
-        return b
+        #if marker == range(n-1): #this does not work
+        #    break
+        #return b
 print(bubble_sort(b))
 print(b)
-#WTF
+#This appears to be working now
