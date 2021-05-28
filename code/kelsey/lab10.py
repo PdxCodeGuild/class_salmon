@@ -18,7 +18,7 @@ for i in range(len(lines)):
         list_of_dicts.append(individual_info)
 
 
-#Version 2 -Implement a CRUD REPL
+# Version 2 -Implement a CRUD REPL
 
 # Create a record: ask the user for each attribute, add a new contact to your contact list with the attributes that the user entered.
 def create_record():   
@@ -27,7 +27,6 @@ def create_record():
     enter_fav_color = input('Enter your favorite color: ')
     created_dict = {'name': enter_name, 'favorite animal': enter_fav_animal, 'favorite color': enter_fav_color}
     list_of_dicts.append(created_dict)
-
 
 # Retrieve a record: ask the user for the contact's name, find the user with the given name, and display their information
 def retrieve_record():
@@ -44,12 +43,11 @@ def update_record():
     for index, item in enumerate(list_of_dicts):
         if update_record == item['name']:
             print('What do you want to update it to? ')
-            enter_name = input('Enter name you\'d like to update to: ')
-            enter_fav_animal = input('Enter animal you\'d like to update to: ')
-            enter_fav_color = input('Enter color you\'d like to update to: ')
+            enter_name = input('Update name to: ')
+            enter_fav_animal = input('Update favorite animal to: ')
+            enter_fav_color = input('Update favorite color to: ')
             created_dict = {'name': enter_name, 'favorite animal': enter_fav_animal, 'favorite color': enter_fav_color}
             list_of_dicts[index] = created_dict
-
 
 # Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
 def delete_record():
