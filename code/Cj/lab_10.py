@@ -1,4 +1,3 @@
-
 with open('c:\\Users\\Cj\\Documents\\PDX_CODE_GUILD_BOOT_CAMP\\class_salmon\\code\\Cj\\contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 
