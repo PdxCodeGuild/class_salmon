@@ -77,24 +77,24 @@ b = [5,3,7,8,1,2,0,4]
 def bubble_sort(b):
     n = len(b)
     #so we know the number of elements n and we want to check index in range of all elements minus one
-    for i in range(n-1):#so this is running a bunch of times through the list or it is meant to
+    for iteration in range(n-1):#so this is running a bunch of times through the list or it is meant to
         #??? make a marker, I guess
         marker = 0 #this starts as zero then it goes up to one if the for loop sorts the list correctly.
         for x in range(n-1):#range(start, stop[, step]) I tried this for the whole length n-1 but it does not work
             #print(x)
             #print(marker)
-            if b[i] > b[i+1]: #the index(another index?)
+            if b[x] > b[x+1]: #the index(another index?)
                 #swap them and remember something changed
                 #to do this I think we store the value at the small position, bigger value
-                store_bigger_value = b[i]
+                store_bigger_value = b[x]
                 #print(b)
                 #print(b[i])
                 #print(b[i+1])
-                store_small_value = b[i+1]
+                store_small_value = b[x+1]
                 #now the big value can take the small value position
-                b[i+1] = store_bigger_value
+                b[x+1] = store_bigger_value
                 #now the small value in store can be assigned to the ...
-                b[i] = store_small_value
+                b[x] = store_small_value
                 marker = 1 #I tried doing this += beforehand and it does not work, the point is that the i position either is sorted correctly or is not.
                 #it does not make sense to use a counter here.
             #else:
