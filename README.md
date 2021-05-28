@@ -56,6 +56,13 @@ Presentation Day: August 27th, 2021
 02 Average Numbers  
 03 Number To Phrase  
 04 Blackjack Advice  
+05 Pick 6  
+06 Credit Card Validation  
+07 ROT13  
+08 Peaks And Valleys  
+09 ARI  
+10 Contact List  
+11 Searching And Sorting  
 
 <!-- #### Optional Python Labs -->
 
