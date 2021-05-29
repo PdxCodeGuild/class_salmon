@@ -46,7 +46,7 @@ class ATM:
         self.interest_rate.append(interest_rate)
     def '''
 #implement initilizer
-atm = ATM() # create an instance of our class
+atm = ATM() # create an **instance** of our class (also known as instantiating)
 print('atm variable is ' + str(atm))
 print('Welcome to the ATM')
 while True:
