@@ -2,7 +2,7 @@
 class Player:#proper python has classes in WordCase, first letter cap and run together
     def __init__(self, name = 'hey you', token = 'x' or 'o'):#when the args have something assigned these are defaults
         self.name = name
-        self.token = token
+        self.token = token#hmm can I assign two default values?
      
 class Game:
     def __init__(self):
@@ -11,8 +11,8 @@ class Game:
         # return self.board
     def __repr__(self):#will print (magic funct)
         return self.board
-    def move(self, x, y, player):
-        self.board = x,y,
+    def move(self, x, y, player):#I will need to assign x or o to the player attribute somewhere
+        self.board[(x,y)] = player
 
 
 game = Game()#new instance of game
