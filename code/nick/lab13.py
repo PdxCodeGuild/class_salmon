@@ -2,7 +2,7 @@
 class Player:#proper python has classes in WordCase, first letter cap and run together
     def __init__(self, name = 'hey you', token = 'x' or 'o'):#when the args have something assigned these are defaults
         self.name = name
-        self.token = token#hmm can I assign two default values?
+        self.token = token#hmm can I assign two default values? It does not appear so
      
 class Game:
     def __init__(self):
@@ -12,10 +12,15 @@ class Game:
     def __repr__(self):#will print (magic funct)
         return self.board
     def move(self, x, y, player):#I will need to assign x or o to the player attribute somewhere
-        self.board[(x,y)] = player
+        self.board[(x,y)] = player#maybe this should be token?
 
 
 game = Game()#new instance of game
+player1 = Player()
+player2 = Player()
+print(player1.token)#this is printing x
+print(player2.token)#this is also printing x
+#print(game.move(0,0,player))
 print(game.board)
 # print(Game())
 # board_structure = [('','',''),('','',''),('','','')] #see data design OOP notebook
