@@ -1,10 +1,8 @@
-transactions = []
-
 class ATM:
     # this initializes the class
     def __init__(self):
         self.balance = 0
-
+        self.transactions = []
     # this returns the balance in the account
     def check_balance(self):
         balance = self.balance
@@ -36,11 +34,11 @@ class ATM:
 
     # this method compiles a list of transactions
     def list_transactions(self, transaction):
-        transactions.append(transaction)
+        self.transactions.append(transaction)
 
     # this method compiles and prints a list of the users transactions
     def print_transactions(self):
-        return transactions
+        return self.transactions
 
 atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
