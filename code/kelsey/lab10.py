@@ -36,7 +36,7 @@ def retrieve_record():
         if enter_name == item['name']:
             results.append(item)
     return results
-
+    
 # Update a record: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
 def update_record():
     update_record = input('Whose record would you like to update? ')
@@ -55,7 +55,26 @@ def delete_record():
     for index, item in enumerate(list_of_dicts):
         if remove_record == item['name']:
             list_of_dicts.pop(index)
-    
+
+def menu():
+    user_options = input('What would you like to do? \n1. Create a record\n2. Retrieve a record\n3. Update a record\n4. Delete a record\n')
+    if user_options == '1':
+        print(create_record()) 
+    elif user_options == '2':
+        print(retrieve_record())
+    elif user_options == '3':
+        print(update_record())
+    elif user_options == '4':
+        print(delete_record())
+    keep_going = input('Continue? Y/N ').upper()
+    while keep_going == 'Y':
+        print(menu())
+        keep_going
+        break
+    else:
+        print('Goodbye!')
+
+menu()
 
 # Version 3 - write the updated contact info to the CSV file to be saved
 with open('contacts.csv', 'w') as f:
@@ -66,5 +85,4 @@ with open('contacts.csv', 'w') as f:
             if header != 'name':
                 f.write(',')
             f.write(contact[header])
-        
 
