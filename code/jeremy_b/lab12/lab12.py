@@ -2,34 +2,16 @@
 
 Author: Jeremy Bush
 Project: Programming Boot Camp Lab 12
-Version: 1
+Version: 3
 Date: 6/1/2021
 
 """
 
 
-class Atm:
-    def __init__(self):
-        self.balance = 0.00
-
-    def check_balance(self):
-        return self.balance
-
-    def deposit(self, amount):
-        self.balance += amount
-
-    def check_withdrawal(self, amount):
-        return amount < self.balance
-
-    def withdraw(self, amount):
-        self.balance -= amount
-        return self.balance
-
-    def calc_interest(self):
-        return round(self.balance * .001, 2)
+import ATM
 
 
-atm = Atm()
+atm = ATM.Atm()
 
 print('Welcome to the ATM')
 while True:
@@ -40,9 +22,9 @@ while True:
     elif command == 'deposit':
         amount = float(input('How much would you like to deposit? '))
         atm.deposit(amount) # call the deposit(amount) method
-        print(f'Deposited ${amount}')
+        print(f'Deposited $' + f"{ : .2f}".format(amount))
     elif command == 'withdraw':
-        amount = float(input('How much would you like '))
+        amount = float(input('How much would you like ').format())
         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
             atm.withdraw(amount) # call the withdraw(amount) method
             print(f'Withdrew ${amount}')
@@ -53,17 +35,27 @@ while True:
         print(amount)
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
+    elif command == 'transactions':
+        print("Transaction History:")
+        if len(atm.transactions) > 0:
+            for transaction in atm.transactions:
+                print(transaction)
+        else:
+            print("No transactions found!")
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')
         print('deposit  - deposit money')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
+        print('transactions - Print transactions')
         print('exit     - exit the program')
     elif command == 'exit':
         break
     else:
         print('Command not recognized')
+
+
 
 
 
