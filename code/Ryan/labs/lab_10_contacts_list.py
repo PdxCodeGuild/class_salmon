@@ -289,45 +289,52 @@ __spec__ = None # (!) real value is "ModuleSpec(name='_csv', loader=<class '_fro
 
 contacts_list = []
 
-def menu(selection):
-    #contacts_list[name(name)]
-    #fav_food = str(input("Enter a favorite food: "))
-    #fav_color = str(input("Enter a favorite color: "))
-    switch_menu = {
-        1: create_record(gather_input()),
-        2: retrieve_record(),
-        3: update_record(),
-        4: delete_record(),
-    }
+# def menu(selection):
+#     #contacts_list[name(name)]
+#     #fav_food = str(input("Enter a favorite food: "))
+#     #fav_color = str(input("Enter a favorite color: "))
+#     switch_menu = {
+#         1: create_record(gather_input()),
+#         2: retrieve_record(gather_input()),
+#         3: update_record(gather_input()),
+#         4: delete_record(gather_input()),
+#         0: exit(menu)
+#     }
 
-    # key = N
-    # print(switch_menu.get(1, "Invalid Choice"))
-    return switch_menu.get(selection, "Invalid Choice")
+#     # key = N
+#     # print(switch_menu.get(1, "Invalid Choice"))
+#     return switch_menu.get(selection, "Invalid Choice")
 
-def gather_input():
-    name = input("Enter a name: ")
-    fav_food = input("Enter a food: ")
-    fav_color = input("Enter a color: ")
-    return {"name": name}
+# def gather_input():
+#     name = input("Enter a name: ")
+#     fav_food = input("Enter a food: ")
+#     fav_color = input("Enter a color: ")
+#     return 
 
-def create_record(gather):
-    #print(gather)
-    #print(contacts_list)
-    #for item in range(len(contacts_list)):
-    #    print(contacts_list[item][gather])
-    return
+# def create_record(gather):
+#     print("create record")
+#     print(gather)
+#     #print(contacts_list)
+#     #for item in range(len(contacts_list)):
+#     #    print(contacts_list[item][gather])
+#     return
 
-def retrieve_record():
-    return
+# def retrieve_record(gather):
+#     print("retrieve record")
+#     return
 
-def update_record():
-    return
+# def update_record(gather):
+#     print("update record")
+#     return
 
-def delete_record():
-    return
+# def delete_record(gather):
+#     print("delete record")
+#     return
 
-
-# with open(filename) as file_obj:
+# def write_file():
+#     print("write file")
+#     return
+#  with open(filename) as file_obj:
 #     #print(type(file_obj))
     
 #     clean_lines = re.split("\n|,", file_obj.read())
@@ -340,9 +347,20 @@ def delete_record():
 # file_obj.close()
 
 with open(filename) as file_obj:
+    lines = file_obj.read().strip().split("\n")
+    print(type(lines))
+    headers = lines.pop(0)
+    #print(f"Headers: {headers}")
+    header_items = headers.split(",")
+    headers_list = [h for h in headers.split(",")]
+
+print(headers_list)
+
+
+
     #print(re.split(",|\n", file_obj.read()))
     # Count the # of items for header
-    lines = file_obj.read().strip().split("\n")
+
     #print(len(lines[0].split(",")))
 
 
@@ -371,7 +389,7 @@ with open(filename) as file_obj:
     #header_list = []
     #header_value = []
     # Remove the headers
-    headers = lines.pop(0)
+
     
     #for l in lines:
     #    print(l)
@@ -386,9 +404,6 @@ with open(filename) as file_obj:
     #     results.append((word))
 
     # print(results)
-    print(f"Headers: {headers}")
-
-    header_items = headers.split(",")
 
     # print(header_items)
     
@@ -438,7 +453,80 @@ for l in lines:
     contacts_list.append(contacts)
 
     #contacts = [contacts]
-#print(contacts_list)
+
+
+
+
+#h0 = {header_items[0]}
+#print(h0)
+#input_name = ("Enter a name: ")
+#h1 = {header_items[1]}
+#print(h1)
+#input_food = ("Enter a food: ")
+#h2 = {header_items[2]}
+#print(h2)
+#input_color = ("Enter a color: ")
+
+# for l in lines:
+#     print(l)
+#     for i in l:
+#         print(i)
+
+# contacts_list.append({h1: input_name})
+# print(f"""List of dictionary of contacts
+# {contacts_list}""")
+
+# print(lines)
+
+# lines.append('dan,dates,dark green')
+# print(lines)
+
+
+# for c in range(len(contacts_list)):
+#     print(type(c))
+#  #   print(range(len(contacts_list)))
+# #    print(contacts_list[c].keys())
+#  #   print(c.values())
+#     print(contacts_list[c].items())
+
+#     for i in contacts_list[c].items():
+#         print(i)
+
+    # for i in range(len(c.items())):
+    #     print(i,c.items())
+    #     #print(c.items()[i])
+        
+
+#temp = object()
+#res = [ele for sub in ((ele, contacts_list.get(ele,temp))for ele in contacts_list) for ele in sub if ele != temp]
+#print(str(res))
+#print(str((ele, contacts_list.get(ele,temp)))
+
+# for ele in contacts_list:
+#     print(ele)
+#     print(ele.get(ele,temp))
+
+# from itertools import chain
+# from typing import KeysView, ValuesView
+
+# print(type(contacts_list))
+
+# for ele in contacts_list:
+#     print(type(ele))
+#     print(ele.keys())
+#     print(ele.values())
+
+# temp = (
+#     i for x in [ele.items() for ele in contacts_list] 
+
+#     )
+
+# res = list(chain.from_iterable(temp))
+# print(str(res))
+# print(type(res))
+
+#for i in list_of_values:
+#    print(i)
 
 #print(contacts_list[])
     #data = lines[1:]
@@ -450,7 +538,6 @@ for l in lines:
     # For each remaining line. Create a dict and append to list
     #contact_list = [{key: l.split(",", 1)} for key in headers for l in lines]
     #print(contact_list)
-
 
 # for line in open_file:
 #     print(range(len(line)))
@@ -488,10 +575,56 @@ for l in lines:
 # key = N
 # value = switch_menu.get(key, "default")
 
-print(menu(int(input(f"""
-Make a selection
-1) Create Record
-2) Retrieve Record
-3) Update Record
-4) Delete Record
-Choice: """))))
+# print(menu(int(input(f"""
+# Make a selection
+# 1) Create Record
+# 2) Retrieve Record
+# 3) Update Record
+# 4) Delete Record
+# 0) quit
+# Choice: """))))
+
+#----------------------------
+# def switch():
+#     name = input("Enter the name: ")
+#     fav_food = input("Enter the favorite food: ")
+#     fav_color = input("Enter the favorite color: ")
+
+#     print(f"""Make a selection
+# 1) Create Record
+# 2) Retrieve Record
+# 3) Update Record
+# 4) Delete Record
+# 0) quit""")
+        
+#     option = int(input("Choose: "))
+
+#     def create_record():
+#         print("create record")
+#         lines.append('{name},{fav_food},{dark green}')
+#         print(name)
+
+#     def quit():
+#         False
+#         exit()
+
+#     def default():
+#         print("Incorrect option")
+    
+#     # Switch map
+#     switch = {
+#         1: create_record,
+#         0: quit
+#     }
+#     switch.get(option, default)()
+
+
+# while True:
+#     switch()
+
+#-------------------------------------
+# a_key = "favorite food"
+
+# list_of_values = [a_dict.items() for a_dict in range(len(contacts_list))]
+# print(list_of_values)
+#-------------------------------------
