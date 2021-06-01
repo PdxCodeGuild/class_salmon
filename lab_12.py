@@ -27,7 +27,7 @@ class ATM:
         string = f''
         for i in self.transactions:
             string += i + '\n'
-        return string
+        return string.strip()
 
 
 atm = ATM() # create an instance of our class
