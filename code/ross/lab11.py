@@ -30,18 +30,20 @@ print(index) # 2
 def bubbleSort(nums):
     length = len(nums)
     swapped = False
-    while swapped == False:
+    # while swapped == False:
+    for j in range(length):
         for i, num in enumerate(nums):
-            print(nums)
+            # print(nums)
             try:
                 if nums[i] > nums[i + 1]:
                     nums[i], nums[i + 1] = nums[i + 1], nums[i]
-                    print(nums)
+                    # print(nums)
                 elif nums[i] < nums[i + 1]:
-                    swapped == True
+                    pass
             except IndexError:
                 break
-    return swapped
+    return nums
+    # return swapped
 '''    for j in range(length):
         for i, num in enumerate(nums):
             print("i", i, "num", num)
@@ -58,5 +60,5 @@ def bubbleSort(nums):
                 pass'''
 
 #       0  1  2  3  4  5  6  7
-nums = [6, 8, 7, 4, 1, 3, 2, 5] # pass it a list of unsorted numbers
+nums = [8, 6, 5, 4, 3, 2, 1, 7] # pass it a list of unsorted numbers
 print(bubbleSort(nums)) # should be sorted list
