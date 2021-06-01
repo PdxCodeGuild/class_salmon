@@ -1,6 +1,9 @@
+from sys import argv
+
+script, filename = argv
 
 # opens and reads the CSV file
-with open('sample.csv', 'r') as file:
+with open(filename, 'r') as file:
     lines = file.read().split('\n')
     # print("lines: ", lines)
 

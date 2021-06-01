@@ -16,6 +16,7 @@ class ATM:
         #when you set one of the args for __init__ equal to something this means it is a default (from pete)
         self.balance = balance #arg1
         self.interest_rate = interest_rate #arg2
+        self.transactions = []
     #balance is the first function we want to return something directly from __init__
     def get_balance(self):
         #self.balance = balance
@@ -24,6 +25,7 @@ class ATM:
     def deposit(self, amount):
         #we want the balance value to increase
         self.balance += amount
+        self.transactions.append((f"user deposited {amount}."))
     #check_withdrawal is the third function that is not doing the same thing upon initialization
     def check_withdrawal(self, amount):
         #we want to return true if the withdrawn amount wont make account negative
@@ -33,10 +35,14 @@ class ATM:
     def withdraw(self, amount):
         #we want to decrease the balance by that amount
         self.balance -= amount
+        self.transactions.append((f"user withdrew {amount}."))
     #calc_interest is the fifth function that is not doing the same thing upon initialization
     def calc_interest(self):
         #we want to multiply the balance by the interest rate, not sure what we should do with the earnings
         return self.balance * self.interest_rate
+    def print_transactions(self):
+        print(self.transactions)
+
     
     '''balance(self, account):
         balance = ATM(account, balance=self)
@@ -46,11 +52,11 @@ class ATM:
         self.interest_rate.append(interest_rate)
     def '''
 #implement initilizer
-atm = ATM() # create an instance of our class
+atm = ATM() # create an **instance** of our class (also known as instantiating)
 print('atm variable is ' + str(atm))
 print('Welcome to the ATM')
 while True:
-    command = input('Enter a command: balance, deposit, withdraw, interest, help, exit ')
+    command = input('Enter a command: balance, deposit, withdraw, interest, previous transactions, help, exit ')
     if command == 'balance':
         print('command is ' +str(command))
         #print('balance is ' + str(balance))#the variable balance has not been defined yet, here
@@ -72,6 +78,9 @@ while True:
         amount = atm.calc_interest() # call the calc_interest() method
         #atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
+    #Previous transactions is for Version 2
+    elif command == 'previous transactions':
+        history = atm.print_transactions()
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')

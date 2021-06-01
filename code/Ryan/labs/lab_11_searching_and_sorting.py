@@ -80,11 +80,5 @@ def bubble_sort(nums):
                     nums[each], nums[each+1] = nums[each+1], nums[each]
 
     print(sorted_nums)
-            
 
-
- 
-
-
-
-bubble_sort(nums)
+#bubble_sort(nums)
