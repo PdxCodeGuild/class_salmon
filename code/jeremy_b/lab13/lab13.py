@@ -41,7 +41,6 @@ player2 = Player.Player("Computer", create_computer_token(token))
 
 print(f"{player1.name} is {player1.token}\n{player2.name} is {player2.token}")
 
-for square in game.board:
-    print(f'{square[0]} | {square[1]} | {square[2]}')
+
 
 
