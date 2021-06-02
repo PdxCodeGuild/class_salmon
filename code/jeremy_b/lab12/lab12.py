@@ -18,23 +18,22 @@ while True:
     command = input('Enter a command: ')
     if command == 'balance':
         balance = atm.check_balance() # call the check_balance() method
-        print(f'Your balance is ${balance}')
+        print(f'Your balance is $' + f"{balance : .2f}".format(balance))
     elif command == 'deposit':
         amount = float(input('How much would you like to deposit? '))
         atm.deposit(amount) # call the deposit(amount) method
-        print(f'Deposited $' + f"{ : .2f}".format(amount))
+        print(f'Deposited $' + f"{amount : .2f}".format(amount))
     elif command == 'withdraw':
         amount = float(input('How much would you like ').format())
         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
             atm.withdraw(amount) # call the withdraw(amount) method
-            print(f'Withdrew ${amount}')
+            print(f'Withdrew $' + f"{amount : .2f}".format(amount))
         else:
             print('Insufficient funds')
     elif command == 'interest':
         amount = atm.calc_interest() # call the calc_interest() method
-        print(amount)
         atm.deposit(amount)
-        print(f'Accumulated ${amount} in interest')
+        print(f'Accumulated $' + f"{amount : .2f}".format(amount) + ' in interest')
     elif command == 'transactions':
         print("Transaction History:")
         if len(atm.transactions) > 0:
