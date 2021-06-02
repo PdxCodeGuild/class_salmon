@@ -10,6 +10,7 @@ Date: 06/02/2021
 
 import Game
 import Player
+import random
 
 
 def create_computer_token(player_token):
@@ -40,5 +41,7 @@ player2 = Player.Player("Computer", create_computer_token(token))
 
 print(f"{player1.name} is {player1.token}\n{player2.name} is {player2.token}")
 
+for square in game.board:
+    print(f'{square[0]} | {square[1]} | {square[2]}')
 
 
