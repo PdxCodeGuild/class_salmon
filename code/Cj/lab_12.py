@@ -28,8 +28,7 @@ class ATM:
         for i in self.transactions:
             string += i + '\n'
         return string.strip()
-
-
+        
 atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
 while True:
