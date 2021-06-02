@@ -88,7 +88,7 @@ Did you notice we pass in `self` to the methods of the class? In this context, `
 
 Most of the time, we will be writing what are called “instance” methods. These take `self` as an argument and have access to instance properties (which makes sense because `self` refers to the instance!)
 
-Another type of methods you can declare in your classes is static methods.
+Another type of method you can declare in your classes is the static method.
 
 A static method always does the same thing for every instance (which is why it doesn’t need access to instance-specific properties). Static methods are declared using what’s called a “decorator” (in this case `@staticmethod`).
 

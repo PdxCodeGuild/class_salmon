@@ -118,4 +118,4 @@ class ManualList:
 This is just a _convention_ though, it doesn't programmatically stop anyone from modifying the attributes.
 
 Feel free to check private attributes in your doctests or perhaps in same module functions.
-But otherwise, if you see yourself using and underscore `_` attribute, be weary!
+But otherwise, if you see yourself using an underscore `_` attribute, be weary!
