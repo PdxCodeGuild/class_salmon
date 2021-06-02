@@ -17,7 +17,7 @@ class Game:
         
         
     def __repr__(self):#will print (magic funct)
-        return (f'''Welcome to Thunderdome Tic Tac Toe          
+        return (f'''\nWelcome to Thunderdome Tic Tac Toe          
         {self.board[(0,0)]}|{self.board[(1,0)]}|{self.board[(2,0)]}         
         {self.board[(0,-1)]}|{self.board[(1,-1)]}|{self.board[(2,-1)]}         
         {self.board[(0,-2)]}|{self.board[(1,-2)]}|{self.board[(2,-2)]}\n''')#I keep getting a ghost arrow >
@@ -30,21 +30,26 @@ class Game:
     def calc_winner(self):
         self.winners = [
             [self.board[(0,0)],self.board[(1,0)], self.board[(2,0)]], 
-            [self.board[(0,0)], self.board[(0,-1)], self.board[(0,0-2)]], 
+            [self.board[(0,0)], self.board[(0,-1)], self.board[(0,-2)]], 
             [self.board[(0,0)], self.board[(1,-1)], self.board[(2,-2)]], 
             [self.board[(1,0)], self.board[(1,-1)], self.board[(1,-2)]],
             [self.board[(2,0)], self.board[(2,-1)], self.board[(2,-2)]],
             [self.board[(2,0)], self.board[(1,-1)], self.board[(0,-2)]]
         ]
-        for winner in self.winners:
-            # print(winner)
-            if winner == ['x', 'x', 'x'] or winner == ['o', 'o', 'o']:#edge case is lowercase text, figure that out
-                return True
-            else:
-                return False#maybe
+        if ['x', 'x', 'x'] in self.winners:
+            return True
+        if ['o', 'o', 'o'] in self.winners:
+            return True
+        return False
+        # for winner in self.winners:
+        #     print(winner)
+        #     if winner == ['x', 'x', 'x'] or winner == ['o', 'o', 'o']:#edge case is lowercase text, figure that out
+        #         return True
+        #     else:
+        #         return False#maybe
     def is_full(self):
         self.spots = [self.board[(0,0)],self.board[(1,0)], self.board[(2,0)], self.board[(0,0)], self.board[(0,-1)], self.board[(0,0-2)], self.board[(0,0)], self.board[(1,-1)], self.board[(2,-2)], self.board[(1,0)], self.board[(1,-1)], self.board[(1,-2)],self.board[(2,0)], self.board[(2,-1)], self.board[(2,-2)],self.board[(2,0)], self.board[(1,-1)], self.board[(0,-2)]]
-        self.list_spots = len(self.spots)
+        #self.list_spots = len(self.spots)
         if '-' in self.spots:
             return False
         return True
@@ -55,24 +60,9 @@ class Game:
         #     else:
         #         return False
     def is_game_over(self):
-        self.winners = [
-            [self.board[(0,0)],self.board[(1,0)], self.board[(2,0)]], 
-            [self.board[(0,0)], self.board[(0,-1)], self.board[(0,0-2)]], 
-            [self.board[(0,0)], self.board[(1,-1)], self.board[(2,-2)]], 
-            [self.board[(1,0)], self.board[(1,-1)], self.board[(1,-2)]],
-            [self.board[(2,0)], self.board[(2,-1)], self.board[(2,-2)]],
-            [self.board[(2,0)], self.board[(1,-1)], self.board[(0,-2)]]
-        ]
-        self.spots = [self.board[(0,0)],self.board[(1,0)], self.board[(2,0)], self.board[(0,0)], self.board[(0,-1)], self.board[(0,0-2)], self.board[(0,0)], self.board[(1,-1)], self.board[(2,-2)], self.board[(1,0)], self.board[(1,-1)], self.board[(1,-2)],self.board[(2,0)], self.board[(2,-1)], self.board[(2,-2)],self.board[(2,0)], self.board[(1,-1)], self.board[(0,-2)]]            
-        for winner in self.winners:
-            print(winner)
-            if winner == ['x','x','x'] or winner == ['o','o','o']:#edge case is lowercase text, figure that out
-                won = True#set variable to true or false then after for loop return variable.
-            elif '-' in self.spots:
-                full = False
-            elif '-' not in self.spots:
-                full = True
-        if won == True or full == True:#I think this works now...
+        if self.calc_winner() == True:
+            return True
+        if self.is_full() == True:
             return True
         else:
             return False
@@ -80,27 +70,53 @@ game = Game()#new instance of game
 player1 = Player('x', 'player1')
 player2 = Player('o', 'player2')
 #print(game.move(0,0,player))
-print(game.__repr__())
-print(player1.token)
-print(player2.token)
-print(game.move(0,0, player1.token))#displays none but does affect __repr__
+# print(game.__repr__())
+# print(player1.token)
+# print(player2.token)
+# print(game.move(0,0, player1.token))#displays none but does affect __repr__
 
-print(game.move(1,0,player2.token))
-print(game.move(2,0,player1.token))
-print(game.move(0,-1,player1.token))
-print(game.move(0,-2,player1.token))
-print(game.move(1,-1,player1.token))
-print(game.move(1,-2,player1.token))
-#print(game.move(2,-1,player1.token))
-#print(game.move(2,-2,player1.token))
-print(game.__repr__)
+# print(game.move(1,0,player2.token))
+# print(game.move(2,0,player1.token))
+# print(game.move(0,-1,player1.token))
+# print(game.move(0,-2,player1.token))
+# print(game.move(1,-1,player1.token))
+# print(game.move(1,-2,player1.token))
+# print(game.move(2,-1,player1.token))
+# print(game.move(2,-2,player1.token))
+# print(game.__repr__)
 # print(game.calc_winner())
 # print(game.is_full())
-print(game.is_game_over())
-# print(Game())
-# board_structure = [('','',''),('','',''),('','','')] #see data design OOP notebook
-
-# for position in board_structure:
-#     position.board
+# print(game.is_game_over())
+#implement initilizer
+# print('game variable is ' + str(game))
+print('Welcome to the Game')
+while True:
+    command = input('Player1 is X. Player2 is O. Enter a command: move, exit ')
+    if command == 'move':
+        player_number = input('what is your player number? player1 or player2 ').lower()
+        coord1 = int(input('write the first coordinate of your move '))
+        coord2 = int(input('write the second coordinate of your move '))        
+        if player_number == 'player1':
+            game.move(coord1,coord2,player1.token)
+            #print(game.calc_winner())
+            if game.is_full() == True: 
+                print('the board is full ')
+            if game.calc_winner() == True:
+                print(f'we have a winner! Congratulations {player1.name}')
+            if game.is_game_over() == True:
+                print('the game is over ')
+        elif player_number == 'player2':
+            game.move(coord1,coord2,player2.token)
+            if game.is_full() == True: 
+                print('the board is full ')
+            if game.calc_winner == True:
+                print(f'we have a winner! Congratulations {player2.name}')
+            if game.is_game_over() == True:
+                print('the game is over ')
+        print(game.__repr__)
+    elif command == 'exit':
+        break
+    else:
+        print('Command not recognized ')
 
 # print(Game.__repr__) printing the memory location
