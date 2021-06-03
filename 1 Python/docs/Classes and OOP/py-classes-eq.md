@@ -9,7 +9,7 @@ if the contents are the same, they are equal.
 {'cat': 4, 'snake': 0} == {'cat': 4, 'snake': 0}  #> True
 ```
 
-But the classes you make, _aren't_ by default.
+But the classes you make, _are not_ equal by default.
 Python doesn't assume you have the same definition of equals.
 
 You should make them work that way _if it makes sense_, though.
