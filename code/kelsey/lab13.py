@@ -22,11 +22,9 @@ class Game:
     def __repr__(self):
         return f'{self.board[(0, 0)]}|{self.board[(0, 1)]}|{self.board[(0, 2)]}|\n{self.board[(1, 0)]}|{self.board[(1, 1)]}|{self.board[(1, 2)]}|\n{self.board[(2, 0)]}|{self.board[(2, 1)]}|{self.board[(2, 2)]}|'
         
-
     def move(self, x, y, player):
         self.board[(x, y)] = player.token
         
-    
     def calc_winner(self, player):
         if self.board[(0, 0)] == self.board[(0, 1)] == self.board[(0, 2)] == player.token:
             return player.token
@@ -58,7 +56,7 @@ class Game:
 
 
 new_game = Game()
-new_player = Player('John', 'X')
+new_player = Player('Glen', 'X')
 new_game.move(0, 1, new_player)
 new_game.move(0, 0, new_player)
 new_game.move(0, 2, new_player)
@@ -75,3 +73,4 @@ def main():
     player 1 (X) moves
     player 2 (O) moves ...
     until calc_winner == True
+    '''
