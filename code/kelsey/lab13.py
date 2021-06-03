@@ -83,8 +83,7 @@ def main():
     if play_again == 'Y':
         main()
     else:
-        print('Goodbye')
-
-
+        print('Thanks for playing!')
+        
 
 main()
