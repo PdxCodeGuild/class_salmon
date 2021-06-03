@@ -1,4 +1,4 @@
-# Answer
+#-------------------Instructor Answer--------------------#
 # with open("contacts_list_working.csv", "r") as f:
 #     data_csv = f.read()
 # data_csv = [line.split(",") for line in data_csv.split("\n")]
@@ -100,6 +100,8 @@
 #     f.write(data_csv_output)
 
 #-----------------------------------------------------------#
+#------------------------My code-----------------------------------#
+
 # filename = "contacts_list_working.csv"
 # open_file = open(filename)
 
@@ -253,93 +255,94 @@
 # then for which attribute of the user they'd like to update and 
 # the value of the attribute they'd like to set.
 
-# contact_name = input("Enter a name: ")
+contact_name = input("Enter a name: ")
 
-# print("Which attribute would you like to update?")
+print("Which attribute would you like to update?")
 
-# choose_option = int(input("(1) Name (2) Food (3) Color: "))
+choose_option = int(input("(1) Name (2) Food (3) Color: "))
 
-# if choose_option == 1:
+if choose_option == 1:
     
-#     with open("contacts_list_working.csv", "r+") as file_obj:
+    with open("contacts_list_working.csv", "r+") as file_obj:
 
-#         f_lines = file_obj.readlines()
-#         #print(f_lines)
-#         names = []
-#         foods = []
-#         colors = []
+        f_lines = file_obj.readlines()
+        #print(f_lines)
+        names = []
+        foods = []
+        colors = []
 
-#         for f in f_lines:
-#                 split_list = f.split(",")
-#                 names.append(split_list[0])
-#                 foods.append(split_list[1])
-#                 colors.append(split_list[2].replace("\n",""))
+    for f in f_lines:
+            print(f, "line 275")
+            split_list = f.split(",")
+            names.append(split_list[0])
+            foods.append(split_list[1])
+            colors.append(split_list[2].replace("\n",""))
 
-#         index = ""
-#         for n in range(len(names)):
-#             #print(n, names[n])
-#             if names[n] == contact_name:
-#                 index = n
-#                 names_output = print(f"Found {names[n]}")
-#                 print("Enter new name")
-#                 new_name = input("New Name: ")
-#                 print(type(f))
-#                 replace_string = f.replace((names[n]), (new_name))
-#                 file_obj.write(replace_string)
+    index = ""
+    for n in range(len(names)):
+        #print(n, names[n])
+        if names[n] == contact_name:
+            index = n
+            names_output = print(f"Found {names[n]}")
+            print("Enter new name")
+            new_name = input("New Name: ")
+            print(f, "line 289")
+            replace_string = f.replace((names[n]), (new_name))
+            file_obj.write(replace_string)
 
-# elif choose_option == 2:
+elif choose_option == 2:
     
-#     with open("contacts_list_working.csv", "r+") as file_obj:
+    with open("contacts_list_working.csv", "r+") as file_obj:
 
-#         f_lines = file_obj.readlines()
-#         #print(f_lines)
-#         names = []
-#         foods = []
-#         colors = []
+        f_lines = file_obj.readlines()
+        #print(f_lines)
+        names = []
+        foods = []
+        colors = []
 
-#         for f in f_lines:
-#                 split_list = f.split(",")
-#                 names.append(split_list[0])
-#                 foods.append(split_list[1])
-#                 colors.append(split_list[2].replace("\n",""))
+        for f in f_lines:
+                split_list = f.split(",")
+                names.append(split_list[0])
+                foods.append(split_list[1])
+                colors.append(split_list[2].replace("\n",""))
 
-#         index = ""
-#         for n in range(len(names)):
-#             #print(n, names[n])
-#             if names[n] == contact_name:
-#                 index = n
-#                 names_output = f"Found {names[n]}"
-#                 print("Enter new food")
-#                 new_food = input("New food: ")
-#                 replace_string = f.replace({foods[n]}, {new_food})
-#                 file_obj.write(replace_string)
+        index = ""
+        for n in range(len(names)):
+            #print(n, names[n])
+            if names[n] == contact_name:
+                index = n
+                names_output = f"Found {names[n]}"
+                print("Enter new food")
+                new_food = input("New food: ")
+                replace_string = f.replace({foods[n]}, {new_food})
+                file_obj.write(replace_string)
 
-# elif choose_option == 3:
+elif choose_option == 3:
     
-#     with open("contacts_list_working.csv", "r+") as file_obj:
+    with open("contacts_list_working.csv", "r+") as file_obj:
 
-#         f_lines = file_obj.readlines()
-#         #print(f_lines)
-#         names = []
-#         foods = []
-#         colors = []
+        f_lines = file_obj.readlines()
+        #print(f_lines)
+        names = []
+        foods = []
+        colors = []
 
-#         for f in f_lines:
-#                 split_list = f.split(",")
-#                 names.append(split_list[0])
-#                 foods.append(split_list[1])
-#                 colors.append(split_list[2].replace("\n",""))
+        for f in f_lines:
+                split_list = f.split(",")
+                names.append(split_list[0])
+                foods.append(split_list[1])
+                colors.append(split_list[2].replace("\n",""))
 
-#         index = ""
-#         for n in range(len(names)):
-#             #print(n, names[n])
-#             if names[n] == contact_name:
-#                 index = n
-#                 names_output = f"Found {colors[n]}"
-#                 print("Enter new Color")
-#                 new_colors = input("New Color: ")
-#                 replace_string = f.replace({colors[n]}, {new_colors})
-#                 file_obj.write(replace_string)
+        index = ""
+        for n in range(len(names)):
+            #print(n, names[n])
+            if names[n] == contact_name:
+                index = n
+                names_output = f"Found {colors[n]}"
+                print("Enter new Color")
+                new_colors = input("New Color: ")
+                replace_string = f.replace({colors[n]}, {new_colors})
+                file_obj.write(replace_string)
 
 #------------------
 # Input
