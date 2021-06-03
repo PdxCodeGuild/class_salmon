@@ -47,8 +47,6 @@ class Game:
             return  True
         elif self.board[(0, 2)] == self.board[(1, 1)] == self.board[(2, 0)] == player.token:
             return  True
-        # else:
-        #     return None
 
     def is_full(self):
         if ' ' in list(self.board.values()):
