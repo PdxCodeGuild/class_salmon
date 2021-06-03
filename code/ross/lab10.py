@@ -32,6 +32,9 @@ for i, contact in enumerate(contacts):
     matched_contacts.append(user_dict)
 # print(matched_contacts)
 
+# can be done easier with a list comprehension as below:
+# mathed_contacts = [dict(zip(keys, values)) for values in contacts]
+
 # ------------------- VERSION 2 ------------------
 
 
