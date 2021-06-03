@@ -14,7 +14,9 @@
 
 ## Networking Protocols
 
-A Protocol is a standardized way of sending and receiving information. The [Internet Protocol Suite](https://en.wikipedia.org/wiki/Internet_protocol_suite) is the set of communications protocols that drive the web. A communications protocol is just a set of rules for sending and receiving data. The protocols are arranged into layers, with each layer representing an abstraction on top of the last. An alternative to the 5-layer TCP/IP model is the [7-layer OSI model](http://www.electronicdesign.com/what-s-difference-between/what-s-difference-between-osi-seven-layer-network-model-and-tcpip). [img](https://en.wikipedia.org/wiki/Internet_protocol_suite#/media/File:IP_stack_connections.svg)
+A Protocol is a standardized way of sending and receiving information. The [Internet Protocol Suite](https://en.wikipedia.org/wiki/Internet_protocol_suite) is the set of communications protocols that drive the web. A communications protocol is just a set of rules for sending and receiving data. The protocols are arranged into layers, with each layer representing an abstraction on top of the last. An alternative to the 5-layer TCP/IP model is the [7-layer OSI model](http://www.electronicdesign.com/what-s-difference-between/what-s-difference-between-osi-seven-layer-network-model-and-tcpip). 
+
+![IP stack connections](https://upload.wikimedia.org/wikipedia/commons/c/c4/IP_stack_connections.svg)
 
 | Protocol | Layer | Description |
 | ---      | ---   | --- |
@@ -25,7 +27,7 @@ A Protocol is a standardized way of sending and receiving information. The [Inte
 | IEEE 802.3u	| Physical| electrical pulses on a wire |
 
 
-The two main protocols of the Transport layer are TCP [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and UDP [User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol). UDP is unreliable, but involves less overhead and is quicker, TCP is more reliable, but slower. TCP is built upon UDP, but UDP is still useful by itself for circumstances where some loss of data is acceptable, for example: audio and video chatting. If a microsecond of audio cuts out or distorted, it won't make much difference, whereas missing section of an executable can be catastrophic.
+The two main protocols of the Transport layer are TCP [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and UDP [User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol). UDP is unreliable, but involves less overhead and is quicker, TCP is more reliable, but slower. TCP is built upon UDP, but UDP is still useful by itself for circumstances where some loss of data is acceptable, for example: audio and video chatting. If a microsecond of audio cuts out or distorted, it won't make much difference, whereas a missing section of an executable can be catastrophic.
 
 ```
 UDP
@@ -109,7 +111,7 @@ The **back-end** consists of code, files, and a database. Unlike the front-end, 
 
 ## Web APIs
 
-API stands for "[application programming interface](https://en.wikipedia.org/wiki/API)", and represents an software interface. Examples include the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) which allows JavaScript to interact with a browser and produce sound. You can view long lists of public APIs [here](https://github.com/toddmotto/public-apis), [here](https://github.com/abhishekbanthia/Public-APIs), and [here](https://apilist.fun/). [Here's](http://www.pythonforbeginners.com/api/list-of-python-apis) a few more!
+API stands for "[application programming interface](https://en.wikipedia.org/wiki/API)", and represents a software interface. Examples include the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) which allows JavaScript to interact with a browser and produce sound. You can view long lists of public APIs [here](https://github.com/toddmotto/public-apis), [here](https://github.com/abhishekbanthia/Public-APIs), and [here](https://apilist.fun/). [Here's](http://www.pythonforbeginners.com/api/list-of-python-apis) a few more!
 
 - Users
     - [randomuser.me](https://randomuser.me/documentation)
