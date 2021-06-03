@@ -32,7 +32,7 @@ class Game:
             return player.token
         elif self.board[(0, 2)] == self.board[(1, 2)] == self.board[(2, 2)] == player.token:
             return player.token
-        elif self.board[(0, 0)] == self.board[(0, 1)] == self.board[(0, 2)] == player.token:
+        elif self.board[(0, 0)] == self.board[(1, 0)] == self.board[(2, 0)] == player.token:
             return player.token
         elif self.board[(1, 0)] == self.board[(1, 1)] == self.board[(1, 2)] == player.token:
             return player.token
