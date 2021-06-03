@@ -26,7 +26,18 @@ class Game:
             self.board[x][y] = player_token
 
     def calc_winner(self):
-        pass
+        # check for winner in row
+        for row in self.board:
+            if all(square == row[0] and square != ' ' for square in row):
+                return f"Winner is {row[0]}'s!"
+        # Check for winner in column
+        counter = 0
+        while counter < len(self.board):
+            if (self.board[0][counter] == self.board[1][counter] == self.board[2][counter]) and self.board[0][counter] != ' ':
+                return f"Winner is {self.board[0][counter]}'s"
+        # Check for winner in diagonal
+        if (self.board[0][0] == self.board[1][1] == self.board[2][2] or self.board[0][2] == self.board[1][1] == self.board[2][0]) and self.board[1][1] != ' ':
+            return f"Winner is {self.board[1][1]}'s!"    
 
     def is_full(self):
         for row in self.board:
@@ -38,10 +49,10 @@ class Game:
 
     def is_game_over(self):
         if not self.calc_winner():
-            return True
-        elif self.is_full():
+            return False
+        elif not self.is_full():
             return False
         else:
-            return False
+            return True
 
 
