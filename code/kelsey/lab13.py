@@ -1,9 +1,12 @@
 # Lab 13: Tic-Tac-Toe
-# You will write a Player class and Game class to model Tic Tac Toe, and a function main that models gameplay taking in user inputs through REPL.
+
 class Player:
     def __init__(self, name, token):
         self.name = name
         self.token = token
+    
+    def __str__(self):
+        return self.name
         
 class Game:
     def __init__(self):
@@ -23,54 +26,65 @@ class Game:
         return f'{self.board[(0, 0)]}|{self.board[(0, 1)]}|{self.board[(0, 2)]}|\n{self.board[(1, 0)]}|{self.board[(1, 1)]}|{self.board[(1, 2)]}|\n{self.board[(2, 0)]}|{self.board[(2, 1)]}|{self.board[(2, 2)]}|'
         
     def move(self, x, y, player):
-        self.board[(x, y)] = player.token
+        if self.board[(y, x)] == ' ':
+            self.board[(y, x)] = player.token
+            return True
         
     def calc_winner(self, player):
         if self.board[(0, 0)] == self.board[(0, 1)] == self.board[(0, 2)] == player.token:
-            return player.token
+            return True
         elif self.board[(0, 1)] == self.board[(1, 1)] == self.board[(2, 1)] == player.token:
-            return player.token
+            return  True
         elif self.board[(0, 2)] == self.board[(1, 2)] == self.board[(2, 2)] == player.token:
-            return player.token
+            return  True
         elif self.board[(0, 0)] == self.board[(1, 0)] == self.board[(2, 0)] == player.token:
-            return player.token
+            return  True
         elif self.board[(1, 0)] == self.board[(1, 1)] == self.board[(1, 2)] == player.token:
-            return player.token
+            return  True
         elif self.board[(2, 0)] == self.board[(2, 1)] == self.board[(2, 2)] == player.token:
-            return player.token
+            return  True
         elif self.board[(0, 0)] == self.board[(1, 1)] == self.board[(2, 2)] == player.token:
-            return player.token
+            return  True
         elif self.board[(0, 2)] == self.board[(1, 1)] == self.board[(2, 0)] == player.token:
-            return player.token
+            return  True
+
+    def is_full(self):
+        if ' ' in list(self.board.values()):
+            return False
         else:
-            return None
+            return True
 
-#     def is_full(self):
-        
-#         if board == full:
-#             return True
-
-#     def is_game_over(self):
-#         if game_board is full or a player has won:
-#             returns True
-
-
-new_game = Game()
-new_player = Player('Glen', 'X')
-new_game.move(0, 1, new_player)
-new_game.move(0, 0, new_player)
-new_game.move(0, 2, new_player)
-print(new_game.calc_winner(new_player))
-
-print(repr(new_game))
+    def is_game_over(self, player_1, player_2):
+        if self.is_full() or self.calc_winner(player_1) or self.calc_winner(player_2):
+            return True
+        else: 
+            return False
 
 def main():
-    player_1.name = input(f'Enter name of Player 1: ')
-    player_2.name = input(f'Enter name of Player 2: ')
+    game = Game()
+    player_1 = Player((input(f'Enter Player 1 name: ')), 'X')
+    player_2 = Player((input(f'Enter Player 2 name: ')), 'O')
+    players = [player_1, player_2]
+    print('Start New Game')
+    counter = 0
+    while game.is_game_over(player_1, player_2) == False:
+        player = players[counter % 2]
+        print(f'{player}, your move')
+        valid_move = game.move(int(input('(from top left) move right _ space(s): ')), int(input('(from top left) move down _ space(s): ')), player)
+        if valid_move == True:
+            counter += 1
+        else:
+            print('\nNot a valid move. Please choose again.\n')
+        print(repr(game))
+    for player in players:
+        if game.calc_winner(player) == True:
+            print(f'{player} wins!')
+    play_again = input('Would you like to play again? Y/N ').upper()
+    if play_again == 'Y':
+        main()
+    else:
+        print('Goodbye')
 
-    '''
-    enter both players' names
-    player 1 (X) moves
-    player 2 (O) moves ...
-    until calc_winner == True
-    '''
+
+
+main()
