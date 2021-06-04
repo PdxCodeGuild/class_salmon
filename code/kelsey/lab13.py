@@ -65,7 +65,7 @@ def main():
     player_1 = Player((input(f'\nEnter Player 1 name: ')), 'X')
     player_2 = Player((input(f'Enter Player 2 name: ')), 'O')
     players = [player_1, player_2]
-    print('\nStart New Game: \nPlayer 1 is X; Player 2 is O. X starts the game. Take turns placing your token on the game board. The object of the game is to have three of your tokens line up0 either vertically, horizontally, or diagonally. The game is over once a player wins, or the board is full. ')
+    print('\nWelcome to Tic-Tac-Toe! \n\nPlayer 1 is X; Player 2 is O. X starts the game. Take turns placing your token on the game board. The object of the game is to have three of your tokens line up either vertically, horizontally, or diagonally. The game is over once a player wins, or the board is full. ')
     counter = 0
     while game.is_game_over(player_1, player_2) == False:
         player = players[counter % 2]
