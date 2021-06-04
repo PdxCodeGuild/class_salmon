@@ -140,9 +140,8 @@ API stands for "[application programming interface](https://en.wikipedia.org/wik
 - **CSS**: Cascading Style Sheets, a way to add color, style, and animation to HTML.
 - **JavaScript**: a scripting language with superficially similar syntax to Java, may be used for both the front-end and back-end.
 - **API**: Application Programming Interface, an interface to an application, most often used in the context of Web APIs, which receive and respond to http requests.
-- **AJAX**: Asynchronous JavaScript And Xml, the ability to perform an HTTP request from
-- **JSON**: JavaScript Object Notation a way of encoding data that's similar to JavaScript objects, except you use strings instead of properties, and values can only be numbers, strings, arrays, or other objects.
+- **AJAX**: Asynchronous JavaScript And Xml, the ability to perform an HTTP request from a web page
+- **JSON**: JavaScript Object Notation, a way of encoding data that's similar to JavaScript objects, except you use strings instead of properties, and values can only be numbers, strings, arrays, or other objects.
 - **Database**: a collection of data, stored and retrieved through queries.
 - **Front-End**: code that runs on the client (in your browser), which usually consists of JavaScript, HTML, and CSS.
 - **Back-End**: code that runs on the server, deals with data processing, files, and databases and can involve a variety of different languages.
-

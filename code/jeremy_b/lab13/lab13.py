@@ -41,6 +41,8 @@ player2 = Player.Player("Computer", create_computer_token(token))
 
 print(f"{player1.name} is {player1.token}\n{player2.name} is {player2.token}")
 
+game.play(player1.name, player2.name, player1.token, player2.token)
+
 
 
 
