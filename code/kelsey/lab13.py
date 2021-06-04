@@ -70,7 +70,7 @@ def main():
     while game.is_game_over(player_1, player_2) == False:
         player = players[counter % 2]
         print(f'\n{player}\'s turn \n')
-        valid_move = game.move(int(input('from far left, move right (0,1,2) space(s): ')), int(input('from top, move down (0,1,2) space(s): ')), player)
+        valid_move = game.move(int(input('from far left, move RIGHT (0,1,2) space(s): ')), int(input('from top, move DOWN (0,1,2) space(s): ')), player)
         if valid_move == True:
             counter += 1
         else:
