@@ -65,12 +65,12 @@ def main():
     player_1 = Player((input(f'\nEnter Player 1 name: ')), 'X')
     player_2 = Player((input(f'Enter Player 2 name: ')), 'O')
     players = [player_1, player_2]
-    print('\nStart New Game')
+    print('\nStart New Game: \nPlayer 1 is X; Player 2 is O. X starts the game. Take turns placing your token on the game board. The object of the game is to have three of your tokens line up0 either vertically, horizontally, or diagonally. The game is over once a player wins, or the board is full. ')
     counter = 0
     while game.is_game_over(player_1, player_2) == False:
         player = players[counter % 2]
         print(f'\n{player}\'s turn \n')
-        valid_move = game.move(int(input('from far left, move RIGHT (0,1,2) space(s): ')), int(input('from top, move DOWN (0,1,2) space(s): ')), player)
+        valid_move = game.move(int(input('From far left, move RIGHT (0,1,2) space(s): ')), int(input('From top, move DOWN (0,1,2) space(s): ')), player)
         if valid_move == True:
             counter += 1
         else:
