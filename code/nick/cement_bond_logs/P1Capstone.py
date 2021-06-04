@@ -1,7 +1,7 @@
 #this program will read cement bond logs for oil and gas, or geothermal wells
 #cement bonding is important for well integrity, aquifer exclusion, and even formation integrity considerations
 #pip install lasio#lasio is a python library for reading .las well log files - but this does not work outside of a notebook, I guess
-import lasio
+import lasio #my first time using the lasio library
 import glob #according to example from lasio
 import numpy as np #numpy is a mathematics library in python; it looks like numpy actually downloads with lasio anyway
 import pandas as pd#pandas is a library that helps you deal with sorting
