@@ -77,7 +77,7 @@ def main():
             print('\nNot a valid move. Please choose again.\n')
         print(f'\n{repr(game)}')
         if game.is_full() == True and game.calc_winner(player) == True:
-            print(f'\nGame over. {player} wins!')
+            print(f'\nGame over.')
             break
         elif game.is_full() == True:
             print(f'\nDraw. Game over.\n')
