@@ -13,5 +13,3 @@ def encrypt_rotn(string):
         else:
             continue
     return encrypted
-print(encrypt_rotn('hello'))
-print(encrypt_rotn('uryyb'))
