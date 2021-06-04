@@ -16,7 +16,7 @@ def tsukuru(a, b, c):
 # list to strings
 def back_to_strings(list):
     user_string = ""
-    return (user_string.join(user_list_values))
+    return (user_string.join(list))
 # find if user is in contacts
 def sagasu(a, b):    
             for contact in range(len(contacts)):
