@@ -1,30 +1,33 @@
 import requests
 import time
-import string
 
 # checks which grammar to use for the initial split
 def dore(joke):
-    if question(joke) == False:
-        comma(joke)
-    else:
+    if question(joke) == True:
         list_joke = joke.split("? ")
         return list_joke
-    if comma(joke) == False:
-        exclamation(joke)
     else:
+        comma(joke)
+    if comma(joke) == True:
         list_joke = joke.split(", ")
         return list_joke
-    if exclamation == False:
-        period(joke)
     else:
+        exclamation(joke)
+    if exclamation == True:
         list_joke = joke.split("! ")
         return list_joke
+    else:
+        period(joke)
     if period(joke) == True:
         list_joke = joke.split(". ")
         return list_joke
     else:
-        list_joke = joke.split(". ")
+        colon(joke)
+    if colon(joke) == True:
+        list_joke = joke.split(": ")
         return list_joke
+    else:
+        question(joke)  
 # grammar splits
 def question(joke):
     aru = joke.find("?")
@@ -50,6 +53,12 @@ def period(joke):
         return False
     else: 
         return True
+def colon(joke):
+    aru = joke.find(":")
+    if aru == -1:
+        return False
+    else: 
+        return True
 # takes the list and splits them into two strings
 def hataraku(list_joke):
     punchline = list_joke.pop()
@@ -66,12 +75,8 @@ data = response.json()
 
 joke = data['joke']
 
-#joke = ""
-
 list_joke = dore(joke)
 
 punchline = hataraku(list_joke)
 
 omiyagi(punchline)
-
-# periods don't work. Saw one joke with a :
