@@ -1,22 +1,51 @@
-class player:
-def __init__(self, x, y):
-    self.player_name = input('Enter your player name: ')
-    self.token = input('Choose "x" or "o": ')
-
-class Board:
+class Player:
     def __init__(self):
-        self.board = [[ , , ],
-    [ , , ],
-    [  , , ]]
+        self.player_name = input('Enter player name: ')
+        self.token = input('Choose "x" or "o": ')
+
+class Game:
+    def __init__(self):
+        self.board = [
+            [' ',' ',' '],
+            [' ',' ',' '],
+            [' ',' ',' ']
+        ]
+   
 
     def __repr__(self):
-        board_rep = ''
-        for i in board:
-            for j in i:
-                board_rep += j
-        print(board_rep)
+        output = f'''
+     _ _ _
+    |{self.board[0][0]}|{self.board[0][1]}|{self.board[0][2]}|
+    ------- 
+    |{self.board[1][0]}|{self.board[1][1]}|{self.board[1][2]}|
+    ------- 
+    |{self.board[2][0]}|{self.board[2][1]}|{self.board[2][2]}|
+     ‾ ‾ ‾
+    '''
+        return output
     
-    def move(self, x, y, player):
-        self.move = input('Enter your coordinates: ')
+
+    def move(self, player):
+        x = int(input('Enter "x" coordinate: '))
+        y = int(input('Enter "y" coordinate: '))
+        self.board[x][y] = player.token   
 
 
+    def calc_winner():
+        while True
+
+
+    # def is_full():
+        
+
+
+    # def is_game_over():
+
+
+
+
+
+player_1 = Player()
+b = Game()
+b.move(player_1)
+print(b.__repr__())

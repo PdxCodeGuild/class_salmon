@@ -1,5 +1,7 @@
-
 import requests
+import json
 
-print(requests.get('https://www.example.com/'))
-
+url = 'https://icanhazdadjoke.com/j/R7UfaahVfFd'
+response = requests.get(url)
+print(response.status_code)
+print(response.text)
