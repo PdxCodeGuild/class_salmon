@@ -59,7 +59,7 @@ while True:
         print('Available commands:')
         print('balance  - get the current balance')
         print('deposit  - deposit money')
-        print('transactions - see list of transactions')
+        print('transaction - see list of transactions')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
