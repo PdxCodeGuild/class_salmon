@@ -16,7 +16,7 @@ class Game:
                       '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
 
     def __repr__(self):
-        return '\n' + self.board['1'] + '|' + self.board['2'] + '|' + self.board['3'] + '\n' + '-----' + '\n' + self.board['4'] + '|' + self.board['5'] + '|' + self.board['6'] + '\n' + '-----' + '\n' + self.board['7'] + '|' + self.board['8'] + '|' + self.board['9']
+        return '\n' + self.board['1'] + ' | ' + self.board['2'] + ' | ' + self.board['3'] + '\n' + '--|---|--' + '\n' + self.board['4'] + ' | ' + self.board['5'] + ' | ' + self.board['6'] + '\n' + '--|---|--' + '\n' + self.board['7'] + ' | ' + self.board['8'] + ' | ' + self.board['9']
 
     def move(self, player):
         spot = input(f'{player.name}, choose a number, 1-9:  ')
