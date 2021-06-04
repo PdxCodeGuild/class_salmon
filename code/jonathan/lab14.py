@@ -66,7 +66,7 @@ def hataraku(list_joke):
     print(delivery)
     return punchline
 # takes two strings and adds timing
-def omiyagi(punchline):
+def jodan(punchline):
     time.sleep(6)
     print(punchline)
 
@@ -79,4 +79,4 @@ list_joke = dore(joke)
 
 punchline = hataraku(list_joke)
 
-omiyagi(punchline)
+jodan(punchline)
