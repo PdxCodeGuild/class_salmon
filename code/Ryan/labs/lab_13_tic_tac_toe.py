@@ -1,14 +1,30 @@
 # --------------------------------------------------------------------------------------#
 
+#  Script logic
+# 1) make a 3x3 board where every box has a unique value (index number)
+# 2) make a list of all possible locations on the board
+# 3) make a running list for x and o positions
+# 4) alternate turns for x and o placement, taking in input from user, and assigning x or o to the position
+# 5) display the updated board at the start of each turn
+# 6) each time user chooses a position, remove that from the possibilities list and add it to the x or o list
+# 7) starting at turn 5, go through the x or o list and check if there is a winning combination of numbers
+# 8) if there is a winning combination, declare the winner and end game
+# 9) at the end if there is no winners, the game is a draw and ends
+
+# TODO duplicate entries break out of script fully instead of asking for another input
+# TODO board.is_game_over() / play_game starts off as True instead of False
+
+# --------------------------------------------------------------------------------------#
+import os
+import sys
+
 def main(user_inputs):
-    # Read
-    
     pass
 
 
 class Game:
     def __init__(self): # this is the initializer
-        self.board = {"0": "","1": "1","2": "2","3": "3","4": "4","5": "5","6": "6","7": "7","8": "8"} # these are member variables
+        self.board = {"0": "0","1": "1","2": "2","3": "3","4": "4","5": "5","6": "6","7": "7","8": "8"} # these are member variables
         #self.continue = True
         self.x_list = []
         self.o_list = []
@@ -31,8 +47,9 @@ class Game:
         # elif player.token == "o":
         #     self.o_list += input
 
-    def calc_winner(self):
-        pass
+    def calc_winner(self, player_name):
+        self.player_name = player_name
+        return self.player_name + "Wins"
 
     def is_full(self):
         pass
@@ -59,15 +76,19 @@ game = Game()
 # print(type(game.move))
 # game.move("0",player1)
 # game.board["1"] = player2.token
-print(game.x_list)
-print(game.o_list)
+#print(game.x_list)
+#print(game.o_list)
 print(game)
 
+# Running list for x and o positions
 x = []
 o = []
+
+# All possible locations on board
 possible_positions = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
 
 #while game.continue == True:
+
 play_game = True
 while play_game:
 # x Turn 1
@@ -78,7 +99,7 @@ while play_game:
     else:
         game.move(player1_input, player1)
         x.append(player1_input)
-        print(x)
+        #print(x)
         possible_positions.remove(player1_input)
         print(game)
 
@@ -90,19 +111,19 @@ while play_game:
         else:
             game.move(player2_input, player2)
             o.append(player2_input)
-            print(o)
+            #print(o)
             possible_positions.remove(player2_input)
             print(game)
 
 # x Turn 3
             player1_input = input("player x choose a number: ")
             if str(player1_input) not in possible_positions:
-                print("Position not available. Please try again")
+                print("Position not available. Please play again")
                 play_game = False
             else:
                 game.move(player1_input, player1)
                 x.append(player1_input)
-                print(x)
+                #print(x)
                 possible_positions.remove(player1_input)
                 print(game)
 
@@ -114,22 +135,23 @@ while play_game:
                 else:
                     game.move(player2_input, player2)
                     o.append(player2_input)
-                    print(o)
+                    #print(o)
                     possible_positions.remove(player2_input)
                     print(game)
 
 # x Turn 5 (x win starts)
                     player1_input = input("player x choose a number: ")
                     if str(player1_input) not in possible_positions:
-                        print("Position not available. Please try again")
+                        print("Position not available. Please play again")
                         play_game = False
                     else:
                         game.move(player1_input, player1)
                         x.append(player1_input)
-                        print(x)
+                        #print(x)
                         # Check for winning combination in x list
                         if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x) or ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x) or ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-                            print(f"x wins")
+                            game.player_name = "x"
+                            print(f"{game.player_name} wins")
                             print(game)
                             break
                         possible_positions.remove(player1_input)
@@ -142,10 +164,11 @@ while play_game:
                         else:
                             game.move(player2_input, player2)
                             o.append(player2_input)
-                            print(o)
+                            #print(o)
                             # Check for winning combination in o list
                             if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o) or ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o) or ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
-                                print(f"o wins")
+                                game.player_name = "o"
+                                print(f"{game.player_name} wins")
                                 print(game)
                                 break
                             possible_positions.remove(player2_input)
@@ -153,15 +176,16 @@ while play_game:
 # x Turn 7
                             player1_input = input("player x choose a number: ")
                             if str(player1_input) not in possible_positions:
-                                print("Position not available. Please try again")
+                                print("Position not available. Please play again")
                                 play_game = False
                             else:
                                 game.move(player1_input, player1)
                                 x.append(player1_input)
-                                print(x)
+                                #print(x)
                                 # Check for winning combination in x list
                                 if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x) or ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x) or ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-                                    print(f"x wins")
+                                    game.player_name = "x"
+                                    print(f"{game.player_name} wins")
                                     print(game)
                                     break
                                 possible_positions.remove(player1_input)
@@ -174,10 +198,11 @@ while play_game:
                                 else:
                                     game.move(player2_input, player2)
                                     o.append(player2_input)
-                                    print(o)
+                                    #print(o)
                                     # Check for winning combination in o list
                                     if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o) or ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o) or ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
-                                        print(f"o wins")
+                                        game.player_name = "o"
+                                        print(f"{game.player_name} wins")
                                         print(game)
                                         break
                                     possible_positions.remove(player2_input)
@@ -186,21 +211,29 @@ while play_game:
 # x Turn 9
                                     player1_input = input("player x choose a number: ")
                                     if str(player1_input) not in possible_positions:
-                                        print("Position not available. Please try again")
+                                        print("Position not available. Please play again")
                                         play_game = False
                                     else:
                                         game.move(player1_input, player1)
                                         x.append(player1_input)
-                                        print(x)
+                                        #print(x)
                                         # Check for winning combination in x list
                                         if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x) or ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x) or ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-                                            print(f"x wins")
+                                            game.player_name = "x"
+                                            print(f"{game.player_name} wins")
                                             print(game)
                                             break
                                         possible_positions.remove(player1_input)
                                         print(game)
-                                        play_game = False
+                                        
+
 # Game ends here
+                                        print("Board full. Draw.")
+                                        sys.stdout.flush()
+                                        os.execv(sys.argv[0], sys.argv)
+                                        #play_again = input("Play again? (y/n): ")
+                                        #if play_again != "y":
+                                        #    play_game = False
 
 #----------------------------------------------------------------------------------#
 # # make 2 lists, one for x and one for o
