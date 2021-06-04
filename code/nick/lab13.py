@@ -17,21 +17,23 @@ class Game:
         
         
     def __repr__(self):#will print (magic funct)
-        return (f'''\nWelcome to Thunderdome Tic Tac Toe          
-        {self.board[(0,0)]}|{self.board[(1,0)]}|{self.board[(2,0)]}         
-        {self.board[(0,-1)]}|{self.board[(1,-1)]}|{self.board[(2,-1)]}         
-        {self.board[(0,-2)]}|{self.board[(1,-2)]}|{self.board[(2,-2)]}\n''')#I keep getting a ghost arrow >
+        return (f'''\n\n\n    Welcome to Thunderdome Tic Tac Toe \nEnter a coordinate pair from the board.
+           __0__1__2__         
+         0: {self.board[(0,0)]} | {self.board[(1,0)]} | {self.board[(2,0)]}         
+        -1: {self.board[(0,-1)]} | {self.board[(1,-1)]} | {self.board[(2,-1)]}         
+        -2: {self.board[(0,-2)]} | {self.board[(1,-2)]} | {self.board[(2,-2)]}\n''')#I keep getting a ghost arrow >
     
     def move(self, x, y, player):#I will need to assign x or o to the player attribute somewhere
         if self.board[(x,y)] == '-':
             self.board[(x,y)] = player
         #not sure if I should break or there is something better
         #print(player)
-    def calc_winner(self):
+    def calc_winner(self):#did I forget any? hmmmmmm
         self.winners = [
             [self.board[(0,0)],self.board[(1,0)], self.board[(2,0)]], 
             [self.board[(0,0)], self.board[(0,-1)], self.board[(0,-2)]], 
-            [self.board[(0,0)], self.board[(1,-1)], self.board[(2,-2)]], 
+            [self.board[(0,0)], self.board[(1,-1)], self.board[(2,-2)]],
+            [self.board[(0,-1)], self.board[(1,-1)], self.board[(2,-1)]],
             [self.board[(1,0)], self.board[(1,-1)], self.board[(1,-2)]],
             [self.board[(2,0)], self.board[(2,-1)], self.board[(2,-2)]],
             [self.board[(2,0)], self.board[(1,-1)], self.board[(0,-2)]]
@@ -67,8 +69,6 @@ class Game:
         else:
             return False
 game = Game()#new instance of game
-player1 = Player('x', 'player1')
-player2 = Player('o', 'player2')
 #print(game.move(0,0,player))
 # print(game.__repr__())
 # print(player1.token)
@@ -90,13 +90,20 @@ player2 = Player('o', 'player2')
 #implement initilizer
 # print('game variable is ' + str(game))
 print('Welcome to the Game')
+print('Before you begin, note the coordinate system.')
+print('You will enter a number for the horizontal axis and vertical axis, as show on the outer edge of the board.')
+print(game.__repr__)
+x_player = input('Please enter player 1\'s name: ')
+o_player = input('Please enter player 2\'s name: ')
+player1 = Player('x', x_player)
+player2 = Player('o', o_player)
 while True:
-    command = input('Player1 is X. Player2 is O. Enter a command: move, exit ')
+    command = input(f'{x_player} is X. {o_player} is O. Enter a command: move, exit ')
     if command == 'move':
-        player_number = input('what is your player number? player1 or player2 ').lower()
+        player_number = input(f'What is your player name? Feel free to go before your buddy. If you are not cheating, you are not trying. {o_player} or {x_player} ').lower()
         coord1 = int(input('write the first coordinate of your move '))
         coord2 = int(input('write the second coordinate of your move '))        
-        if player_number == 'player1':
+        if player_number == x_player.lower():
             game.move(coord1,coord2,player1.token)
             #print(game.calc_winner())
             if game.is_full() == True: 
@@ -105,7 +112,7 @@ while True:
                 print(f'we have a winner! Congratulations {player1.name}')
             if game.is_game_over() == True:
                 print('the game is over ')
-        elif player_number == 'player2':
+        elif player_number == o_player.lower():
             game.move(coord1,coord2,player2.token)
             if game.is_full() == True: 
                 print('the board is full ')

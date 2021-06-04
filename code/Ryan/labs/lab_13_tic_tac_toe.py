@@ -15,9 +15,6 @@
 # TODO board.is_game_over() / play_game starts off as True instead of False
 
 # --------------------------------------------------------------------------------------#
-import os
-import sys
-
 def main(user_inputs):
     pass
 
@@ -229,8 +226,6 @@ while play_game:
 
 # Game ends here
                                         print("Board full. Draw.")
-                                        sys.stdout.flush()
-                                        os.execv(sys.argv[0], sys.argv)
                                         #play_again = input("Play again? (y/n): ")
                                         #if play_again != "y":
                                         #    play_game = False
