@@ -12,7 +12,6 @@ import random
 class Game:
     def __init__(self):
         self.board = [[' ' for row in range(3)] for each in range(3)]
-        self.available_squares = ['0,0', '0,1', '0,2', '1,0', '1,1', '1,2', '2,0', '2,1', '2,2']
 
     def __repr__(self):
         fmt_out = ""
@@ -25,18 +24,19 @@ class Game:
         self.board[x][y] = player_token
 
     def calc_winner(self):
-        # check for winner in row
-        for row in self.board:
+        # Check for winner in rows and columns
+        # I realized doing the loop this way eliminates the counter variable and while loop...
+        for each in range(3):
+            row = self.board[each]
+            # Check rows
             if all(square == row[0] and square != ' ' for square in row):
                 return row[0]
-        # Check for winner in column
-        counter = 0
-        while counter < len(self.board):
-            if (self.board[0][counter] == self.board[1][counter] == self.board[2][counter]) and self.board[0][counter] != ' ':
-                return self.board[0][counter]
-            else:
-                counter += 1
-        # Check for winner in diagonal
+            # check columns
+            col = [self.board[square][each] for square in range(3)]
+            # col = [self.board[each][square] for square in range(3)]
+            if all(square == col[0] and square != ' ' for square in col):
+                return col[0]
+        # Check diagonal for winner
         if (self.board[0][0] == self.board[1][1] == self.board[2][2] or self.board[0][2] == self.board[1][1] ==
             self.board[2][0]) and self.board[1][1] != ' ':
             return self.board[1][1]
@@ -45,53 +45,16 @@ class Game:
 
     def is_full(self):
         for row in self.board:
-            for square in row:
-                if any(square) == ' ':
-                    return False
-                else:
-                    return True
+            if any(square == ' ' for square in row):
+                return False
+        return True
 
     def is_game_over(self):
         if self.calc_winner() is None:
             return False
-        elif 
+        elif self.calc_winner():
             return True
         elif self.is_full():
             return True
         else:
             return False
-
-    def play(self, player1, player2, player1_token, player2_token):
-        turn_counter = 1
-        print(" Tic Tac Toe ".center(26, "="))
-        while turn_counter <= 9:
-            print(self.__repr__())
-            # determine player's turn:
-            # Human player goes first
-            if turn_counter % 2 != 0:
-                print(f"{player1}, it's your turn...")
-                try:
-                    choice = input("Enter point to place your token: ")
-                    if choice in self.available_squares:
-                        # remove this choice from the list of available points
-                        self.available_squares.pop(self.available_squares.index(choice))
-                        # Convert the choice to list of ints:
-                        choice = choice.split(',')
-                        # Make the players move
-                        self.move(int(choice[0]), int(choice[1]), player1_token)
-                        turn_counter += 1
-                    else:
-                        raise ValueError
-                except ValueError:
-                    print("You chose an invalid square.  Please try again...")
-
-            else:
-                # Computer takes a turn:
-                print(f"{player2} is taking their turn...")
-                choice = self.available_squares[random.randint(0, len(self.available_squares) - 1)]
-                print(f"Computer chooses square {choice}.")
-                self.available_squares.pop(self.available_squares.index(choice))
-                choice = choice.split(',')
-                self.move(int(choice[0]), int(choice[1]), player2_token)
-                turn_counter += 1
-
