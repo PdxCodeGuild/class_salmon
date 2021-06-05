@@ -1,62 +1,68 @@
 import time
 import requests
-import re
+
 response = requests.get('https://icanhazdadjoke.com/',
                         headers={'accept': 'application/json'})
 
-# look for 200 series response
-# print(response)
+# print(response) <~~~~~ look for 200 series response
 
-# format into dictionary
-data = response.json()
-# print(data)
+data = response.json()  # <~~~~~~~~~ format into dictionary
+# print(data) <~~ see the dictionary
 
 joke = data["joke"]
-print(joke)
-#joke = 'Why did the m&m go to school. Because it wanted to be a Smartie!'
+
 q = joke.find("? ")
 p = joke.find(". ")
 e = joke.find("! ")
 
-split_joke = re.split("\!|\.|\?", joke)
 
-
-# print(p)
-# print(joke[p])
-
-def joker(split_joke):
+def joker(joke):
+    # had to input all the request info inside the function to be able
+    # to generate a new joke every time the function was called
+    response = requests.get('https://icanhazdadjoke.com/',
+                            headers={'accept': 'application/json'})
+    data = response.json()
+    joke = data["joke"]
+    q = joke.find("? ")
+    p = joke.find(". ")
+    e = joke.find("! ")
     if p != -1:
-        for i, j in enumerate(split_joke):
-            print(j, joke[p])
-
-            time.sleep(2)
+        print(joke[0:p+1])
+        time.sleep(4)
+        print(joke[p+2:])
     elif q != -1:
-        for i, j in enumerate(split_joke):
-            print(j, joke[q])
-
-            time.sleep(2)
+        print(joke[0:q+1])
+        time.sleep(4)
+        print(joke[q+2:])
     elif e != -1:
-        for i, j in enumerate(split_joke):
-            print(j, joke[e])
-
-            time.sleep(2)
+        print(joke[0:e+1])
+        time.sleep(4)
+        print(joke[e+2:])
     else:
         print(joke)
 
 
 question = input('Wanna hear a dad joke? y or n:  ')
-if question == 'y':
-    time.sleep(1.5)
-    print('Okay, here it is:')
-    time.sleep(1.5)
-    joker(split_joke)
 
+if question == 'y':
+    while True:
+        time.sleep(1.5)
+        print('Okay, here it is:')
+        time.sleep(1.5)
+        joker(joke)
+        again = input('Want another? y or n:  ')
+        if again == 'y':
+            pass
+        else:
+            break
 if question == 'n':
     time.sleep(1.5)
     print("Too bad, here it is:")
     time.sleep(1.5)
-    joker(split_joke)
-
-'''
-
-'''
+    while True:
+        joker(joke)
+        again = input('Want another? y or n:  ')
+        if again == 'y':
+            pass
+        else:
+            break
