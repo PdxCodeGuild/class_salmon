@@ -78,48 +78,31 @@ user_error = "Error! Please make a valid entry: "
 
 
 main_menu = """
-
 Welcome to the contact list registry.
-
 Please make a selection:
-
 1. Create record
-
 2. Retrieve contact information
-
 3. Update contact information
-
 4. Delete contact information
-
 5. Quit
-
 Enter: """
 
 return_menu = """
 1. Return to main menu
-
 2. Quit
-
 Enter: """
 
 search_again = """
 1. Search for another contact
-
 2. Return to main menu
-
 3. Quit
-
 Enter: """
 
 update_contact_menu = """
 1. Update information
-
 2. Search for another contact
-
 3. Return to main menu
-
 4. Quit
-
 Enter: """
 trigger = 1
 
@@ -238,5 +221,4 @@ while True:              ################ Menu Naigation system
     elif menu_select == 5:
         write(contact_list)
         exit()
-        
         
