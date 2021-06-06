@@ -68,6 +68,7 @@ while True:
         print('deposit  - deposit money')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
+        print('print - display list of all transactions')
         print('exit     - exit the program')
     elif command == 'print':
         print(atm.print_transactions())
