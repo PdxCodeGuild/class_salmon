@@ -27,7 +27,7 @@ class ATM:
         self.balance += amount
         self.transactions.append((f"user deposited {amount}."))
     #check_withdrawal is the third function that is not doing the same thing upon initialization
-    def check_withdrawal(self, amount):
+    def check_withdrawal(self, amount):#in the future this could be made into a private method __check_withdrawal, so the user is not bothered by having to see this
         #we want to return true if the withdrawn amount wont make account negative
         if self.balance >= amount:
             return True
