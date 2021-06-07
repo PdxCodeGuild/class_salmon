@@ -49,10 +49,12 @@ class Game:
         return self.player_name + "Wins"
 
     def is_full(self):
-        pass
+        output = "Board full. Draw."
+        return output 
 
     def is_game_over(self):
-        pass
+        output = "Position not available. Game over."
+        return output
 
 
 
@@ -76,7 +78,7 @@ game = Game()
 #print(game.x_list)
 #print(game.o_list)
 print(game)
-
+#print(game.is_game_over())
 # Running list for x and o positions
 x = []
 o = []
@@ -103,7 +105,7 @@ while play_game:
 # o Turn 2
         player2_input = input("player o choose a number: ")
         if str(player2_input) not in possible_positions:
-            print("Position not available. Please play again")
+            print(game.is_game_over())
             play_game = False 
         else:
             game.move(player2_input, player2)
@@ -115,7 +117,7 @@ while play_game:
 # x Turn 3
             player1_input = input("player x choose a number: ")
             if str(player1_input) not in possible_positions:
-                print("Position not available. Please play again")
+                print(game.is_game_over())
                 play_game = False
             else:
                 game.move(player1_input, player1)
@@ -127,7 +129,7 @@ while play_game:
 # o Turn 4
                 player2_input = input("player o choose a number: ")
                 if str(player2_input) not in possible_positions:
-                    print("Position not available. Please play again")
+                    print(game.is_game_over())
                     play_game = False 
                 else:
                     game.move(player2_input, player2)
@@ -139,14 +141,21 @@ while play_game:
 # x Turn 5 (x win starts)
                     player1_input = input("player x choose a number: ")
                     if str(player1_input) not in possible_positions:
-                        print("Position not available. Please play again")
+                        print(game.is_game_over())
                         play_game = False
                     else:
                         game.move(player1_input, player1)
                         x.append(player1_input)
                         #print(x)
                         # Check for winning combination in x list
-                        if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x) or ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x) or ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
+                        if  ('0' in x and '1' in x and '2' in x) or \
+                            ('3' in x and '4' in x and '5' in x) or \
+                            ('6' in x and '7' in x and '8' in x) or \
+                            ('0' in x and '3' in x and '6' in x) or \
+                            ('1' in x and '4' in x and '7' in x) or \
+                            ('2' in x and '5' in x and '8' in x) or \
+                            ('0' in x and '4' in x and '8' in x) or \
+                            ('2' in x and '4' in x and '6' in x):
                             game.player_name = "x"
                             print(f"{game.player_name} wins")
                             print(game)
@@ -156,14 +165,21 @@ while play_game:
 # o Turn 6 (o win starts)
                         player2_input = input("player o choose a number: ")
                         if str(player2_input) not in possible_positions:
-                            print("Position not available. Please play again")
+                            print(game.is_game_over())
                             play_game = False 
                         else:
                             game.move(player2_input, player2)
                             o.append(player2_input)
                             #print(o)
                             # Check for winning combination in o list
-                            if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o) or ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o) or ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
+                            if (('0' in o and '1' in o and '2' in o) or 
+                                ('3' in o and '4' in o and '5' in o) or 
+                                ('6' in o and '7' in o and '8' in o) or 
+                                ('0' in o and '3' in o and '6' in o) or 
+                                ('1' in o and '4' in o and '7' in o) or 
+                                ('2' in o and '5' in o and '8' in o) or 
+                                ('0' in o and '4' in o and '8' in o) or 
+                                ('2' in o and '4' in o and '6' in o)):
                                 game.player_name = "o"
                                 print(f"{game.player_name} wins")
                                 print(game)
@@ -173,7 +189,7 @@ while play_game:
 # x Turn 7
                             player1_input = input("player x choose a number: ")
                             if str(player1_input) not in possible_positions:
-                                print("Position not available. Please play again")
+                                print(game.is_game_over())
                                 play_game = False
                             else:
                                 game.move(player1_input, player1)
@@ -190,7 +206,7 @@ while play_game:
 # o Turn 8
                                 player2_input = input("player o choose a number: ")
                                 if str(player2_input) not in possible_positions:
-                                    print("Position not available. Please play again")
+                                    print(game.is_game_over())
                                     play_game = False 
                                 else:
                                     game.move(player2_input, player2)
@@ -208,7 +224,7 @@ while play_game:
 # x Turn 9
                                     player1_input = input("player x choose a number: ")
                                     if str(player1_input) not in possible_positions:
-                                        print("Position not available. Please play again")
+                                        print(game.is_game_over())
                                         play_game = False
                                     else:
                                         game.move(player1_input, player1)
@@ -225,7 +241,8 @@ while play_game:
                                         
 
 # Game ends here
-                                        print("Board full. Draw.")
+                                        print(game.is_full())
+                                        exit()
                                         #play_again = input("Play again? (y/n): ")
                                         #if play_again != "y":
                                         #    play_game = False
