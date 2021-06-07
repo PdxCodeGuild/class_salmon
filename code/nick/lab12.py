@@ -12,7 +12,7 @@
         self.children.append(child)'''
 #let us try
 class ATM:
-    def __init__(self, balance = 0, interest_rate = 0.1, amount = 0):#balance always starts 1, interest rate 0.1
+    def __init__(self, balance = 0, interest_rate = 0.001, amount = 0):#balance always starts 1, interest rate 0.1
         #when you set one of the args for __init__ equal to something this means it is a default (from pete)
         self.balance = balance #arg1
         self.interest_rate = interest_rate #arg2
