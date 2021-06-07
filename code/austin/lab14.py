@@ -28,7 +28,7 @@ def search_jokes():
         found = number_of_jokes(search_term)
         if found == 0:
             print('No matches for that search found!! Try another search')
-    look_at_results(search_term, found)
+    return look_at_results(search_term, found)
 def look_at_results(search_term, found):
     i = 0
     matches = matching_jokes(search_term)
