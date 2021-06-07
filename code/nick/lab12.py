@@ -12,7 +12,7 @@
         self.children.append(child)'''
 #let us try
 class ATM:
-    def __init__(self, balance = 0, interest_rate = 0.1, amount = 0):#balance always starts 1, interest rate 0.1
+    def __init__(self, balance = 0, interest_rate = 0.001, amount = 0):#balance always starts 1, interest rate 0.1
         #when you set one of the args for __init__ equal to something this means it is a default (from pete)
         self.balance = balance #arg1
         self.interest_rate = interest_rate #arg2
@@ -25,9 +25,9 @@ class ATM:
     def deposit(self, amount):
         #we want the balance value to increase
         self.balance += amount
-        self.transactions.append((f"user deposited {amount}."))
+        self.transactions.append(f"user deposited {amount}.")
     #check_withdrawal is the third function that is not doing the same thing upon initialization
-    def check_withdrawal(self, amount):
+    def check_withdrawal(self, amount):#in the future this could be made into a private method __check_withdrawal, so the user is not bothered by having to see this
         #we want to return true if the withdrawn amount wont make account negative
         if self.balance >= amount:
             return True
@@ -35,13 +35,13 @@ class ATM:
     def withdraw(self, amount):
         #we want to decrease the balance by that amount
         self.balance -= amount
-        self.transactions.append((f"user withdrew {amount}."))
+        self.transactions.append(f"user withdrew {amount}.")
     #calc_interest is the fifth function that is not doing the same thing upon initialization
     def calc_interest(self):
         #we want to multiply the balance by the interest rate, not sure what we should do with the earnings
         return self.balance * self.interest_rate
     def print_transactions(self):
-        print(self.transactions)
+        print("/n".join(self.transactions))#join () method takes all items in an iterable and joins them into one string. A string must be specified as the separator. W3Schools
 
     
     '''balance(self, account):
