@@ -12,6 +12,6 @@ print(f'\nEnjoy this dad joke from icanhazdadjoke.com!\n\n"{random_joke}"\n\nYou
 
 # Part 2 (optional)
 # Add the ability to "search" for jokes using another endpoint. Create a REPL that allows one to enter a search term and go through jokes one at a time. You can also add support for multiple pages.
-search_response = requests.get('https://icanhazdadjoke.com/search', params= {'page': 1, 'limit': 20, 'term': 'list all jokes'})
-search_data = search_response.json()
-print(search_data)
+# search_response = requests.get('https://icanhazdadjoke.com/search', params= {'page': 1, 'limit': 20, 'term': 'list all jokes'})
+# search_data = search_response.json()
+# print(search_data) # many errors
