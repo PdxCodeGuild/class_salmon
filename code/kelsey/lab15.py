@@ -10,6 +10,7 @@ qotd = data['body']
 author = data['author']
 print(f'\n"{qotd}"\n-{author}\n')
 
+
 # Version 2: List Quotes by Keyword
 # The Favqs Quote API also supports getting a list of quotes associated with a given keyword https://favqs.com/api/quotes?page=<page>&filter=<keyword>. Prompt the user for a keyword, list the quotes you get in response, and prompt the user to either show the next page or enter a new keyword. You can use string concatenation to build the URL.
 keyword = input('Enter a keyword to search quotes: ')
@@ -26,7 +27,7 @@ while True:
         print(f'\n"{body}" Author: {author}')
     num_of_results = len(quotes)
     page_number = response_dict['page']
-    print(f'\n{num_of_results} quotes associated with {keyword} on page {page_number}')
+    print(f'\n{num_of_results} quotes associated with "{keyword}" on page {page_number}')
     next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ")
     if next_pg == 'done':
         print("\nSee you later!\n")
