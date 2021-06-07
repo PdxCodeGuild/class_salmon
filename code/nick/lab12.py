@@ -41,7 +41,7 @@ class ATM:
         #we want to multiply the balance by the interest rate, not sure what we should do with the earnings
         return self.balance * self.interest_rate
     def print_transactions(self):
-        print(self.transactions)
+        print("/n".join(self.transactions))#join () method takes all items in an iterable and joins them into one string. A string must be specified as the separator. W3Schools
 
     
     '''balance(self, account):
