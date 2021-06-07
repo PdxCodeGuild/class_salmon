@@ -25,7 +25,7 @@ class ATM:
     def deposit(self, amount):
         #we want the balance value to increase
         self.balance += amount
-        self.transactions.append((f"user deposited {amount}."))
+        self.transactions.append(f"user deposited {amount}.")
     #check_withdrawal is the third function that is not doing the same thing upon initialization
     def check_withdrawal(self, amount):#in the future this could be made into a private method __check_withdrawal, so the user is not bothered by having to see this
         #we want to return true if the withdrawn amount wont make account negative
@@ -35,7 +35,7 @@ class ATM:
     def withdraw(self, amount):
         #we want to decrease the balance by that amount
         self.balance -= amount
-        self.transactions.append((f"user withdrew {amount}."))
+        self.transactions.append(f"user withdrew {amount}.")
     #calc_interest is the fifth function that is not doing the same thing upon initialization
     def calc_interest(self):
         #we want to multiply the balance by the interest rate, not sure what we should do with the earnings
