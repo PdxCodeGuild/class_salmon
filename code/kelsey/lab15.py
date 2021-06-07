@@ -40,17 +40,3 @@ while True:
         keyword = input('Enter a keyword to search quotes: ')
         page = 1
 
-
-
-# print(f'{num_of_results} quotes associated with {keyword} - page {pg}')
-# > enter a keyword to search for quotes: nature
-# 25 quotes associated with nature - page 1
-# <list of quotes>
-# > enter 'next page' or 'done': next page
-# 25 quotes associated with nature - page 2
-# <list of quotes>
-# > enter 'next page' or 'done': done
-# > enter a keyword to search for quotes:
-# This API endpoint requires an API key be included in a request header. You can find documentation of specifying request headers here and documentation on authorization with the Favqs API here under "Authorization".
-
-# headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
