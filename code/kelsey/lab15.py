@@ -28,16 +28,23 @@ while True:
     num_of_results = len(quotes)
     page_number = response_dict['page']
     print(f'\n{num_of_results} quotes associated with "{keyword}" on page {page_number}')
+    if last_pg == True:
+        print('\nSorry, no more pages to search.')
     next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ")
     if next_pg == 'done':
         print("\nSee you later!\n")
         break
-    elif next_pg == 'next':
-        if last_pg == True:
-            print('\nSorry, no more pages to search.')
-            break
-        page += 1
     elif next_pg == 'new':
         keyword = input('Enter a keyword to search quotes: ')
         page = 1
-
+    elif next_pg == 'next':
+        if last_pg == True:
+            print('\nSorry, no more pages to search.')
+            next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ")
+            if next_pg == 'done':
+                print("\nSee you later!\n")
+                break
+            elif next_pg == 'new':
+                keyword = input('Enter a keyword to search quotes: ')
+                page = 1
+        page += 1
