@@ -56,11 +56,12 @@ while True:
 
     breakflag2 = True
     while breakflag2 == True:
-    
-        page = input("Enter next page or done: ")
-        if page == "done":
+        page = 1
+        user_input = input("Enter next page or done: ")
+        if user_input == "done":
             breakflag2 = False
         else:
+            page = page + 1
             response2 = requests.get(f'https://favqs.com/api/quotes/?page={page}&filter={keyword}', headers = {'accept': 'application/json', 'Authorization':'Token token="855df50978dc9afd6bf86579913c9f8b"'})
             data2 = response2.json()
             quote2 = data2["quotes"]
