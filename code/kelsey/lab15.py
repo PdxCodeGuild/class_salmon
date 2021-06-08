@@ -24,7 +24,7 @@ while True:
     for quote in quotes:
         author = quote['author']
         body = quote['body']
-        print(f'\n"{body}" Author: {author}')
+        print(f'\n"{body}" -{author}')
     num_of_results = len(quotes)
     page_number = response_dict['page']
     print(f'\n{num_of_results} quotes associated with "{keyword}" on page {page_number}')
@@ -35,7 +35,7 @@ while True:
         print("\nSee you later!\n")
         break
     elif next_pg == 'new':
-        keyword = input('Enter a keyword to search quotes: ')
+        keyword = input('\nEnter a keyword to search quotes: ')
         page = 1
     elif next_pg == 'next':
         if last_pg == True:
