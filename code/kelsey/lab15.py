@@ -32,7 +32,7 @@ while True:
         print('\nSorry, no more pages to search.')
     next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ").lower()
     if next_pg == 'done':
-        print("\nSee you later!\n")
+        print("\n'See you later!' -Me\n")
         break
     elif next_pg == 'new':
         keyword = input('\nEnter a keyword to search quotes: ')
@@ -42,7 +42,7 @@ while True:
             print('\nSorry, no more pages to search.')
             next_pg = input("\nEnter 'new' for new search, or 'done' to quit: ").lower()
             if next_pg == 'done':
-                print("\nSee you later!\n")
+                print("\n'See you later!' -Me\n")
                 break
             elif next_pg == 'new':
                 keyword = input('\nEnter a keyword to search quotes: ')
