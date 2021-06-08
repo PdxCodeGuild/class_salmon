@@ -30,7 +30,7 @@ while True:
     print(f'\n{num_of_results} quotes associated with "{keyword}" on page {page_number}')
     if last_pg == True:
         print('\nSorry, no more pages to search.')
-    next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ")
+    next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ").lower()
     if next_pg == 'done':
         print("\nSee you later!\n")
         break
@@ -40,7 +40,7 @@ while True:
     elif next_pg == 'next':
         if last_pg == True:
             print('\nSorry, no more pages to search.')
-            next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ")
+            next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ").lower()
             if next_pg == 'done':
                 print("\nSee you later!\n")
                 break
