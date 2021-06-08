@@ -45,6 +45,6 @@ while True:
                 print("\nSee you later!\n")
                 break
             elif next_pg == 'new':
-                keyword = input('Enter a keyword to search quotes: ')
-                page = 1
+                keyword = input('\nEnter a keyword to search quotes: ')
+                page = 0
         page += 1
