@@ -8,31 +8,54 @@ def clean_quote(data):
 def quote_list(response):
     raw_data = response.json()
     level_1_data = raw_data['quotes']
-    counter = 0
+    quote_counter = 0
     for i in range(len(level_1_data)):
-        counter +=1
+        quote_counter +=1
         quote = level_1_data[i]['body']
         author = level_1_data[i]['author']
-        print(f'\n{counter}."{quote}"\n\n\t— {author}\n')
+        print(f'\n{quote_counter}."{quote}"\n\n\t— {author}\n')
+
 # Version 1: Get a Random Quote
+
 '''response = requests.get('https://favqs.com/api/qotd', headers={'Accept': 'application/json'})
 data = response.json()
-
 clean_quote(data)'''
 
 # Version 2: List Quotes by Keyword
 
 search = input("Enter a keyword to search for quotes: ")
 
-url = f'https://favqs.com/api/quotes/?filter={search}'
-
+url = 'https://favqs.com/api/quotes'
+add = f'/?filter={search}'
 header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-response = requests.get(url, headers = header)
+response = requests.get(url+add, headers = header)
 
-quote_list(response)
-commands = input("Enter <next> page or <done>: ").lower()
-if commands == "next":
-    new_url = 'https://favqs.com/api/quotes?page=0?filter={search}'
-header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-response = requests.get(new_url, headers = header)
-quote_list(response)
+while True:
+    quote_list(response)
+    page_counter = -1
+    commands = input("Enter <next> for next page, <search> for a new keyword or <done> to exit: ").lower()
+    if commands == "next":
+        try:
+            page_counter +=1
+            user = f'?page={page_counter}?filter={search}'
+            header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+            response = requests.get(url+user, headers = header)
+            quote_list(response)
+        except KeyError:
+            print("\nEnd of line.\n")
+            commands = input("Enter <search> for a new keyword or <done> to exit: ").lower()
+            if commands == "search":
+                user_key = input("Please enter the new keyword to search for: ")
+                user = f'/?filter={user_key}'
+                header = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+                response = requests.get(url+user, headers = header)
+                quote_list(response)
+            else:
+                print("Goodbye.")
+    elif commands == "search":
+        user_key = input("Please enter the new keyword to search for: ")
+        user = f'/?filter={user_key}'
+    else:
+        print("Goodbye.")
+        break
+    
