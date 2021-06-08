@@ -21,11 +21,13 @@ while True:
     print("Quote:", quote)
     print("Author:", author)
 
-    keyword = input("Enter a keyword: ")
+    keyword = input("Enter a keyword or done: ")
+    if keyword == "done":
+        exit()
     page = 1
     #print(keyword)
     # list quotes
-    response2 = requests.get(f'https://favqs.com/api/quotes/?page={page}filter={keyword}', headers = {'accept': 'application/json', 'Authorization':'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+    response2 = requests.get(f'https://favqs.com/api/quotes/?page={page}&filter={keyword}', headers = {'accept': 'application/json', 'Authorization':'Token token="855df50978dc9afd6bf86579913c9f8b"'})
     data2 = response2.json()
     quote2 = data2["quotes"]
 
@@ -44,14 +46,22 @@ while True:
         #print("Author:", item["author"])
     # Show next page
     # enter new keyword
+    #print({quote3_body[0]}, {quote3_author[0]})
+
+    # for each in quote3_body:
+    #     print(each)
+    #     for each in quote3_author:
+    #         print(each)
+    #         break
+
     breakflag2 = True
     while breakflag2 == True:
-    #print({quote3_body[0]}, {quote3_author[0]})
+    
         page = input("Enter next page or done: ")
         if page == "done":
             breakflag2 = False
         else:
-            response2 = requests.get(f'https://favqs.com/api/quotes/?page={page}filter={keyword}', headers = {'accept': 'application/json', 'Authorization':'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+            response2 = requests.get(f'https://favqs.com/api/quotes/?page={page}&filter={keyword}', headers = {'accept': 'application/json', 'Authorization':'Token token="855df50978dc9afd6bf86579913c9f8b"'})
             data2 = response2.json()
             quote2 = data2["quotes"]
 
