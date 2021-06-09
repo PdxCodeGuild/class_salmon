@@ -8,12 +8,12 @@ random_response = requests.get('https://favqs.com/api/qotd/', headers= {'Accept'
 data = random_response.json()['quote']
 qotd = data['body']
 author = data['author']
-print(f'\n"{qotd}"\n-{author}\n')
+print(f'\n"{qotd}"\n\n-{author}')
 
 
 # Version 2: List Quotes by Keyword
 # The Favqs Quote API also supports getting a list of quotes associated with a given keyword https://favqs.com/api/quotes?page=<page>&filter=<keyword>. Prompt the user for a keyword, list the quotes you get in response, and prompt the user to either show the next page or enter a new keyword. You can use string concatenation to build the URL.
-keyword = input('Enter a keyword to search quotes: ')
+keyword = input('\nEnter a keyword to search quotes: ')
 page = 1
 
 while True:
@@ -24,20 +24,27 @@ while True:
     for quote in quotes:
         author = quote['author']
         body = quote['body']
-        print(f'\n"{body}" Author: {author}')
+        print(f'\n"{body}" -{author}')
     num_of_results = len(quotes)
     page_number = response_dict['page']
     print(f'\n{num_of_results} quotes associated with "{keyword}" on page {page_number}')
-    next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ")
+    if last_pg == True:
+        print('\nSorry, no more pages to search.')
+    next_pg = input("\nEnter 'next' for next page, 'new' for new search, or 'done' to quit: ").lower()
     if next_pg == 'done':
-        print("\nSee you later!\n")
+        print("\n'See you later!' -Me\n")
         break
+    elif next_pg == 'new':
+        keyword = input('\nEnter a keyword to search quotes: ')
+        page = 1
     elif next_pg == 'next':
         if last_pg == True:
             print('\nSorry, no more pages to search.')
-            break
+            next_pg = input("\nEnter 'new' for new search, or 'done' to quit: ").lower()
+            if next_pg == 'done':
+                print("\n'See you later!' -Me\n")
+                break
+            elif next_pg == 'new':
+                keyword = input('\nEnter a keyword to search quotes: ')
+                page = 0
         page += 1
-    elif next_pg == 'new':
-        keyword = input('Enter a keyword to search quotes: ')
-        page = 1
-
