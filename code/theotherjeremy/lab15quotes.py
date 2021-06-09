@@ -14,9 +14,6 @@ print('Author: ', author)
 '''
 ##########################  Version 2  #######################################
 
-'''
-'''
-
 
 def keyword_search(keyword='funny', page=1, ):
     response = requests.get(
