@@ -135,7 +135,7 @@ class PDF(FPDF):
     #     # self.set_xy(4.25,2)
         self.image('well_report_plot.jpeg', 1.5, 1.3, 5.1, 7)
 
-    def notes_body(self, top_line, bottom_line, annotation = 'No notes provided by user. '):
+    def notes_body(self, top_line = 100, bottom_line = 100, annotation = 'No notes provided by user. '):
         self.set_font('Times', '', 9)
         self.set_xy(.3, 8.4)#previously set to 8.1 for y
         self.multi_cell(0, .2, txt = f'Well Logger Notes:\n{annotation}\nThe area of concern for casing inspection ranges from {top_line} - {bottom_line} feet. \n\nKey:\nHigh amplitudes indicate poor bonding or an absence of cement behind the casing. The opposite indicates the presence of cement.\nLonger return travel times indicate a signal coming from the formation wall, indicating good cement bonding. The opposite means there is likely poor bonding or no cement present. ', border=1, align='J')# Output justified text
@@ -143,15 +143,24 @@ class PDF(FPDF):
         self.set_font('', 'I')# Mention in italics
         # self.cell(0, 5, 'some text')#fix this
     # Page footer
+    # def footer(self):
+    #     # self.set_y(0)# Position at .3 inches from bottom
+    #     # Arial italic 8
+    #     self.set_font('Arial', 'I', 8)
+    #     # Page number
+    #     self.cell(0, 15, 'Page ' + str(self.page_no()) + ' of {nb}',align='C')
     def footer(self):
-        self.set_y(-0.3)# Position at .3 inches from bottom
+        # Position at 1.5 cm from bottom
+        self.set_xy(5, 0.5)
         # Arial italic 8
         self.set_font('Arial', 'I', 8)
         # Page number
-        self.cell(0, 10, 'Page ' + str(self.page_no()) + 'of {nb}', 0, 0, 'C')
+        self.cell(0, 0, 'Page ' + str(self.page_no()) + ' of {nb}', 0, 0, 'C')
+    #     self.cell(0, 0, 'Page %s' % self.page_no() + '/{nb}', 1, 0, 'C')
 
 # Instantiation of inherited class, example
 pdf = PDF(orientation='P', unit='in', format='Letter')#orientation is portrait, units are inches (formatting on x,y coord), format is letter
+
 
 print('Welcome to the Cement Bond Log Reader')
 path = 'C:/Users/Nick/Documents/GitHub/class_salmon/code/nick/cement_bond_logs' #path to files (absolute, will have to fix that)
@@ -221,6 +230,7 @@ while True:
         pdf.plots()#freezing the file writing
         pdf.set_font('Times', '', 12)
         pdf.notes_body(top_line, bottom_line, annotation)
+        pdf.footer()
         if os.path.exists('output_report.pdf'):
             os.remove('output_report.pdf')#this is to remove any old pdf by the same name in the directory
         pdf.output('output_report.pdf', 'F')
