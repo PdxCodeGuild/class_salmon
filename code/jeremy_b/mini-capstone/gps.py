@@ -1,25 +1,15 @@
 """
 
 Author: Jeremy Bush
-Project: Radio Utilities in Python (RUPy)
+Project: Radio Utilities in Python (RUPy), GPS utility library
 Version: 1
-Date: 6/8/2021
-
-"""
-"""
-
-Application notes:
-
-This solution is unique to Windows.  Mac and Linux systems have several applications that can perform this type of
-function, however none exists for Windows.  
+Date: 6/9/2021
 
 """
 
-# Import required libraries
-import os  # needed to build paths
-import serial  # needed to communicate with GPS unit
-import pynmeagps  # needed to parse the information from the GPS
-import requests  # required to download Winlink node list
+
+import serial
+import pynmeagps
 
 
 # Read GPS coordinates from the GPS
@@ -49,23 +39,4 @@ def convert_to_grid(lat, lon):
 
     # Perform the actual calculation and return
     return upper[int(lon / 20)] + upper[int(lat / 10)] + str(int((lon / 2) % 10)) + str(int(lat % 10)) + \
-           lower[int(lon_remainder / 5)] + lower[int(lat_remainder/2.5)]
-
-
-# Update Winlink config file with new grid square
-# Hard coded for now.  Need to convert this to a dynamic file path at some point.
-def update_winlink_config(gridsquare):
-    filepath = os.path.join('C:\\', 'RMS Express', 'RMS Express.ini')
-    file = open(filepath, 'r')
-    flag = 0
-    index = 0
-    search_text = 'Grid Square'
-    for line in file:
-        index += 1
-        if search_text in line:
-            flag = 1
-            break
-
-
-# download updated winlink node list
-# provide list of Winlink nodes by frequency band and distance, closest -> farthest
+        lower[int(lon_remainder / 5)] + lower[int(lat_remainder/2.5)]

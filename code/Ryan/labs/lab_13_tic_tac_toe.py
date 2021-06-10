@@ -1,955 +1,164 @@
-#import numpy as np
+# Lab 13: Tic-Tac-Toe
+# Tic Tac Toe is a game. Players take turns placing tokens (a 'O' or 'X') into a 3x3 grid. Whoever gets three in a row first wins.
 
+# You will write a Player class and Game class to model Tic Tac Toe, and a function main that models gameplay taking in user inputs through REPL.
+import random
+# The Player class has the following properties:
 class Player:
+
+# name = player name
+# token = 'X' or 'O'
     def __init__(self, name, token):
         self.name = name
         self.token = token
+    
+    def __str__(self):
+        return self.token
 
+# The Game class has the following properties:
+class Game:
+
+# board = your representation of the board
+# You can represent the board however you like, such as a 2D list, tuples, or dictionary.
+
+    def __init__(self):
+        self.board = {
+            "0": "0", "1": "1", "2": "2", 
+            "3": "3", "4": "4", "5": "5",
+            "6": "6", "7": "7", "8": "8"
+            }
+
+# The Game class has the following methods:
+
+# __repr__() Returns a pretty string representation of the game board
+# >>> print(board)
+# X| | 
+# O|X|O
+#  | | 
+    def __repr__(self):
+        return f"""
+        \t{self.board["0"]}|{self.board["1"]}|{self.board["2"]}
+        \t{self.board["3"]}|{self.board["4"]}|{self.board["5"]}
+        \t{self.board["6"]}|{self.board["7"]}|{self.board["8"]}
+        """
+
+# move(x, y, player) Place a player's token character string at a given coordinate (top-left is 0, 0), x is horizontal position, y is vertical position.
+# >>> board.move(2, 1, player_1)
+#  | | 
+#  | |X
+#  | | 
+    def move(self, input, player):
+        self.board[input] = player.token
+        self.input = input
+        self.player = player
+
+        # Add the player move to players list
+        if player.token == "x":
+            x_moves.append(self.input)
+            self.board.update({f"{self.input}": "x"})
+        elif player.token == "o":
+            o_moves.append(self.input)
+            self.board.update({f"{self.input}": "o"})        
+        
+        possible_positions.remove(str(self.input))
+
+        return 
+
+# calc_winner() What token character string has won or None if no one has.
+# X| | 
+# O|X|O
+#  | |X
+# >>> board.calc_winner()
+# X
+    def calc_winner(self, player_name):
+        self.player_name = player_name
+
+        if (("0" in x_moves and "1" in x_moves and "2" in x_moves) or 
+            ("3" in x_moves and "4" in x_moves and "5" in x_moves) or 
+            ("6" in x_moves and "7" in x_moves and "8" in x_moves) or 
+            ("0" in x_moves and "3" in x_moves and "6" in x_moves) or 
+            ("1" in x_moves and "4" in x_moves and "7" in x_moves) or
+            ("2" in x_moves and "5" in x_moves and "8" in x_moves) or 
+            ("0" in x_moves and "4" in x_moves and "8" in x_moves) or 
+            ("2" in x_moves and "4" in x_moves and "6" in x_moves)):
+            return True
+        return False
+
+# is_full() Returns true if the game board is full.
+# X|O|X
+# X|X|O
+# O|O|X
+# >>> board.is_full()
+# True
+    def is_full(self):
+        self.turn_counter = self
+        if self.turn_counter == 9:
+            return True
+        return False
+
+# is_game_over() Returns true if the game board is full or a player has won.
+# X|O|X
+# X|X|O
+# O|O|X
+# >>> board.is_game_over()
+# True
+    def is_game_over():
+        if game.is_full == True:
+            return True
+        return False
+
+# X|O|
+#  | |X
+#  | |
+# >>> board.is_game_over()
+# False
+
+# Define the players
 player1 = Player("player1","x")
 player2 = Player("player2","o")
 
-class Game:
-    # def board(self):
-    #     self.board = np.empty(shape = (3,3), dtype = "object")
-    #     for r in range(3):
-    #         for c in range(3):
-    #             self.board[r][c] = " "
-    #     return self.board
-    
-    # def __repr__(self):
-    #     print(self.board[0][0] + "|" + self.board[0][1] + "|" + self.board[0][2])
-    #     print("-----")
-    #     print(self.board[1][0] + "|" + self.board[1][1] + "|" + self.board[1][2])
-    #     print("-----")
-    #     print(self.board[2][0] + "|" + self.board[2][1] + "|" + self.board[2][2])
-    #     return 
+# Add the players to a list so the turn counter can loop
+players = [player1, player2]
 
-    def __init__(self, board):
-        # self.board1 = ["x" if Game.move.player != "o" else "o"]
-        # self.board2 = ["x" if self.player != "o" else "o"]
-        # self.board3 = ["x" if self.player != "o" else "o"]
-        # self.board4 = ["x" if self.player != "o" else "o"]
-        # self.board5 = ["x" if self.player != "o" else "o"]
-        # self.board6 = ["x" if self.player != "o" else "o"]
-        # self.board7 = ["x" if self.player != "o" else "o"]
-        # self.board8 = ["x" if self.player != "o" else "o"]
-        # self.board9 = ["x" if self.player != "o" else "o"]
-        self.board = board
+# List all possible positions
+possible_positions = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
 
-         
+# List of all moves player x made
+x_moves = []
 
-    def __repr__(self):
-        # return f"""
-        # \t  0|1|2
-        # \n
-        # \t0){self.board1}|{self.board2}|{self.board3}
-        # \t1){self.board4}|{self.board5}|{self.board6}
-        # \t2){self.board7}|{self.board8}|{self.board9}
-        # """
-        pass
+# List of all moves player o made
+o_moves = []
 
-    def move(self, x, y, player):
-        self.x = x
-        self.y = y
-        self.player = player
-        
-
-
-
-def main():
-    player = input("pick player: ")
-    row = input("pick row: ")
-    column = input("pick column: ")
-    return row,column,player
-
+# Start the game
 game = Game()
-print(game.move(main()))
 
-# --------------------------------------------------------------------------------------#
+# Start turn counter
+turn_counter = 0
 
-#  Script logic
-# 1) make a 3x3 board where every box has a unique value (index number)
-# 2) make a list of all possible locations on the board
-# 3) make a running list for x and o positions
-# 4) alternate turns for x and o placement, taking in input from user, and assigning x or o to the position
-# 5) display the updated board at the start of each turn
-# 6) each time user chooses a position, remove that from the possibilities list and add it to the x or o list
-# 7) starting at turn 5, go through the x or o list and check if there is a winning combination of numbers
-# 8) if there is a winning combination, declare the winner and end game
-# 9) at the end if there is no winners, the game is a draw and ends
+while True:
+    # Display the board
+    print(game)
 
-# TODO duplicate entries break out of script fully instead of asking for another input
-# TODO board.is_game_over() / play_game starts off as True instead of False
+    # Player turns are passed back and forth using modulus. 
+    player = players[turn_counter % len(players)]
+    print(f"{player}'s turn.")
+    
+    # Input the coordinate for where to place player token
+    game.move(int(input("Enter a number: ")), player)
 
-# --------------------------------------------------------------------------------------#
-# x = []
-# o = []
+    # Add 1 to the counter to pass turn
+    turn_counter += 1
 
-# possible_positions = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+    # Check if the game is over
+    
+    # Check if the board is full
+    game.is_full()
+    
+    # List moves
+    print("X moves", x_moves)
+    print("O moves", o_moves)
 
-# def main(user_inputs):
-
-#     pass
-
-
-# class Game():
-#     def __init__(self): # this is the initializer
-#         self.board = {"0": "0","1": "1","2": "2","3": "3","4": "4","5": "5","6": "6","7": "7","8": "8"} # these are member variables
-#         #self.continue = True
-#         self.x_list = []
-#         self.o_list = []
-#     # Function to print Tic Tac Toe
-#     def __repr__(self):
-#         return f"""\t{self.board['0']}|{self.board['1']}|{self.board['2']}
-#   \t{self.board['3']}|{self.board['4']}|{self.board['5']}
-#   \t{self.board['6']}|{self.board['7']}|{self.board['8']}"""
-
-
-# #     # Write move(x, y, player) Place a player's token character string at a given coordinate (top-left is 0, 0), 
-# #     # x is horizontal position, y is vertical position.
-
-#     def move(self, input, player):
-# #         self.board[input] = player.token
-# #         #self.counter += 1
-# #         # if player.token == "x":
-# #         #     x_list += input
-            
-# #         # elif player.token == "o":
-# #         #     self.o_list += input
-# #     player1_input = input("player x choose a number: ")
-# #     if str(player1_input) not in possible_positions:
-# #         print("Position not available. Please try again")
-# #     else:
-# #         move.move(player1_input, move.player1)
-# #         x.append(player1_input)
-# #         #print(x)
-# #         possible_positions.remove(player1_input)
-#         #print(self.board)
-#         #player1_input = input("player x choose a number: ")
-
-#         pass
-
+    print(possible_positions)
+    print(turn_counter)
     
 
-#     def calc_winner(self, player_name):
-# #         self.player_name = player_name
-# #         return self.player_name + "Wins"
-#         pass
-
-#     def is_full(self):
-# #         output = "Board full. Draw."
-# #         return output 
-
-#         pass
-
-#     def is_game_over(self):
-# #         output = "Position not available. Game over."
-# #         return output
-
-#         pass
-
-#     pass
-
-
-# class Player:
-#     def __init__(self, name, token):
-#         self.name = name
-#         self.token = token
-
-# player1 = Player("player1","x")
-# player2 = Player("player2","o")
-
-# #print(player1.name)
-# #print(player1.token)
-
-# game = Game()
-# # print(type(game))
-# # print(type(game.board))
-# # print(type(game.move))
-# # game.move("0",player1)
-# # game.board["1"] = player2.token
-# #print(game.x_list)
-# #print(game.o_list)
-# print(game)
-# #print(game.is_game_over())
-
-
-
-# #--------------------------------------------------------------------------------------------------------#
-# # Running list for x and o positions
-
-
-# # All possible locations on board
-
-
-# #while game.continue == True:
-
-# play_game = True
-# while play_game:
-# # x Turn 1
-#     player1_input = input("player x choose a number: ")
-#     if str(player1_input) not in possible_positions:
-#         print("Position not available. Please try again")
-#         continue
-#     else:
-#         game.move(player1_input, player1)
-#         x.append(player1_input)
-#         #print(x)
-#         possible_positions.remove(player1_input)
-#         print(game)
-
-# # o Turn 2
-#         player2_input = input("player o choose a number: ")
-#         if str(player2_input) not in possible_positions:
-#             print(game.is_game_over())
-#             play_game = False 
-#         else:
-#             game.move(player2_input, player2)
-#             o.append(player2_input)
-#             #print(o)
-#             possible_positions.remove(player2_input)
-#             print(game)
-
-# # x Turn 3
-#             player1_input = input("player x choose a number: ")
-#             if str(player1_input) not in possible_positions:
-#                 print(game.is_game_over())
-#                 play_game = False
-#             else:
-#                 game.move(player1_input, player1)
-#                 x.append(player1_input)
-#                 #print(x)
-#                 possible_positions.remove(player1_input)
-#                 print(game)
-
-# # o Turn 4
-#                 player2_input = input("player o choose a number: ")
-#                 if str(player2_input) not in possible_positions:
-#                     print(game.is_game_over())
-#                     play_game = False 
-#                 else:
-#                     game.move(player2_input, player2)
-#                     o.append(player2_input)
-#                     #print(o)
-#                     possible_positions.remove(player2_input)
-#                     print(game)
-
-# # x Turn 5 (x win starts)
-#                     player1_input = input("player x choose a number: ")
-#                     if str(player1_input) not in possible_positions:
-#                         print(game.is_game_over())
-#                         play_game = False
-#                     else:
-#                         game.move(player1_input, player1)
-#                         x.append(player1_input)
-#                         #print(x)
-#                         # Check for winning combination in x list
-#                         if  ('0' in x and '1' in x and '2' in x) or \
-#                             ('3' in x and '4' in x and '5' in x) or \
-#                             ('6' in x and '7' in x and '8' in x) or \
-#                             ('0' in x and '3' in x and '6' in x) or \
-#                             ('1' in x and '4' in x and '7' in x) or \
-#                             ('2' in x and '5' in x and '8' in x) or \
-#                             ('0' in x and '4' in x and '8' in x) or \
-#                             ('2' in x and '4' in x and '6' in x):
-#                             game.player_name = "x"
-#                             print(f"{game.player_name} wins")
-#                             print(game)
-#                             break
-#                         possible_positions.remove(player1_input)
-#                         print(game)
-# # o Turn 6 (o win starts)
-#                         player2_input = input("player o choose a number: ")
-#                         if str(player2_input) not in possible_positions:
-#                             print(game.is_game_over())
-#                             play_game = False 
-#                         else:
-#                             game.move(player2_input, player2)
-#                             o.append(player2_input)
-#                             #print(o)
-#                             # Check for winning combination in o list
-#                             if (('0' in o and '1' in o and '2' in o) or 
-#                                 ('3' in o and '4' in o and '5' in o) or 
-#                                 ('6' in o and '7' in o and '8' in o) or 
-#                                 ('0' in o and '3' in o and '6' in o) or 
-#                                 ('1' in o and '4' in o and '7' in o) or 
-#                                 ('2' in o and '5' in o and '8' in o) or 
-#                                 ('0' in o and '4' in o and '8' in o) or 
-#                                 ('2' in o and '4' in o and '6' in o)):
-#                                 game.player_name = "o"
-#                                 print(f"{game.player_name} wins")
-#                                 print(game)
-#                                 break
-#                             possible_positions.remove(player2_input)
-#                             print(game)
-# # x Turn 7
-#                             player1_input = input("player x choose a number: ")
-#                             if str(player1_input) not in possible_positions:
-#                                 print(game.is_game_over())
-#                                 play_game = False
-#                             else:
-#                                 game.move(player1_input, player1)
-#                                 x.append(player1_input)
-#                                 #print(x)
-#                                 # Check for winning combination in x list
-#                                 if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x) or ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x) or ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-#                                     game.player_name = "x"
-#                                     print(f"{game.player_name} wins")
-#                                     print(game)
-#                                     break
-#                                 possible_positions.remove(player1_input)
-#                                 print(game)
-# # o Turn 8
-#                                 player2_input = input("player o choose a number: ")
-#                                 if str(player2_input) not in possible_positions:
-#                                     print(game.is_game_over())
-#                                     play_game = False 
-#                                 else:
-#                                     game.move(player2_input, player2)
-#                                     o.append(player2_input)
-#                                     #print(o)
-#                                     # Check for winning combination in o list
-#                                     if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o) or ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o) or ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
-#                                         game.player_name = "o"
-#                                         print(f"{game.player_name} wins")
-#                                         print(game)
-#                                         break
-#                                     possible_positions.remove(player2_input)
-#                                     print(game)
-                                    
-# # x Turn 9
-#                                     player1_input = input("player x choose a number: ")
-#                                     if str(player1_input) not in possible_positions:
-#                                         print(game.is_game_over())
-#                                         play_game = False
-#                                     else:
-#                                         game.move(player1_input, player1)
-#                                         x.append(player1_input)
-#                                         #print(x)
-#                                         # Check for winning combination in x list
-#                                         if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x) or ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x) or ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-#                                             game.player_name = "x"
-#                                             print(f"{game.player_name} wins")
-#                                             print(game)
-#                                             break
-#                                         possible_positions.remove(player1_input)
-#                                         print(game)
-                                        
-
-# # Game ends here
-#                                         print(game.is_full())
-#                                         exit()
-#                                         #play_again = input("Play again? (y/n): ")
-#                                         #if play_again != "y":
-#                                         #    play_game = False
-
-#----------------------------------------------------------------------------------#
-# # make 2 lists, one for x and one for o
-# # alternate filling the lists
-# # when the count of the lists added together is 9
-# # sort each list
-# # if the list matches any of the winning combinations
-# # declare the winner
-
-# x = []
-# o = []
-
-# #print(type(x))
-# #total_list_size = len(x) + len(o)
-
-# #print(type(total_list_size))
-# #print(total_list_size)
-
-# possible_positions = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
-
-# board_dict = {
-#     "0": "",
-#     "1": "",
-#     "2": "",
-#     "3": "",
-#     "4": "",
-#     "5": "",
-#     "6": "",
-#     "7": "",
-#     "8": "",
-#     }
-
-
-# board =f"""
-# \t{board_dict["0"]}|{board_dict["1"]}|{board_dict["2"]}
-# \t{board_dict["3"]}|{board_dict["4"]}|{board_dict["5"]}
-# \t{board_dict["6"]}|{board_dict["7"]}|{board_dict["8"]}
-# """
-
-# while len(x) + len(o) < 9:
-#     board =f"""
-# \t{board_dict["0"]}|{board_dict["1"]}|{board_dict["2"]}
-# \t{board_dict["3"]}|{board_dict["4"]}|{board_dict["5"]}
-# \t{board_dict["6"]}|{board_dict["7"]}|{board_dict["8"]}
-#     """
-#     print(f"Possible choices {possible_positions}")
-#     turn_1 = input("Pick spot to enter a x: ")
-#     if str(turn_1) not in possible_positions:
-#         print("Position not available. Please try again")
-#         continue
-#     else:
-#         x.append(turn_1)
-#         print(turn_1)
-#         print(type(turn_1))
-#         board_dict[turn_1] = "x"
-#         board =f"""
-#         \t{board_dict.get(turn_1)}|{board_dict["1"]}|{board_dict["2"]}
-#         \t{board_dict["3"]}|{board_dict["4"]}|{board_dict["5"]}
-#         \t{board_dict["6"]}|{board_dict["7"]}|{board_dict["8"]}
-#         """
-#         possible_positions.remove(turn_1)
-
-#         print(f"Possible choices {possible_positions}")
-#         print(board)
-#         turn_2 = input("Pick spot to enter a o: ")
-#         if str(turn_2) not in possible_positions:
-#             print("Position not available. Please try again")
-#             continue
-#         else:
-#             o.append(turn_2)
-#             possible_positions.remove(turn_2)
-
-#             print(f"Possible choices {possible_positions}")
-#             turn_3 = input("Pick spot to enter a x: ")
-#             if str(turn_3) not in possible_positions:
-#                 print("Position not available. Please try again")
-#                 continue
-#             else:
-#                 x.append(turn_3)
-#                 possible_positions.remove(turn_3)
-
-#                 print(f"Possible choices {possible_positions}")
-#                 turn_4 = input("Pick spot to enter a o: ")
-#                 if str(turn_4) not in possible_positions:
-#                     print("Position not available. Please try again")
-#                     continue
-#                 else:
-#                     o.append(turn_4)
-#                     possible_positions.remove(turn_4)
-
-#                     print(f"Possible choices {possible_positions}")
-#                     turn_5 = input("Pick spot to enter a x: ")
-#                     if str(turn_5) not in possible_positions:
-#                         print("Position not available. Please try again")
-#                         continue
-#                     else:
-#                         x.append(turn_5)
-#                             # Check for winning combination in x list
-#                             # row wins
-#                         if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x):
-#                             print(f"x wins")
-#                             break
-
-#                         # column wins
-#                         elif ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x):
-#                             print(f"x wins")
-#                             break
-
-#                         # cross wins
-#                         elif ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-#                             print(f"x wins")
-#                             break
-
-#                         possible_positions.remove(turn_5)
-
-#                         print(f"Possible choices {possible_positions}")
-#                         turn_6 = input("Pick spot to enter a o: ")
-#                         if str(turn_6) not in possible_positions:
-#                             print("Position not available. Please try again")
-#                             continue
-#                         else:
-#                             o.append(turn_6)
-#                             # Check for winning combination in o list
-#                                 # row wins
-#                             if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o):
-#                                 print(f"o wins")
-#                                 break
-
-#                             # column wins
-#                             elif ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o):
-#                                 print(f"o wins")
-#                                 break
-
-#                             # cross wins
-#                             elif ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
-#                                 print(f"o wins")
-#                                 break
-
-#                             possible_positions.remove(turn_6)
-
-#                             print(f"Possible choices {possible_positions}")
-#                             turn_7 = input("Pick spot to enter a x: ")
-#                             if str(turn_7) not in possible_positions:
-#                                 print("Position not available. Please try again")
-#                                 continue
-#                             else:
-#                                 x.append(turn_7)
-#                             # Check for winning combination in x list
-#                             # row wins
-#                                 if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x):
-#                                     print(f"x wins")
-#                                     break
-
-#                                 # column wins
-#                                 elif ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x):
-#                                     print(f"x wins")
-#                                     break
-
-#                                 # cross wins
-#                                 elif ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-#                                     print(f"x wins")
-#                                     break
-
-#                                 possible_positions.remove(turn_7)
-
-#                                 print(f"Possible choices {possible_positions}")
-#                                 turn_8 = input("Pick spot to enter a o: ")
-#                                 if str(turn_8) not in possible_positions:
-#                                     print("Position not available. Please try again")
-#                                     continue
-#                                 else:
-#                                     o.append(turn_8)
-#                                     # Check for winning combination in o list
-#                                         # row wins
-#                                     if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o):
-#                                         print(f"o wins")
-#                                         break
-
-#                                     # column wins
-#                                     elif ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o):
-#                                         print(f"o wins")
-#                                         break
-
-#                                     # cross wins
-#                                     elif ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
-#                                         print(f"o wins")
-#                                         break
-
-#                                     possible_positions.remove(turn_8)
-
-#                                     print(f"Possible choices {possible_positions}")
-#                                     turn_9 = input("Pick spot to enter a x: ")
-#                                     if str(turn_9) not in possible_positions:
-#                                         print("Position not available. Please try again")
-#                                         continue
-#                                     else:
-#                                         x.append(turn_9)
-#                                             # Check for winning combination in x list
-#                                             # row wins
-#                                         if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x):
-#                                             print(f"x wins")
-#                                             break
-
-#                                         # column wins
-#                                         elif ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x):
-#                                             print(f"x wins")
-#                                             break
-
-#                                         # cross wins
-#                                         elif ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-#                                             print(f"x wins")
-#                                             break
-
-#                                         possible_positions.remove(turn_9)
-
-#     x.sort()
-#     o.sort()
-#     print(x)
-#     print(o)
-
-#     # # Check for winning combination in x list
-#     #     # row wins
-#     # if ('0' in x and '1' in x and '2' in x) or ('3' in x and '4' in x and '5' in x) or ('6' in x and '7' in x and '8' in x):
-#     #     print(f"x wins")
-
-#     # # column wins
-#     # elif ('0' in x and '3' in x and '6' in x) or ('1' in x and '4' in x and '7' in x) or ('2' in x and '5' in x and '8' in x):
-#     #     print(f"x wins")
-
-#     # # cross wins
-#     # elif ('0' in x and '4' in x and '8' in x) or ('2' in x and '4' in x and '6' in x):
-#     #     print(f"x wins")
-
-
-#     # # Check for winning combination in o list
-#     #     # row wins
-#     # if ('0' in o and '1' in o and '2' in o) or ('3' in o and '4' in o and '5' in o) or ('6' in o and '7' in o and '8' in o):
-#     #     print(f"o wins")
-
-#     # # column wins
-#     # elif ('0' in o and '3' in o and '6' in o) or ('1' in o and '4' in o and '7' in o) or ('2' in o and '5' in o and '8' in o):
-#     #     print(f"o wins")
-
-#     # # cross wins
-#     # elif ('0' in o and '4' in o and '8' in o) or ('2' in o and '4' in o and '6' in o):
-#     #     print(f"o wins")
-
-
-# # -------------------------------Brute force combinations-------------------------------------------#
-
-# # # Show board with coordinates
-# # # Which player turn is it?
-# # # Pick coordinate of the board
-# # # If statement to add to board
-# # # Add the letter to the board
-# # # Change to other player
-
-# # firstfirst_player = ""
-
-# # pick_player = input("Whose turn? (x or o): ")
-
-# # if pick_player != "x":
-# #     first_player = "o"
-# # else:
-# #     first_player = pick_player
-
-# # print(f"Current Player: {first_player}")
-
-# # board = f"""
-
-# # \t  a|b|c
-
-# # \t1) | | 
-# # \t2) | |
-# # \t3) | |
-
-# # """
-
-# # print(board)
-
-# # first_move = input("Pick a coordinate: ")
-
-# # if first_move == "a1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| | 
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}| 
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) ||{first_player}
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "b1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) || 
-# #     \t2){first_player}| |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "b2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) || 
-# #     \t2) |{first_player}|
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "b3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) || 
-# #     \t2) | |{first_player}
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "c1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) || 
-# #     \t2) | |
-# #     \t3){first_player}| |
-
-# #     """
-# # elif first_move == "c2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) || 
-# #     \t2) | |
-# #     \t3) |{first_player}|
-
-# #     """
-# # elif first_move == "c3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) || 
-# #     \t2) | |
-# #     \t3) | |{first_player}
-
-# #     """
-# # else:
-# #     "Position doesn't exist"
-# # print(board)
-
-# # # Turn 2
-# # current_board = board
-
-# # second_player = ""
-
-# # pick_player = input("Whose turn? (x or o): ")
-
-# # if pick_player != "x":
-# #     second_player = "o"
-# # else:
-# #     second_player = pick_player
-
-# # print(f"Current Player: {second_player}")
-
-# # print(current_board)
-
-# # second_move = input("Pick a coordinate: ")
-
-# # # If turn 1 in a1
-# # if first_move == "a1" and second_move == "a2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}|{second_player}| 
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a1" and second_move == "a3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}||{second_player}
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """   
-# # elif first_move == "a1" and second_move == "b1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| |
-# #     \t2){second_player}| |
-# #     \t3) | |
-
-# #     """   
-# # elif first_move == "a1" and  second_move == "b2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| |
-# #     \t2) |{second_player}|
-# #     \t3) | |
-
-# #     """   
-# # elif first_move == "a1" and second_move == "b3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| |
-# #     \t2) | |{second_player}
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a1" and second_move == "c1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| |
-# #     \t2) | |
-# #     \t3){second_player}| |
-
-# #     """
-# # elif first_move == "a1" and second_move == "c2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| |
-# #     \t2) | |
-# #     \t3) |{second_player}|
-
-# #     """
-# # elif first_move == "a1" and second_move == "c3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){first_player}| |
-# #     \t2) | |
-# #     \t3) | |{second_player}
-
-# #     """
-# # # If turn 1 in a2
-# # elif first_move == "a2" and second_move == "a1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1){second_player}|{first_player}|
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a2" and second_move == "a3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|{second_player}
-# #     \t2) | |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a2" and second_move == "b1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|
-# #     \t2){second_player}| |
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a2" and second_move == "b2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|
-# #     \t2) |{second_player}|
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a2" and second_move == "b3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|
-# #     \t2) | |{second_player}
-# #     \t3) | |
-
-# #     """
-# # elif first_move == "a2" and second_move == "c1":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|
-# #     \t2) | |
-# #     \t3){second_player}| |
-
-# #     """
-# # elif first_move == "a2" and second_move == "c2":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|
-# #     \t2) | |
-# #     \t3) |{second_player}|
-
-# #     """
-# # elif first_move == "a2" and second_move == "c3":
-# #     board = f"""
-
-# #     \t  a|b|c
-
-# #     \t1) |{first_player}|
-# #     \t2) | |
-# #     \t3) | |{second_player}
-
-# #     """
-# # # If turn 1 in a3
-
-# # # If turn 1 in b1
-# # # If turn 1 in b2
-# # # If turn 1 in b3
-# # # If turn 1 in c1
-# # # If turn 1 in c2
-# # # If turn 1 in c3
-
-# # print(board)
-
-# # Verdict
-# # 255,168 unique games possible. not enough time to make all combinations
-# #--------------------end of brute force combinations-------------------------------#
-
-# def check_win(board, player):
-#     # Find all winning combinations
-#     # List of winning combinations
-
-#     # row wins
-#     if board == "012" or board == "345" or board == "678":
-#         print(f"{player} wins")
-
-#     # column wins
-#     elif board == "036" or board == "147" or board == "258":
-#         print(f"{player} wins")
-
-#     # cross wins
-#     elif board == "048" or board == "246":
-#         print(f"{player} wins")
-
-# # game_play = [range(9)]
-# # game_list = []
-# # player = "x"
-# # print(game_play)
- 
-# # while len(game_list) < 9: 
-# #     for i in game_play:
-# #         number = input("Enter a number: ")
-# #         game_list += number
-
-# #         # row wins
-# #     if game_list == ['0', '1', '2'] or game_list == ['3', '4', '5'] or game_list == ['6', '7', '8']:
-# #         print(f"{player} wins")
-
-# #     # column wins
-# #     elif game_list == ['0', '3', '6', ] or game_list == ['1', '4', '7'] or game_list == ['2', '5', '8']:
-# #         print(f"{player} wins")
-
-# #     # cross wins
-# #     elif game_list == ['0', '4', '8'] or game_list == ['2', '4', '6']:
-# #         print(f"{player} wins")
-
-# #     print(game_list)
-#---------------------------------------------------------------------------------#
