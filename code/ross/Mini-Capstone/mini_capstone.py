@@ -1,9 +1,11 @@
+# -------------------- Kindle Highlight Aggregator --------------------------------
 # this program takes your Kindle book highlights from an HTML file, compiles it into a CSV file, and allows you to compile all your book notes in one place
 # a further program would take these highlights and allow you to review them in a spaced interval like Anki
 # later versions could automate the downloading of the Kindle notes
 
 from bs4 import BeautifulSoup
 import random
+import csv
 
 # create class for each instance of a book that the user wants
 class Book:
@@ -11,29 +13,36 @@ class Book:
         self.note_dict = {"Book Title": "", "Author": ""}
         self.notes = ""
 
-# this function opens the book and saves it to a variable - invent and wander.html
+# this function opens the book and saves it to a variable. If the file does not exist, it returns an error message.
     def open(self, user_book):
         try:
             with open(user_book) as data:
-                # print(data)
                 self.notes = BeautifulSoup(data, 'html.parser')
                 self.dict_converter(self.notes)
-                print(f"\n\t--- {user_book} has been successfully processed into the system. ---")
+                print(f"\x1b[6;30;42m\n\t--- {user_book} has been successfully processed into the system. ---\x1b[0m")
                 return True
         except:
-            return print("Sorry, that file could not be found. Please check the file's location and your spelling, then try again.")
+            return print("\x1b[6;30;41mSorry, that file could not be found. Please check the file's location and your spelling, then try again.\x1b[0m")
 
 # this function provides the logic for the user's choice: random, how many, search by author, title, or keyword
     def user_pick(self, pick):
-        # print("user pick: " + user_pick)
-        # print(self.note_dict)
-        if pick == 'random':
-            return self.rand_highlight(self.note_dict)
-        elif pick == 'add':
-            return self.write_file()
+        if pick == 'random': return self.rand_highlight(self.note_dict)
+        elif pick == ('all' or 'one'): return self.quantity(pick)
+        elif pick == 'add': return self.write_db()
+        elif pick == 'keyword': return self.key_highlight()
+        elif pick == 'exit': return False
+        else: print("\x1b[6;30;41mPlease check the spelling of your request and try again. \x1b[0m")
+        
+# this function lets user run the program again for the same book
+    def another(self):
+        if input("Would you like to search for something else in this file? Type 'yes' if so, else type any other key to close this file: ").lower() == 'yes': return True
+        else: return False
 
+# this functions gives the user options for when they are going through the program a subsequent time
+    def options(self):
+        return input("How would you like to search now? 'Random', 'keyword', 'all', 'add', or 'exit': ").lower()
 
-# this function that builds a dictionary for the book - separates author and the quote
+# this function builds a dictionary for the book - separating author, title, and quotes with different key:value paris
     def dict_converter(self, notes):
         # next two lines add the book title to the dict
         self.title = self.notes.find_all("div", "bookTitle")
@@ -49,55 +58,123 @@ class Book:
             self.quotes[i] = item.get_text("\n", strip=True)
             self.note_dict[f"{i}"] = self.quotes[i]
 
-# this function that returns a random highlight
+# this function returns a random highlight
     def rand_highlight(self, note_dict):
-        print(f"""
-        {self.note_dict[f"{random.randint(2, len(self.note_dict) - 1)}"]} 
+        print(f"""\x1b[6;30;46m
+        {self.note_dict[f"{random.randint(2, (len(self.note_dict) - 1))}"]} 
                 
-                -{self.note_dict['Author']} from the book '{self.note_dict['Book Title']}'
+                -{self.note_dict['Author']} from the book '{self.note_dict['Book Title']}'\x1b[0m
         """)
 
-# create a function that writes this dictionary into a new file
-    def write_file(self):
-        database = input("Please enter the name of your database: ")
+# this function returns highlights by a specified keyword
+    def key_highlight(self):
+        key = input("\nPlease enter the keyword you are searching for: ")
+        for i in self.note_dict:
+            if key in self.note_dict[i]:
+                print("\x1b[6;30;46m\n" + self.note_dict[i] + "\x1b[0m")
+        print(f"\x1b[6;30;46m\n\t\t-{self.note_dict['Author']} from the book '{self.note_dict['Book Title']}\x1b[0m")
+
+# this function allows user to choose one, multiple, or all highlights
+    def quantity(self, pick):
+        for i in self.note_dict: print("\x1b[6;30;46m\n" + self.note_dict[i] + "\n\x1b[0m")
+        print(f"\x1b[6;30;46m\n\t\t-{self.note_dict['Author']} from the book '{self.note_dict['Book Title']}\x1b[0m")
+
+# this function writes the dictionary into the database file
+    def write_db(self):
+        database = input("Please enter the file name of your database: ")
         database = open(database, 'a')
         database.write(str(self.note_dict) + "\n\n")
-        print("Your highlights have been successfully added to the database.")
+        print("\x1b[6;30;42mYour highlights have been successfully added to the database.\x1b[0m\n")
 
+# ------------- End of the Book class ------------------------
 
+# create a class for opening, compiling, and search in the database
+class Database:
+    def __init__(self):
+        self.dict_list = []
+        self.file = ""
 
+# this function opens the users database of highlights
+    def open(self, db):
+        try:
+            with open(f'{db}', newline='') as data:
+                self.file = csv.DictReader(data)
+                for dictionary in self.file:
+                     print(self.file)
+        except:
+            print("\x1b[6;30;41mSorry, that file could not be found. Please check the file's location and your spelling, then try again.\x1b[0m")
+
+# I need this function to be stored into something that I can use to search through and return the user's requiest: author, title, keyword
+        # if pick == 'random': return self.random()
+        # elif pick == 'author': return self.auth_highlight()
+        # elif pick == 'keyword': self.keyword()
+        # elif pick == 'title': self.title()
+
+# this function returns highlights from the database by a specified author
+    # def auth_highlight(self):
+    #     database = inpu
+
+# this functions returns highlights by a specified title
+
+# ------------- End of the Database class ----------------------
+
+def again():
+    again = input("Would you like to try again with another file? Yes or no? ").lower()
+    if again == ("yes" or "y"): return True
+    else: return False
+
+def pick_book():
+    pick = input("""
+    What would you like to do with your highlights?
+
+    To search this book, type 'random', 'keyword', or 'all'. 
+
+    To add your highlights from this book to the database, type 'add'.
+ 
+    Enter your choice here: """).lower()
+    loc = enter_file()
+    return pick, loc 
+
+def pick_db():
+    pick = input(""" 
+    To search the database, type 'author' to search by author, 'title' to search by title, or 'keyword' to search by keyword.
+    """).lower()
+    loc = enter_file()
+    return pick, loc 
+
+def enter_file():
+    return input("\nPlease type in the file from which you'd like to see your highlights: ")
+
+# --------------------- User facing prompts appear here, runs until user stops ---------------------------
 # Add instructions so the user is walked through how to:
 #   Locate their highlights and notes on kindle
 #   export their kindle book to HTML
 #   save it in the proper place
 #   locate the file so that they can run it through the parser
-"""
-This program aggregates highlights and notes from your Kindle books and allows you to choose how to see them.
-To begin, you'll need to export your Kindle notes and highlights from https://read.amazon.com/notebook.
-Be sure to save each of these files to the directory from which this program is running.
-In a moment, you'll be prompted to enter the file name for the Kindle book you want to start with.
-Are you ready?
-"""
 
-def again():
-    again = input("Would you like to try again with another file? Yes or no? ").lower()
-    if again == "yes" or again == "y":
-        return True
-    else:
-        return False
+print("""
+This program aggregates highlights from your Kindle books and allows you to access them in ways that Kindle does not.
+To begin, you'll need to export your Kindle highlights as an HTML file from https://read.amazon.com/notebook or a device with the Kindle app.
+Save each of these files to the directory from which this program is running.
+In a moment, you'll be prompted to enter the file name for the Kindle book or database you want to start with.
+Let's begin!
+""")
 
-# User facing prompts appear here, runs until user stops
 while True:
     book = Book()
-    user_book = input("Please type in the file from which you'd like to see your notes and highlights: ")
-    if book.open(user_book) == True:
-        pick = input("""
-        What would you like to do with your highlights?
-
-        To search, type 'random', 'author', or 'keyword'. 
-        
-        To add you highlights to the database, type 'add'. 
-        """).lower()
-        book.user_pick(pick)
+    database = Database()
+    db_or_book = input("Would you like to search your database of highlights or work with a new book?: 'db' for database or 'book': ").lower()
+    if db_or_book == 'db':
+        pick, user_db = pick_db()
+        if database.open(user_db) == True:
+            database.user_pick(pick)
+            # while database.another() == True: 
+            #     database.user_pick(book.options())
+    elif db_or_book == 'book': 
+        pick, user_book = pick_book()
+        if book.open(user_book) == True:
+            book.user_pick(pick)
+            while book.another() == True: 
+                book.user_pick(book.options())
     if again() == False:
         break
