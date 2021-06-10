@@ -8,8 +8,20 @@ Date: 6/9/2021
 """
 
 
+import os
 import serial
 import pynmeagps
+from geopy import distance
+
+
+def get_current_grid_square():
+    filepath = os.path.join('C:\\', 'RMS Express', 'RMS Express.ini')
+    with open(filepath, 'r') as file:
+        lines = file.read().split('\n')
+    # Convert each list into a list of its own
+    current_gridsquare = lines[26]
+    current_gridsquare = current_gridsquare.split('=')
+    return current_gridsquare[1]
 
 
 # Read GPS coordinates from the GPS
@@ -40,3 +52,19 @@ def convert_to_grid(lat, lon):
     # Perform the actual calculation and return
     return upper[int(lon / 20)] + upper[int(lat / 10)] + str(int((lon / 2) % 10)) + str(int(lat % 10)) + \
         lower[int(lon_remainder / 5)] + lower[int(lat_remainder/2.5)]
+
+
+def convert_to_latlong(gridsquare):
+    upper = 'ABCDEFGHIJKLMNOPQRSTUVWX'
+    lower = 'abcdefghijklmnopqrstuvwx'
+
+    gridsquare = list(gridsquare)
+    lat = round(((float(upper.index(gridsquare[1]))) * 10) + float(gridsquare[3]) + (((lower.index(gridsquare[5].lower())) / 24) + (1/48) - 90.0), 6)
+    lon = round(((float(upper.index(gridsquare[0])) * 20) + (float(gridsquare[2]) * 2) + (float(lower.index(gridsquare[4].lower()) / 12) + (1/24))) - 180, 6)
+
+    return lat, lon
+
+
+def get_geo_distance(user_station, foreign_station):
+    return distance.distance(convert_to_latlong(user_station), convert_to_latlong(foreign_station)).miles
+
