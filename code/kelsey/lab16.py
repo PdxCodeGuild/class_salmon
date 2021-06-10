@@ -13,8 +13,6 @@ Steps:
 
 *ideally, give user meaning in English and AR, plus additional AR synonyms/similar, plus English transliteration; ideally ideally give sentence example
 
-'''
-'''
 installed: 
 
 PyDictionary: https://pypi.org/project/PyDictionary/
@@ -23,7 +21,6 @@ deep-translator: https://pypi.org/project/deep-translator/
 easygui: https://github.com/robertlugg/easygui
 
 '''
-
 from random_words import RandomWords
 from PyDictionary import PyDictionary
 from googletrans import Translator
@@ -36,7 +33,6 @@ dictionary = PyDictionary()
 rw = RandomWords()
 word = rw.random_word
 x = datetime.datetime.now()
-
 
 # Intro w/date
 date = x.strftime("%x")
@@ -82,7 +78,6 @@ ezgui.msgbox(f'{synonyms}','Synonyms', '*')
 
 '''
 Issues:
-
 
 Obviously, definitions aren't always perfect
 
