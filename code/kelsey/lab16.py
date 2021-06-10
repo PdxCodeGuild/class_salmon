@@ -20,7 +20,7 @@ installed:
 PyDictionary: https://pypi.org/project/PyDictionary/
 RandomWords: https://randomwords.readthedocs.io/en/latest/how_to_use.html
 deep-translator: https://pypi.org/project/deep-translator/
-arabicscript: https://pypi.org/project/arabicscript/ (not for this lab, only tells what position each letter should be in, and booleans)
+easygui: https://github.com/robertlugg/easygui
 
 '''
 
@@ -28,22 +28,61 @@ from random_words import RandomWords
 from PyDictionary import PyDictionary
 from googletrans import Translator
 from deep_translator import GoogleTranslator
-# from pytime import PyTime
+import datetime
+import easygui as ezgui # idk why I decided to save myself two letters
 
 translator = Translator()
 dictionary = PyDictionary()
 rw = RandomWords()
 word = rw.random_word
-# pytime = PyTime()
-# date = date.date
+x = datetime.datetime.now()
 
-print("\nHere is your Arabic word for today, {date}: \n")
+
+# Intro w/date
+date = x.strftime("%x")
+day = x.strftime("%A")
+print(f"\nHere is your Arabic word for today, {day}, {date}: \n")
+ezgui.msgbox(f"\nHere is your Arabic word for today, {day}, {date}: \n", 'Arabic Word of the Day')
 
 # 1 - Generate random word in English
 word = rw.random_word() # random English word
 
+# 2 - translate EN word to AR
+translated = GoogleTranslator(source='auto', target='ar').translate(text=word)
+print(f'{translated[::-1]}\n{word}')
+ezgui.ynbox(f'{translated}\n"{word}"','Know the definition?' )
+
+# 3 - definition
+definitions = []
+definition = dictionary.meaning(word)
+for key in definition.keys():
+    print(f'\n{key}.')
+    for i, meaning in enumerate(definition[key], start=1):
+        print(f'{i}.', meaning)
+        definitions.append(f'\n{key} {i}. {meaning}')
+    print()
+    
+ezgui.msgbox(definitions, 'Definitions')
+
+# # 3a - synonyms
+en_syns = dictionary.synonym(word)
+print(f'\nEnglish synonyms: {en_syns}\n') 
+
+ar_list_o_syns = []
+for kalima in en_syns: # kalima means 'word' in AR
+    ar_syn = GoogleTranslator(source='auto', target='ar').translate(text=kalima)
+    ar_list_o_syns.append(ar_syn)  
+print(f'Arabic synonyms: {ar_list_o_syns}\n') # letters reversed in terminal
+
+synonyms = dict(zip(en_syns, ar_list_o_syns)) # takes a long time to generate
+print(synonyms)
+print()
+ezgui.msgbox(f'{synonyms}','Synonyms', '*')
+ 
+
 '''
 Issues:
+
 
 Obviously, definitions aren't always perfect
 
@@ -53,49 +92,14 @@ For example, 'brooks' returned the name 'Brooks' (no other definitions), and was
 Several definitions for the English word comes out as only one possible AR word -
 For example, 'casts' only returns 'يلقي' meaning 'he throws/casts'
 
+If first line is description, description is listed as a definition - 
+For example, 'firmware' printed 'Noun. 1. (computer science)'
+
 Synonyms seem to be off, as well -
 For example, one synonym of 'sums' was 'red ink' and 'peanuts' (which gets translated into AR literally - no room for nuance)
 
+If a synonyms has no AR equivalent, prints EN word (but backwards) - 'slue': 'euls'
+
 '''
 
-# 2 - translate EN word to AR
-translated = GoogleTranslator(source='auto', target='ar').translate(text=word)
-print(translated[::-1]) # correct direction R-L, all letters in isolated form
-print(f'"{word}"\n')
 
-# 3 - definition
-definition = dictionary.meaning(word)
-for key in definition.keys():
-    print(f'{key}.')
-    for i, meaning in enumerate(definition[key], start=1):
-        print(f'{i}.', meaning)
-    print()
-
-
-# 3a - synonyms
-synonyms = dictionary.synonym(word)
-print (f'\nEnglish synonyms: {synonyms}\n') 
-ar_list_o_syns = []
-for kalima in synonyms: # kalima means 'word' in AR
-    ar_syn = GoogleTranslator(source='auto', target='ar').translate(text=kalima)
-    ar_list_o_syns.append(ar_syn)
-
-print(f'Arabic synonyms: {ar_list_o_syns}\n')
-
-
-# print('مرحبا')
-
-
-# pytime.before('2015.5.17', '2years 3mon 23week 3d 2hr')     # 2years 3months 23weeks 3days 2hours before 2015.5.17
-# datetime.datetime(2012, 9, 5, 22, 0)
-
-# pytime.after(pytime.tomorrow('15.5.17'), '23month3dy29minu')   # 23months 3days 29minutes after 2015-5-17's next day
-# datetime.datetime(2017, 4, 21, 0, 29)
-# Parse nonregular datetime string to datetime:
-
-# pytime.parse('April 3rd 2015')
-# datetime.date(2015, 4, 3)
-# pytime.parse('Oct, 1st. 2015')
-# datetime.date(2015, 10, 1)
-# pytime.parse('NOV21th2015')
-# datetime.date(2015, 11, 21)
