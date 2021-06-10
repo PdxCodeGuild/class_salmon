@@ -41,15 +41,14 @@ except ImportError:
 # Inform user with instructions
 print(f"""A specially formatted CSV file will need to be supplied for the program to continue.
 \t_____Instructions_____
-\t1) Yahoo finance should have automatically opened in your browser. If not, please visit: https://finance.yahoo.com/lookup before continuing.
-\t2) Search for a company/ticker you're interested in.
+\t1) Enter the ticker of a stock
+\t2) Yahoo finance should automatically open in your browser. If not, please visit: https://finance.yahoo.com/lookup before continuing.
+\t3)
 \t3) """)
 
-# Lookup strURL
-# https://finance.yahoo.com/
-# quote/
-# tsla/
-# history?period1=1591747200
+# Lookup URL
+# https://finance.yahoo.com/quote/tsla/history
+# ?period1=1591747200
 # &period2=1623283200
 # &interval=1d
 # &filter=history
@@ -57,11 +56,12 @@ print(f"""A specially formatted CSV file will need to be supplied for the progra
 # &includeAdjustedClose=true
 # Download URL
 #https://query1.finance.yahoo.com/v7/finance/download/OCGN?period1=1591747200&period2=1623283200&interval=1d&events=history&includeAdjustedClose=true
+search_ticker = str(input("Enter a ticker: "))
 
 # Convert the csv into a listed dictionary
 # Skip the adj price column
-strURL= "https://finance.yahoo.com/lookup"
-webbrowser.open(strURL, new = 1)
+search_url= (f"https://finance.yahoo.com/quote/" + {search_ticker})
+webbrowser.open(search_url, new = 1)
 
 df = pd.read_csv("KDP.csv", usecols=[0,1,2,3,4,6])
 print(df.head(5))
