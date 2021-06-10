@@ -1,75 +1,67 @@
 #-----------------------------------------------------------------------------#
-# Idea: Make a simple program that takes in a stock ticker and displays a line
+# Idea: Make a simple program that takes in historical stock data (OHLC,Volume,date) and displays a line
 # graph using Pygal.
 
-# Welcome to Alpha Vantage! Here is your API key: NBKE32QFCBV6LH9Z.
-# Please record this API key at a safe place for future data access.
+# Data csv needs to be provided, user must download CSV from yahoo
 
 #-----------------------------------------------------------------------------#
-# iexfinance module needs to be installed
 
-    # Install command
-    # pip install iexfinance
+# 1) Pre-req checks
+# Check if local host has the appropriate modules installed
+    # if not, prompt user for installation
 
-    # For more information visit: https://addisonlynch.github.io/iexfinance/stable/install.html
+try:
+    import numpy as np
+except ImportError:
+    print(f"""Numpy is required to continue. Please install numpy in the terminal with the following command:
+    pip install numpy""")
 
-# numpy module needs to be installed
+try:
+    import pandas as pd
+except ImportError:
+    print(f"""Pandas is required to continue. Please install panda in the terminal with the following command:
+    pip install pandas""")
 
-    # Install command
-    # pip install numpy
+try:
+    import pygal
+except ImportError:
+    print(f"""Pygal is required to contine. Please install pygal in the terminal with the following command:
+    pip install pygal""")
 
-# Requests module needs to be installed
+try:
+    import webbrowser
+except ImportError:
+    print(f"""webbrowser is required to continue. Please install webbrowser in the terminal with the following command:
+    pip install webbrowser""")
 
-    # Install command
-    # python -m pip install requests
-
-    # For more information visit: https://pypi.org/project/requests/
-
-#  Pygal needs to be installed.
-
-    # Install command for Mac or Linux
-    # pip install --user pygal
-
-    # Install command for Windows
-    # python -m pip install --user pygal
-
-    # For more information visit: http://www.pygal.org/en/stable/#
-
-# API Reference and data provided by iexcloud.io
-# Refer to https://iexcloud.io/docs/api/
 #-----------------------------------------------------------------------------#
-# Overview
-# 1. User inputs
-    # a. ticker
-    # b. time
-        # b1. TODO allow custom date range
 
-# 2. An http request will be sent to
+# 2) User needs to supply the csv from yahoo
 
-#import requests
-import numpy as np
-import pandas as pd
-import pygal
+# Inform user with instructions
+print(f"""A specially formatted CSV file will need to be supplied for the program to continue.
+\t_____Instructions_____
+\t1) Yahoo finance should have automatically opened in your browser. If not, please visit: https://finance.yahoo.com/lookup before continuing.
+\t2) Search for a company/ticker you're interested in.
+\t3) """)
 
-# # Building the request string
-# base = "https://sandbox.iexapis.com/"
-# version = "stable/"
-# symbol = "IBM"
-# endpoint_path = "stock/" + f"{symbol}" + "/quote"
-# token = "Tpk_bd3952246da84d349922e84b332db2f4"
-# query_string_parameters = f"token={token}"
-# print(endpoint_path)
-# api_request = f"{base}" + f"{version}" + f"{endpoint_path}" + "?" + f"{query_string_parameters}"
-# print(api_request)
-#
-# # Initiating the request
-# response = requests.get(api_request)
-# print(response) # <Response [200]>
-# response_json = response.json()
-# print(response_json)
+# Lookup strURL
+# https://finance.yahoo.com/
+# quote/
+# tsla/
+# history?period1=1591747200
+# &period2=1623283200
+# &interval=1d
+# &filter=history
+# &frequency=1d
+# &includeAdjustedClose=true
+# Download URL
+#https://query1.finance.yahoo.com/v7/finance/download/OCGN?period1=1591747200&period2=1623283200&interval=1d&events=history&includeAdjustedClose=true
 
 # Convert the csv into a listed dictionary
 # Skip the adj price column
+strURL= "https://finance.yahoo.com/lookup"
+webbrowser.open(strURL, new = 1)
 
 df = pd.read_csv("KDP.csv", usecols=[0,1,2,3,4,6])
 print(df.head(5))
@@ -82,15 +74,31 @@ opens = []
 for open in df["Open"]:
     opens.append(open)
 
-print(opens)
+highs = []
+for high in df["High"]:
+    highs.append(high)
+
+lows = []
+for low in df["Low"]:
+    lows.append(low)
+
+closes = []
+for close in df["Close"]:
+    closes.append(close)
+
+
 # Creating the line chart
-line_chart = pygal.Line()
+line_chart = pygal.Line(x_label_rotation = 270, show_minor_x_labels = False, x_labels_major_every = 7, show_dots = False)
+
 # TODO Change title to reflect the name of stock
 line_chart.title = "KDP stock price over 1 year"
 line_chart.x_labels = map(str, dates)
 
 # Lines for the KDP_Chart
 line_chart.add("Open", opens)
+line_chart.add("High", highs)
+line_chart.add("Low", lows)
+line_chart.add("Close", closes)
 
 # TODO Allow user to specify place to save
 line_chart.render_to_file("KDP_Chart.svg")
