@@ -63,6 +63,11 @@ Presentation Day: August 27th, 2021
 09 ARI  
 10 Contact List  
 11 Searching And Sorting  
+12 ATM  
+13 Tic-Tac-Toe
+14 Dad Joke API  
+15 Quotes API  
+16 Mini-Capstone
 
 <!-- #### Optional Python Labs -->
 

@@ -1,68 +1,100 @@
 ''' ***MINI CAPSTONE*** '''
+'''
+AR Word of the Day
+'''
+'''
+Steps:
+
+1. import random English word
+
+2. translate to Arabic
+
+3. give user meaning in English 
+
+*ideally, give user meaning in English and AR, plus additional AR synonyms/similar, plus English transliteration; ideally ideally give sentence example
+
+installed: 
+
+PyDictionary: https://pypi.org/project/PyDictionary/
+RandomWords: https://randomwords.readthedocs.io/en/latest/how_to_use.html
+deep-translator: https://pypi.org/project/deep-translator/
+easygui: https://github.com/robertlugg/easygui
 
 '''
-Modules installed:
+from random_words import RandomWords
+from PyDictionary import PyDictionary
+from googletrans import Translator
+from deep_translator import GoogleTranslator
+import datetime
+import easygui as ezgui # idk why I decided to save myself two letters
 
-pytz
-Flask
-nltk: https://github.com/ahmednabil950/Arabic_Parser_NLTK
-adawat
-transliterate: https://pypi.org/project/transliterate/
-romanize3: https://pypi.org/project/romanize3/
-franco-arabic-transliterator [ERROR: not installed]: https://github.com/AMR-KELEG/Franco-Arabic-Transliterator
-fuzzywuzzy: https://github.com/seatgeek/fuzzywuzzy/blob/master/README.rst
-lang-trans: https://pypi.org/project/lang-trans/
-translate
-Translator: https://github.com/OmarEinea/TranslateToArabic
-selenium
-pytest: https://pythonrepo.com/repo/nidhaloff-deep-translator-python-miscellaneous
--U textblob: https://kanoki.org/2019/11/06/python-detect-and-translate-language/
-googletrans: https://www.thepythoncode.com/article/translate-text-in-python
+translator = Translator()
+dictionary = PyDictionary()
+rw = RandomWords()
+word = rw.random_word
+x = datetime.datetime.now()
+
+# Intro w/date
+date = x.strftime("%x")
+day = x.strftime("%A")
+print(f"\nHere is your Arabic word for today, {day}, {date}: \n")
+ezgui.msgbox(f"\nHere is your Arabic word for today, {day}, {date}: \n", 'Arabic Word of the Day')
+
+# 1 - Generate random word in English
+word = rw.random_word() # random English word
+
+# 2 - translate EN word to AR
+translated = GoogleTranslator(source='auto', target='ar').translate(text=word)
+print(f'{translated[::-1]}\n{word}')
+ezgui.ynbox(f'{translated}\n"{word}"','Know the definition?' )
+
+# 3 - definition
+definitions = []
+definition = dictionary.meaning(word)
+for key in definition.keys():
+    print(f'\n{key}.')
+    for i, meaning in enumerate(definition[key], start=1):
+        print(f'{i}.', meaning)
+        definitions.append(f'\n{key} {i}. {meaning}')
+    print()
+    
+ezgui.msgbox(definitions, 'Definitions')
+
+# # 3a - synonyms
+en_syns = dictionary.synonym(word)
+print(f'\nEnglish synonyms: {en_syns}\n') 
+
+ar_list_o_syns = []
+for kalima in en_syns: # kalima means 'word' in AR
+    ar_syn = GoogleTranslator(source='auto', target='ar').translate(text=kalima)
+    ar_list_o_syns.append(ar_syn)  
+print(f'Arabic synonyms: {ar_list_o_syns}\n') # letters reversed in terminal
+
+synonyms = dict(zip(en_syns, ar_list_o_syns)) # takes a long time to generate
+print(synonyms)
+print()
+ezgui.msgbox(f'{synonyms}','Synonyms', '*')
+ 
+
+'''
+Issues:
+
+Obviously, definitions aren't always perfect
+
+If English word not found in Arabic, word is simply transliterated into AR - 
+For example, 'brooks' returned the name 'Brooks' (no other definitions), and was phonetically spelled out in AR بروكس
+
+Several definitions for the English word comes out as only one possible AR word -
+For example, 'casts' only returns 'يلقي' meaning 'he throws/casts'
+
+If first line is description, description is listed as a definition - 
+For example, 'firmware' printed 'Noun. 1. (computer science)'
+
+Synonyms seem to be off, as well -
+For example, one synonym of 'sums' was 'red ink' and 'peanuts' (which gets translated into AR literally - no room for nuance)
+
+If a synonyms has no AR equivalent, prints EN word (but backwards) - 'slue': 'euls'
+
 '''
 
-from transliterate import translit, get_available_language_codes
-
-text = "Lorem ipsum dolor sit amet"
-print(translit(text, 'el'))
-
-from translate import Translator
-translator= Translator(from_lang="english",to_lang="arabic")
-translation = translator.translate("Hello")
-print(translation[::-1]) # prints letters separately, but in correct order
-
-
-# from Translator import Translator
-
-# tr = Translator()
-
-# text = input("Type Something: ")
-# print(tr.translate(text))
-
-# from textblob import TextBlob
-
-# en_blob.translate(to='ar')
-
-# print(translator.translate(u'التعلم الآلي هو موضوع مثير للاهتمام للتعلم', dest='en'))
-
-''' ***FINAL CAPSTONE*** '''
-
-'''
-*language = AR (easier) or HEB (harder)
-
-1. user searches for Arabic word using ascii letters and/or Arabic numerals *OR* user searches for Arabic word using Arabic letters
-
-1a. detect if characters are AR or PER
-
-2. convert characters into Arabic (transliterate)
-
-3. output is list of possible words in Arabic that user is trying to find the definition/spelling/transliteration for; displays all three
-
-3. by columns
-    -possible transliterations
-    -with vowels/7arikaat
-    -EN translits
-    -root
-    -part of speech (noun, verb, etc.)
-    -meaning and characteristics (fem. sg.,acc. indef., etc.)
-'''
 
