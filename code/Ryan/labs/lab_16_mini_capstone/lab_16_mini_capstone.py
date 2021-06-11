@@ -10,95 +10,117 @@
 # Check if local host has the appropriate modules installed
     # if not, prompt user for installation
 
-try:
-    import numpy as np
-except ImportError:
-    print(f"""Numpy is required to continue. Please install numpy in the terminal with the following command:
-    pip install numpy""")
-
-try:
-    import pandas as pd
-except ImportError:
-    print(f"""Pandas is required to continue. Please install panda in the terminal with the following command:
-    pip install pandas""")
-
-try:
-    import pygal
-except ImportError:
-    print(f"""Pygal is required to contine. Please install pygal in the terminal with the following command:
-    pip install pygal""")
-
-try:
-    import webbrowser
-except ImportError:
-    print(f"""webbrowser is required to continue. Please install webbrowser in the terminal with the following command:
-    pip install webbrowser""")
+import datetime
+import numpy as np
+# pip install numpy
+import pandas as pd
+# pip install pandas
+import pygal
+# pip install pygal
+from pygal.style import *
+import webbrowser
+# pip install webbrowser
+from datetime import *
+import lxml
+# pip install lxml
 
 #-----------------------------------------------------------------------------#
 
 # 2) User needs to supply the csv from yahoo
 
 # Inform user with instructions
-print(f"""A specially formatted CSV file will need to be supplied for the program to continue.
-\t_____Instructions_____
-\t1) Enter the ticker of a stock
-\t2) Yahoo finance should automatically open in your browser. If not, please visit: https://finance.yahoo.com/lookup before continuing.
-\t3)
-\t3) """)
+print(f"""\nA specially formatted CSV file will need to be supplied for the program to continue.
+\n\t~~~~~_____Instructions_____~~~~~
+1) Enter the ticker of a stock
+2) Yahoo finance should automatically open in your browser. If not, please visit: https://finance.yahoo.com/lookup before continuing.
+""")
 
 # Lookup URL
-# https://finance.yahoo.com/quote/tsla/history
-# ?period1=1591747200
-# &period2=1623283200
-# &interval=1d
-# &filter=history
-# &frequency=1d
-# &includeAdjustedClose=true
+# https://finance.yahoo.com/quote/tsla/history?period1=1591747200&period2=1623283200&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true
+
 # Download URL
 #https://query1.finance.yahoo.com/v7/finance/download/OCGN?period1=1591747200&period2=1623283200&interval=1d&events=history&includeAdjustedClose=true
+
+# Get the ticker from user
 search_ticker = str(input("Enter a ticker: "))
+
+# Auto set the date period to todays date at midnight, GMT time
+to_date = date.today()
+seconds_1 = datetime.combine(to_date, datetime.min.time(), tzinfo = timezone.utc)
+period_1 = str(int(seconds_1.timestamp()))
+
+# Auto set the date period to 1 year from to_date
+from_date = to_date - timedelta(days = 365)
+seconds_2 = datetime.combine(from_date, datetime.min.time(), tzinfo = timezone.utc)
+period_2 = str(int(seconds_2.timestamp()))
 
 # Convert the csv into a listed dictionary
 # Skip the adj price column
-search_url= (f"https://finance.yahoo.com/quote/" + {search_ticker})
+search_url= str((f"""https://finance.yahoo.com/quote/{search_ticker}/history/?period1={period_2}&period2={period_1}&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true"""))
+print(search_url)
 webbrowser.open(search_url, new = 1)
 
-df = pd.read_csv("KDP.csv", usecols=[0,1,2,3,4,6])
-print(df.head(5))
+print(f"""
+\n3) Click the 'Download' button in the center of the screen.
+4) Save the document in the same folder as this program.
+""")
 
+input("Press enter to continue...")
+
+df = pd.read_csv(f"{search_ticker}.csv", usecols=[0,1,2,3,4,6])
+
+# Add column values to lists
 dates = []
+opens = []
+highs = []
+mids = []
+lows = []
+closes = []
+means = []
 for date in df["Date"]:
     dates.append(date)
 
-opens = []
 for open in df["Open"]:
     opens.append(open)
 
-highs = []
 for high in df["High"]:
     highs.append(high)
 
-lows = []
 for low in df["Low"]:
     lows.append(low)
 
-closes = []
 for close in df["Close"]:
     closes.append(close)
 
+# Daily mids
+for each in range(len(highs)):
+    #print(each) # <- Index
+    daily_mid = (highs[each] - lows[each]) / 2 + lows[each]
+    mids.append(daily_mid)
+
+# TODO Mean calcultaion
+
 
 # Creating the line chart
-line_chart = pygal.Line(x_label_rotation = 270, show_minor_x_labels = False, x_labels_major_every = 7, show_dots = False)
+line_chart = pygal.Line(x_label_rotation = 270, show_minor_x_labels = False, x_labels_major_every = 7, show_dots = True, dots_size = 1, style = DarkStyle)
 
-# TODO Change title to reflect the name of stock
-line_chart.title = "KDP stock price over 1 year"
+# Change title to reflect the name of stock
+line_chart.title = f"{search_ticker} stock price over 1 year"
 line_chart.x_labels = map(str, dates)
 
 # Lines for the KDP_Chart
 line_chart.add("Open", opens)
-line_chart.add("High", highs)
-line_chart.add("Low", lows)
+line_chart.add("High", highs, show_dots = False)
+line_chart.add("Low", lows, show_dots = False)
 line_chart.add("Close", closes)
+line_chart.add("Mid", mids)
 
-# TODO Allow user to specify place to save
-line_chart.render_to_file("KDP_Chart.svg")
+# Save file in program location
+# line_chart.render_to_file(f"{search_ticker}_Chart.svg")
+
+line_chart.render_in_browser()
+
+print(f"""\nThe chart has been created.
+Go to the save location from earlier and open {search_ticker}_Chart.svg in your browser to view the results.""")
+
+print("\nSpecial thanks to Pete Jones and Griffin for helping cure program hiccups.")

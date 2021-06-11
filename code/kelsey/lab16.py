@@ -96,7 +96,7 @@ For example, 'firmware' printed 'Noun. 1. (computer science)'
 Synonyms seem to be off, as well -
 For example, one synonym of 'sums' was 'red ink' and 'peanuts' (which gets translated into AR literally - no room for nuance)
 
-If a synonyms has no AR equivalent, prints EN word (but backwards) - 'slue': 'euls'
+If a synonyms has no AR equivalent, prints EN word - 'adumbrate': 'adumbrate'
 
 So far, only nouns and verbs have produced - no adj., adv., etc.
 
