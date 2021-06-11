@@ -45,8 +45,8 @@ word = rw.random_word() # random English word
 
 # 2 - translate EN word to AR
 translated = GoogleTranslator(source='auto', target='ar').translate(text=word)
-print(f'{translated[::-1]}\n{word}')
-ezgui.ynbox(f'{translated}\n"{word}"','Know the definition?' )
+print(f'{translated[::-1]}\n{word}') # AR written R-L
+ezgui.ynbox(f'{translated}\n"{word}"','Know the definition?' ) 
 
 # 3 - definition
 definitions = []
@@ -54,11 +54,12 @@ definition = dictionary.meaning(word)
 for key in definition.keys():
     print(f'\n{key}.')
     for i, meaning in enumerate(definition[key], start=1):
-        print(f'{i}.', meaning)
+        print(f'{i}.', meaning) # closing parens don't print?
         definitions.append(f'\n{key} {i}. {meaning}')
+        # ezgui.msgbox(f'{key}\n{i}. {meaning}') # new card for every def
     print()
     
-ezgui.msgbox(definitions, 'Definitions')
+ezgui.msgbox(definitions, 'Definitions') # wished this looked cleaner, and that each part of speech (noun, verb) was its own card
 
 # # 3a - synonyms
 en_syns = dictionary.synonym(word)
@@ -81,6 +82,8 @@ Issues:
 
 Obviously, definitions aren't always perfect
 
+Buttons in GUI aren't functional, except to move forward 
+
 If English word not found in Arabic, word is simply transliterated into AR - 
 For example, 'brooks' returned the name 'Brooks' (no other definitions), and was phonetically spelled out in AR بروكس
 
@@ -94,6 +97,8 @@ Synonyms seem to be off, as well -
 For example, one synonym of 'sums' was 'red ink' and 'peanuts' (which gets translated into AR literally - no room for nuance)
 
 If a synonyms has no AR equivalent, prints EN word (but backwards) - 'slue': 'euls'
+
+So far, only nouns and verbs have produced - no adj., adv., etc.
 
 '''
 
