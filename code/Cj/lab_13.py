@@ -150,17 +150,12 @@ class Menu:
         self.main = self.main.replace('Enter: ', self.err)
         self.retur = self.retur.replace('Enter: ', self.err)
 
-    # def correct_error(self):
-    #     self.main = self.main.replace(self.err, 'Enter: ')
-    #     self.retur = self.retur.replace(self.error, 'Enter: ')
-
     def main_(self):
         while not self.valid(self.main):
             self.nav = input(f'{self.main}')
             if not self.valid(self.main):
                 self.error()
         return self.nav
-        
 
     def return_(self):
         self.nav = '0'
@@ -170,39 +165,43 @@ class Menu:
                 self.error()
         return self.nav
         
-    def play_game(self):
-        print('Okay, lets start!')
-        game = board()
-        player_1 = player()
-        player_2 = player()
+def play_game():
+    print('Okay, lets start!')
+    game = board()
+    player_1 = player()
+    player_2 = player()
+    print(game.__repr__())
+    while True:
+        print(f'{player_1.name}\'s turn.')
+        game.move(player_1)
         print(game.__repr__())
-        while True:
-            print(f'{player_1.name}\'s turn.')
-            game.move(player_1)
-            print(game.__repr__())
-            if game.is_over():
-                break
-            print(f'{player_2.name}\'s turn.')
-            game.move(player_2)
-            print(game.__repr__())
-            if game.is_over():
-                break
-        print('Game over! ')
-        if game.winner == player_1.token:
-            winner = player_1.name
-        elif game.winner == player_2.token:
-            winner = player_2.name
-        else:
-            winner = game.winner
-        print(f'The winner was {winner}.')
+        if game.is_over():
+            break
+        print(f'{player_2.name}\'s turn.')
+        game.move(player_2)
+        print(game.__repr__())
+        if game.is_over():
+            break
+    print('Game over! ')
+    if game.winner == player_1.token:
+        winner = player_1.name
+    elif game.winner == player_2.token:
+        winner = player_2.name
+    else:
+        winner = game.winner
+    print(f'The winner was {winner}.')
 
 def run_program():
     menu = Menu()
+    play_again = 'n'
     while True:
         menu.nav = '0'
-        menu_select = menu.main_()
+        if play_again == 'y':
+            menu_select = 1
+        else:
+            menu_select = menu.main_()
         if menu_select == 1:
-            menu.play_game()
+            play_game()
             play_again = input('Do you want to play again(y/n)?: ').lower()
             if play_again == 'y':
                 continue
@@ -218,5 +217,6 @@ def run_program():
         elif menu_select == 3:
             exit()
     print('Thank you for playing! Peace and love. <3')
-
+    exit()
+    
 run_program()

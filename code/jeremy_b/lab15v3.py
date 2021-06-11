@@ -2,7 +2,7 @@
 
 Author: Jeremy Bush
 Project: Programming Boot Camp Lab 15
-Version: 1
+Version: 3
 Date: 6/7/2021
 
 """
@@ -17,52 +17,48 @@ def get_random_quote():
     return data['quote']['body'], data['quote']['author']
 
 
-def quote_keyword_search(keyword):
-    last_page = False
+def quote_keyword_search(keyword, page=1):
     result = []
-    current_page = 1
     print("Searching...")
-    while not last_page:
-        response = requests.get('https://favqs.com/api/quotes/?filter=' + keyword + '&page=' + str(current_page),
-                                headers={'Content-Type': 'application/json',
-                                'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"', })
-        data = response.json()
-        result.append([{'quote': data["quotes"][quote]["body"], 'author': data["quotes"][quote]["author"]} for quote in
-                       range(len(data['quotes']))])
-        last_page = data['last_page']
-        current_page += 1
+    response = requests.get('https://favqs.com/api/quotes/?filter=' + keyword + '&page=' + str(page),
+                            headers={'Content-Type': 'application/json',
+                            'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"', })
+    data = response.json()
+    result.append([{'quote': data["quotes"][quote]["body"], 'author': data["quotes"][quote]["author"]} for quote in
+                   range(len(data['quotes']))])
+    is_last_page = data['last_page']
+    current_page = data['page']
     print("Search complete!")
-    return result
+    print_keyword_search_results(result, is_last_page, keyword, current_page)
 
 
-def print_keyword_search_results(results):
-    page_number = 0
+def print_keyword_search_results(results, last_page, keyword, page):
     nav_choice = ''
     while True:
-        print(f"Page {page_number + 1} of {len(results)}")
-        for quote in results[page_number]:
-            print(f"{quote['quote']}\n   -{quote['author']}")
-        if page_number == 0:
-            print(" > >>\n n l")
-        elif page_number == len(results) - 1:
+        print(f"Page {page}")
+        for quote in range(len(results[0])):
+            print(f"{results[0][quote]['quote']}\n   -{results[0][quote]['author']}")
+        if page == 1 and last_page is False:
+            print(" > \n n ")
+        elif last_page is True:
             print("<< <\n f p")
         else:
-            print("<< < > >>\n f p n l ")
+            print("<< < > \n f p n ")
         nav_choice = input("Action: ").lower()
-        if nav_choice == 'f':
-            page_number = 0
+        if nav_choice == 'b':
+            break
+        elif nav_choice == 'f':
+            page = 1
+            quote_keyword_search(keyword)
         elif nav_choice == 'p':
-            page_number -= 1
+            page -= 1
+            quote_keyword_search(keyword, page)
         elif nav_choice == 'n':
-            print(page_number)
-            page_number += 1
-            print(page_number)
-        elif nav_choice == 'l':
-            page_number = len(results) - 1
+            page += 1
+            quote_keyword_search(keyword, page)
         elif nav_choice == 'h':
             get_help()
-        elif nav_choice == 'b':
-            break
+
 
 
 def get_help():
@@ -82,10 +78,7 @@ while True:
             quote, author = get_random_quote()
             print(f"Random Quote:\n{quote}\n  -{author}")
         elif choice == 'k':
-            keyword = input("Enter keyword to search: ")
-            search_results = quote_keyword_search(keyword)
-            print_keyword_search_results(search_results)
-
+            quote_keyword_search(input("Enter keyword to search: "))
         elif choice == 'h':
             get_help()
         elif choice == 'x':
