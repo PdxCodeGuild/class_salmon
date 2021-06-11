@@ -122,3 +122,5 @@ line_chart.render_in_browser()
 
 print(f"""\nThe chart has been created.
 Go to the save location from earlier and open {search_ticker}_Chart.svg in your browser to view the results.""")
+
+print("\nSpecial thanks to Pete Jones and Griffin for helping cure program hiccups.")
