@@ -114,4 +114,5 @@ This is the demo script.  Running it requires Winlink Express be installed.  For
 - Web server: for remote access to the system without requiring a computer
 - Full send/receive capabilities: sending and receiving email without having to use the Winlink client
 - Generate a list of the closest nodes for all modes.
+- Add support for Ublox GPS devices.
 
