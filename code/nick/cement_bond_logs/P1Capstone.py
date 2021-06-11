@@ -1,6 +1,8 @@
 #this program will read cement bond logs for oil and gas, or geothermal wells
 #cement bonding is important for well integrity, aquifer exclusion, and even formation integrity considerations
 #pip install lasio#lasio is a python library for reading .las well log files - but this does not work outside of a notebook or terminal, I guess
+import time
+from datetime import date#goes in the pdf output file
 import lasio #my first time using the lasio library
 import glob #according to example from lasio but I am not sure what it needs to be here for
 import numpy as np #numpy is a mathematics library in python; it looks like numpy actually downloads with lasio anyway
@@ -137,9 +139,10 @@ class PDF(FPDF):
         #     self.notes_body(top_line=top_line, bottom_line=bottom_line, annotation=annotation)
         # else:
         #     self.notes_body()
+        today = date.today()
         self.set_font('Times', '', 7)
         self.set_xy(.3, 8.4)#previously set to 8.1 for y
-        self.multi_cell(0, .12, txt = f'Well Logger Notes:\n{annotation}\nThe area of concern for casing inspection ranges from {top_line} - {bottom_line} feet.\n{statistics_notes} \n\nKey:\nHigh amplitudes indicate poor bonding or an absence of cement behind the casing. The opposite indicates the presence of cement.\nLonger return travel times indicate a signal coming from the formation wall, indicating good cement bonding. The opposite means there is likely poor bonding or no cement present. ', border=1, align='J')# Output justified text
+        self.multi_cell(0, .12, txt = f'Well Logger Notes from {today}:\n{annotation}\nThe area of concern for casing inspection ranges from {top_line} - {bottom_line} feet.\n{statistics_notes} \n\nKey:\nHigh amplitudes indicate poor bonding or an absence of cement behind the casing. The opposite indicates the presence of cement.\nLonger return travel times indicate a signal coming from the formation wall, indicating good cement bonding. The opposite means there is likely poor bonding or no cement present. ', border=1, align='J')# Output justified text
         # self.ln(1)# Line break
         self.set_font('', 'I')# Mention in italics
         # self.cell(0, 5, 'some text')#fix this
