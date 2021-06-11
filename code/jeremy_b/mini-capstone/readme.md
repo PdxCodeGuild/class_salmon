@@ -56,7 +56,8 @@ NMEA 0183 format.  Some devices, such as the inexpensive Ublox-based units, will
 
 ### wl2k.py
 This file contains functions specifically for interacting with the Winlink Express web API and the application config file
-directly.  It enables dynamic updates based on current GPS position without having to open Winlink directly.
+directly.  It enables dynamic updates based on current GPS position without having to open Winlink directly.  It also provides access
+to the local list of WInlink nodes.
 
 #### Functions:
 - *update_winlink_config()*: Requires a 6-character Maidenhead grid square and replaces the current one in the Winlink Express
