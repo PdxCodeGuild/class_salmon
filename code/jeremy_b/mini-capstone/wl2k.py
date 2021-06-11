@@ -2,7 +2,7 @@
 
 Author: Jeremy Bush
 Project: Radio Utilities in Python (RUPy), Winlink Express Utility Library
-Version: 1
+Version: 2
 Date: 6/9/2021
 
 """
@@ -24,19 +24,19 @@ def update_winlink_config(grid_square):
     # Read file for editing
     with open(filepath, 'r') as file:
         lines = file.read().split('\n')
-    # Convert each list into a list of its own
-    lines = [line.split(',') for line in lines]
+
     search_text = 'Grid Square'
-    for line in range(len(lines)):
+    for line in range(len(lines) - 1):
         if search_text in lines[line]:
             lines[line] = 'Grid Square=' + grid_square
             break
     with open(filepath, 'w') as file:
-        for line in lines:
-            if lines.index(line) != len(lines) - 1:
-                file.write(line + '\n')
+        for line in range(len(lines) - 1):
+            if line != len(lines) - 1:
+                file.write(lines[line])
+                file.write('\n')
             else:
-                file.write(line)
+                file.write(lines[line])
 
 
 # download updated winlink node list
@@ -59,13 +59,11 @@ def update_winlink_node_list():
 
     # Open the temp file and get rid of blank spaces.
     output = []
+    # Check for/remove blank lines
     with open(csv_tmp_filepath, 'r') as file:
         for row in file:
-            output.append(row)
-    # Check for/remove blank lines
-    for line in range(len(output) - 1):
-        if output[line] == '\n':
-            output.pop(line)
+            if row != '\n':
+                output.append(row)
     # write final CSV file.
     with open(csv_filepath, 'w') as outfile:
         for node in output:
@@ -139,5 +137,7 @@ def get_close_nodes_by_mode(mode):
     for station in range(len(station_list) - 1):
         if station_list[station]['Mode'] == mode:
             close_by_mode.append(station_list[station])
+
+    close_by_mode = sorted(close_by_mode, key=lambda item: item['Distance'])
 
     return [close_by_mode[station] for station in range(0, 24)]

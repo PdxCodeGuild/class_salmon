@@ -2,8 +2,8 @@
 
 Author: Jeremy Bush
 Project: Radio Utilities in Python (RUPy), GPS utility library
-Version: 1
-Date: 6/9/2021
+Version: 3
+Date: 6/10/2021
 
 """
 
