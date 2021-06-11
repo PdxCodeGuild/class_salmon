@@ -14,7 +14,7 @@ def last_page(keyword,page):
     return response.json()['last_page']
 def interface():
     while True:
-        choice = input('enter a keyword to search for quotes:\nor enter "*" to exit')
+        choice = input('enter a keyword to search for quotes:\nor enter "*" to exit\n')
         if choice == '*':
             return("Come back soon")
         print(next_page(choice))
