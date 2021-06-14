@@ -1,0 +1,35 @@
+/* Part 2
+Center the entire content of the body */
+body {
+    text-align: center;
+/* Modify the padding and margins on your paragraphs to look better */   
+    margin:100px;
+    padding: 200px;
+/* Add a background image */ 
+    background-image:	url("https://media-cldnry.s-nbcnews.com/image/upload/newscms/2016_22/1564496/ali-liston-1564496.jpg");
+/* Use a custom font */ 
+    font-family: 'Open Sans', sans-serif;
+
+/* 
+Part 3
+Pick a color scheme and modify the background, body text, and link text color.*/
+    background-color: black;
+    color: rgba(150, 60, 60, 0.925);
+
+a {
+    color: blue; 
+}
+
+q {
+    color:rgba(150, 60, 60, 0.308)
+/* Change the typeface of the quote. */
+}
+
+/* Add a rounded border to the picture. */
+
+/* Change the bullet points on the list of places. */  
+ul {
+    list-style-type: circle;
+}
+
+
