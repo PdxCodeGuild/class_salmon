@@ -133,7 +133,7 @@ while loopy == True:
 """
 
 ##################_____Added Features____#####################
-# pics with pillow
+# pics using pillow
 
 # pagination
 

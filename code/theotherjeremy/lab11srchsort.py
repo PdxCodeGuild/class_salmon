@@ -1,4 +1,6 @@
 ###################  Part 1   ####################
+import random
+import time
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 
 
@@ -10,13 +12,14 @@ def linear_search(nums, value):
         return "That number is not in this list."
 
 
-index = linear_search(nums, 11)
+index = linear_search(nums, 8)
 print(index)
 
 '''
 ###################  Part 2   ####################
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
+
 
 def binary_search(list, target):
     my_list = list[:]
@@ -41,13 +44,11 @@ def binary_search(list, target):
         return "That number is not in this list."
 
 
-
 print(binary_search(nums, 0))
 
+'''
 ###################  Part 3   ####################
 
-import time
-import random
 nums2 = [random.randint(0, 100000) for _ in range(100000)]
 t1 = time.time()
 
@@ -68,6 +69,8 @@ def bubble_sort(nums):
 t2 = time.time()
 
 print(bubble_sort(nums), '\nTime: ', t2 - t1)
+
+
 ###################  Part 4   ####################
 nums = [1, 33, 2, 4, 7, 5, 6, 8, 2, 1]
 i = 1
@@ -80,7 +83,6 @@ while i < len(nums):
     i = i + 1
 print(nums)
 
-'''
 ###################  Part 5   ####################
 ## Lost in the  pseudocode   ###
 nums = [1, 33, 2, 4, 7, 5, 6, 8, 2, 1]
@@ -89,4 +91,8 @@ nums = [1, 33, 2, 4, 7, 5, 6, 8, 2, 1]
 def quicksort_recursive(nums, low, high):
     if low < high:
         p = partition
+
+
+'''
+
 '''
