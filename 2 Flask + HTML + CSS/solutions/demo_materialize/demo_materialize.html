@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello world!</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <nav class="pink darken-2">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">Javascript</a></li>
+                <li><a href="mobile.html">Mobile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+    </ul>
+
+
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://materializecss.com/images/sample-1.jpg">
+                    <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a class="pink-text text-darken2" href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://materializecss.com/images/sample-1.jpg">
+                    <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action ">
+                    <a class="pink-text text-darken2" href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://materializecss.com/images/sample-1.jpg">
+                    <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a class="pink-text text-darken2" href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>

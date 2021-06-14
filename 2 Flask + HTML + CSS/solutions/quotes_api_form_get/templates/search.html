@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello world!</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <style>
+        .card {
+            height:600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" method="get" class="row">
+            <div class="input-field col s10">
+                <input id="search_term" name="term" type="text" class="validate" value="{{term}}" />
+                <label for="search_term">Search Term</label>
+            </div>
+            <input name="page" type="hidden" value="1" />
+            <div class="input-field col s2">
+                <button type="submit" class="btn">Search</button>
+            </div>
+        </form>
+        {% if quotes %}
+        <div class="row">
+            {% for quote in quotes %}
+            <div class="col s12 m4 l3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://loremflickr.com/500/500/{{term}}/?random={{ loop.index }}" />
+                        <span class="card-title">{{ quote.author }}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            {{ quote.body }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <a class="btn {% if page == 1 %}disabled{% endif %}" href="?term={{term}}&page={{page-1}}" ><i class="material-icons">keyboard_arrow_left</i></a>
+            </div>
+            <div class="col">
+                Page {{ page }}
+            </div>
+            <div class="col">
+                <a class="btn {% if last_page %}disabled{% endif %}" href="?term={{term}}&page={{page+1}}" ><i class="material-icons">keyboard_arrow_right</i></a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

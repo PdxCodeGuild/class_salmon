@@ -1,5 +1,6 @@
-''' ***MINI CAPSTONE*** '''
-'''
+''' 
+***MINI CAPSTONE*** 
+
 AR Word of the Day
 '''
 '''
@@ -34,6 +35,7 @@ rw = RandomWords()
 word = rw.random_word
 x = datetime.datetime.now()
 
+
 # Intro w/date
 date = x.strftime("%x")
 day = x.strftime("%A")
@@ -55,13 +57,12 @@ for key in definition.keys():
     print(f'\n{key}.')
     for i, meaning in enumerate(definition[key], start=1):
         print(f'{i}.', meaning) # closing parens don't print?
-        definitions.append(f'\n{key} {i}. {meaning}')
+        definitions.append(f'\n{key}\n{i}. {meaning}')
         # ezgui.msgbox(f'{key}\n{i}. {meaning}') # new card for every def
-    print()
     
 ezgui.msgbox(definitions, 'Definitions') # wished this looked cleaner, and that each part of speech (noun, verb) was its own card
 
-# # 3a - synonyms
+# 3a - synonyms
 en_syns = dictionary.synonym(word)
 print(f'\nEnglish synonyms: {en_syns}\n') 
 
@@ -74,7 +75,7 @@ print(f'Arabic synonyms: {ar_list_o_syns}\n') # letters reversed in terminal
 synonyms = dict(zip(en_syns, ar_list_o_syns)) # takes a long time to generate
 print(synonyms)
 print()
-ezgui.msgbox(f'{synonyms}','Synonyms', '*')
+ezgui.msgbox(f'{synonyms}','Synonyms')
  
 
 '''
@@ -98,7 +99,7 @@ For example, one synonym of 'sums' was 'red ink' and 'peanuts' (which gets trans
 
 If a synonyms has no AR equivalent, prints EN word - 'adumbrate': 'adumbrate'
 
-So far, only nouns and verbs have produced - no adj., adv., etc.
+So far, only nouns and verbs have been produced - no adj., adv., etc.
 
 '''
 

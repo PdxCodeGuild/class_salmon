@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact List</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .title_image {
+            width:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s1">
+                <img class="title_image" src="{{ url_for('static', filename='bats.jfif') }}"/>
+            </div>
+            <div class="col s11">
+                <h1>Contact List</h1>
+            </div>
+        </div>
+        <div class="row">
+            <a href="/create/" class="btn">Create Contact</a>
+        </div>
+        <div class="row">
+            <table class="striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Blood Type</th>
+                        <th>Fav Color</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for contact in contacts %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ contact.first_name }} {{ contact.last_name }}</td>
+                        <td>{{ contact.phone }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.blood_type }}</td>
+                        <td style="color:{{ contact.favorite_color }}">{{ contact.favorite_color }}</td>
+                        <td><a href="/delete/{{ loop.index-1 }}/" class="btn red">delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

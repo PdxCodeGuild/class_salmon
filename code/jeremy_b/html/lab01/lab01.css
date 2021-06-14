@@ -1,0 +1,74 @@
+h1{
+    text-align: center;
+    font-weight: 800;
+    color: #0f4c81;
+}
+
+h2{
+    font-weight: normal;
+}
+
+div{
+    background-color: white;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url("https://www.sciencemuseum.org.uk/sites/default/files/styles/smg_carousel_zoom/public/2018-10/B670143.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+p{
+    padding: 20px 10px;
+}
+
+blockquote{
+    font-family: "Brush Script MT", "Brush Script Std", cursive;
+    font-size: x-large;
+}
+
+a:link{
+    color: red;
+}
+
+a:visited{
+    color: blue;
+}
+
+a:hover{
+    color: green;
+}
+
+li{
+    list-style-type: circle;
+}
+
+img{
+  border-radius: 75px;
+  padding: 20px;
+  width: 25%;
+  height: 25%;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.heading{
+
+    font-family: "luminari", fantasy;
+}
+
+.background-image{
+
+}
