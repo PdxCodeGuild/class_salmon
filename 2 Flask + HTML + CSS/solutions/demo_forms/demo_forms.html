@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="https://webhook.site/4c59103c-b983-465e-8998-3b69c2920a81" method="post">
+        <span>Favorite Fruit:</span>
+        <input type="radio" value="apples" name="fav_fruit">
+        <label>Apples</label>
+        <input type="radio" value="Bananas" name="fav_fruit">
+        <label>Bananas</label>
+        <input type="radio" value="pears" name="fav_fruit">
+        <label>Pears</label>
+    </form>
+
+    <!-- view form info at the following url -->
+    <!-- https://webhook.site/#!/4c59103c-b983-465e-8998-3b69c2920a81/6738dfd0-5646-4b69-b79b-1c55de0c0085/1 -->
+    <form action="https://webhook.site/4c59103c-b983-465e-8998-3b69c2920a81" method="post">
+        <label for="first_name_input">First Name</label>
+        <input id="first_name_input" type="text" name="first_name" placeholder="Enter your first name here" required/>
+        <br/>
+
+        <label for="password_input">Password</label>
+        <input id="password_input" pattern=".{6,}" required title="enter at least 6 characters" type="password" name="password"/>
+        <br/>
+
+        <label for="agree_checkbox">Do you agree?</label>
+        <input id="agree_checkbox" type="checkbox" name="agree" required checked/>
+        <br/>
+
+        <label for="birthday_input">What was your birthday?</label>
+        <input id="birthday_input" type="datetime-local" name="birthday"/>
+        <br/>
+
+        <label for="input_fav_color">What is your favorite color?</label>
+        <input id="input_fav_color" type="color" name="fav_color"/>
+        <br/>
+
+
+        <h4>What is your favorite fruit?</h4>
+        
+        <input id="ff_apples" type="radio" name="favorite_fruit" value="apples"/>
+        <label for="ff_apples">Apples</label>
+        <br/>
+
+        <input id="ff_bananas" type="radio" name="favorite_fruit" value="bananas" checked/>
+        <label for="ff_bananas">Bananas</label>
+        <br/>
+
+        <input id="ff_pears" type="radio" name="favorite_fruit" value="pears"/>
+        <label for="ff_pears">Pears</label>
+        <br/>
+        
+
+        <button type="submit" title="submit the form">submit</button>
+    </form>
+</body>
+</html>

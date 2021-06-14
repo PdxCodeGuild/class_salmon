@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Hello {{name}}</h1>
+    <p>{{name}}'s favorite fruit is {{favorite_fruit}}</p>
+    <hr/>
+    <p>The temperature is {{temperature}}</p>
+    {% if temperature < 50 %}
+    <p>cold</p>
+    {% elif temperature < 80 %}
+    <p>warm</p>
+    {% else %}
+    <p>hot</p>
+    {% endif %}
+
+
+    <ul>
+        {% for num in nums %}
+        <li>{{num}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

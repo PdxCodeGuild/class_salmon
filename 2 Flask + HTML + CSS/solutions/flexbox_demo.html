@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .header {
+            background-color:lightskyblue;
+
+            max-width:800px;
+            margin: 0 auto;
+            
+            display:flex;
+            flex-direction:row;
+            flex-wrap:nowrap;
+            justify-content: space-between;
+            padding:10px;
+
+        }
+        .header > div {
+            display:flex;
+            flex-direction:row;
+            align-items:center;
+        }
+        .header a {
+            margin-right:10px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: none;
+        }
+        .header a:hover {
+            color:white;
+        }
+        .header img {
+            width:50px;
+        }
+        .main {
+            display:flex;
+            flex-direction:row;
+            justify-content:center;
+            max-width:800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <img src="flower.jpg"/>
+            <h1>Flower.com</h1>
+        </div>
+        <div>
+            <a href="flowers.html">View Flowers</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="post">
+            <h2>Post 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ante nisi, placerat ac accumsan pellentesque, tristique sit amet lorem. Donec vitae erat eleifend, vehicula quam vitae, mollis ligula. Suspendisse tempor nisi vitae velit sagittis, auctor porta tortor interdum. Aliquam at tellus ex. Phasellus nisi ante, fermentum ac ultricies at, finibus et lacus. Aliquam erat volutpat. Donec mattis suscipit nisi. Proin cursus porta tincidunt. Ut non pharetra ligula, malesuada pulvinar risus. Fusce maximus facilisis elementum. Quisque eget auctor nibh. Quisque semper a est non pharetra.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ante nisi, placerat ac accumsan pellentesque, tristique sit amet lorem. Donec vitae erat eleifend, vehicula quam vitae, mollis ligula. Suspendisse tempor nisi vitae velit sagittis, auctor porta tortor interdum. Aliquam at tellus ex. Phasellus nisi ante, fermentum ac ultricies at, finibus et lacus. Aliquam erat volutpat. Donec mattis suscipit nisi. Proin cursus porta tincidunt. Ut non pharetra ligula, malesuada pulvinar risus. Fusce maximus facilisis elementum. Quisque eget auctor nibh. Quisque semper a est non pharetra.</p>
+        </div>
+        <div class="sidebar">
+            <p>Welcome to my site</p>
+        </div>
+    </div>
+</body>
+</html>

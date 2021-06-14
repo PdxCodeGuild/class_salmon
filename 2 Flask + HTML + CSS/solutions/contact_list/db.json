@@ -1,0 +1,46 @@
+{
+    "blood_types": [
+        "A+",
+        "A-",
+        "B+",
+        "B-",
+        "O+",
+        "O-",
+        "AB+",
+        "AB-"
+    ],
+    "contacts": [
+        {
+            "blood_type": "A-",
+            "email": "ManuelEWillis@dayrep.com",
+            "favorite_color": "purple",
+            "first_name": "Manuel",
+            "last_name": "Willis",
+            "phone": "540-279-7277"
+        },
+        {
+            "blood_type": "O+",
+            "email": "JamesNOsborne@teleworm.us",
+            "favorite_color": "purple",
+            "first_name": "James",
+            "last_name": "Osborne",
+            "phone": "360-222-7644"
+        },
+        {
+            "blood_type": "B-",
+            "email": "RebeccaLWilkinson@armyspy.com",
+            "favorite_color": "blue",
+            "first_name": "Rebecca",
+            "last_name": "Wilkinson",
+            "phone": "570-367-1914"
+        },
+        {
+            "blood_type": "A-",
+            "email": "butterworth@gmail.com",
+            "favorite_color": "magenta",
+            "first_name": "Richard",
+            "last_name": "Butterworth",
+            "phone": "555-555-5555"
+        }
+    ]
+}

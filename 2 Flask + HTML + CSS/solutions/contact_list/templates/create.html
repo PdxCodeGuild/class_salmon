@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact List</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create Contact</h1>
+        <div class="row">
+            <form action="" method="post" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" name="first_name" required class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" name="last_name" required class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="phone" type="text" name="phone" pattern="\d{3}-\d{3}-\d{4}" title="Enter the format as 555-555-5555" required class="validate">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="email" type="email" name="email" required class="validate">
+                        <label for="email">Email Address</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select required name="blood_type">
+                          <option value="" disabled selected>Choose Blood Type</option>
+                          {% for blood_type in blood_types %}
+                          <option value="{{ blood_type }}">{{ blood_type }}</option>
+                          {% endfor %}
+                        </select>
+                        <label>Blood Type</label>
+                      </div>
+                    <div class="input-field col s6">
+                        <input id="favorite_color" type="text" name="favorite_color" required class="validate">
+                        <label for="favorite_color">Favorite Color</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2">
+                        <button type="submit" class="btn">Create Contact</button>
+                    </div>
+                    <div class="col s2">
+                        <a href="/" class="btn">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>
