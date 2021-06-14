@@ -1,0 +1,33 @@
+body{
+    text-align:center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url('https://governmentciomedia.com/sites/default/files/styles/featured_article_image/public/2019-03/iStock-1040557296.jpg?itok=g9D9ey30');
+    color:#ffffff;
+    background-color: rgba(8, 28, 41, 0.479);
+}
+/*body {
+  background-image: url('https://media.istockphoto.com/vectors/binary-code-on-white-v1-vector-id654587244?k=6&m=654587244&s=612x612&w=0&h=JNc_OLzVZA_Czdk42XQBg6JgTKaM8mjtRvyFgjcvQ00=');
+}*/
+
+p,ul,q{
+    color:#ffffff;
+    background-color: rgba(8, 28, 41, 0.479);
+}
+img {
+    border-radius: 50%;
+    max-width: 50%;  
+    align-items: right;
+    height: auto;  
+  }
+q{
+    font-family: cursive;
+}
+h1{
+    color: azure;
+}
+a:link {
+    color: rgb(255, 0, 221);
+  }
+ul{
+    list-style-type: square;
+}
