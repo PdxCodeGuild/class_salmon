@@ -48,7 +48,7 @@ class calculator():
             difference = desired_parameter_level - current_parameter_level
             doseage = difference / self.conversion_dict[x][y]                  ## Krabby patty secret formula.
             doseage *= total_water_volume
-            print(f'{round(doseage)} ml')
+            print(f'In order to raise your current {x} by {difference} you would need to dose {round(doseage)} ml of {x} addative formula.')
 
 
 class Menu():
