@@ -1,0 +1,36 @@
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+div{
+    background-color: white;
+}
+
+.heading{
+
+    font-family: "luminari", fantasy;
+}
+
+h1{
+    text-align: center;
+    font-weight: 800;
+    color: #0f4c81;
+}
+
+h2{
+    font-weight: normal;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url("https://www.sciencemuseum.org.uk/sites/default/files/styles/smg_carousel_zoom/public/2018-10/B670143.jpeg");
+}
