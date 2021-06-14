@@ -195,7 +195,6 @@ class Menu():
         for v in val.values():
             output += str(v) + ','
         output = output[:-1]
-        # print(output)
         with open(f'c:\\Users\\Cj\\Documents\\PDX_CODE_GUILD_BOOT_CAMP\\class_salmon\\code\\Cj\\{UI}\'s_reef_log.csv', 'w' ) as file:
             file.write(output)
         print('Profile created!')
@@ -207,15 +206,12 @@ class Menu():
             self.retrieved_data = []
             for line in file:
                 data = line.split(',')
-                data[-1] = data[-1].strip()
-                # print(data)
-            # if len(data) == 4:  
+                data[-1] = data[-1].strip() 
                 date = data[0]
                 alk = data[1]
                 cal = data[2]
                 mag = data[3]
                 value = {'Test date': date, 'alk': alk, 'cal': cal, 'mag': mag}
-                # print(value)
                 self.retrieved_data.append(value)
             for dict in self.retrieved_data:
                 self.alk.append(float(dict['alk']))
@@ -246,7 +242,6 @@ class Menu():
         plt.plot_date(self.dates, self.alk, linestyle = 'solid')
         plt.tight_layout()
         plt.gcf().autofmt_xdate()
-# plt.gca().xaxis.set_major_formatter()
         plt.show()
 
     def plot_cal(self):
@@ -263,60 +258,46 @@ class Menu():
         plt.gcf().autofmt_xdate()
         plt.show()
 
-    def run_program(self):
-        while True:
-            print(self.welcome_msg)
-            menu_select = self.main_()
-            if menu_select == 1:
-                calc = calculator()
-                menu_select = self.parameter_select_()
-                if menu_select >= 1 and menu_select <= 3:
-                    calc.calculate(menu_select)
-                    continue
-                elif menu_select == 4:
-                    continue
-                elif menu_select == 5:
-                    exit()
-            elif menu_select == 2:
-                self.create()
+def run_program():
+    menu = Menu()
+    while True:
+        print(menu.welcome_msg)
+        menu_select = menu.main_()
+        if menu_select == 1:
+            calc = calculator()
+            menu_select = menu.parameter_select_()
+            if menu_select >= 1 and menu_select <= 3:
+                calc.calculate(menu_select)
                 continue
-            elif menu_select == 3:
-                self.retrieve()
-                menu_select = self.plot_menu()
-                if menu_select == 1:
-                    self.plot_alk()
-                elif menu_select == 2:
-                    self.plot_cal()
-                elif menu_select == 3:
-                    self.plot_mag()
-                elif menu_select == 4:
-                    continue
-                elif menu_select == 5:
-                    exit()
             elif menu_select == 4:
-                self.update()
+                continue
             elif menu_select == 5:
-                pass
-                # self.delete()
-            elif menu_select == 6:
-                print(self.help)
-            elif menu_select == 7:
                 exit()
-      
-    # def parse_(self):
-    #     for dict in self.retrieved_data:
-    #         self.alk.append(float(dict['alk']))
-    #         self.dates.append(dict['Test date'])
-    #         self.cal.append(dict['cal'])
-    #         self.mag.append(dict['mag'])
+        elif menu_select == 2:
+            menu.create()
+            continue
+        elif menu_select == 3:
+            menu.retrieve()
+            menu_select = menu.plot_menu()
+            if menu_select == 1:
+                menu.plot_alk()
+            elif menu_select == 2:
+                menu.plot_cal()
+            elif menu_select == 3:
+                menu.plot_mag()
+            elif menu_select == 4:
+                continue
+            elif menu_select == 5:
+                exit()
+        elif menu_select == 4:
+            menu.update()
+        elif menu_select == 5:
+            pass
+            # menu.delete()
+        elif menu_select == 6:
+            print(menu.help)
+        elif menu_select == 7:
+            exit()
 
-    
 
-    
-
-
-menu = Menu()
-
-menu.run_program()
-# menu.retrieve()
-# menu.plot_alk()
+run_program()
