@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title>Steve Urkel</title>
+    <!-- css -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+        :root {
+            --accent1: #E80D1D;
+            --accent2: #61A189;
+            --quote: #E0CDC5;
+            --text-color: #F7B332;
+            --background-color: #041A30;
+        }
+        header {
+            display:flex;
+            flex-direction:row;
+            justify-content:center;
+            align-items:center;
+            font-family: 'Pacifico', cursive;
+            color: var(--text-color);
+            background-color: rgba(0,0,0,0.75);
+            /* border-image:url('urkel_face.png') 20 round; */
+        }
+        header img {
+            width:50px;
+            margin-right:40px;
+            transition: transform 500ms;
+
+        }
+        header img:hover {
+            transform: scale(1.5) rotate(360deg);
+        }
+        header, main, footer {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.75);
+            border: 1px solid var(--text-color);
+        }
+        main, footer {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-color);
+        }
+        body {
+            background-image: url('background.png');
+            background-size:cover;
+            background-position:center;
+            background-repeat: no-repeat;
+            background-color: var(--background-color)
+        }
+        .article_photo {
+            width: 200px;
+            margin-right: 10px;
+            float:left;
+            border-radius:5px;
+        }
+        p {
+            margin-top: 0;
+        }
+        blockquote {
+            font-family: 'Pacifico', cursive;
+            font-size:24px;
+            color:var(--quote);
+        }
+        /* https://css-tricks.com/almanac/selectors/a/after-and-before/ */
+        blockquote::before {
+            content: '"'
+        }
+        blockquote::after {
+            content: '"'
+        }
+        .clear {
+            clear:both;
+        }
+        footer {
+            text-align:center;
+        }
+
+
+        /* https://stackoverflow.com/questions/7775594/css-list-style-image-size */
+        /* main ul {
+            list-style-image: url('urkel_face.png');
+        } */
+        main li {
+            list-style: none;
+        }
+        main li::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url('urkel_face.png');
+            background-size:contain;
+            background-repeat:no-repeat;
+            margin-right:6px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="urkel_face.png"/>
+        <h1>Steve Urkel</h1>
+    </header>
+    <main>
+        <img class="article_photo" src="urkel.jpg"/>
+        <p>Vhs tapes alternative rock cory matthews piercings ok simpson. Tommy hilfiger playa acid wash oasis nike. Puff daddy ripped jeans slacker carpenter pants personal computer seattle supersonics, fresh prince of bel-air pulp fiction boyz II men the mighty ducks hot pockets teenage mutant ninja turtles. Uncle phil dawg the more you know spice girls dallas cowboys. Discman the macarena jonathan taylor thomas floppy disk, tae bo lunchables leopard print bill gates dolly the sheep.</p>
+        <p>Alanis morissette mariah carey teenage mutant ninja turtles mtv stretch armstrong videocassette. Leotards yo punk macaulay culkin. Mia hamm sitcoms pontiac trans sport rad inflatable furniture, real world overalls with one strap undone leopard print pogs chuck taylor all-stars tommy hilfiger. Rush hour enrique iglesias your mom mr. jones and me tell each other fairy tales furby. Hip hop beepers pizza bagels courtney love generation Y did I do that, space jam moby ripped jeans boy bands.</p>
+        <p>Bill clinton turtlenecks super mario world michael jordan. Bandanas I will be your father figure seattle supersonics scrunched socks encarta razor scooter. Headbands end of the road pulp fiction zack morris scrunchies. Boombox I believe I can fly the phantom menace wayne gretzky titanic track jackets. Mazda mpv taco bell chihuahua fargo tom hanks. Independence day portable cd players jonathan taylor thomas sup sports utility vehicles korn.</p>
+        <blockquote>Danger's my middle name. Well, actually it's Quincy, but you guys get the picture.</blockquote>
+        <p>Screening phone calls encarta shania twain zebra stripes discman, michael jordan vertically striped shirts meg ryan pogs. Keanu reeves renting movies at a store keepin’ it real doc martens, sonic the hedgehog wild cherry pepsi royal stewart tartan alternative rock braveheart your mom. Hey arnold furby grunge bye bye bye chuck taylor all-stars. Digital pets I will be your father figure men in black des’ree, my heart will go on cory matthews toyota previa pop punk.</p>
+        <h2>Best Family Matters Episodes</h2>
+        <ul>
+            <li>Season 4, Episode 1: "Surely You Joust"</li>
+            <li>Season 4, Episode 15: "Tender Kisses"</li>
+            <li>Season 5, Episode 16: "Presumed Urkel"</li>
+            <li>Season 2, Episode 22: "Finding The Words"</li>
+            <li>Season 2, Episode 25: "I Should Have Done Something"</li>
+            <li>Season 3, Episode 9: "Born To Be Mild"</li>
+            <li>Season 3, Episode 9: "Born To Be Mild"</li>
+            <li>Season 5, Episode 8: "Dr. Urkel And Mr. Cool"</li>
+            <li>Season 4, Episode 21: "Walk On The Wild Side"</li>
+            <li>Season 4, Episode 10: "It's Beginning To Look A Lot Like Urkel"</li>
+        </ul>
+        <div class="clear"></div>
+    </main>
+    <footer>
+        &copy; Class Eagle 2021
+    </footer>
+</body>
+</html>

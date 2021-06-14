@@ -1,0 +1,107 @@
+
+
+
+:root {
+    --cloudysky: #C5D0D9;
+    --lichen: #CFD9BA;
+    --olivegreen: #A69B03;
+    --armygreen: #736B02;
+    --ripeavocado: #403C01;
+}
+
+
+body {
+    background-color: var(--cloudysky);
+    font-family: 'Indie Flower', cursive;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--lichen);
+    border-left: 1px solid var(--olivegreen);
+    border-right: 1px solid var(--olivegreen);
+}
+
+header {
+    display: flex;
+    flex-direction:row;
+    background-color: var(--ripeavocado);
+    color:white;
+    font-family: 'Itim', cursive;
+    padding: 10px;
+}
+header img {
+    width: 40px;
+    margin-right:10px;
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert() */
+    filter: invert(1);
+}
+
+.main_image {
+    /* https://pixabay.com/photos/cucumber-pickle-gherkin-5453363/ */
+    background-image: url('./images/cucumber-5453363_1920.jpg');
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/background-size */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:white;
+    height:400px;
+    /* line-height:400px; */
+    padding: auto 0;
+    padding:10px;
+    font-size:60px;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    text-shadow: 0 0 6px black;
+}
+
+main p {
+    padding: 10px;
+}
+
+
+.products {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    margin-top:20px;
+}
+
+.products > div {
+    width:150px;
+    height:250px;
+    background-color:var(--olivegreen);
+    box-shadow: 0 0 6px grey;
+}
+
+
+.product_image {
+    height:200px;
+    background-size:cover;
+}
+
+.first_product_image {
+    /* https://unsplash.com/photos/aZzYKVLVki8 */
+    background-image: url('./images/jonathan-pielmayer-aZzYKVLVki8-unsplash.jpg')
+}
+.second_product_image {
+    /* https://pixabay.com/photos/pickled-cucumbers-homemade-preserves-1520638/ */
+    background-image: url('./images/pickled-cucumbers-1520638_1920.jpg')
+}
+
+.third_product_image {
+    /* https://pixabay.com/photos/pickled-cucumbers-homemade-preserves-1520638/ */
+    background-image: url('./images/pickled-cucumbers-4403297_1920.jpg')
+}
+
+.product_text {
+    color:white;
+    text-align:center;
+    padding: 6px;
+}

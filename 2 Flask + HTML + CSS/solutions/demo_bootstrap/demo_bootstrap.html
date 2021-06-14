@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+    <title>Hello, world!</title>
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!-- https://getbootstrap.com/docs/5.0/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ode to Sandwiches</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topnav_toggle"
+                aria-controls="topnav_toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topnav_toggle">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <!-- https://icons.getbootstrap.com/ -->
+                        <a class="nav-link active text-end" aria-current="page" href="#"><i
+                                class="bi-house-door me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-end" href="#"><i class="bi-list-ul me-1"></i>List of Sandwiches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-end" href="#"><i class="bi-stars me-1"></i>The Future of Sandwiches</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <!-- https://getbootstrap.com/docs/5.0/components/carousel/ -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="sandwich1.jpg" class="d-block w-100" alt="sandwich">
+                </div>
+                <div class="carousel-item">
+                    <img src="sandwich2.jpg" class="d-block w-100" alt="sandwich">
+                </div>
+                <div class="carousel-item">
+                    <img src="sandwich3.jpg" class="d-block w-100" alt="sandwich">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+    <style>
+        .democontainer>div>div {
+            background-color: pink;
+            border: 1px solid black;
+        }
+    </style>
+    <div class="container democontainer">
+        <div class="row">
+            <div class="col-lg-1 col-md-3 col-sm-6">A</div>
+            <div class="col-lg-3 col-md-3 col-sm-6">B</div>
+            <div class="col-lg-6 col-md-3 col-sm-6">C</div>
+            <div class="col-lg-2 col-md-3 col-sm-6">D</div>
+        </div>
+    </div>
+    
+    
+    <!-- https://getbootstrap.com/docs/5.0/layout/grid/  -->
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <!-- https://getbootstrap.com/docs/5.0/components/card/ -->
+                <div class="card">
+                    <img src="sandwich_icon1.png" class="card-img-top" alt="sandwich">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <!-- https://getbootstrap.com/docs/5.0/components/card/ -->
+                <div class="card">
+                    <img src="sandwich_icon2.png" class="card-img-top" alt="sandwich">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <!-- https://getbootstrap.com/docs/5.0/components/card/ -->
+                <div class="card">
+                    <img src="sandwich_icon3.png" class="card-img-top" alt="sandwich">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <!-- https://getbootstrap.com/docs/5.0/components/card/ -->
+                <div class="card">
+                    <img src="sandwich_icon4.png" class="card-img-top" alt="sandwich">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

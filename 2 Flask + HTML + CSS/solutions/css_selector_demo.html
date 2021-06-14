@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color:red;
+        }
+        .deleted {
+            text-decoration: line-through;
+        }
+        #loudparagraph {
+            font-size:20px;
+        }
+        * {
+            background-color:lightcoral;
+        }
+
+        .deleted, #loudparagraph {
+            font-family: Verdana, sans-serif;
+        }
+        .header h1 {
+            text-decoration: underline;
+        }
+        .header a {
+            color:white;
+            text-decoration: none;
+        }
+
+        .header > h1 {
+            color:magenta;
+        }
+
+        .header a:hover {
+            color: bisque;
+        }
+        .header a:active {
+            color:goldenrod;
+        }
+        
+    </style>
+</head>
+<!-- <div>in between head and body</div> -->
+<body>
+    <div class="header">
+        <h1>Welcome to My Site</h1>
+        <div>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <h1>Hello World</h1>
+    <h1>Hello Sky</h1>
+    <span class="deleted">hello!</span>
+    <span>hello!</span>
+    <p id="loudparagraph">Lorem Ipsum</p>
+    <!-- <p id="loudparagraph">Lorem Ipsum delorum est</p> -->
+</body>
+</html>
