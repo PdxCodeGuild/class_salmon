@@ -85,4 +85,3 @@ with open('contacts.csv', 'w') as f:
             if header != 'name':
                 f.write(',')
             f.write(contact[header])
-
