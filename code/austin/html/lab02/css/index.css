@@ -1,0 +1,14 @@
+html {
+    box-sizing: border-box;
+    font-size: 20;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+header, footer, main {
+    margin: 10px;
+}
+
