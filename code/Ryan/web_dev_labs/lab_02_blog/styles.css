@@ -1,0 +1,117 @@
+/* Root settings that apply default settings to the rest of the css sheet */
+:root {
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;
+
+  /* These are custom properties / variables. They represent the theme of the application.
+  They always start with a double hyphen and when used in the root, they can be replicated
+  throughout the other css classes. */
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+.header-title{
+
+}
+
+.top-navbar{
+  border: 1px solid red;
+  background-color: yellow;
+  display: flex;
+  justify-content: flex-end;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* How to change the scroll bar from default
+Can be targeted with a sudo element on the element with the scroll bar (body) */
+
+/* Modify the scrollbar witdth */
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+/* Modify the scroll bar track (background) */
+body::-webkit-scrollbar-track{
+  background: #1e1e24;
+}
+
+/* Modify the scroll bar thumb (the thing that moves) */
+body::-webkit-scrollbar-thumb{
+  background: #6649b8;
+}
+
+main {
+  /* REM unit is relative to the font size. Line 3 is 16px. So the relative pixel for the
+  margin is equal to 5 * 16 = 80px */
+  margin-left: 5rem;
+  padding: 1rem;
+
+}
+
+/* Modify the navbar */
+.navbar {
+  /* Keep the navbar from moving */
+  position: fixed;
+  /* Calling the CSS varible to be used as a background color */
+  background-color: var(--bg-primary);
+}
+
+/* Center the listed items in the side bar */
+.navbar-nav{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.navbar-item{
+  color: white;
+}
+
+/* Small Screens */
+@media only screen and (max-width: 600px){
+  .navbar{
+    bottom: 0;
+    width: 100vw ;
+    height: 5rem;
+  }
+
+  .navbar-nav{
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  main{
+    margin: 0;
+  }
+
+}
+
+/* Large Screens */
+@media only screen and (min-width: 600px){
+  .navbar{
+    top: 0;
+    width: 5rem;
+    /* VH is a relative unit. relative to the size of viewport. 100 will always fill the full height.
+    Reacts with changes in browser window size also.  */
+    height: 100vh;
+  }
+
+}
