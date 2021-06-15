@@ -1,0 +1,60 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 75%;
+}
+
+header, footer {
+    margin: 12px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: black;
+    color:cadetblue;
+}
+
+h3 {
+    color: orange;
+}
+
+nav > p {
+    padding: 8px;
+}
+
+nav {
+    display: flex;
+    color: white;
+}
+
+@media (min-width: 600px) {
+    .flex-gallery {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .flex-gallery > * {
+        width: 50%;
+        padding: 18px;
+        background-color: black;
+        text-align: justify;
+    }
+
+    .flex-header {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1100px) {
+    .flex-gallery > * {
+        width: 33.33%;
+    }
+}
