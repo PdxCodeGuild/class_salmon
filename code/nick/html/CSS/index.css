@@ -1,0 +1,33 @@
+/* ol {} */
+h1 {text-align: center;}
+h2 {text-align: center;}
+p {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: #12026e;
+    padding: 1em;
+    border: .5rem solid;
+    background-image: url("https://i.pinimg.com/originals/99/07/16/990716df5c9cc6d15b6e878c99354d05.jpg");
+    background-size: 80px 60px}
+q {text-align: center;
+    font-family: fantasy;
+}
+img {text-align: center;
+    border-radius: 25%;
+}
+ol {text-align: center;
+    background-color: #ffffff;
+}
+li {text-align: center;
+    background-color: #ffffff;
+    list-style: square;
+    list-style-position: inside;
+}
+body {font-family: 'Courier New', Courier, monospace;
+    background-color: orange;
+}
+/* p {
+font-family: Verdana;
+font-size: 14px;
+color: #44ce1a;
+background-color: #ffffff;
+} */
