@@ -11,14 +11,11 @@ def isfloat(x):
     except:
         return False
 
-
-
 #-------------------------------------------------------------------#
 # difference = desired_parameter_level - current_parameter_level
 # doseage = difference / conversion_dict['alk']['DKH']                  ## Krabby patty secret formula.
 # doseage *= total_water_volume
 # ------------------------------------------------------------------#
-
 
 class calculator():
     def __init__(self):
@@ -49,7 +46,6 @@ class calculator():
             doseage = difference / self.conversion_dict[x][y]                  ## Krabby patty secret formula.
             doseage *= total_water_volume
             print(f'In order to raise your current {x} by {difference} you would need to dose {round(doseage)} ml of {x} addative formula.')
-
 
 class Menu():
     def __init__(self):
@@ -119,7 +115,6 @@ class Menu():
         This calculator is only intended to calculate INCREASES in the water parameters of your marine aquarium system ONLY!
 
         To reduce parameters that are too high, dilute the concentration in your system using water changes. 
-
         '''
 
         self.err = 'Error! Please make a valid selection: '
@@ -219,7 +214,6 @@ class Menu():
                 self.cal.append(dict['cal'])
                 self.mag.append(dict['mag'])
       
-
     def update(self):
         UI = input('Enter your name: ')
         date = datetime.date.today()
@@ -298,6 +292,5 @@ def run_program():
             print(menu.help)
         elif menu_select == 7:
             exit()
-
 
 run_program()
