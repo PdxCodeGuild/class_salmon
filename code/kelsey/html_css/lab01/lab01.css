@@ -8,8 +8,7 @@ body {
 /* Add a background image */ 
     background-image:	url("https://images-na.ssl-images-amazon.com/images/I/61tZGs75vDL._AC_SY741_.jpg");
     background-position: center;
-
-    /* Use a custom font */ 
+/* Use a custom font */ 
     font-family: 'Open Sans', sans-serif;
     line-height: 2.0;
 
@@ -46,6 +45,7 @@ img {
     margin-top: 100px;
 
 }
+
 /* Change the bullet points on the list of places. */  
 ul {
     list-style-type: circle;
