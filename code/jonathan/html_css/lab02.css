@@ -1,0 +1,50 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+header, footer, main {
+    margin: 12px;
+    
+}
+
+nav > p {
+    padding: 8px;
+}
+
+nav {
+    display: flex;
+}
+
+@media (min-width: 600px) {
+    .flex-gallery {
+        flex-direction: column;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    
+    .flex-gallery > * {
+        width: 50%;
+        padding: 24px;
+        text-align: justify;
+    }
+
+    .flex-header {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1100px) {
+    .flex-gallery > * {
+        width: 33.333%;
+    }
+}
