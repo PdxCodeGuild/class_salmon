@@ -13,7 +13,6 @@ from matplotlib.collections import LineCollection #so I can modify the z-order o
 #Both wells should be owned and operated by WPX Energy, out of McKenzie County - the fracking Bakken
 #this is sort of a publicly available resource, but you should pay the subscriber fee ($50)
 import os#documents for reading file paths here (https://docs.python.org/3/library/os.html)
-# import fpdf
 from fpdf import FPDF #another library I found to generate a formatted PDF report http://www.fpdf.org/ this creates a class according to docs
 #Make the OOP
 class Reader_cbl:
