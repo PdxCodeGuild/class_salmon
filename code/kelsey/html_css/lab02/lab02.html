@@ -1,0 +1,79 @@
+<!-- Lab 2: Blog
+Let's make the template of a blog with a title, top-nav, side-nav, and multiple posts. Use flexbox and semantic elements (header, nav, section, and footer). You can use a custom font, fancy colors, and make generate fake content using an Ipsum. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab02 Blog</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="lab02.css"/>
+  </head>
+  <body>
+    <header class="flex-header">
+      <div>
+          <h1>TV Blog</h1>
+          <h3>My reviews of Arrested Development (but not really)</h3>
+          <img src="https://i.insider.com/519e27566bb3f7624c00000d?width=300&format=jpeg&auto=webp"/>
+      </div>
+      <nav class="flex-header">
+          <p><a href="#">About</a></p>
+          <p><a href="#">More Reviews</a></p>
+          <p><a href="#">Contact Me</a></p>
+      </nav>
+    </header>
+    <main>
+      <h2>Arrested Development Episode Reviews</h2>
+      <div class="flex-gallery">
+        <div>
+            <h3>Feb. 10, 2006 - "Development Arrested"</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKpviQv-kQK0vTRIcER6o80YonyvN-venYLg&usqp=CAU">
+            <p>You're a good guy, mon frere. That means brother in French. I don't know how I know that. I took four years of Spanish. No, I was ashamed to be SEEN with you. I like being WITH you. Aren't you the sweetest thing, spending time with what's left of your uncle. Hey, Dad. Look at you. You're a year older…and a year closer to death. Buster: Oh yeah, I guess that's kind of funny. How about a turtle? I've always loved those leathery little snappy faces. Heyyyy Uncle Father Oscar. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! I just dont want him to point out my cracker ass in front of Ann.</p>
+        </div>
+        <div>
+            <h3>Jan. 2, 2006 - "S.O.B.s"</h3>
+            <img src="https://www.media1.hw-static.com/wp-content/uploads/arrested-development-jack-mcbrayer_55008407-2560x1440-800x450.jpeg">
+            <p>You're Killing Me, Buster. Chaw-chee, chaw-chee chaw-chee! Coo coo ca cha! Ah coodle doodle do Caw ca caw, caw ca caw. One of the guys told me to take my head out of my BOTTOM and get back to work…my BOTTOM! Well, I hope you also carry a spare bowl of candy beans. Did Ted make an appointment? No. Well then Ted can GET THE HELL OUT OF THIS OFFICE! YOU GET THE HELL OUT!</p>
+        </div>
+        <div>
+            <h3>Apr. 3, 2005 - "Meat the Veals"</h3>
+            <img src="http://i.imgur.com/dbXQEMt.jpg">
+            <p>George Michael may be suffering from what we in the soft-sciences call Obsessive Compulsive Disorder, or the "OC Disorder." I'm an ideas man, Michael. I think I proved that with "Fuck Mountain." Look what the homosexuals have done to me! You can't just comb that out and reset it? The guy runs a prison, he can have any piece of ass he wants. It was for me. I was going to smoke the marijuana like a cigarette. See for more good stuff. Say something that will terrify me. Lindsay: F*** me. Tobias: No, that didn't do it. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!!</p>
+        </div>
+        <div>
+            <h3>Dec. 5, 2004 - "Good Grief!"</h3>
+            <img src="https://deadline.com/wp-content/uploads/2017/09/arrested-development.jpg?w=681&h=383&crop=1">
+            <p>You're Killing Me, Buster. Chaw-chee, chaw-chee chaw-chee! Coo coo ca cha! Ah coodle doodle do Caw ca caw, caw ca caw. One of the guys told me to take my head out of my BOTTOM and get back to work…my BOTTOM! Well, I hope you also carry a spare bowl of candy beans. Did Ted make an appointment? No. Well then Ted can GET THE HELL OUT OF THIS OFFICE! YOU GET THE HELL OUT!</p>
+        </div>
+        <div>
+            <h3>Apr. 4, 2004 - "Best Man for the Gob"</h3>
+            <img src="http://i.imgur.com/TpcEcB1.jpg">
+            <p>I [bleeped] the business model. Yeah, she had all kinds of orgasms. That was Tom Cruise, the actor. They said he was some kind of scientist. I didn't mean who… I meant… her? WHY was this show cancelled? I mean, COME ON. If you're suggesting I play favorites, you're wrong. I love all of my children equally. [earlier] I don't care for Gob. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere in the OC? I hear the jury's still out on science.</p>
+        </div>
+        <div>
+            <h3>Dec. 14, 2003 - "My Mother the Car"</h3>
+            <img src="https://i.gifer.com/10ye.gif">
+            <p>They don't appreciate him. It's his glasses… they make him look like a lizard. Plus he's self-conscious. Don't ask "Can I"… ask "I Can!" Up yours, granny! You couldn't handle it! Douche chill! In fact, it was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. Even though so many people in this office are begging for it. I need a tea to give my dingle less tingle.</p>
+        </div>
+        <div>
+            <h3>Dec. 7, 2003 - "Visiting Ours"</h3>
+            <img src="https://heavy.com/wp-content/uploads/2019/03/pjimage-7.jpg?quality=65&strip=all&w=780">
+            <p>She keeps saying that God is going to show me a sign. The… something of my ways. Wisdom? It's probably wisdom. When a man needs to prove to a woman that he's actually… When a man loves a woman… Michael was concerned that he was caught in a lie about his family. The family was concerned that they were being confronted by a woman they had clubbed, drugged, and left on a bench.</p>
+        </div>
+        <div>
+            <h3>Nov. 16, 2003 - "Bringing Up Buster"</h3>
+            <img src="https://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555926804/shape/mentalfloss/holdon.jpg?itok=W_BdRHRs">
+            <p>It feels good to be back in a queen! Also, your knee is on my heart. I guess you can say I'm buy-curious. It's a jetpack, Michael. What could possibly go wrong? Oh, yeah. The guy in the $4,000 suit is holding the elevator for a guy who doesn't make that in three months. COME ON! Okay, Lindsay, are you forgetting that I was a professional twice over - an analyst and a therapist. The world's first analrapist. Stop licking my hand, you horse's ass.</p>
+        </div>
+        <div>
+            <h3>Nov. 9, 2003 - "Top Banana"</h3>
+            <img src="https://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555926804/shape/mentalfloss/arm-off.jpg?itok=UNbgg9te">
+            <p>I've used one adjective to describe myself. What is it? Or it could be your colon. I'd want to get in there and find some answers. You were just a turd out there, you know? You couldn't kick, and you couldn't run, you know? You were just a turd. I thought the two of us could talk man-on-man. Let the great experiment begin! Are you sure this isn't her sister? Mrs Veal: What a lovely thing to say. Michael: That's an awful thing to say. Don't leave your Uncle T-bag hanging. Even though so many people in this office are begging for it. Oh, COME ON! It's sort of like going from prime rib to… I don't know… weird brother of prime rib.</p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Copyright 2021</p>
+    </footer>
+  </body>
+</html>
