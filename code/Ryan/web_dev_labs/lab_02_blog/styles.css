@@ -15,26 +15,61 @@
 header{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid red;
+  justify-content: center;
+  color: #F9F1F0;
 }
 
 .header-title{
-
+  justify-content: center
 }
 
 .top-navbar{
-  border: 1px solid red;
-  background-color: yellow;
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.top-navbar-list{
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 25px;
+  list-style-type: none;
+  color: white;
+}
+
+.top-navbar-item{
+  margin: auto;
+  padding: 1rem;
+}
+
+.list-div{
+  border-radius: 4px;
+  background-color: #67595E;
+}
+
+.sections{
+  margin: 3rem;
+  background-color: #F9F1F0;
+}
+
+.sections-title{
+  text-align: center;
+  color: #383940;
+  margin-left: none;
+  margin-right: none
+}
+
+.sections-content{
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color:
 }
 
 body {
   color: black;
-  background-color: white;
-  margin: 0;
-  padding: 0;
+  background-color: var(--bg-secondary);
 }
 
 /* How to change the scroll bar from default
@@ -60,7 +95,6 @@ main {
   margin is equal to 5 * 16 = 80px */
   margin-left: 5rem;
   padding: 1rem;
-
 }
 
 /* Modify the navbar */
@@ -78,11 +112,14 @@ main {
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
+  justify-content: space-evenly;
+
 }
 
 .navbar-item{
   color: white;
+  justify-content: space-evenly;
 }
 
 /* Small Screens */
@@ -112,6 +149,8 @@ main {
     /* VH is a relative unit. relative to the size of viewport. 100 will always fill the full height.
     Reacts with changes in browser window size also.  */
     height: 100vh;
+  }
+  main{
   }
 
 }
