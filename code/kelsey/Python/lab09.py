@@ -2,7 +2,7 @@
 
 import string
 
-with open('Alice_in_Wonderland.txt', encoding='utf-8') as f:
+with open('lab09_Alice_in_Wonderland.txt', encoding='utf-8') as f:
     contents = f.read()
 
 def characters(contents):
@@ -26,7 +26,7 @@ def sentences(contents):
 characters = characters(contents)
 words = words(contents)
 sentences = sentences(contents)
-f = 'Alice_in_Wonderland.txt'
+f = 'lab09_Alice_in_Wonderland.txt'
 
 ari = round(4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43)
 
