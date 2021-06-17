@@ -1,0 +1,135 @@
+<!-- INSTRUCTIONS: Pick an industry and create the landing page for a hypothetical company, 
+    filling in as much detail as possible. Use Bootstrap (w3schools) or Materialize and make sure it's 
+    responsive. Browse the internet for existing company pages and imitate as much as you can. -->
+
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/b5621d315f.js" crossorigin="anonymous"></script>
+
+        <title>Medical Tourism for Americans</title>
+
+        <style>
+            @media (max-width: 767px) {
+                header {
+                    display: flex;
+                    font-family: 'Roboto', sans-serif;
+                    justify-content: space-between;
+                    background-color: #B2B9C1;
+                }
+                #lang {
+                    justify-content: right;
+                    margin: 8px;
+                }
+                footer {
+                    background-color: #FDA987;
+                }
+            }
+            @media (min-width: 768px) {
+                header {
+                    display: flex;
+                    font-family: 'Roboto', sans-serif;
+                    justify-content: space-between;
+                    background-color: #B2B9C1;
+                }
+                #lang {
+                    justify-content: right;
+                    margin: 8px;
+                }
+                footer {
+                    background-color: #FDA987;
+                }
+            }
+            @media (min-width: 980px) {
+                header {
+                    display: flex;
+                    font-family: 'Roboto', sans-serif;
+                    justify-content: space-between;
+                    background-color: #B2B9C1;
+                }
+                #lang {
+                    justify-content: right;
+                    margin: 8px;
+                }
+                footer {
+                    background-color: #FDA987;
+                }
+            }
+
+
+        </style>
+
+    </head>
+    
+    <body>
+        <header>
+            <h1>Medical Tourism for Americans</h1>
+            <div="lang">
+                <form id="form"> 
+                    <input type="search" id="query" name="q" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+                <i class="fas fa-language"></i>
+                <label for="language">Choose a language:</label>
+                <select name="Language:" id="language">
+                <option value="English">English</option>
+                <option value="Espanol">Espanol</option>
+                <option value="Korean">Korean</option>
+                <option value="Japanese">Japanese</option>
+                </select>
+            </div>
+            <!-- <a href="http://duckduckgo.com">Search</a> -->
+
+            <nav>
+                <select name="New Patients" id="patients">
+                    <option value="New Patients">New Patients</option>
+            
+            </nav>
+        </header>
+
+
+        <!-- ADD IMAGES HERE -->
+        <img src="Medical_travel.jpg" alt="Travel Tourism">
+
+
+        <!-- ADD REVIEWS/FEATURED IN -->
+        <section>
+        <h2>Featured in:</h2>
+            <div class="feaure">
+                <i class="fas fa-tv"></i>
+                <i class="fas fa-broadcast-tower"></i>
+                <i class="fas fa-book"></i>
+                <i class="far fa-newspaper"></i>
+                <i class="fas fa-blog"></i>
+            </div>
+        </section>
+
+        <!-- SALES FUNNEL -->
+        <article>
+            <h3>FOR PATIENTS</h3>
+            <h2>Let Us Connect You To The Highest Quality Healthcare Abroad</h2>
+
+        </article>
+
+<!-- ADD SOCIAL MEDIA ICONS, COPYRIGHT, ETC -->
+        <footer>
+            <div="social">Follow Us ---------</div>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <p>Copyright ©2021 Medical Tourism for Americans Co.</p>
+            <a href="http://duckduckgo.com">Privacy Policy</a>
+            <p>Powered by Travel</p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    </body>
+
+</html>
