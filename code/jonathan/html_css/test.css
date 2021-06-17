@@ -2,6 +2,14 @@ html {
     height: 100%;
 }
 
+/* color scheme deco
+#476194 dark blue
+#ADC9FF light blue
+#82A2E0 mix blue
+#947738 dark brown
+#E0C382 light brown
+*/
+
 body {
     height: 100%;
     overflow: hidden;
@@ -13,34 +21,43 @@ body {
 header {
     display: flex;
     flex-direction: column;
-    
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     padding: 5px;
+    background-color: #E0C382;
 }
 
 .column {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #ADC9FF;
 }
 
 #left {
     flex-shrink: 0;
+    background-color: #476194;
 }
 
 .top-left {
     flex-shrink: 0;
     margin: 25px;
+    background-color: #476194;
 }
 
-div.bottom {
+.top-left.bottom {
     display: flex;
     margin: 0px;
+    
 }
 
 .top-right {
     flex-shrink: 0;
     display: flex;
     justify-content: space-evenly;
+    font-family: 'Shippori Mincho B1', serif;
+    background-color: #476194;
 }
 
 ul {
@@ -51,7 +68,7 @@ ul {
 .bottom {
     flex-grow: 1;
     overflow-y: auto;
-
+    
 }
 
 @media (min-width: 600px) {
