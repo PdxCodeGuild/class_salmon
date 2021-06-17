@@ -1,79 +1,182 @@
-<!-- Lab 2: Blog
-Let's make the template of a blog with a title, top-nav, side-nav, and multiple posts. Use flexbox and semantic elements (header, nav, section, and footer). You can use a custom font, fancy colors, and make generate fake content using an Ipsum. -->
+<!-- Lab 2: Blog -->
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab02 Blog</title>
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
-    <link rel="stylesheet" href="lab02.css"/>
-  </head>
-  <body>
-    <header class="flex-header">
-      <div>
-          <h1>TV Blog</h1>
-          <h3>My reviews of Arrested Development (but not really)</h3>
-          <img src="https://i.insider.com/519e27566bb3f7624c00000d?width=300&format=jpeg&auto=webp"/>
+<html lang="ar" lang="en" lang="he">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab02 Blog</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+  <link rel="stylesheet" href="lab02.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Assistant:wght@300&family=Bellefair&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <!-- Title: "Blog" -->
+    <h1> בלוג اليوميات</h1>
+    <!-- "This is just some blog" -->
+    <h4>هذا بس بلوجا ما</h4>
+  </header>
+
+  <nav>
+    <!-- "Home" -->
+    <a href="N/A">דף הבית</a>
+    <!-- "About" -->
+    <a href="N/A">עליי</a>
+    <!-- "Contact" -->
+    <a href="N/A">קשר</a>
+  </nav>
+  <div id="flex_container">
+    <!-- "Welcome" - want to make this a column, but under header when mobile mode-->
+    <section>
+      <div class="side_header"><img src="https://pepperstormmedia.com/wp-content/uploads/2017/04/Blog-1.jpg"
+          alt="Scrabble tiles spelling out 'blog'" /><br>
+        !مرحبا بكم
+        <!-- Lorem ipsum -->
+        <summary>גזר לורם איפסום מחזיר את ההנחות. אנו דוחים דחיות נוטשים את אשמתם? מבחינה רעיונית, נכון? שכן, אכן אנו
+          חושבים גם שההבחנה לה הוא רוצה. אפשרות זו כוללת את כל האמת כראויה ביותר!
+        </summary>
       </div>
-      <nav class="flex-header">
-          <p><a href="#">About</a></p>
-          <p><a href="#">More Reviews</a></p>
-          <p><a href="#">Contact Me</a></p>
-      </nav>
-    </header>
+      <div class="side_nav">
+        <!-- "Archives" -->
+        <h4>السجلات</h4>
+        <ul class="dates"></ul>
+          <ul><a href="*">2021</a></ul>
+          <li>Jun</li>
+          <li>Mar</li>
+          <li>Jan</li>
+          <ul><a href="*">2020</a></ul>
+          <li>Nov</li>
+          <li>Sep</li>
+          <li>Aug</li>
+          <li>Jun</li>
+          <li>Feb</li>
+          <li>Jan</li>
+          <ul><a href="*">2019</a></ul>
+          <li>Nov</li>
+          <li>Sep</li>
+          <li>Aug</li>
+          <li>Jun</li>
+          <li>Feb</li>
+          <li>Jan</li>
+          <ul><a href="*">2018</a></ul>
+          <li>Nov</li>
+          <li>Sep</li>
+          <li>Aug</li>
+          <li>Jun</li>
+          <li>Feb</li>
+          <li>Jan</li>
+          <ul><a href="*">2017</a></ul>
+          <li>Nov</li>
+          <li>Sep</li>
+          <li>Aug</li>
+          <li>Jun</li>
+          <li>Feb</li>
+          <li>Jan</li>
+          <ul><a href="*">2016</a></ul>
+          <li>Nov</li>
+          <li>Sep</li>
+          <li>Aug</li>
+          <li>Jun</li>
+          <li>Feb</li>
+          <li>Jan</li>
+          <ul><a href="*">2015</a></ul>
+          <li>Nov</li>
+          <li>Sep</li>
+          <li>Aug</li>
+          <li>Jun</li>
+          <li>Feb</li>
+          <li>Jan</li>
+          </li>
+        </ul>
+      </div>
+    </section>
     <main>
-      <h2>Arrested Development Episode Reviews</h2>
-      <div class="flex-gallery">
-        <div>
-            <h3>Feb. 10, 2006 - "Development Arrested"</h3>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKpviQv-kQK0vTRIcER6o80YonyvN-venYLg&usqp=CAU">
-            <p>You're a good guy, mon frere. That means brother in French. I don't know how I know that. I took four years of Spanish. No, I was ashamed to be SEEN with you. I like being WITH you. Aren't you the sweetest thing, spending time with what's left of your uncle. Hey, Dad. Look at you. You're a year older…and a year closer to death. Buster: Oh yeah, I guess that's kind of funny. How about a turtle? I've always loved those leathery little snappy faces. Heyyyy Uncle Father Oscar. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!! I just dont want him to point out my cracker ass in front of Ann.</p>
-        </div>
-        <div>
-            <h3>Jan. 2, 2006 - "S.O.B.s"</h3>
-            <img src="https://www.media1.hw-static.com/wp-content/uploads/arrested-development-jack-mcbrayer_55008407-2560x1440-800x450.jpeg">
-            <p>You're Killing Me, Buster. Chaw-chee, chaw-chee chaw-chee! Coo coo ca cha! Ah coodle doodle do Caw ca caw, caw ca caw. One of the guys told me to take my head out of my BOTTOM and get back to work…my BOTTOM! Well, I hope you also carry a spare bowl of candy beans. Did Ted make an appointment? No. Well then Ted can GET THE HELL OUT OF THIS OFFICE! YOU GET THE HELL OUT!</p>
-        </div>
-        <div>
-            <h3>Apr. 3, 2005 - "Meat the Veals"</h3>
-            <img src="http://i.imgur.com/dbXQEMt.jpg">
-            <p>George Michael may be suffering from what we in the soft-sciences call Obsessive Compulsive Disorder, or the "OC Disorder." I'm an ideas man, Michael. I think I proved that with "Fuck Mountain." Look what the homosexuals have done to me! You can't just comb that out and reset it? The guy runs a prison, he can have any piece of ass he wants. It was for me. I was going to smoke the marijuana like a cigarette. See for more good stuff. Say something that will terrify me. Lindsay: F*** me. Tobias: No, that didn't do it. I didn't get into this business to please sophomore Tracy Schwartzman, so… onward and upward. On… Why, Tracy?! Why?!!</p>
-        </div>
-        <div>
-            <h3>Dec. 5, 2004 - "Good Grief!"</h3>
-            <img src="https://deadline.com/wp-content/uploads/2017/09/arrested-development.jpg?w=681&h=383&crop=1">
-            <p>You're Killing Me, Buster. Chaw-chee, chaw-chee chaw-chee! Coo coo ca cha! Ah coodle doodle do Caw ca caw, caw ca caw. One of the guys told me to take my head out of my BOTTOM and get back to work…my BOTTOM! Well, I hope you also carry a spare bowl of candy beans. Did Ted make an appointment? No. Well then Ted can GET THE HELL OUT OF THIS OFFICE! YOU GET THE HELL OUT!</p>
-        </div>
-        <div>
-            <h3>Apr. 4, 2004 - "Best Man for the Gob"</h3>
-            <img src="http://i.imgur.com/TpcEcB1.jpg">
-            <p>I [bleeped] the business model. Yeah, she had all kinds of orgasms. That was Tom Cruise, the actor. They said he was some kind of scientist. I didn't mean who… I meant… her? WHY was this show cancelled? I mean, COME ON. If you're suggesting I play favorites, you're wrong. I love all of my children equally. [earlier] I don't care for Gob. Did you know that more frozen bananas are sold right here on this boardwalk than anywhere in the OC? I hear the jury's still out on science.</p>
-        </div>
-        <div>
-            <h3>Dec. 14, 2003 - "My Mother the Car"</h3>
-            <img src="https://i.gifer.com/10ye.gif">
-            <p>They don't appreciate him. It's his glasses… they make him look like a lizard. Plus he's self-conscious. Don't ask "Can I"… ask "I Can!" Up yours, granny! You couldn't handle it! Douche chill! In fact, it was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed. Even though so many people in this office are begging for it. I need a tea to give my dingle less tingle.</p>
-        </div>
-        <div>
-            <h3>Dec. 7, 2003 - "Visiting Ours"</h3>
-            <img src="https://heavy.com/wp-content/uploads/2019/03/pjimage-7.jpg?quality=65&strip=all&w=780">
-            <p>She keeps saying that God is going to show me a sign. The… something of my ways. Wisdom? It's probably wisdom. When a man needs to prove to a woman that he's actually… When a man loves a woman… Michael was concerned that he was caught in a lie about his family. The family was concerned that they were being confronted by a woman they had clubbed, drugged, and left on a bench.</p>
-        </div>
-        <div>
-            <h3>Nov. 16, 2003 - "Bringing Up Buster"</h3>
-            <img src="https://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555926804/shape/mentalfloss/holdon.jpg?itok=W_BdRHRs">
-            <p>It feels good to be back in a queen! Also, your knee is on my heart. I guess you can say I'm buy-curious. It's a jetpack, Michael. What could possibly go wrong? Oh, yeah. The guy in the $4,000 suit is holding the elevator for a guy who doesn't make that in three months. COME ON! Okay, Lindsay, are you forgetting that I was a professional twice over - an analyst and a therapist. The world's first analrapist. Stop licking my hand, you horse's ass.</p>
-        </div>
-        <div>
-            <h3>Nov. 9, 2003 - "Top Banana"</h3>
-            <img src="https://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555926804/shape/mentalfloss/arm-off.jpg?itok=UNbgg9te">
-            <p>I've used one adjective to describe myself. What is it? Or it could be your colon. I'd want to get in there and find some answers. You were just a turd out there, you know? You couldn't kick, and you couldn't run, you know? You were just a turd. I thought the two of us could talk man-on-man. Let the great experiment begin! Are you sure this isn't her sister? Mrs Veal: What a lovely thing to say. Michael: That's an awful thing to say. Don't leave your Uncle T-bag hanging. Even though so many people in this office are begging for it. Oh, COME ON! It's sort of like going from prime rib to… I don't know… weird brother of prime rib.</p>
-        </div>
-      </div>
+      <!-- "Post 1", etc. -->
+      <article>
+        <h3>النشر ٦</h3>
+        <img
+          src="https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c21hbGx8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80" />
+        <!-- Lorem ipsum, 'More' -->
+        <p>لوريم إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك.
+          أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.لوريم
+          إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك. أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.<a
+            href="!">مزيد</a></p>
+      </article>
+
+      <article>
+        <h3>النشر ٥</h3>
+        <img src="https://images.all-free-download.com/images/graphiclarge/goa_small_bird_202958.jpg" />
+        <p>لوريم إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك.
+          أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.لوريم
+          إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك. أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.<a
+            href="!">مزيد</a></p>
+      </article>
+
+      <article>
+        <h3>النشر ٤</h3>
+        <img
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg" />
+        <p>لوريم إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك.
+          أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.لوريم
+          إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك. أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.<a
+            href="!">مزيد</a></p>
+      </article>
+
+      <article>
+        <h3>النشر ٣</h3>
+        <img
+          src="https://images.pexels.com/photos/1289845/pexels-photo-1289845.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+        <p>لوريم إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك.
+          أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.لوريم
+          إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك. أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.<a
+            href="!">مزيد</a></p>
+      </article>
+
+      <article>
+        <h3>النشر ٢</h3>
+        <img
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chihuahua-dog-running-across-grass-royalty-free-image-1580743445.jpg" />
+        <p>لوريم إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك.
+          أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.لوريم
+          إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك. أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.<a
+            href="!">مزيد</a></p>
+      </article>
+
+      <article>
+        <h3>النشر ١</h3>
+        <img
+          src="https://images.pexels.com/photos/1000498/pexels-photo-1000498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+        <p>لوريم إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك.
+          أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.لوريم
+          إيبسوم جزر معزز الحسومات. خذ لتوفير خيار مفتوح؟ هجر أسبرناتور مدح الجنرال بالأنشودة ، فالأمر ليس كذلك. أنهم
+          يرفضون التعامل الفاسد في بعضهم. يدير متعة ملزمة مكروهة في كثير من الأحيان ميزة عدم الراحة من أجل لا شيء.<a
+            href="!">مزيد</a></p>
+      </article>
+
     </main>
-    <footer>
-      <p>Copyright 2021</p>
-    </footer>
-  </body>
+  </div>
+  <!-- "Footer" -->
+  <footer>التذييل</footer>
+  <footer>&#169 2021</footer>
+
+</body>
+
 </html>
