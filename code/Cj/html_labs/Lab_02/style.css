@@ -50,3 +50,6 @@ blockquote {
     display: flex;
     flex-direction: column;
 }
+.img {
+    padding-bottom: 75px;
+}
