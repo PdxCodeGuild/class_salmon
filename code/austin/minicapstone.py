@@ -31,7 +31,7 @@ while True:
         try:
             answer = round(eval(userinput),4)
         except SyntaxError:
-            answer = 'Error'#could be more specific with errors
+            answer = 'Error' #could be more specific with errors
         except ZeroDivisionError:
             answer = 'Can\'t divide by zero!'
         window.FindElement('answer').Update(answer)

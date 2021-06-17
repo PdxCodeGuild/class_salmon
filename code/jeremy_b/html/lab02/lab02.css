@@ -1,21 +1,123 @@
-body > main > article > img{
-    width: 25%;
-    height: auto;
-    border-radius: 75px;
-
+html {
+    box-sizing: border-box;
 }
-body > main > article >  p{
-
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-.flex-container {
+img {
+    display: block;
+    max-width: 100%;
+}
+
+header, footer, main {
+    margin: 12px;
+}
+
+nav > p {
+    padding: 8px;
+}
+
+nav {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
-.flex-header{
-    display: flex;
-    justify-content: space-between;
+@media (max-width: 600px) {
+    .flex-gallery {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .flex-gallery > * {
+        width: 40%;
+        padding: 24px;
+        background-color: whitesmoke;
+        text-align: justify;
+    }
+
+    .flex-header {
+        display: flex;
+        justify-content: space-between;
+    }
+      body > main > article > img {
+        display: block;
+        width: 50%;
+        height: auto;
+        margin: auto;
+        border-radius: 75px;
+        alignment: center;
+    }
+
+    body > main > article > p {
+        text-align: justify;
+
+    }
+
+    header > h1 {
+        display: flex;
+        font-size: xxx-large;
+    }
+
+    header > h2 {
+        display: flex;
+        font-size: large;
+    }
+
+    header > p {
+        display: flex;
+    }
 }
 
 
+@media (min-width: 600px) {
+    .flex-gallery {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .flex-gallery > * {
+        width: 30%;
+        padding: 24px;
+        background-color: whitesmoke;
+        text-align: justify;
+    }
+
+    .flex-header {
+        display: flex;
+        justify-content: space-between;
+    }
+      body > main > article > img {
+        display: flex;
+        width: 60%;
+        height: auto;
+        margin: auto;
+        border-radius: 75px;
+        align-content: center;
+    }
+
+    body > main > article > p {
+        text-align: justify;
+
+    }
+
+    header > h1 {
+        display: flex;
+        font-size: xxx-large;
+    }
+
+    header > h2 {
+        display: flex;
+        font-size: large;
+    }
+
+    header > p {
+        display: flex;
+    }
+}
+
+@media (min-width: 1100px) {
+    .flex-gallery > * {
+        width: 33.333%;
+    }
+}
