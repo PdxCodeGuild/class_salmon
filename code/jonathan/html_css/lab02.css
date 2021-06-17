@@ -10,15 +10,16 @@ html {
 #E0C382 light brown
 */
 
-body {
+body { /*everything*/
     height: 100%;
     overflow: hidden;
     margin: 0px;
     display: flex;
     box-sizing: border-box;
+    background-color: #476194;
 }
 
-header {
+header { /*left title*/
     display: flex;
     flex-direction: column;
     writing-mode: vertical-lr;
@@ -28,36 +29,35 @@ header {
     font-family: 'Shippori Mincho B1', serif;
 }
 
-.column {
+.column { /*everything minus title*/
     height: 100%;
     display: flex;
     flex-direction: column;
     background-color: #ADC9FF;
 }
 
-#left {
+#left.column { /*left most column*/
     flex-shrink: 0;
+    margin: 5px;
     background-color: #476194;
+    display: flex;
+    flex-direction: column;
+    
 }
 
-.top-left {
+.top-left { /*updates*/
     flex-shrink: 0;
-    margin: 25px;
+    margin: 20px;
     background-color: #476194;
     font-family: 'Shippori Mincho B1', serif;
 }
 
-.top-left.bottom {
-    display: flex;
-    margin: 0px;
-
-}
-
-.top-right {
+.top-right { /*top bar*/
     flex-shrink: 0;
     display: flex;
     justify-content: space-evenly;
     background-color: #476194;
+    font-family: 'Shippori Mincho B1', serif;
 }
 
 ul {
@@ -65,11 +65,9 @@ ul {
     list-style: none;
 }
 
-.bottom {
+.bottom { /*entries*/
     flex-grow: 1;
     overflow-y: auto;
-    display: flex;
-    flex-wrap: nowrap;
     font-family: 'Noto Serif JP', serif;
 }
 
@@ -77,10 +75,12 @@ ul {
     .bottom {
         display: flex;
         flex-direction: column;
+        
     }
 
     .bottom>* {
-        width: 65%;
+        
+        width: 50%;
         padding: 25px;
     }
 }
