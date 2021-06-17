@@ -5,56 +5,114 @@ html {
     box-sizing: inherit;
 }
 
-img {
-    display: block;
-    max-width: 75%;
-}
-
-header, footer {
-    margin: 12px;
-    text-align: center;
+* {
+    font-family: 'Aref Ruqaa', serif;
+    padding-left: 18px;
+    padding-right: 16px;
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: black;
-    color:cadetblue;
+    margin: -75px;
+}
+
+a{
+    color:burlywood;
+}
+header {
+    margin-top: 100px;
+    text-align: center;
+    color:cornflowerblue;
+    font-size: 33px;
+}
+
+h1 {
+    font-size: 50px;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    font-size: 24px;
+}
+
+nav > a {
+    margin: 0 15px;
+    text-align: left;
+}
+
+img {
+    width: 20rem;
+    padding: 12px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    padding: 13px 10px;
 }
 
 h3 {
-    color: orange;
+    margin: 8px auto;
+    color:cornflowerblue;
+    font-size: 22px;
 }
 
-nav > p {
-    padding: 8px;
+h4 {
+    color:cornflowerblue;
+    font-size: 24px;
 }
 
-nav {
-    display: flex;
+article > img {
+    margin: 0 auto;
+}
+
+summary {
+    text-align: right;
+    list-style: none;
     color: white;
+    padding-bottom: 50px;
 }
 
-@media (min-width: 600px) {
-    .flex-gallery {
+p {
+    text-align: right;
+    font-family: 'Mirza', cursive;
+    font-size: 18px
+}
+
+main {
+    padding-bottom: 120px;
+}
+footer {
+    display: none;
+}
+.side_header {
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    color:cornflowerblue;
+    font-size: 20px;
+}
+
+.side_nav {
+    display: none;
+    font-family: 'Roboto', sans-serif;
+}
+ 
+@media (min-width: 750px){
+    .side_nav {
+        display: block;
+    }
+    #flex_container {
         display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    
-    .flex-gallery > * {
-        width: 50%;
-        padding: 18px;
-        background-color: black;
-        text-align: justify;
-    }
-
-    .flex-header {
-        justify-content: center;
+        flex-direction: row-reverse;
     }
 }
 
-@media (min-width: 1100px) {
-    .flex-gallery > * {
-        width: 33.33%;
+@media (min-width: 1000px){
+    footer {
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: small;
+        margin: 5px;
+        text-align: right;
     }
 }
