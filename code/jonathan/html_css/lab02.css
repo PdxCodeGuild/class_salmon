@@ -1,7 +1,10 @@
 html {
     box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -10,18 +13,22 @@ img {
     max-width: 100%;
 }
 
-header, footer, main {
+header,
+footer,
+main {
     margin: 12px;
-    
+
 }
 
-nav > p {
+nav>p {
     padding: 8px;
 }
 
 nav {
     display: flex;
 }
+
+
 
 @media (min-width: 600px) {
     .flex-gallery {
@@ -30,8 +37,8 @@ nav {
         justify-content: space-evenly;
         flex-wrap: wrap;
     }
-    
-    .flex-gallery > * {
+
+    .flex-gallery>* {
         width: 50%;
         padding: 24px;
         text-align: justify;
@@ -44,7 +51,19 @@ nav {
 }
 
 @media (min-width: 1100px) {
-    .flex-gallery > * {
+    .flex-gallery>* {
         width: 33.333%;
+    }
+    .flex-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1, h3 {
+        text-align: center;
+    }
+    .sidenav {
+        display: flex;
+        text-align: left;
     }
 }

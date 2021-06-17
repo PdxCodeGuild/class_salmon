@@ -8,9 +8,10 @@ html {
 }
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
     text-align: center;
     padding: 50px;
-    background-color: #000000;
+    background-color: #000001;
 }
 ul, li span {
     text-align: left;
