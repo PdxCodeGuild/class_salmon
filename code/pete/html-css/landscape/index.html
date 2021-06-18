@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landscape</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+  <style>
+    div {
+      position: absolute;
+      /* border: 2px solid black; */
+    }
+
+    /* SKY */
+    body {
+      height: 100vh;
+      width: 100vw;
+      /* background-color: white; */
+      background: linear-gradient(to bottom, #7ac2eb, #0a93f5);
+    }
+
+    /* TRUNK */
+    .trunk {
+      height: 300px;
+      bottom: 0px;
+    }
+    .trunk-dark {
+      width: 100px;
+      background-color: #6d3f26;
+    }
+    .trunk-mid {
+      width: 67px;
+      background-color: #895329;
+    }
+    .trunk-light {
+      width: 33px;
+      background-color: #9c672b;
+    }
+
+    /* LEAVES */
+    .leaves {
+      border-radius: 25%;
+    }
+    .leaves-dark {
+      width: 250px;
+      height: 250px;
+      bottom: 275px;
+      background-color: #236123;
+    }
+    .leaves-mid {
+      width: 212.5px;
+      height: 212.5px;
+      bottom: 307.5px;
+      background-color: #307c27;
+    }
+    .leaves-light {
+      width: 175px;
+      height: 175px;
+      bottom: 337px;
+      background-color: #49972b;
+    }
+
+    #leaves1 {
+      left: 225px;
+    }
+    #leaves2 {
+      left: 255.5px
+    }
+    #leaves3 {
+      left: 287px;
+    }
+
+    #leaves4 {
+      right: 225px;
+    }
+    #leaves5 {
+      right: 230.5px
+    }
+    #leaves6 {
+      right: 234px;
+    }
+
+    #trunk1 {
+      left: 300px;
+    }
+    #trunk2 {
+      left: 333px;
+    }
+    #trunk3 {
+      left: 367px;
+    }
+
+    #trunk4 {
+      right: 300px;
+    }
+    #trunk5 {
+      right: 300px;
+    }
+    #trunk6 {
+      right: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Tree 1 -->
+  <!-- Trunk -->
+  <div id="trunk1" class="trunk trunk-dark"></div>
+  <div id="trunk2" class="trunk trunk-mid"></div>
+  <div id="trunk3" class="trunk trunk-light"></div>
+  <!-- Leaves -->
+  <div id="leaves1" class="leaves leaves-dark"></div>
+  <div id="leaves2" class="leaves leaves-mid"></div>
+  <div id="leaves3" class="leaves leaves-light"></div>
+
+  <!-- Tree 2 -->
+  <!-- Trunk -->
+  <div id="trunk4" class="trunk trunk-dark"></div>
+  <div id="trunk5" class="trunk trunk-mid"></div>
+  <div id="trunk6" class="trunk trunk-light"></div>
+  <!-- Leaves -->
+  <div id="leaves4" class="leaves leaves-dark"></div>
+  <div id="leaves5" class="leaves leaves-mid"></div>
+  <div id="leaves6" class="leaves leaves-light"></div>
+</body>
+</html>
