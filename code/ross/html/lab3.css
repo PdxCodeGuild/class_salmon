@@ -1,0 +1,39 @@
+body {
+    margin: 0px;
+}
+header {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-between;
+    background-color: #FDA987;
+}
+section {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1B3E5C;
+}
+.feature {
+    justify-content: space-around;
+}
+article {
+    background-color: #1B3E5C;
+}
+footer {
+    display: flex;
+    background-color: #FDA987;
+    flex-direction: row;
+    font-size: small;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    .lang {
+        justify-content: right;
+        margin: 8px;
+    }
+}
+@media (min-width: 980px) {
+    .lang {
+        justify-content: right;
+        margin: 8px;
+    }
+}
