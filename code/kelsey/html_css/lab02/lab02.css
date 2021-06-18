@@ -10,6 +10,7 @@ html {
     padding-left: 18px;
     padding-right: 16px;
     background-color: black;
+    color: white;
 }
 
 body {
@@ -50,6 +51,7 @@ article {
     display: flex;
     flex-direction: column;
     padding: 13px 10px;
+    margin-top: 75px;
 }
 
 h3 {
