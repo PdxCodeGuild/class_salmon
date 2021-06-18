@@ -1,105 +1,64 @@
-/* color scheme deco
-#476194 dark blue
-#ADC9FF light blue
-#82A2E0 mix blue
-#947738 dark brown
-#E0C382 light brown
-*/
-
 * {
     box-sizing: border-box;
 }
 
-.header {
-    padding: 5px;
-    font-family: 'Shippori Mincho B1', serif;
-}
-
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-[class*="col-"] {
-    float: left;
-    padding: 15px;
-}
-
 html {
-    background-color: #476194;
-}
-
-.col-12 {
-    display: flex;
-    justify-content: space-around;
-    background-color: #E0C382;
-    color: #000000;
-    padding: 15px;
-}
-
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #476194;
-    font-family: 'Shippori Mincho B1', serif;
-}
-
-.menu li {
-    padding: 8px;
-}    
-
-.menu {
     height: 100%;
-    width: 25%;
-    float: left;
-    padding: 15px;
 }
 
-img {
-    width: 100%;
-    height: auto;
+body {
+    height: 100%;
+    overflow: hidden;
+    /* makes the body non-scrollable (we will add scrolling to the sidebar and main content containers) */
+    margin: 0px;
+    /* removes default style */
+    display: flex;
+    /* enables flex content for its children */
+    box-sizing: border-box;
 }
 
-.row {
-    width: 75%;
-    float: left;
-    padding: 15px;
-    background-color: #ADC9FF;
-    font-family: 'Sawarabi Mincho', sans-serif;
+.column {
+    height: 100%;
+    /* allows both columns to span the full height of the browser window */
+    display: flex;
+    flex-direction: column;
+    /* places the left and right headers above the bottom content */
 }
 
-[class*="col-"] {
-    width: 100%;
+#left {
+    flex-shrink: 0;
+    /* makes sure that content is not cut off in a smaller browser window */
 }
 
-@media (min-width: 600px) {
-    .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
+.top-left {
+    flex-shrink: 0;
+    background-color: red;
 }
 
-@media (min-width: 1100px) {
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
+.top-right {
+    flex-shrink: 0;
+    display: inline-flex;
+    background-color: royalblue;
+}
+
+#left .bottom {
+    display: flex;
+    flex-direction: column;
+    background-color: seagreen;
+}
+
+#right .bottom {
+    background-color: yellow;
+}
+
+ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+.bottom {
+    flex-grow: 1;
+    /* ensures that the container will take up the full height of the parent container */
+    overflow-y: auto;
+    /* adds scroll to this container */
 }
