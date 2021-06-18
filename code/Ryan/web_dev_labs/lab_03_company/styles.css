@@ -1,0 +1,65 @@
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid rgb(9, 94, 41);
+    margin-top: 175px;
+    height: 75px
+}
+
+.header-logo{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: red;
+    border: 1px solid red;
+    margin-left: 10%;
+    margin-top: 0;
+}
+
+.header-logo-image{
+    background-color: blue;
+
+}
+
+.header-logo-title{
+    background-color:green;
+
+}
+
+.header-nav{
+    display: flex;
+    flex-wrap:wrap;
+    border: 1px solid red;
+
+}
+
+.main-sections{
+    display: flex;
+    border: 1px solid gray;
+}
+
+.section-1{
+    display: flex;
+    border:1px solid blue;
+    flex-direction: row;
+    margin: 5%;
+}
+.page-1-section-1{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid purple;
+    margin: 5%;
+}
+
+.page-title{
+    font-family: Arial;
+    border: 1px solid purple;
+}
+
+.page-paragraph-content{
+    font-family:'Times New Roman', Times, serif;
+}
+
+.page-1-section-1-image{
+    border:1px solid orange
+}
