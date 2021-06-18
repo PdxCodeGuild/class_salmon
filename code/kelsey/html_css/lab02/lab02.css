@@ -50,6 +50,7 @@ article {
     display: flex;
     flex-direction: column;
     padding: 13px 10px;
+    margin-top: 75px;
 }
 
 h3 {
