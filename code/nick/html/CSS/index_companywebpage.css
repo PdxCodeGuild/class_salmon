@@ -35,7 +35,7 @@ nav {
     padding: 1rem;
     padding-top: 0rem;
     margin-top: 0rem;
-    overflow: hidden;
+    overflow: visible;
 }
 .topnav a {
     float: none;
@@ -88,9 +88,9 @@ nav {
     justify-content:space-around;
     background-color: #202427;
     font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+    box-shadow:-1px -3px 7px rgb(0, 0, 0);
     width: 100%;
     height: 5rem;
-    padding-top: 1rem;
     padding-top: 1rem;
 }
 .flex-footer {
@@ -99,7 +99,9 @@ nav {
     justify-content: left;
     background-color: #BFBFBF;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 2px 2px 7px 7px rgb(113, 107, 173) inset;
     width: 100%;
+    /* box-shadow:-50px -50px rgb(255, 0, 0); */
     padding: 12px;
     padding-bottom: 0rem;
     margin-bottom: 0rem;
