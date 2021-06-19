@@ -29,9 +29,7 @@ html {
 
 h1 {
     text-align: center;
-    text-wrap: wrap;
     color:rgba(238, 255, 0, 0.856);
-    /* background-image: url("https://www.canny-creative.com/wp-content/uploads/2019/06/Sweet-and-Chocolate-Paackaging-Images_0016_main-image-copy-410x270.jpg"); */
     background-position: center;
     padding: 60px;
 }
@@ -40,8 +38,10 @@ h1 {
     display: none;
 }
 
+
 article {
     display: block;
+    padding: 5%;
     text-align: center;
     margin-bottom: 50px;
 }
@@ -50,12 +50,9 @@ article > img {
     width: 200px;
     height: 200px;
 }
-section > p {
-    align-content: right;
-}
 
-img {
-    border: whitesmoke;
+section > p {
+    align-content: flex-end;
 }
 
 footer {
@@ -65,11 +62,14 @@ footer {
 
 footer > nav {
     display: flex;
-    position: center;
-    justify-content: space-between;
+    padding: 2rem; 
+    position: relative;
+    justify-content: flex-end;
+    margin: 0 15px;
 }
+
 footer > p {
-    display: none;
+    display: flex;
 }
 
 @media (min-width: 700px){
@@ -89,9 +89,5 @@ footer > p {
         display: inline-block;
         border: 50px 25px;
         align-items: center;
-    }
-
-    footer > p {
-        display: inline-block;
     }
 }
