@@ -1,0 +1,97 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.bk_img {
+    position: relative;
+}
+
+.bk_img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+    background-image: url('https://www.canny-creative.com/wp-content/uploads/2019/06/Sweet-and-Chocolate-Paackaging-Images_0016_main-image-copy-410x270.jpg');
+    background-repeat: repeat;
+    background-position: 50%;
+}
+
+.title {
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    text-wrap: wrap;
+    color:rgba(238, 255, 0, 0.856);
+    /* background-image: url("https://www.canny-creative.com/wp-content/uploads/2019/06/Sweet-and-Chocolate-Paackaging-Images_0016_main-image-copy-410x270.jpg"); */
+    background-position: center;
+    padding: 60px;
+}
+
+.top_banner {
+    display: none;
+}
+
+article {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+article > img {
+    width: 200px;
+    height: 200px;
+}
+section > p {
+    align-content: right;
+}
+
+img {
+    border: whitesmoke;
+}
+
+footer {
+    position: bottom;
+    margin: 5px;
+}
+
+footer > nav {
+    display: flex;
+    position: center;
+    justify-content: space-between;
+}
+footer > p {
+    display: none;
+}
+
+@media (min-width: 700px){
+    .top_banner {
+        display: block;
+        text-align: right;
+        background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_813319932_383768.jpg");
+        padding: 8rem;
+        margin: 3rem;
+    }
+
+    section {
+        display: flex;
+    }
+
+    article {
+        display: inline-block;
+        border: 50px 25px;
+        align-items: center;
+    }
+
+    footer > p {
+        display: inline-block;
+    }
+}
