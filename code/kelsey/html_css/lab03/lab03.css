@@ -5,6 +5,12 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #FFECD9
+    background-color: rgba(39, 3, 73, 0.904);
+}
+
 .bk_img {
     position: relative;
 }
@@ -28,10 +34,18 @@ html {
 }
 
 h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 75px;
     text-align: center;
-    color:rgba(238, 255, 0, 0.856);
+    color:rgb(204, 192, 23);
     background-position: center;
-    padding: 60px;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'Lemonada', cursive;
+    text-align: center;
+    color:rgba(192, 181, 24, 0.856);
 }
 
 .top_banner {
@@ -51,20 +65,22 @@ article > img {
     height: 200px;
 }
 
-section > p {
-    align-content: flex-end;
+article > p {
+    text-align: right;
+    font-size: 20px;
 }
 
 footer {
     position: bottom;
     margin: 5px;
+    font-size: 10px;
 }
 
 footer > nav {
     display: flex;
     padding: 2rem; 
     position: relative;
-    justify-content: flex-end;
+    justify-content: space-around;
     margin: 0 15px;
 }
 
@@ -72,15 +88,7 @@ footer > p {
     display: flex;
 }
 
-@media (min-width: 700px){
-    .top_banner {
-        display: block;
-        text-align: right;
-        background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_813319932_383768.jpg");
-        padding: 8rem;
-        margin: 3rem;
-    }
-
+@media (min-width: 750px){
     section {
         display: flex;
     }
@@ -90,4 +98,35 @@ footer > p {
         border: 50px 25px;
         align-items: center;
     }
+
+    footer {
+        position: bottom;
+        margin: 5px;
+        font-size: 15px;
+    }
+    footer > nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    footer > nav > a {
+        padding-left: 5rem;
+    }
 }
+
+@media (min-width: 1000px){
+    .top_banner {
+        display: block;
+        text-align: right;
+        background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_813319932_383768.jpg");
+        padding: 8rem;
+        margin: 3rem;
+    }
+
+    .top_banner > p {
+        display: flex;
+        background-color: rgba(255, 235, 205, 0.329);
+        border-radius: 25%;
+        justify-content: flex-end;
+        padding-left: 65%;
+    }
