@@ -7,8 +7,8 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: #FFECD9;
-    background-color: rgba(39, 3, 73, 0.904);
+    color: rgba(0, 128, 128, 0.911);
+    background-color: black;
 }
 
 .bk_img {
@@ -59,7 +59,7 @@ article {
     text-align: center;
     margin-bottom: 50px;
     /* want borders around each box */
-    /* change color of box texts and buttons */
+    /* change color of button labels*/
 }
 
 article > img {
@@ -84,6 +84,10 @@ footer > nav {
     position: relative;
     justify-content: space-around;
     margin: 0 15px;
+}
+
+a {
+    color: white;
 }
 
 footer > p {
@@ -121,14 +125,12 @@ footer > p {
         display: block;
         text-align: right;
         background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_813319932_383768.jpg");
-        padding: 8rem;
-        margin: 3rem;
+        padding: 2rem;
+        margin: 4rem;
     }
 
     .top_banner > p {
         display: flex;
-        background-color: rgba(255, 235, 205, 0.329);
-        /* fix background-color box */
         border-radius: 25%;
         justify-content: flex-end;
         padding-left: 65%;
