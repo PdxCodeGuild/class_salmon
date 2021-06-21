@@ -58,6 +58,8 @@ article {
     padding: 5%;
     text-align: center;
     margin-bottom: 50px;
+    /* want borders around each box */
+    /* change color of box texts and buttons */
 }
 
 article > img {
@@ -126,7 +128,10 @@ footer > p {
     .top_banner > p {
         display: flex;
         background-color: rgba(255, 235, 205, 0.329);
+        /* fix background-color box */
         border-radius: 25%;
         justify-content: flex-end;
         padding-left: 65%;
+        text-align: center;
+        /* change size, color, and positioning of text */
     }
