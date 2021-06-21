@@ -1,65 +1,151 @@
+body, html{
+    height: 100%;
+    margin: 0;
+}
+
+.bg{
+    background-image: url("background.svg");
+
+    height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain ;
+}
+
+#backpic{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: -1;
+}
+
 .header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border: 1px solid rgb(9, 94, 41);
-    margin-top: 175px;
-    height: 75px
+    margin-top: 2.5%;
+    height: auto;
+    width: auto;
 }
 
 .header-logo{
     display: flex;
     flex-wrap: wrap;
-    background-color: red;
-    border: 1px solid red;
-    margin-left: 10%;
-    margin-top: 0;
+
+    margin-bottom: 0;
 }
 
 .header-logo-image{
-    background-color: blue;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
 }
 
 .header-logo-title{
-    background-color:green;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: medium;
 }
 
 .header-nav{
     display: flex;
     flex-wrap:wrap;
-    border: 1px solid red;
-
+    margin-right: 15%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: medium;    
 }
 
+li{
+    list-style: none;
+}
 .main-sections{
     display: flex;
+    flex-wrap: wrap;
     border: 1px solid gray;
 }
 
 .section-1{
-    display: flex;
+
     border:1px solid blue;
-    flex-direction: row;
-    margin: 5%;
 }
 .page-1-section-1{
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid purple;
-    margin: 5%;
+    background-color: yellow;
 }
 
-.page-title{
-    font-family: Arial;
+h2{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: bold;  
     border: 1px solid purple;
+    margin-top: 0;
+    bottom: 0;
 }
 
 .page-paragraph-content{
-    font-family:'Times New Roman', Times, serif;
+    
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: medium;
 }
 
 .page-1-section-1-image{
-    border:1px solid orange
+    border:1px solid orange;
 }
+
+.section-2{
+    border: 1px solid grey;
+    width: 100vw;
+    height: 1080px;
+}
+
+.section-3{
+    border: 1px solid grey;
+    width: 100vw;
+    height: 1080px;
+}
+
+.section-4{
+    border: 1px solid grey;
+    width: 100vw;
+    height: 1080px;
+}
+/* Small Screens */
+@media only screen and (max-width: 600px){
+
+}
+
+/* Large Screens */
+@media only screen and (min-width: 600px) {
+    .header-logo{
+        margin-left: 15%;
+    }
+
+    .section-1{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5%;
+        margin-right: 15%;
+        margin-left: 15%;
+        margin-bottom: 5%;
+    }
+
+    .page-1-section-1{
+        display: flex;
+        justify-content: left;
+    }
+}
+
