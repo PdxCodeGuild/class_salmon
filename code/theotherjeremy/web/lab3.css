@@ -1,0 +1,87 @@
+img {
+  border: 30px solid rgb(49, 49, 49);
+  max-width: 100%;
+  outline: 1px solid white;
+}
+
+div {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode";
+}
+
+a {
+  background-color: black;
+  color: rgb(168, 168, 168);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  color: whitesmoke;
+  background-color: black;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration: overline;
+  margin-bottom: 10px;
+  font-size: 60px;
+}
+
+menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 3%;
+  left: 0;
+  bottom: 38%;
+  padding-left: 0%;
+  width: 0%;
+  z-index: 2;
+  color: white;
+  background-color: black;
+  opacity: 45%;
+}
+
+.container {
+  display: flex;
+  max-width: 80%;
+  margin-top: 40px;
+  align-self: flex-start;
+}
+
+.container2 {
+  display: flex;
+  max-width: 80%;
+  margin-top: 40px;
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+body {
+  background-color: black;
+  color: rgb(168, 168, 168);
+  font-family: "brush script mt", cursive;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  menu {
+    bottom: 90%;
+  }
+}
+
+@media (min-width: 960px) {
+  nav {
+    justify-content: space-evenly;
+  }
+  img {
+    max-width: 70%;
+  }
+}

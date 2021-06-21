@@ -2,10 +2,15 @@
 :root{
     --main-radius: 5px;
     --main-padding: 5px;
+    --header-font: 'Staatliches', cursive;
+    --text-font: 'Montserrat', sans-serif;
+    --link-bgcolor: #F26E22;
+    --text-color: #0A89A6;
+    --header-color: #F26E22;
 }
 
-/* Setup the main grid */
-.container {
+/* Main Grid*/
+div.container {
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -16,98 +21,50 @@
         "sidebar content1 content2 content3"
         "sidebar footer footer footer";
     grid-gap: .2em;
+    color: var(--text-color)
 }
-
-main{
-    grid-area: main;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
+h3{
+    font-family: var(--header-font);
+    color: var(--header-color);
 }
-
-main img{
-    width: 100%;
-    border-radius: 25px;
-}
-
-#sidebar{
-    grid-area: sidebar;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    list-style-image: none;
-}
-
-#sidebar img{
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#content1{
-    grid-area: content1;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    text-align: center;
-}
-
-#content1 p{
-    display: block;
-}
-
-#content2{
-    grid-area: content2;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    text-align: center;
-
-}
-
-#content2 p{
-    display: block;
-}
-
-#content3{
-    background: #8c7c6d;
-    grid-area: content3;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-}
-
-footer{
-    background: #564eb1;
-    grid-area: footer;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-}
-/* End of main grid setup*/
-
-/* Setup the nav menu */
+/* Nav*/
 nav{
     grid-area: nav;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+    font-family: var(--header-font);
 }
-
 nav ul{
     list-style-type: none;
 }
+nav a{
+    display: flex;
+    align-items: stretch;
+    font-size: x-large;
+    text-decoration: none;
+    color: var(--text-color)
+}
+nav a:link{
 
+}
+nav a:hover{
+    background-color: var(--link-bgcolor);
+}
+nav a:active{}
+nav a:visited{}
 #home{
     grid-area: home
 }
-
 #products{
     grid-area: products;
 }
-
 #about{
     grid-area: about;
 }
-
 #contact{
     grid-area: contact;
 }
-
-nav.grid ul{
+nav.nav-grid ul{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: "home products about contact";
@@ -116,9 +73,105 @@ nav.grid ul{
     justify-items: center;
 
 }
-/* End of Nav section */
+/* End Nav */
+/* Main  */
+main{
+    grid-area: main;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+main img{
+    width: 100%;
+    border-radius: 25px;
+}
+/* End Main */
+/* Sidebar */
+#sidebar{
+    grid-area: sidebar;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    list-style-image: none;
+}
+#sidebar img{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Content 1 */
+#content1{
+    grid-area: content1;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    text-align: center;
+}
+#content1 p{
+    display: block;
+}
+/* End Content 1 */
+/* Content 2 */
+#content2{
+    grid-area: content2;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    text-align: center;
 
-/* Sidebar section*/
+}
+#content2 p{
+    display: block;
+}
+/* End Content 2 */
+/* Content 3 */
+#content3{
+    grid-area: content3;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    text-align: center;
+}
+#content3 p{
+    display: block;
+}
+/* End Content 3 */
+/* Footer */
+footer{
+    grid-area: footer;
+    display: grid;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+#footer-rule{
+    grid-area: footer-rule;
+}
+#footer-rule hr{
+    width: 75%;
+    height: 2px;
+    color: gray;
+    background-color: gray;
+    text-align: center;
+}
+#footer-info{
+    grid-area: footer-info;
+    text-align: right;
+    align-self: end;
+}
+#footer-sitemap{
+    grid-area: footer-sitemap;
+    display: block;
+    justify-self: center;
+}
+#footer-contact{
+    grid-area: footer-contact;
+    text-align: left;
+    justify-self: left;
+}
+footer.footer-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: .1fr 1fr;
+    grid-template-areas:
+            "footer-rule footer-rule footer-rule"
+            "footer-contact footer-sitemap footer-info ";
+}
+/* End Footer */
+/* End Main */
 
 
 /* Mobile viewport  */

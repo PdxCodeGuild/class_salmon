@@ -1,84 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
 }
 
-/* color scheme deco
-#476194 dark blue
-#ADC9FF light blue
-#82A2E0 mix blue
-#947738 dark brown
-#E0C382 light brown
-*/
-
 body {
     height: 100%;
     overflow: hidden;
+    /* makes the body non-scrollable (we will add scrolling to the sidebar and main content containers) */
     margin: 0px;
+    /* removes default style */
     display: flex;
+    /* enables flex content for its children */
     box-sizing: border-box;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    padding: 5px;
-    background-color: #E0C382;
 }
 
 .column {
     height: 100%;
+    /* allows both columns to span the full height of the browser window */
     display: flex;
     flex-direction: column;
-    background-color: #ADC9FF;
+    /* places the left and right headers above the bottom content */
 }
 
 #left {
     flex-shrink: 0;
-    background-color: #476194;
+    /* makes sure that content is not cut off in a smaller browser window */
 }
 
 .top-left {
     flex-shrink: 0;
-    margin: 25px;
-    background-color: #476194;
-}
-
-.top-left.bottom {
-    display: flex;
-    margin: 0px;
-    
+    background-color: red;
 }
 
 .top-right {
     flex-shrink: 0;
+    display: inline-flex;
+    background-color: royalblue;
+}
+
+#left .bottom {
     display: flex;
-    justify-content: space-evenly;
-    font-family: 'Shippori Mincho B1', serif;
-    background-color: #476194;
+    flex-direction: column;
+    background-color: seagreen;
+}
+
+#right .bottom {
+    background-color: yellow;
 }
 
 ul {
-    display: flex;
+    display: inline-flex;
     list-style: none;
 }
 
 .bottom {
     flex-grow: 1;
+    /* ensures that the container will take up the full height of the parent container */
     overflow-y: auto;
-    
-}
-
-@media (min-width: 600px) {
-    .bottom {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .bottom>* {
-        width: 65%;
-        padding: 25px;
-    }
+    /* adds scroll to this container */
 }

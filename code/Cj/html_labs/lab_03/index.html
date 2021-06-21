@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<style>
+    
+</style>
+<head>
+<Meta>
+<title>Reef Hub - Tools for the modern reef keeper  </title>
+<script src="https://use.fontawesome.com/aadf7b80b4.js"></script>
+<script src="https://kit.fontawesome.com/4ab22a974c.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <header class="flex-header">
+        <span>
+            <h1>Reef Hub</h1>
+            <h2>Passion is everywhere.</h2>
+        </span>
+    </header>
+    <nav class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-list" aria-hidden="true"></i></span>
+                    <span class="title">Forums</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-store"></i></i></span>
+                    <span class="title">Marketplace</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-toolbox"></i></span>
+                    <span class="title">Reefing Tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-cogs"></i></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-question-circle"></i></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-user-plus"></i></span>
+                    <span class="title">Sign Up</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="toggle" onclick="toggleMenu()"></div>
+    <script>type="text/javascript"
+        function toggleMenu(){
+            let navigation = document.querySelector('.navigation');
+            let toggle = document.querySelector('.toggle');
+            navigation.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+    <span class="img-span">
+        <img src="reef_1.jpg" alt="reef" id = "reef_1" class="img">
+    </span>
+    <main class="container flex-gallery">
+        <p>Welcome to Reef Hub!  A local-community based networking platform for your modern saltwater aquarist.  The goal of this project is to provide a one-stop, central space for reef keepers to buy, sell and trade corals, reef keeping equipment and other marine livestock.  We strive for this to be a space where enthusiasts can gather to share thoughts, experiences, and absorb wisdom from the fellow hobbyists within the regional areas that surround us.  Or even the world!</p>
+        <img src="zoas.jpg" alt="Zoanthids" id = "zoas" class="img">
+        <p>There's something for everyone here at Reef Hub!  Whether you're a seasoned marine biologist, an aquacuture expert, a retailer, or even just a new hobbyist trying to find guidance.  In addition to listing those precious coral frags and other livestock you have lovingly propagated and grown to perfection, you can use Reef Hub to try and track down any elusive or rare species your heart may be looking for.  Looking for help, tips, and a mentor, even good deals on used equipment has never been easier!</p>
+        <img src="scolys.jpg" alt="Scoly Garden" id = "scolys" class="img">
+        <p>Reef Hub offers a variety of digital tools and solutions to accommodate many common problems reef keepers face. Ranging from water volume, pounds per square inch, and addative dosage calculators - to a digital log book, so you can graph and display the stability of your aquariums water parameters and calculate your consumption rates. Allowing you to keep this information privately to yourself for your own reference, link it discreetly, or display it publically on your profile for the world to see!</p>
+        <p>Sign up, join our newsletter, outfit your profile and get involved with the community!</p>
+        <p>We look forward to your contribution.</p>
+    </main>
+    <footer class="flex-footer">
+        <p>&copy; 2021 Reef Hub - LLC.</p>
+    </footer>
+</body>
+</html>

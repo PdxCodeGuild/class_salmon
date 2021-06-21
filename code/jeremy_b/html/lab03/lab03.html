@@ -5,15 +5,17 @@
     <title>Title</title>
     <link rel="stylesheet" href="lab03.css">
     <script src="https://kit.fontawesome.com/4ffde92736.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <nav class="grid">
+        <nav class="nav-grid">
             <ul>
-                <li id="home">Home</li>
-                <li id="products">Products</li>
-                <li id="about">About</li>
-                <li id="contact">Contact</li>
+                <li id="home"><a href="#">Home</a></li>
+                <li id="products"><a href="#">Products</a></li>
+                <li id="about"><a href="#">About</a> </li>
+                <li id="contact"><a href="#">Contact</a> </li>
             </ul>
         </nav>
         <main><img src="img/banner.jpg"/></main>
@@ -34,8 +36,48 @@
             <h3><i class="fas fa-life-ring fa-3x"></i></h3>
             <p>Hit a snag with your project?  Engage with our world-class support team.  We can usually help, even if you didn't buy all of your components from us.</p>
         </section>
-        <section id="content3">Content 3</section>
-        <footer>Footer</footer>
+        <section id="content3">
+            <h3><i class="fas fa-address-card fa-3x"></i></h3>
+            <p>Interested in where we came from and why we're here?  Find out more about the company and the people who run it!</p>
+        </section>
+        <footer class="footer-grid">
+            <section id="footer-rule">
+                <hr>
+            </section>
+            <section id="footer-info">
+                <p>Copyright B34 Systems, &copy; 2015 - 2021</p>
+            </section>
+            <section id="footer-sitemap">
+                <h3>Site Map:</h3>
+                <ul>
+                    <li>Home</li>
+                    <li>Products
+                        <ul>
+                            <li>Raspberry Pi</li>
+                            <li>Amateur Radio</li>
+                            <li>Arduino</li>
+                            <li>Custom PCB
+                                <ul>
+                                    <li>PCB Design</li>
+                                    <li>PCB Production</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </section>
+            <section id="footer-contact">
+                <h3>Contact Us:</h3>
+                <address>
+                    B34 Systems<br>
+                    440 Terry Avenue North<br> Seattle, WA 98109<br>
+                    <i class="far fa-paper-plane"></i> <a href="mailto:support@b34systems.com">support@b34systems.com</a><br>
+                    <i class="fas fa-phone"></i> 216.555.1212
+                </address>
+            </section>
+        </footer>
     </div>
 </body>
 </html>

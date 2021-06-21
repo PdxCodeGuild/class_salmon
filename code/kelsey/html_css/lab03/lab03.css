@@ -1,0 +1,137 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #FFECD9;
+    background-color: rgba(39, 3, 73, 0.904);
+}
+
+.bk_img {
+    position: relative;
+}
+
+.bk_img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+    background-image: url('https://www.canny-creative.com/wp-content/uploads/2019/06/Sweet-and-Chocolate-Paackaging-Images_0016_main-image-copy-410x270.jpg');
+    background-repeat: repeat;
+    background-position: 50%;
+}
+
+.title {
+    position: relative;
+}
+
+h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 75px;
+    text-align: center;
+    color:rgb(204, 192, 23);
+    background-position: center;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'Lemonada', cursive;
+    text-align: center;
+    color:rgba(192, 181, 24, 0.856);
+}
+
+.top_banner {
+    display: none;
+}
+
+
+article {
+    display: block;
+    padding: 5%;
+    text-align: center;
+    margin-bottom: 50px;
+    /* want borders around each box */
+    /* change color of box texts and buttons */
+}
+
+article > img {
+    width: 200px;
+    height: 200px;
+}
+
+article > p {
+    text-align: right;
+    font-size: 20px;
+}
+
+footer {
+    position: bottom;
+    margin: 5px;
+    font-size: 10px;
+}
+
+footer > nav {
+    display: flex;
+    padding: 2rem; 
+    position: relative;
+    justify-content: space-around;
+    margin: 0 15px;
+}
+
+footer > p {
+    display: flex;
+}
+
+@media (min-width: 750px){
+    section {
+        display: flex;
+    }
+
+    article {
+        display: inline-block;
+        border: 50px 25px;
+        align-items: center;
+    }
+
+    footer {
+        position: bottom;
+        margin: 5px;
+        font-size: 15px;
+    }
+    footer > nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    footer > nav > a {
+        padding-left: 5rem;
+    }
+}
+
+@media (min-width: 1000px){
+    .top_banner {
+        display: block;
+        text-align: right;
+        background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_813319932_383768.jpg");
+        padding: 8rem;
+        margin: 3rem;
+    }
+
+    .top_banner > p {
+        display: flex;
+        background-color: rgba(255, 235, 205, 0.329);
+        /* fix background-color box */
+        border-radius: 25%;
+        justify-content: flex-end;
+        padding-left: 65%;
+        text-align: center;
+        /* change size, color, and positioning of text */
+    }
