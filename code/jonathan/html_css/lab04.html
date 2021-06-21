@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+  <link rel="stylesheet" type="text/css" href="burrito_form.css"/>
+</head>
+<main>
+  <div class="header-img"></div>
+</main>
+<body>
+  <form action="https://webhook.site/53371378-7342-42f8-b6db-6df4cf9b5e3f" method="post">
+    <div class="header">
+      <h1>Burrito Form</h1>
+    </div>
+    <div class="row" id="required">
+      <div class="col-3 menu"></div>
+      <div class="col-3 menu">
+        <p>* = Required</p>
+      </div>
+      <div class="col-6 menu"></div>
+    </div>
+    <div class="row" id="name_password">
+      <div class="col-3 menu"></div>
+      <div class="col-3 menu">
+        <label>Name*</label><input type="text" name="name" id="name" required/>
+      </div>
+      <div class="col-3 menu">
+        <label>Password*</label><input type="password" name="password" id="password" required/>
+      </div>
+      <div class="col-3 menu"></div>
+    </div>
+    <div class="row" id="torilla_rice">
+      <div class="col-3 menu"></div>
+      <div class="col-3 menu">
+        <p>Torilla Choices(Choose one)*</p>
+        <label>White Flour</label><input type="radio" name="torilla" value="White Flour" required/><br>
+        <label>Whole Wheat Flour</label><input type="radio" name="torilla" value="Whole Wheat Flour" required/><br>
+        <label>Spinach</label><input type="radio" name="torilla" value="Spinach" required/><br>
+        <label>Corn</label><input type="radio" name="torilla" value="Corn" required/><br>
+      </div>
+      <div class="col-3 menu">
+        <p>Rice(Choose one)*</p>
+        <label>White Rice</label><input type="radio" name="rice" value="White Rice" required/><br>
+        <label>Brown Rice</label><input type="radio" name="rice" value="Brown Rice" required/><br>
+      </div>
+      <div class="col-3 menu"></div>
+      </div>
+    <div class="row" id="beans_meat">
+      <div class="col-3 menu"></div>
+      <div class="col-3 menu">
+        <p>Beans(Choose one)*</p>
+        <label>Black Beans</label><input type="radio" name="beans" value="Black Beans" required/><br>
+        <label>Pinto Beans</label><input type="radio" name="beans" value="Pinto Beans" required/><br>
+        <label>None</label><input type="radio" name="beans" value="None" required/><br>
+      </div>
+      <div class="col-3 menu">
+        <p>Protein(Choose one)*</p>
+        <label>Carnitas</label><input type="radio" name="protein" value="Carnitas" required/><br>
+        <label>Chicken</label><input type="radio" name="protein" value="Chicken" required/><br>
+        <label>Sofritas</label><input type="radio" name="protein" value="Sofritas" required/><br>
+        <label>None</label><input type="radio" name="protein" value="None" required/><br>
+      </div>
+      <div class="col-3 menu"></div>
+      </div>
+    <div class="row" id="extras">
+      <div class="col-3 menu"></div>
+      <div class="col-6 menu"><p>Additional Ingredients</p>
+        <label>Cheese</label><input type="checkbox"/><br>
+        <label>Sour Scream</label><input type="checkbox"/><br>
+        <label>Lettuce</label><input type="checkbox"/><br>
+        <label>Tomatoes</label><input type="checkbox"/><br>
+        <label>Pico de Gallo</label><input type="checkbox"/><br>
+        <label>Jalapeños</label><input type="checkbox"/><br>
+      </div>
+      <div class="col-3 menu"></div>
+      </div>
+    <div class="row" id="delivery">
+      <div class="col-3 menu"></div>
+      <div class="col-6 menu">
+        <p>Delivery Instructions*</p>
+        <textarea id="textarea" name="textarea" rows="5" cols="40" placeholder="Enter delivery instructions here" required></textarea>
+      </div>
+      <div class="col-3 menu"></div>
+      </div>
+    <div class="row" id="submit">
+      <div class="col-3 menu"></div>
+      <div class="col-6 menu">
+        <button type="submit">submit</button>
+      </div>
+      <div class="col-3 menu"></div>
+    </div>
+  </form>
+</body>
+</html>
