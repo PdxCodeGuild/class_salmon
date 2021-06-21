@@ -1,3 +1,0 @@
-Tried in official Pi 4 I/O board --> Not recognized by host computer
-Tried (2) PiTray Mini I/O boards --> Not recognized by host computer
-Tried other CM4 modules in order in all (3) boards, each recognized by the host computer
