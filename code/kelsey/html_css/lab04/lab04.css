@@ -38,6 +38,7 @@ img {
     width: 18rem;
     height: 12rem;
     border-color: hsla(70, 55%, 54%, 1);
+    margin-left: 9px;
 }
 
 h4 {
@@ -45,9 +46,92 @@ h4 {
     font-size: 18px;
     letter-spacing: 5px;
     color: hsla(89, 94%, 21%, 1);
+    margin: 8px;
+    padding: 8px;
 }
 
+.tortilla {
+    display: flex;
+    flex-direction: column;
+}
+
+.rice {
+    display: flex;
+    flex-direction: column;
+}
+
+.beans {
+    display: flex;
+    flex-direction: column;
+}
+
+.protein {
+    display: flex;
+    flex-direction: column;
+}
+
+.additional {
+    display: flex;
+    flex-direction: column;
+}
+
+.login {
+    display:flex;
+    flex-direction: column;
+}
+
+.flex-container {
+    display:flex;
+    justify-content: space-between;
+}
+
+.flex-container > * {
+    margin-left: 12px;
+    margin-top: 5px;
+}
+
+.delivery {
+    display: flex;
+    flex-direction: column;
+    margin-top: 33px;
+}
+
+.delivery > button {
+    margin-top: 33px;
+}
 @media (min-width: 700px){
-    body {
+    .tortilla {
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .rice {
+        flex-direction: row;
+        align-items: baseline;
+    }
+    
+    .beans {
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .protein {
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .additional {
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .login {
+        flex-direction: row;
+    }
+
+    textarea { 
+        width: 275px;
+        height: 100px;
+    }
       
 }
