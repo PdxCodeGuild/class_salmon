@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- Lab 4: Burrito Order Form -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab04 Burrito</title>
+    <link rel="stylesheet" href="lab04.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Yantramanav:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <form action="https://webhook.site/57edfed9-a2ec-4521-81a5-cf45e2c94418" method="submit">
+            <div class="login">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="name" pattern="[A-Za-z]{6, 12}"
+                    title="enter a username 6-12 characters" required></input>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="password" pattern="[A-Za-z]{6, 12}"
+                    title="enter a password 6-12 characters" required></input>
+                <label for="password"></label>
+                <button type="submit">submit</button>
+            </div>
+        </form>
+    </header>
+
+    <h1>Burrito Order Form</h1>
+    <div class="column_1">
+        <img src="https://jessicainthekitchen.com/wp-content/uploads/2020/06/Vegan-Burritos-8-500x375.jpg" />
+    </div>
+    <form>
+        <div class="menu">
+            <div class="tortilla">
+                <h4>Tortilla</h4>
+                <input type="radio" id="white" name="tortilla" value="white" required>
+                <label for="white">White Flour</label>
+                <input type="radio" id="wheat" name="tortilla" value="wheat" required>
+                <label for="wheat">Wheat Flour</label>
+                <input type="radio" id="spinach" name="tortilla" value="spinach" required>
+                <label for="spinach">Spinach</label>
+                <input type="radio" id="corn" name="tortilla" value="corn" required>
+                <label for="corn">Corn</label>
+            </div>
+            <div class="rice">
+                <h4>Rice</h4>
+                <input type="radio" id="whiterice" name="rice" value="white">
+                <label for="whiterice">White Rice</label>
+                <input type="radio" id="brown" name="rice" value="brown">
+                <label for="brown">Brown Rice</label>
+            </div>
+            <div class="beans">
+                <h4>Beans</h4>
+                <input type="radio" id="black" name="beans" value="black">
+                <label for="black">Black Beans</label>
+                <input type="radio" id="pinto" name="beans" value="pinto">
+                <label for="pinto">Pinto Beans</label>
+            </div>
+            <div class="protein">
+                <h4>Protein</h4>
+                <input type="radio" id="carnitas" name="protein" value="carnitas" required>
+                <label for="carnitas">Carnitas</label>
+                <input type="radio" id="chicken" name="protein" value="chicken" required>
+                <label for="chicken">Chicken</label>
+                <input type="radio" id="sofritas" name="protein" value="sofritas" required>
+                <label for="sofritas">Sofritas</label>
+                <input type="radio" id="none" name="protein" value="none" required>
+                <label for="none">None</label>
+            </div>
+            <div class="additional">
+                <h4>Additional</h4>
+                <input type="checkbox" id="cheese" name="additional" value="cheese">
+                <label for="cheese">Cheese</label>
+                <input type="checkbox" id="sourcream" name="additional" value="sourcream">
+                <label for="sourcream">Sour Cream</label>
+            </div>
+        </div>
+        <div class="delivery">
+            <label for="delivery">Delivery Instructions</label>
+            <textarea name="delivery" id="delivery" cols="30" rows="10"></textarea>
+            <button type="submit">Submit Order</button>
+        </div>
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+    /* CSS HSL
+    --dark-green-x-11: hsla(89, 94%, 21%, 1);
+    --android-green: hsla(70, 55%, 54%, 1);
+    --bronze: hsla(28, 63%, 55%, 1);
+    --kobe-red: hsla(18, 97%, 27%, 1);
+    --silver-sand: hsla(218, 8%, 80%, 1); */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: rgb(232, 230, 227);
+    background-color: rgba(145, 38, 5, 0.959);
+    font-family: 'Yantramanav', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    font-size: 50px;
+    background-color: black;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+img {
+    width: 18rem;
+    height: 12rem;
+    border-color: hsla(70, 55%, 54%, 1);
+}
+
+h4 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 18px;
+    letter-spacing: 5px;
+    color: hsla(89, 94%, 21%, 1);
+}
+
+@media (min-width: 700px){
+    body {
+      
+}
