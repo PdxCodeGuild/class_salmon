@@ -1,29 +1,289 @@
 <!DOCTYPE html>
+<!--This is not final at all. Just wanted to try to recreate a preexisting 
+website using the grid system laid out on W3 for responsive web design. Will
+make a fictitious company page-->
 <html lang="en">
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Company Page</title>
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
-        <link rel="stylesheet" type="text/css" href="lab03.css"/>
+        <link rel="stylesheet" type="text/css" href="responsive_grid.css"/>
     </head>
     <body>
-        <div id="left" class="column">
-            <div class="top-left">
-                <h2>Navigation</h2>
-            </div>
-            <div class="bottom">
-                <p><a href="#">About Us</a></p>
-                <p><a href="#">Products</a></p>
-                <p><a href="#">Contact Us</a></p>
-            </div>
+    <div class="header">
+        <img src="https://images.squarespace-cdn.com/content/571abd61e3214001fb3b9966/1585684354468-MTZB7AUEPSEBC8GDCDEQ/logo.png?content-type=image%2Fpng">
+    </div>
+    <div class="row" id="header-img">
+        <h1>GODZILLA INVASION</h1>
+        <h3>Exclusive merchandise avaliable at Kinokuniya USA</h3>
+        <a href="#"><u>LEARN MORE</u></a>
+    </div>
+    <div class="row" id="bar">
+        <div class="col-12 bar">
+            <h3><a href="#"><u>SHOP ONLINE</u></a></h3>
         </div>
-        <div id="right" class="column">
-            <div class="top-right">
-                <h2>Company Name</h2>
-            </div>
-            <div class="bottom">
-                <p>Aenean bibendum bibendum cursus. Nunc tellus ligula, vestibulum ut viverra id, rutrum quis lorem. Proin condimentum aliquet mollis. Sed in pharetra urna. Proin cursus finibus leo sed faucibus. In sit amet interdum massa. Donec lobortis leo dictum, pulvinar urna quis, tincidunt tellus. Curabitur congue purus urna, vitae gravida enim commodo pretium. Nullam iaculis erat non faucibus sagittis. Nulla ornare volutpat ipsum ut pellentesque. Integer porta feugiat mauris, sit amet malesuada tellus dapibus sit amet. Curabitur pretium eleifend purus. Praesent efficitur lectus sit amet cursus ullamcorper. Suspendisse molestie quis odio quis sodales. Nunc scelerisque eros quis varius commodo. Sed ac interdum turpis, eu aliquet nibh.</p>
-            </div>
+    </div>
+
+    <div class="row" id="top-3">
+        <div class="col-3"></div>
+        <div class="col-2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623259153205-ZFOSUILY7I9XB2F9V2BB/ke17ZwdGBToddI8pDm48kNiEM88mrzHRsd1mQ3bxVct7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0s0XaMNjCqAzRibjnE_wBlkZ2axuMlPfqFLWy-3Tjp4nKScCHg1XF4aLsQJlo6oYbA/Maido+in+a+Box?format=300w">
+            <a href="#"><u>Maido in a Box</u></a>
         </div>
+        <div class="col-2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1616720283190-PFA34IWYOXRG0MBCZRL7/ke17ZwdGBToddI8pDm48kAf-OpKpNsh_OjjU8JOdDKBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwkCFOLgzJj4yIx-vIIEbyWWRd0QUGL6lY_wBICnBy59Ye9GKQq6_hlXZJyaybXpCc/Demon+Slayer+Art+Book?format=300w">
+            <a href="#"><u>Demon Slayer Related Books</u></a>
+        </div>
+        <div class="col-2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1622597534078-MV4Y6ZO1K5LQC8LUAL7O/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Godzilla+Membership+Card?format=300w">
+            <a href="#"><u>Kinokuniya Membership Card - Godzilla Design</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="featured">
+        <div class="col-3"></div>
+        <div class="col-3">
+            <p>Featured Books</p>
+        </div>
+        <div class="col-3">
+            <p>Featured Stationery</p>
+        </div>
+        <div class="col-3"></div>
+    </div>    
+    <div class="row" id="featured_products">
+        <div class="col-3"></div>
+        <div class="col-1_5">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624038152653-QULHDXTMEWDSUPHXRH20/ke17ZwdGBToddI8pDm48kL9sOjnBducTl0Ke3GM66AkUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2zEn4BHX1Sx_VSoDTVx9ITF57abNw2KB9wwk6oeac7z0m_AaHWq01a8yFgqe9oqFs/1.jpg?format=300w">
+            <a href="#"><u>New Arrivals - Artbooks - June 2021</u></a>
+        </div>
+        <div class="col-1_5">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623886068911-KAFGFC0C95CVY6CPZT54/ke17ZwdGBToddI8pDm48kAsWe903c8qHFy3ZAcjlw1EUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2ism_aLR9CpQbAVFPTln-bxKaHLhzaIsB0tqAbyfNCGMxb27qhdBlCJwccbVYQTp-/Katsuya+Tearada+Sketch.jpg?format=300w">
+            <a href="#"><u>KATSUYA TERADA SKETCH with TRAVELER'S notebook</u></a>
+        </div>
+        <div class="col-1_5">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623875908849-7Z7YJ8MCL7UELQKVPVXB/ke17ZwdGBToddI8pDm48kKTnVQmyC1em4bNR6GUtCwEUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcc8VMb-887hy8IUkEB8UYW1jRtDmKDPfu-jjVzjsVh1z0a7cm39ECSeFmoQ1ET9wJ/Maido+in+a+Box+12?format=300w">
+            <a href="#"><u>Maido in a Box Vol. 12: Unveiled</u></a>
+        </div>
+        <div class="col-1_5">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623700454624-TX1NLHRWRGQJ25BI1WFT/ke17ZwdGBToddI8pDm48kEyi233Awx5Uy_CD2Xg-FRxZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFPs3T3scI2gmUnQL7YGrGzsoYkmXgEX30domqLv5GjCGyfz4VDlGL86t3OdrGkYI0/2.jpg?format=300w">
+            <a href="#"><u>New Arrivals - Demon Slayer: Kimetsu no Yaiba</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="sponsored">
+        <div class="col-3"></div>
+        <div class ="col-3">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1611282528549-IH0MLNLQU6W7TYJYFMPV/ke17ZwdGBToddI8pDm48kD3Gf-3yY-XEkyo9PZIxhfYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcQVV8NUeZ0_GBddMPHnSe_qVt79OPG7SafFS-fEXB6_sKCG1RjhMpmwFCavWoxtYs/Studio+Ghibli+Collections?format=500w">
+        </div>
+        <div class ="col-3">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1620180074778-YHRYZG4WZ80KYL6EPBOC/ke17ZwdGBToddI8pDm48kD3Gf-3yY-XEkyo9PZIxhfYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcQVV8NUeZ0_GBddMPHnSe_qVt79OPG7SafFS-fEXB6_sKCG1RjhMpmwFCavWoxtYs/manga+adapted+into+anime+in+spring+2021?format=500w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="new_eng">
+        <div class="col-12">
+            <h1>New Releases (English)</h1>
+        </div>
+    </div>
+    <div class="row" id="new_eng_man_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779388139-R7H0PBVVC82PM3VJB5E9/ke17ZwdGBToddI8pDm48kI2W_K_0yl-3Az1kjIVM6UpZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-vxQ7RKqABS_zYrwavIa9gdWJEDC04lPx0UOpZrDThPIQ/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623174886346-GOM3TE4STRU6X712F2VS/ke17ZwdGBToddI8pDm48kNVS6ypCTct2cZG8X6L60lRZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-vl7FQURXn89S3SRUIJSYkHDgSkM2sHiiY1MsUtU0GNKw/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623174886265-ZIC086LTV8TD1IWUOO2O/ke17ZwdGBToddI8pDm48kNVS6ypCTct2cZG8X6L60lRZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-vl7FQURXn89S3SRUIJSYkHDgSkM2sHiiY1MsUtU0GNKw/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623174886691-WAED9UNN9YIFEQATCHJS/ke17ZwdGBToddI8pDm48kDX0NNyM8XK4e8RCvb3txLVZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-s2-_sVlarmJ9K69PI9J7RLW2FLT2g767el1KLSl6bCMQ/3.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1622577660077-14HUBA6AVT1J7FAB2ZC4/ke17ZwdGBToddI8pDm48kMxGT9BPHJt8wLqbBBZ1WdZZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH4kXrVacNOnDeeIOw2wWzdDn0_t5PvBFdqj7yM7DhT5QDeN148cb4uVCXJQ21AKi8/1.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="eng_man_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>MANGA IN ENGLISH</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="new_eng_book_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779605342-EMHEW6CCY92F8A7GYN0U/ke17ZwdGBToddI8pDm48kI2W_K_0yl-3Az1kjIVM6UpZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-vxQ7RKqABS_zYrwavIa9gdWJEDC04lPx0UOpZrDThPIQ/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779605262-JI38Y88J2B78ZR5L4UG1/ke17ZwdGBToddI8pDm48kHpG_QiRDWkjMDepeqRnIn9Zw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-sQwJHYALMhVzF3Lhb7t0YV4clw-1Vl5AxUDcdur5hITQ/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779605714-UATOO5ZZA0CO5NN289YZ/ke17ZwdGBToddI8pDm48kIcaFovRu-GhwBM0sBN673pZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-usCqcOQ3CC5s-AmmksqNPLqh98vyt7WzFhjpQ4agWjqA/3.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779605742-8Z6HQQY10XJL2PTPFZTN/ke17ZwdGBToddI8pDm48kLj_NknCm0TE36juR1eBETxZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-uQdlFkERM6iPvPWLiNQf42LGqkxas3KKH-BPZKrP_wDg/4.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779606142-XQT16433EOPZWYQS1DOA/ke17ZwdGBToddI8pDm48kNVS6ypCTct2cZG8X6L60lRZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-vl7FQURXn89S3SRUIJSYkHDgSkM2sHiiY1MsUtU0GNKw/5.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="eng_book_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>BOOKS IN ENGLISH</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="new_jpn">
+        <div class="col-12">
+            <h1>New Releases (Japanese)</h1>
+        </div>
+    </div>
+    <div class="row" id="new_jpn_man_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037103146-ZCYWL72UIM2556OUORJF/ke17ZwdGBToddI8pDm48kHe7AiOP4wMgLa6k8oloSDhZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVHlQZ0_o97Iq0QIJyNk0PjWXxwKJX67-gOOYmPqdFNikz_NqeS_R2NKgBmrtVqjJQ4/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037103155-MEGN1FPET8G3QA4MXAAP/ke17ZwdGBToddI8pDm48kIenpGcTo7tprflLxwoeu0ZZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Xj1nVWs2aaTtWBneO2WM-uUzhdvv3vM00XgCv1hNnDTMFNkT1IINCDyRPx-PtdDLQ/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623952105155-AMYWY7HYYJNL5QG5I7J8/ke17ZwdGBToddI8pDm48kOZfCIP-_lN7jNwZd1JR0C9Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFzr6IgAfMK6CcbnCctqlbjuoP5FLHG7umZc-CjSk_g2KnB5GcNXOIsGm8NVpNW6CQ/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623952105190-NOV21GOVTZ2I5W7FBZNV/ke17ZwdGBToddI8pDm48kGquKOgXl2rDcNw89Y5n1ZFZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzwqv4nRkGP6VrzxDVxtOscEJPK3iaeRfIBIaPTQmy0FN-non827uDUW_j6O9CGojY/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623952105656-I5C10ZPARZ60HNM3KEG7/ke17ZwdGBToddI8pDm48kNot4QR1RItypbEgzPjp8AdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzPLkyFgHW9Vg2cM0Equ4AJn-sS3cM-cd3wHLYEe77mF3GfSG_OY0x_sf8sBObdCJg/3.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="jpn_man_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>MANGA IN JAPANESE/コミック</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="new_jpn_book_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623865917564-03WYDIYETTYL6RSM3U6T/ke17ZwdGBToddI8pDm48kI3Xo-CgFslWYVq105A95mYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJOX8AtFkTRSQSF4gXjSOXy-mKrFl-CwWtZtPnWh6jiW1LwZi2tfjOd_yYWMgxM6yk/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623779856142-K4VHWGNQY97XWR6TAT7L/ke17ZwdGBToddI8pDm48kNBzWJbQKzmwkenTvZhNB-kUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJbo9MQg9KIeSjHNIKaMdLvq8FuKbCl_ilSkPdWeN9IjAFlsaUjjO5_iWhe1WXShY4/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623098445987-ASR78TPADFA53O7FFRBS/ke17ZwdGBToddI8pDm48kGG-TnfRx0Qy7Zz0RLNgOogUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdIsvEY9mz1xcmpbs9D3ionD3EiOIJ0VdfowSSUrsgxmrQMiIjgMT35gnxvTVPfqpIw/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1622054800315-MV02WKM1R3429MXTJQK5/ke17ZwdGBToddI8pDm48kIUEZvCntvRuFrrU4Evvy0AUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJQmFhsX3Qf7n9fxEX3mx2eYSuUygeP_vsIRjwyzaxPrnTckanIPKhP9T2x6rH6kb4/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1622054800332-248ZMAG6SLGV18AQ8ERS/ke17ZwdGBToddI8pDm48kIfeXMr-oxGO_pehlANu3qUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdKbMkEEeSq8YCJvEHKLb7GLL3vhSRYoxMVjP3EvDYzfuvkLU2e5c_TKdQQyej6yYkM/2.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="jpn_book_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>BOOKS IN JAPANESE</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    </div>
+    <div class="row" id="bunko_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037350189-IS3OFK16U5UV5MFZJSYG/ke17ZwdGBToddI8pDm48kHQvi6rkS82qdSHMDXvPNWsUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdKgkqjsrs_4reIMpxvUiPIHFlPA-9NKBpm3hEqo5CC5GeODq1TA-SRcbuESn7wa4bk/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623780111258-UC8IIR1W4JKLY2NDB74C/ke17ZwdGBToddI8pDm48kNBzWJbQKzmwkenTvZhNB-kUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJbo9MQg9KIeSjHNIKaMdLvq8FuKbCl_ilSkPdWeN9IjAFlsaUjjO5_iWhe1WXShY4/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623780111258-9EP77ADLQ7HPC863ZY9J/ke17ZwdGBToddI8pDm48kNBzWJbQKzmwkenTvZhNB-kUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJbo9MQg9KIeSjHNIKaMdLvq8FuKbCl_ilSkPdWeN9IjAFlsaUjjO5_iWhe1WXShY4/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623780111751-LPQ5NHW5TN8LDHTLBJ2M/ke17ZwdGBToddI8pDm48kNBzWJbQKzmwkenTvZhNB-kUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJbo9MQg9KIeSjHNIKaMdLvq8FuKbCl_ilSkPdWeN9IjAFlsaUjjO5_iWhe1WXShY4/3.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1623780111794-S8Y58BGU1RMMQG905BH9/ke17ZwdGBToddI8pDm48kLMmWAku0VJebPFchwXl5EsUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdLNkefc9h1lSjDVPRl5lCuFu9B_88n_-OsT0Su3rQ0G_BvYofd1ls9c-wRY45bULxM/4.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="bunko_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>BUNKO/文庫</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="art_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037739779-N2V3FH2K2051LKEPI0YF/ke17ZwdGBToddI8pDm48kAGJinat9LhAhxxZerLpkiAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdIwKDpEZjxOtxVI4iThCgM-naUysE2LiGojzTM84v7fGZD3KTeOzoSelACYq-bMGz0/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037593007-E4N8RQN17LUH7VU9C3UP/ke17ZwdGBToddI8pDm48kIfeXMr-oxGO_pehlANu3qUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdKbMkEEeSq8YCJvEHKLb7GLL3vhSRYoxMVjP3EvDYzfuvkLU2e5c_TKdQQyej6yYkM/1.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037593144-MS2X9V4JZZ8NPMPRNR8L/ke17ZwdGBToddI8pDm48kNMRaxjdy6bZwunF4PdjSOcUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdKBsED0p_FakkjOJnO6zp6IzzOpFZru3LqgM_QKOqcfJhICsUT98khVis7WYWtZsDk/2.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037593761-WQOM3AAOUCQLKLWBORSA/ke17ZwdGBToddI8pDm48kJTY4hyzwEL5DxNm4CMVG6QUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdIWsqS7J-ohZF23eUK58swBiv82G0Sp6-6Nsbcaf1VU1G7zhOuK6KFW5QokSwUdzzA/3.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1624037593903-DDPCGB5W4IA4AZ2QXOTY/ke17ZwdGBToddI8pDm48kPGGRaCiNSbwdKYkZjY5NpB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmbAPWDwNhuSEKyCuGePwJdh9-8lb5GzDdf1GgNfNIp3YgRhCP8y9ivMCuBHhcH_M4/4.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="art_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>ART BOOKS</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="jojo">
+        <div class="col-12">
+            <h1>JoJo's Bizarre Adventure Books</h1>
+        </div>
+    </div>
+    <div class="row" id="new_jojo_products">
+        <div class="col-3"></div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1597943799041-ZJS14LZR3FFBC4UEJU18/ke17ZwdGBToddI8pDm48kJchQJ8gYoUu_kBxzlyGit1Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVEXzfrBlXzWJTPEyYJU8rQT7dOWsqnmbXLAV1kohv_HLpuG45vQwBxdpDrCGUSSl5w/JOJOVeller_1_edited.png?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1597943823731-NVREW35Q67MTHF8YIP4N/ke17ZwdGBToddI8pDm48kM3Uf6dmLLmPITe_Z7KVatR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmaUzSiviepfuOufnJa7SEDba2iHz3k0XTOUDBEklJlJk9X0uZLbbMNx-Ooh7tU_Hv/JOJOAGOGO_COVER.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1597943833879-NQT9KW5X86B8I0HSXKAF/ke17ZwdGBToddI8pDm48kE4ocCBHAybmconG64RpfstZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVEn82VT3fJNZrsICifpNs_txe-NIFpI9MBzBNXh9OVApqAUjFwJ5XbHzgNuaQfc9W4/jojo6251.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1597943833014-RDW3NF0DF74UMIAK5VS4/ke17ZwdGBToddI8pDm48kGFibM4cp4bUQH0E6mSQxDcUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2hFmdD9xPfSXNAsm9I1KmINtPYPmDPPdXXPFKR85_C4sxb27qhdBlCJwccbVYQTp-/jojo+aaa.jpg?format=300w">
+        </div>
+        <div class="col-1_2">
+            <img src="https://images.squarespace-cdn.com/content/v1/571abd61e3214001fb3b9966/1597944047012-PEG07C75BFZJDH5UMBIT/ke17ZwdGBToddI8pDm48kPtN7mGV7Jlg2aN-IqllTB17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmlMqpINHCYwrjchQjceiMlclVLtgzhDBCrJPQwHrnhTQDvZ15up8aV1WhJTkPir3R/jojonichle.jpg?format=300w">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row" id="jojo_lk">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <a href="#"><u>SEE MORE</u></a>
+        </div>
+        <div class="col-3"></div>
+    </div>
     </body>
 </html>
