@@ -30,3 +30,17 @@ Once you have your page together, use link at https://webhook.site/ to create a 
   - Sour Cream
 - Delivery Instructions (textarea)
 
+## Optional
+
+For personal info, use the `required`, `pattern` and `title` attributes of the input fields to verify that the information the user entered is legitimate.
+
+Personal Info
+- Username (at least 6 characters)
+- Password (at least 6 characters)
+- Name (First and Last) (two words, at lease 3 characters each)
+- Email Address (one or more numbers/letters, @, one or more numbers/letters, ., one or more numbers/letters)
+- Phone Number: (e.g. 293-213-5555)
+- Date of Birth: (e.g. 2/13/2627)
+- Social Security Number: (e.g. 415-25-2627)
+- Street (e.g. 123 Mulberry Ln)
+- City, State, Zip (e.g. Portland, OR, 97201)
