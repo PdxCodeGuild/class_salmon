@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Burrito Order</title>
+</head>
+<body>
+<form name="burrito-order">
+  <div>
+    <div>
+        <label for="name">Name<span>*</span></label>
+        <input type="text" placeholder="Enter your name" name="name" id="name" required="required" aria-required="true">
+    </div>
+    <div>
+        <label>Tortilla<span>*</span></label>
+        <div>
+            <div>
+                <input name="tortilla" id="tortilla-0" required="required" aria-required="true" value="flour" type="radio">
+                <label for="tortilla-0">Flour</label>
+            </div>
+            <div>
+                <input name="tortilla" id="tortilla-1" required="required" aria-required="true" value="white-corn" type="radio">
+                <label for="tortilla-1">White Corn</label>
+            </div>
+            <div>
+                <input name="tortilla" id="tortilla-2" required="required" aria-required="true" value="yellow-corn" type="radio">
+                <label for="tortilla-2">Yellow Corn</label>
+            </div>
+            <div>
+                <input name="tortilla" id="tortilla-3" required="required" aria-required="true" value="whole-wheat" type="radio">
+                <label for="tortilla-3">Whole Wheat</label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Rice<span>*</span></label>
+        <div >
+            <div>
+                <input name="rice" id="rice-0" required="required" aria-required="true" value="white" type="radio">
+                <label for="rice-0">White</label>
+            </div>
+            <div>
+                <input name="rice" id="rice-1" required="required" aria-required="true" value="brown" type="radio">
+                <label for="rice-1">Brown</label>
+            </div>
+            <div>
+                <input name="rice" id="rice-2" required="required" aria-required="true" value="none" type="radio">
+                <label for="rice-2">None</label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Beans<span>*</span></label>
+        <div>
+            <div>
+                <input name="beans" id="beans-0" required="required" aria-required="true" value="black" type="radio">
+                <label for="beans-0">Black</label>
+            </div>
+            <div>
+                <input name="beans" id="beans-1" required="required" aria-required="true" value="white" type="radio">
+                <label for="beans-1">White</label>
+            </div>
+            <div>
+                <input name="beans" id="beans-2" required="required" aria-required="true" value="navy" type="radio">
+                <label for="beans-2">Navy</label>
+            </div>
+            <div>
+                <input name="beans" id="beans-3" required="required" aria-required="true" value="none" type="radio">
+                <label for="beans-3">None</label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Protein<span>*</span></label>
+        <div>
+            <div>
+                <input name="protein" id="protein-0" required="required" aria-required="true" value="steak" type="radio">
+                <label for="protein-0">Steak</label>
+            </div>
+            <div>
+                <input name="protein" id="protein-1" required="required" aria-required="true" value="chicken" type="radio">
+                <label for="protein-1">Chicken</label>
+            </div>
+            <div>
+                <input name="protein" id="protein-2" required="required" aria-required="true" value="shrimp" type="radio">
+                <label for="protein-2">Shrimp</label>
+            </div>
+            <div>
+                <input name="protein" id="protein-3" required="required" aria-required="true" value="tilapia" type="radio">
+                <label for="protein-3">Tilapia</label>
+            </div>
+            <div>
+                <input name="protein" id="protein-4" required="required" aria-required="true" value="tofu" type="radio">
+                <label for="protein-4">Tofu</label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Extras</label>
+        <div>
+            <div>
+                <input name="extras[]" id="extras-0" value="mex-cheese" type="checkbox">
+                <label for="extras-0">Mexican Cheese</label>
+            </div>
+            <div>
+                <input name="extras[]" id="extras-1" value="cheddar-cheese" type="checkbox">
+                <label for="extras-1">Cheddar</label>
+            </div>
+            <div>
+                <input name="extras[]" id="extras-2" value="roasted-peppers" type="checkbox">
+                <label for="extras-2">Roasted Peppers</label>
+            </div>
+            <div>
+                <input name="extras[]" id="extras-3" value="hot-peppers" type="checkbox">
+                <label for="extras-3">Hot Peppers</label>
+            </div>
+            <div>
+                <input name="extras[]" id="extras-4" value="salsa" type="checkbox">
+                <label for="extras-4">Salsa</label>
+            </div>
+            <div>
+                <input name="extras[]" id="extras-5" value="salsa-verde" type="checkbox">
+                <label for="extras-5">Salsa Verde</label>
+            </div>
+            <div>
+                <input name="extras[]" id="extras-6" type="checkbox">
+                <label for="extras-6"></label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="submit" formmethod="post" formaction="https://webhook.site/64f3942a-b7f3-476a-b94d-5bdf98580a12">Place Order</button>
+    </div>
+</div>
+</form>
+</body>
+</html>
