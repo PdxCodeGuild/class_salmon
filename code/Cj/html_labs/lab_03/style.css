@@ -35,6 +35,7 @@ body {
     background: #BF4BAC;
     transition: 0.5s;
     overflow: hidden;
+    box-shadow: 20px 20px 20px;
 }
 
 .navigation:hover,
@@ -125,6 +126,7 @@ main {
     text-align: center;
     font-size: 24px;
     color: #FFF;
+    box-shadow: 10px 20px 20px black;
 }
 .toggle.active:before {
     content: '\F00d'
@@ -158,6 +160,8 @@ p {
     display: flex;
     justify-content: center;
     color: #BF4BAC;
+    box-shadow: 20px 20px 20px black;
+    margin-bottom: 50px;
 }
 .flex-gallery {
     display: flex;
@@ -166,6 +170,7 @@ p {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
     padding-top: 24px;
     /* color: #BF4BAC; */
 }
@@ -182,6 +187,7 @@ p {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
     padding-top: 20px;
 }
 .img-span {
@@ -192,10 +198,11 @@ img {
     display: block;
     size: 100%;
     max-width: 100%;
+    box-shadow: 30px 20px 20px;
 }
 main > img {
-    padding-top: 40px;
-    padding-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 h1 {
     font-size: 50px;
