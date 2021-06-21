@@ -46,3 +46,11 @@ body {
     background: url("https://www.compathy.net/magazine/wp-content/uploads/2014/05/3874982972_0c91e8fa5c_b.jpg");
     background-size: cover;
 }
+
+input[type="radio"] {
+  margin: 0 10px 0 10px;
+}
+
+input[type="checkbox"] {
+  margin: 0 10px 0 10px;
+}
