@@ -1,0 +1,168 @@
+/* color scheme skyline
+#111C26 dark gray/blue
+#8094A6 gray/blue
+#C2E0F2 light sky blue
+#F2E96B yellow
+#F2AB6D coral
+
+color scheme deco
+#733C46
+#364959
+#8BB4D9
+#BBD8F2
+#A69C80 */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    /* box-shadow: 25px 25px 50px black; */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #111C26;
+    background-color: #F2E96B;
+}
+
+p {
+    line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6, nav {
+    font-family: 'Work Sans', sans-serif;
+}
+
+footer, main {
+    margin: 2rem;
+}
+
+header {
+    margin: 0;
+    padding: 0 2rem;
+    background-color: #C2E0F2;
+    color: #111C26;
+}
+
+header h1 {
+    margin-bottom: 0;
+}
+
+header h3 {
+    margin-top: 0;
+    line-height: .6;
+}
+
+main h2 {
+    margin-bottom: 28px;
+}
+
+nav > p {
+    padding: 1rem;
+}
+
+a {
+    color: #111C26;
+    transition: .125s ease-in-out all;
+}
+
+a:hover {
+    color: #F2E96B;
+    transition: .125s ease-in-out all;
+}
+
+nav {
+    display: flex;
+}
+
+/* footer {
+    display: none;
+} */
+
+/* input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    color: blue;
+    background-color: hotpink;
+    width: 500px;
+    height: 500px;
+    transition: .125s ease-in-out all;
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="email"]:hover {
+    color: red;
+    background-color: black;
+    width: 250px;
+    height: 150px;
+    transition: .125s ease-in-out all;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+    color: white;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    transition: .125s ease-in-out all;
+} */
+
+#address {
+    width: 370px;
+}
+#city {
+    width: 150px;
+}
+#zip {
+    width: 80px;
+}
+
+@media (min-width: 600px) {
+    .flex-gallery {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        background-color: #F2AB6D;
+        /* background-image: url("https://pbs.twimg.com/media/DiUZj6fU0AUHf42.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;  */
+        /* box-shadow: 25px 25px 50px black; */
+        /* text-shadow: 2px 2px 5px black; */
+    }
+    
+    .flex-gallery > * {
+        width: 50%;
+        
+        padding: 2rem;
+        text-align: justify;
+    }
+
+    .flex-gallery h3 {
+        margin-top: 0;
+    }
+
+    .flex-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* footer {
+        display: block;
+    } */
+}
+
+@media (min-width: 1100px) {
+    .flex-gallery > * {
+        width: 33.333%;
+    }
+}
