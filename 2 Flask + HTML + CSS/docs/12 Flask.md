@@ -42,7 +42,7 @@ app = Flask(__name__)
 
 # localhost:5000
 @app.route('/')
-def path1():
+def index():
     return 'you\'re home'
 
 # localhost:5000/path1/
