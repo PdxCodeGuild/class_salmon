@@ -1,44 +1,8 @@
-body{
-  .container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: .25fr .25fr .75fr .75fr .75fr;
-    grid-template-areas:
-        "header header header"
-        "nav nav nav nav"
-        "content1 content2 content3"
-        "content4 content5 content6"
-        "footer footer footer";
-  }
-  header{
-    display: grid;
-    grid-area: header;
-    h1{
-      display: grid;
-    }
-  }
-  #blog1{
-    display: grid;
-    grid-area: blog1;
-  }
-  #blog2{
-    display: grid;
-    grid-area: blog2;
-  }
-  #blog3{
-    display: grid;
-    grid-area: blog3;
-  }
-  #blog4{
-    display: grid;
-    grid-area: blog4;
-  }
-  #blog5{
-    display: grid;
-    grid-area: blog5;
-  }
-  #blog6{
-    display: grid;
-    grid-area: blog6;
-  }
+.parent {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: .5fr .2fr repeat(2, 1fr) .2fr;
+grid-column-gap: 10px;
+grid-row-gap: 10px;
 }
+
