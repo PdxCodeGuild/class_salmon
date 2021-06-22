@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
-    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
+    <!-- <link rel="stylesheet" href="/static/index.css"/> -->
   </head>
   <!-- the body contains the actual document that will be shown to the user -->
   <body>
@@ -30,7 +31,23 @@
     </header>
     <main>
       <h2>Here are some cities:</h2>
-      <p>Kinfolk hell of selfies sartorial aesthetic. Banh mi dreamcatcher try-hard aesthetic cray biodiesel, fashion axe sartorial subway tile DIY four dollar toast adaptogen. Stumptown flannel meh gentrify. Lyft sartorial poutine schlitz artisan mlkshk hoodie adaptogen. Enamel pin messenger bag synth etsy gentrify franzen.</p>
+      <form action="/add/" method="post">
+        <input type="number" name="add1" /> + <input type="number" name="add2" />
+        <input type="submit" value="Add" />
+      </form>
+      <p>Hello {{name}}</p>
+      {% if temperature < 50 %}
+      <p>cold</p>
+      {% elif temperature < 80 %}
+      <p>warm</p>
+      {% else %}
+      <p>hot</p>
+      {% endif %}
+      <ul>
+        {% for num in nums %}
+        <li>{{num}}</li>
+        {% endfor %}
+      </ul>
       <div class="flex-gallery">
         <div>
             <h3>Portland, OR</h3>

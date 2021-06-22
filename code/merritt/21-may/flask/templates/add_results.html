@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- root element -->
+<html lang="en">
+  <!-- the head contains metadata about the document  -->
+  <head>
+    <!-- meta tags store general metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- page title, the text that appears on a browser -->
+    <title>Demo Page</title>
+    <!-- import external css -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
+    <!-- <link rel="stylesheet" href="/static/index.css"/> -->
+  </head>
+  <!-- the body contains the actual document that will be shown to the user -->
+  <body>
+    <header class="flex-header">
+      <div>
+          <h1>CITIES</h1>
+          <h3>Here is where we all are!</h3>
+      </div>
+      <nav class="flex-header">
+          <p><a href="#">Home</a></p>
+          <p><a href="#">About</a></p>
+          <p><a href="#">More</a></p>
+          <p><a href="#">Contact Us</a></p>
+      </nav>
+    </header>
+    <main>
+        <h2>{{ total }}</h2>
+    </main>
+    <footer>
+      <p>Copyright 2021</p>
+    </footer>
+  </body>
+</html>
