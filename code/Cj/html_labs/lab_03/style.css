@@ -18,7 +18,7 @@ html {
 }
 header {
     background-color: #8BD1D9;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
 }
 
 body {
@@ -156,6 +156,11 @@ body > footer {
 p {
     margin: 0 0 1.15em;
 }
+.container {
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
 .flex-header {
     display: flex;
     justify-content: center;
@@ -193,6 +198,7 @@ p {
 .img-span {
     display: flex;
     justify-content: center;
+
 }
 img {
     display: block;

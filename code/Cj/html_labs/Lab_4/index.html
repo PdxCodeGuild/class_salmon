@@ -1,0 +1,93 @@
+<html>
+<head>
+    <Meta>
+    <title>Burrito Order Form - PDX Code Guild</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body class="flex-body">
+<header class="flex-header">
+    <h1>The Place where burritos are sold.</h1>
+    <h3>Is here!</h3>
+</header>
+<main class="flex-main">
+    <imgspan class="img-span">
+        <img src="burrito.jpg" alt="burrito" id="burrito" class="img">
+    </imgspan>
+    <span class="burrito-form">
+        <h2>Just fill out this form!</h2>
+    <form action="https://webhook.site/8e79b077-1b1b-4889-ba15-310171dc6685" method="post">
+        <div class="tortillas">
+            <label for="tortilla">Tortilla type:</label>
+            <input type="radio" name="tortilla" id="white-flour" value="white-flour" checked>
+            <label for="white-flour">White flour</label><br>
+            <input type="radio" name="tortilla" id="wheat-flour" value="wheat-flour">
+            <label for="wheat-flour">Wheat flour</label><br>
+            <input type="radio" name="tortilla" id="sun-dried" value="sun-dried">
+            <label for="sun-dried">Sun Dried Tomato</label><br>
+            <input type="radio" name="tortilla" id="spinnach" value="spinnach">
+            <label for="spinnach">Spinnach</label><br>
+            <input type="radio" name="tortilla" id="corn" value="corn">
+            <label for="corn">Corn(Gluten-free)</label><br>
+        </div>
+        <div class="proteins">
+            <label for="protein">Protein:</label>
+            <input type="checkbox" id="steak" name="steak"/>
+            <label for="steak">Steak</label>
+            <input type="checkbox" id="chicken" name="chicken"/>
+            <label for="chicken">Chicken</label>
+            <input type="checkbox" id="pork" name="pork"/>
+            <label for="pork">Pork</label>
+            <input type="checkbox" id="tofu" name="tofu"/>
+            <label for="tofu">Tofu</label>
+        </div>
+        <div class="veggies">
+            <span>
+                <input type="checkbox" id="pinto-beans" name="pinto-beans"/>
+                <label for="pinto-beans">Pinto Beans</label>
+            </span>
+            <span>
+            <input type="checkbox" id="black-beans" name="black-beans"/>
+            <label for="black-beans">Black Beans</label>
+            </span>
+            <span>
+            <input type="checkbox" id="lettuce" name="lettuce"/>
+            <label for="lettuce">Lettuce</label>
+            </span>
+            <span>
+            <input type="checkbox" id="tomatoes" name="tomatoes"/>
+            <label for="tomatoes">Tomatoes</label>
+            </span>
+            <span>
+            <input type="checkbox" id="jalapenos" name="jalapenos"/>
+            <label for="jalapenos">Jalapenos</label>
+            </span>
+            <span>
+            <input type="checkbox" id="onions" name="onions"/>
+            <label for="onions">Onions</label>
+            </span>
+            <span>
+            <input type="checkbox" id="guacamole" name="guacamole"/>
+            <label for="guacamole">Guacamole</label>
+            </span>
+            <span>
+                <input type="checkbox" id="cheese" name="cheese"/>
+                <label for="cheese">Cheese</label>
+            </span>
+            <span>
+                <input type="checkbox" id="sour-cream" name="sour-cream"/>
+                <label for="sour-cream">Sour cream</label>
+            </span>
+            <span>
+                <input type="checkbox" id="salsa" name="salsa"/>
+                <label for="salsa">Salsa</label>
+            </span>
+        </div>
+        <textarea type="text" name="additional-instructions" placeholder="Additional instructions and/or delivery details"></textarea><br>
+        <button type="submit">Submit</button>
+    </span>
+    </form>
+</main>
+<footer>
+</footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+html {
+    box-sizing: border-box;
+  }
+  /* border-box is easier for form formatting */
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, rgba(241, 238, 238, 0), rgb(255, 0, 0)), radial-gradient( rgb(255, 187, 0), rgb(255, 0, 221)) ;
+  }
+  
+  h1, h2, h3, {
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .header h1 {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      padding-bottom: .5rem;
+ }
+ .header h2 {
+    display: flex;
+    justify-content: space-around;
+    padding: none;
+    margin: none;
+ }
+.main h2{
+    padding: .25rem;
+}
+.main h3{
+    padding: .25rem;
+}
+.results {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+.legend {
+    font-family: fantasy;
+}
+.flex-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border: dashed red 5px;
+}
+#mass-flow {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width:180px;
+}
+#c_p {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 200px;
+}
+#temperature-initial {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 220px;
+}
+#temperature-exit {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 220px;
+}
+.flex-caption {
+    display: flex;
+    justify-content: left;
+    padding: 0.25rem
+}
+.flex-footer {
+    display: flex;
+    justify-content: center;
+}
+.email {
+    justify-content: center;
+}
+@media (min-width: 1020px) {
+    body {
+        font-size: 1.5rem;
+    }
+    #burrito-name {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        width:200px;
+    }
+    #secret-burrito {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        width: 300px;
+    }
+    #delivery-instructions {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        width: 320px;
+}

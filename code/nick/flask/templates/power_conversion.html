@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- root element -->
+<html lang="en">
+  <!-- the head contains metadata about the document  -->
+  <head>
+    <!-- meta tags store general metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- page title, the text that appears on a browser -->
+    <title>Company Webpage</title>
+    <!-- import external css -->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/index_powerconversion.css"/> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_powerconversion.css') }}"/>
+  </head>
+  <!-- the body contains the actual document that will be shown to the user -->
+  <body>
+      <header class="header">
+        <h1>Borehole Power Conversion Calculator</h1>
+        <h2>this is simplified!</h2>
+      </header>
+      <main class="main">
+          <h2 class = "subheader" id="expertise">
+              Calculate Now!
+          </h2>
+          <form action="" method="POST">
+            <h3>kiloWatts are classy</h3>
+            <fieldset>
+                <!-- https://www.w3schools.com/tags/tag_fieldset.asp -->
+              <legend class="legend">It might be right.</legend>
+              <div class="grid-form-container">
+              <label for="mass-flow">What is the mass flow in liters per second?</label>
+              <input id="mass-flow" name="mass-flow" type="text" required placeholder="liters/sec"><br>
+              <label for="c_p">What is the specific heat capacity of your fluid (kJ/kg)?</label>
+              <input id="c_p" name="c_p" type="text" required placeholder="4.184">
+              <br>
+              <label for="temperature-initial">What is the initial temperature of your fluid coming out of the borehole?</label>
+              <input id="temperature-initial" name="temperature-initial" type="text" required placeholder="degrees celcius">
+              <br>
+              <label for="temperature-exit">What is the exit temperature of your fluid from the power cycle?</label>
+              <input id="temperature-exit" name="temperature-exit" type="text" required placeholder="degrees celcius">
+              <br>
+              <!-- <label id="extras">Extras, fatty?</label>
+              <div id="extras-checkboxes">
+                <input id="cheese-choice" type="checkbox" name="extras-guts" value="cheese" required><label for="cheese-choice">Cheese please.</label><br>
+                <input id="sour-cream-choice" type="checkbox" name="extras-guts" value="sour-cream"><label for="sour-cream-choice">Sour Cream</label><br>               
+              </div> -->
+              <br>
+              <div>                
+                <input type="submit" value="Calculate the power">
+              </div>
+            </fieldset>
+          </form>
+          <figure class="flex-image">
+            <img src="https://thumbs.dreamstime.com/b/iceland-geothermal-fumarole-22056284.jpg" alt="hot boreholes."/>
+          </figure>
+          <figure-caption class="flex-caption">
+            <p>power the world.</p>
+          </figure-caption>
+          <footer class = "flex-footer">
+              <div>
+                <p>Hot stuffffff.</p><br>
+                <p><a href="mailto:nicholas.a.fry@gmail.com" class="email" id="contact">notmyemail@notreal.com</a></p>
+              </div>
+          </footer>
+      </main>
+
+  </body>
+</html>
