@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- root element -->
+<html lang="en">
+  <!-- the head contains metadata about the document  -->
+  <head>
+    <!-- meta tags store general metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- page title, the text that appears on a browser -->
+    <title>Group Flask</title>
+    <!-- import external css -->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_powerconversion.css') }}"/>
+  </head>
+  <!-- the body contains the actual document that will be shown to the user -->
+  <body>
+    <header class="header">
+      <div>
+          <h1>This is a header</h1>
+          <h3>This is a smaller header.</h3>
+      </div>
+    </header>
+    <main class="results">
+        <p>This is the main text</p>
+        <ul>
+          {% for i in list_of_dicts %}
+          <!-- this is for the task -->
+          <li>The task is to {{i['text']}}. The priority is ({{i['priority']}}).</li>
+          {% endfor %}
+        </ul>
+    </main>
+    <footer>
+      <p>Copyright 2021</p>
+    </footer>
+  </body>
+</html>
