@@ -6,6 +6,7 @@ db = JsonDB('db.json')
 db.load()
 
 data = db.get('todos')
+print(data)
 # x += 1
 db.set('x', data)
 db.save()
@@ -13,7 +14,7 @@ db.save()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return
+    return render_template('index.html', todos=data)
 
 
 app.run(debug=True)

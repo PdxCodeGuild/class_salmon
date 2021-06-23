@@ -1,5 +1,15 @@
-<ul>{%for i in db.json%}
-    <li>{{i}}</li>
-    {%endfor%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for todo in todos %}
+        <li>Task: {{todo["text"]}}, Priority: {{todo["priority"]}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
 
-</ul>
