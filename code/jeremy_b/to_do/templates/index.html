@@ -5,11 +5,26 @@
     <title>Title</title>
 </head>
 <body>
+    <h1>Current tasks</h1>
     <ul>
         {% for todo in todos %}
         <li>Task: {{todo["text"]}}, Priority: {{todo["priority"]}}</li>
         {% endfor %}
     </ul>
+    <form action="/add" method="post">
+        <div class="task">
+            <h3>Tasks to add</h3>
+            <input type="text" name="text"/>
+        </div>
+        <p>priority</p>
+        <label>low<input type="radio" name="priority" value="low" required/></label><br>
+        <label>med<input type="radio" name="priority" value="med" required/></label><br>
+        <label>high<input type="radio" name="priority" value="high" required/></label><br>
+        <div class="submit">
+            <button type="submit">Add</button>
+        </div>
+        </div>
+    </form>
 </body>
 </html>
 
