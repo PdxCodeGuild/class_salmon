@@ -4,7 +4,7 @@ import random
 
 app = Flask(__name__)
 
-def password_gen(pw_length= 10):
+def password_gen(pw_length= 6):
     password = ''
     digits = string.digits
     letters = string.ascii_letters
