@@ -4,13 +4,25 @@ body {
     border-style: solid;
     border-color:rgb(165, 145, 29);
 }
+a:link {
+    color: white;
+  }
+  /* visited link */
+  a:visited {
+    color: purple;
+  }
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  } 
+  /* selected link */
+  a:active {
+    color: forestgreen;
+  }
 header {
-    display: flex;
-    flex-direction: column;
     padding: 5px;
     background: #564eb1;
     color: rgb(165, 145, 29);
-    justify-content: center;
 }
 .title {
     display: flex;
@@ -40,7 +52,8 @@ nav {
     background: #564eb1;
     border: #7e7e80 ;
     width: 25%;
-    float: right;
+    height: 130rem;
+    float: left;
 }
 .header {
     display: flex;
@@ -80,8 +93,8 @@ footer{
         align-items: flex-end;
         background: #564eb1;
         border: #7e7e80 ;
-        width: 25%;
-        float: right;
+        width: 10%;
+        height: 32rem;
     }
 }
 @media screen and (min-width: 980px) {
