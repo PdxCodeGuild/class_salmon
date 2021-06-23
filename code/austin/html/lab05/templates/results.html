@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
+</head>
+<body class="wrapper">
+  <header>
+    <h1>Rot Encrypter</h1>
+  </header>
+  <main>
+    <div>
+      <h3>Original text</h3>
+      <p class="userinput">{{ user_input['input_text'] }}</p>
+    </div>
+    <div>
+      <h3>Rotated by {{ user_input['rot']}}</h3>
+    </div>
+    <div>
+      <h3>Encrypted text:</h3>
+      <p class="userinput">{{ encrypted }}</p>
+    </div>
+  </main>
+</body>
+</html>

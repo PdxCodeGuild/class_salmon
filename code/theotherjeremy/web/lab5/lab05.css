@@ -58,9 +58,17 @@ menu {
   align-self: flex-end;
 }
 
+h1{background-color: darkseagreen;
+    color: blue;    
+}
+
+main{
+    color:rgb(15, 10, 10); 
+    background-color:darkolivegreen;
+}
 body {
   background-color: black;
-  color: rgb(168, 168, 168);
+  color: rgb(143, 5, 5);
   font-family: "brush script mt", cursive;
 }
 
