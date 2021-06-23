@@ -1,11 +1,11 @@
+<!DOCTYPE html>
+
 <!-- La05 Intro to Flask
 
 Random Password Generator
 Simple version: the user just enters in the number of characters in the password
 Complex version: the user enters the number of uppercase letters, lowercase letters, numbers, and special character -->
 
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,8 +16,8 @@ Complex version: the user enters the number of uppercase letters, lowercase lett
 </head>
 <body>
     <form action="/" method="post">
-        <label for="password">How many characters do you want your new password to be? Enter a number between 6-12</label>
-        <input type="text" name="password">
+        <label for="password">How many characters do you want your new password to be?</label>
+        <input type="text" name="password" id="password" placeholder="Enter a number">
         <input type="submit" value="submit">
     </form>
     <p>Your password is: {{password}}</p>
