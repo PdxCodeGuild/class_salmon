@@ -21,10 +21,10 @@ def index():
     if request.method=='POST':
         pw_length = int(request.form['password'])
         return render_template('lab05.html', password=password_gen(pw_length))
-    return render_template('lab05.html', password=password_gen(5))
+    return render_template('lab05.html', password=password_gen(0))
     
-@app.route('/other_route')
-def other_route():
-    return render_template('lab05.html', password='abc123!@')
+# @app.route('/other_route')
+# def other_route():
+#     return render_template('lab05.html', password='abc123!@')
 
 app.run(debug=True)
