@@ -28,6 +28,21 @@
           <li>The task is to {{i['text']}}. The priority is ({{i['priority']}}).</li>
           {% endfor %}
         </ul>
+        <form action="/" method="POST">
+        <div>
+          <label for="text">Add list item</label><br>
+          <input type="text" name="text" id="text" placeholder="required" required><br>
+        </div>
+        <div>
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority">
+            <option value=low  >low</option>
+            <option value=medium  >medium</option>
+            <option value=high  >high</option>
+          </select><br>
+        </div>
+        <button type="submit">Add to list</button>
+      </form> 
     </main>
     <footer>
       <p>Copyright 2021</p>

@@ -9,6 +9,9 @@ def index():
     db.load()
     x=db.get('todos')
     if request.method == "POST":
+        print(dict(request.form))
+        db.data["todos"].append(request.form)
+        db.save()
         return render_template('return.html', user_dict=request.form, todo=x)
     
     else:
