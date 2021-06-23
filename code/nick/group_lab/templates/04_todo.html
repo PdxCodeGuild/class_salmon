@@ -10,42 +10,96 @@
     <title>Group Flask</title>
     <!-- import external css -->
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index_powerconversion.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_todo.css') }}"/>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+       
   </head>
   <!-- the body contains the actual document that will be shown to the user -->
   <body>
-    <header class="header">
-      <div>
-          <h1>This is a header</h1>
-          <h3>This is a smaller header.</h3>
-      </div>
-    </header>
-    <main class="results">
-        <p>This is the main text</p>
-        <ul>
-          {% for i in list_of_dicts %}
-          <!-- this is for the task -->
-          <li>The task is to {{i['text']}}. The priority is ({{i['priority']}}).</li>
-          {% endfor %}
-        </ul>
-        <form action="/" method="POST">
+
+    <div class="container">
+
+      <header >
+
         <div>
-          <label for="text">Add list item</label><br>
-          <input type="text" name="text" id="text" placeholder="required" required><br>
+
+            <h1 class="center-align">Things To Do</h1>
+
+            <h3>This is a smaller header.</h3>
+            
         </div>
-        <div>
-          <label for="priority">Priority:</label>
-          <select name="priority" id="priority">
-            <option value=low  >low</option>
-            <option value=medium  >medium</option>
-            <option value=high  >high</option>
-          </select><br>
-        </div>
-        <button type="submit">Add to list</button>
-      </form> 
-    </main>
-    <footer>
-      <p>Copyright 2021</p>
-    </footer>
+
+      </header>
+
+      <main >
+
+          <p>This is the main text</p>
+
+          <div class="row">
+            <h3 class="col s6 left-align">Tasks</h3>
+            <h3 class="col s6 right-align">Priority</h3>
+          </div>
+
+          <ul class="row">
+
+            {% for i in list_of_dicts %}
+
+            <li class="row">           
+
+            <!-- this is for the task -->
+            
+            <div class="col s10">{{i['text']}}</div>
+
+            <div class="col s2">({{i['priority']}})</div>
+
+            </li>
+            {% endfor %}
+
+          </ul>
+
+          <form action="/" method="POST">
+
+          <div>
+
+            <label for="text">Add list item</label><br>
+
+            <input class="browser-default" type="text" name="text" id="text" placeholder="required" required><br>
+
+          </div>
+
+          <div>
+
+            <label for="priority">Priority:</label>
+
+            <select class="browser-default" name="priority" id="priority">
+
+              <option value=low  >low</option>
+
+              <option value=medium  >medium</option>
+
+              <option value=high  >high</option>
+
+            </select><br>
+
+          </div>
+
+          <button type="submit">Add to list</button>
+
+        </form> 
+
+      </main>
+
+      <footer>
+
+        <p>Copyright 2021</p>
+
+      </footer>
+
+    </div>
   </body>
 </html>
