@@ -20,6 +20,7 @@ body {
 a{
     color:burlywood;
 }
+
 header {
     margin-top: 100px;
     text-align: center;
@@ -30,6 +31,7 @@ header {
 h1 {
     font-size: 50px;
 }
+
 nav {
     display: flex;
     justify-content: center;
@@ -85,9 +87,11 @@ p {
 main {
     padding-bottom: 120px;
 }
+
 footer {
     display: none;
 }
+
 .side_header {
     text-align: center;
     font-family: 'Tajawal', sans-serif;

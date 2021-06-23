@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
-app = Flask(__name__)
 import string
 import random
 
+app = Flask(__name__)
 
 def password_gen(pw_length= 10):
     password = ''
