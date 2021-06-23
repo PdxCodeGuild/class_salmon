@@ -4,7 +4,6 @@ app = Flask(__name__)
 db = JsonDB()
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     db.load()
