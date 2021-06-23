@@ -1,20 +1,21 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 app = Flask(__name__)
+
+user_text =""
 
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         user_text = request.form['input_text']
-        print(user_text)
-        ciph = user_text
-        return render_template('ciphered.html', ciph=ciph)
-        # return render_template('index.html')
+        # print(request.form['input_text'])
+        # print(user_text)
+        # ciph = user_text
+        # return render_template('ciphered.html', ciph=ciph)
+        return render_template('index.html')
     else: 
-        ciph = user_text
-        return render_template('ciphered.html', ciph=ciph)
+        return render_template('index.html')
 
-# @app.route('/', methods=["GET"])
-def ciphered(text):
+def cipher(text):
     user_input = text
     user_input = list(user_input)
 
@@ -34,6 +35,11 @@ def ciphered(text):
 
     return output
 
+@app.route('/ciphered/', methods=["POST"])
+def ciphered():
+    ciph = cipher(request.form['input_text'])
+    # print(ciph)
+    return render_template('ciphered.html', ciph=ciph)
 
 
 app.run(debug=True)
