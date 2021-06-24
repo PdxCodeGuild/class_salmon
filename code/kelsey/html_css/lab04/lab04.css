@@ -46,6 +46,8 @@ h4 {
     font-size: 18px;
     letter-spacing: 5px;
     color: hsla(89, 94%, 21%, 1);
+    background-color: rgba(201, 201, 22, 0.74) !important;
+    border-radius: 20%;
     margin: 8px;
     padding: 8px;
 }
