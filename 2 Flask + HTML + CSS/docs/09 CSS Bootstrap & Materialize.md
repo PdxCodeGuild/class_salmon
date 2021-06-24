@@ -12,6 +12,12 @@
   - [Major Features](#major-features-1)
   - [Starter Template](#starter-template-1)
 
+# Other Recommended Frameworks
+
+- [Semantic UI](https://semantic-ui.com)
+- [Skeleton](http://getskeleton.com)
+- [Tailwind CSS](https://tailwindcss.com)
+
 
 ## Bootstrap
 
