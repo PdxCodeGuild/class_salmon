@@ -24,8 +24,7 @@
 
     </head>
 
-    <body>
-        <form action="https://webhook.site/9798cbb5-b17b-4ede-ac98-cf89c4f092c2" method="POST">
+    <header>
 
             <!-- Username -->
             <label for="username">Username:</label>
@@ -35,13 +34,19 @@
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required minlength="6" maxlength="64" value="{password}"><br>
 
+    </header>
+
+    <body>
+        <form action="https://webhook.site/9798cbb5-b17b-4ede-ac98-cf89c4f092c2" method="POST">
+
             <!-- Name -->
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" multiple="2" required minlenght="3" value="{fname}"><br>
 
             <!-- Email -->
             <label for="email">E-Mail:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email"><br>
+
             <!-- Phone Number -->
             <!-- Date of Birth -->
             <!-- Social Security Number -->

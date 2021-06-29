@@ -38,7 +38,6 @@ def cipher(text):
 @app.route('/ciphered/', methods=["POST"])
 def ciphered():
     ciph = cipher(request.form['input_text'])
-    # print(ciph)
     return render_template('ciphered.html', ciph=ciph)
 
 

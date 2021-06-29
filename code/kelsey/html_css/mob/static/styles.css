@@ -1,0 +1,30 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    text-align: center;
+    line-height: 2rem;
+    color: rgba(255, 255, 255, 0.877);
+    background-color: #482728;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    background-color: #B287A3;
+    margin: 3rem;
+    padding: 5rem 0;
+}
+
+ul {
+    text-align: left;
+    font-family: 'Indie Flower', cursive;
+}
+
+label { 
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}

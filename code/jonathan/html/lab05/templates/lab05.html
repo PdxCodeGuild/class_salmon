@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Cipher</title>
+</head>
+<body>
+    <form name="cipher" action="/cipher" method="post">
+        <div>
+            <label for="message">Message to encrypt</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" placeholder="Enter text here" required></textarea><br>
+            <label for="rotation">Rotation</label><br>
+            <input type="text" id="rotation" name="rotation" maxlength="2" required/> 
+        </div>
+        <div class="submit">
+            <button type="submit">Cipher Go!</button>
+        </div>
+        </div>
+    </form>
+</body>
+</html>
