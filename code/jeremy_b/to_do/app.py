@@ -8,8 +8,8 @@ db.load()
 data = db.get('todos')
 print(data)
 # x += 1
-db.set('x', data)
-db.save()
+# db.set('x', data)
+# db.save()
 
 
 @app.route('/', methods=['GET', 'POST'])
