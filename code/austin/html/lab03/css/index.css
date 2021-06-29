@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}
+.header, .footer, .main {
+  display: flex;
+}
+
+body{
+  background-color: tan;
+  margin: 0mm;
+  padding: 0mm;
+}
+
+aside{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  background-color:rgb(86, 170, 93);
+  margin: 0mm;
+  padding: 0mm;
+  font-size: 2rem;
+}
+.aside{
+  padding: 10pt;
+}
+.headlogo{
+  max-height: 4rem;
+  border-radius: 50%;
+  align-self: center;
+}
+
+nav  a {
+  padding: 1rem;
+  color: seashell;
+}
+
+nav {
+  display: flex;
+  justify-content:stretch;
+  flex-direction: row; 
+  font-size: 2rem;
+}
+h3{
+  text-align: center;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.bodytext{
+  padding: 10px;
+  margin: 10px;
+}
+.bodylogo{
+  max-width: 100vmax;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px;
+}
+h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: seashell;
+  font-size: 4rem;
+}
+.logoname{
+  display: flex;
+}
+form{
+  max-height: 2rem;
+}
+@media (min-width: 600px) {
+  .bodylogo{
+    max-width: 50%;
+  }
+  .row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  aside{
+    max-height: 5vmax;
+  }
+  .headlogo{
+    max-height:4vmax;
+  }
+}

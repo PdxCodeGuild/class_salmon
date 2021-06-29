@@ -1,16 +1,8 @@
-body.container {
+.parent {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "header header header" "nav nav nav nav" "content1 content2 content3" "content4 content5 content6" "footer footer footer"; }
-
-header {
-  grid-area: header; }
-  header h1 {
-    font-family: 'Staatliches', cursive;
-    font-size: x-large; }
-  header h2 {
-    font-family: 'Staatliches', cursive;
-    font-size: large; }
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.5fr 0.2fr repeat(2, 1fr) 0.2fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px; }
 
 /*# sourceMappingURL=lab02v3.css.map */

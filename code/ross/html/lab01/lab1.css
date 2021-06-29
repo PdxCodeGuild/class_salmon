@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a:link {
+    color: blue
+}
+a:visited {
+    color:white
+}
+body {
+    background: url("20210514_153102.jpg") no-repeat fixed center;
+    background-size: 100%;
+    background-blend-mode: lighten;
+    text-align: center;
+    color: whitesmoke;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    margin: 10px;
+    background: #73AD21;
+    font: bold;
+}
+.intro {
+    width:80%;
+    margin-bottom: 20px;
+}
+.place-table {
+    list-style-image: url('husky.jpeg') height="20";
+    table-layout: fixed;
+    padding: 3px;
+    margin: 10px;
+}
+.places li {
+    /* list-style-image: url('husky.jpeg'); */
+    list-style-type: upper-roman;
+    text-align:center;
+    padding: 10px;
+    list-style-type: circle;
+}
+img {
+    border-radius: 5px;
+    background: #73AD21;
+    padding: 5px;
+    width: 75%;
+    height: auto;
+}
+.quote {
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+    font-family: 'Viaoda Libre', cursive;
+    background: #73AD21;
+    width: 80%;
+    margin: 23px;
+}

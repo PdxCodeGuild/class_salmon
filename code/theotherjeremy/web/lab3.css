@@ -9,6 +9,9 @@ div {
     "Lucida Sans Unicode";
 }
 
+p {background-color: aquamarine;
+    color: violet}
+
 a {
   background-color: black;
   color: rgb(168, 168, 168);

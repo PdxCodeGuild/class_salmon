@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+
+
+.tortillas {
+    display: flex;
+    flex-direction: row;
+}
+.protein {
+    display: flex;
+    flex-direction: row;
+}
+.veggies {
+    display: flex;
+    flex-direction: column;
+}
+textarea {
+    margin: 0px;
+    width: 400px;
+    height: 45px;
+}
+header {
+    margin: 0;
+    padding: 0;
+    background-color: goldenrod;
+}
+.flex-body {
+    display: flex;
+    flex-direction: column;
+}
+.flex-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.flex-main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-evenly;
+}
+.img {
+    display: block;
+    size: 100%;
+    max-width: 100%;
+    box-shadow: 30px 20px 20px;
+}
+.img-span {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 30%;
+    justify-content: center;
+    align-items: center;
+}
+.burrito-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:auto;
+}
+form {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+label {
+    padding-right: 15px;
+}
+div {
+    padding: 15px;
+}
+span {
+    padding: 5px;
+}

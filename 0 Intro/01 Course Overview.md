@@ -136,6 +136,7 @@ Students will submit lab solutions by using `commit` and `push` to a repository 
   - Materialize (CSS)
   - Requests (Python)
   - Vue.js (JavaScript)
+  - Django Rest Framework (Python)
 - Languages
   - CSS
   - HTML
@@ -239,9 +240,9 @@ For your capstone presentation, you should plan out what features of your projec
 ## Rough Timeline
 
 - Week 1, 2, 3, 4: Python
-- Week 4, 5: HTML + CSS
-- Week 6, 7, 8: JavaScript
-- Week 9, 10, 11: Django
+- Week 5, 6: HTML + CSS + Flask
+- Week 7, 8, 9: JavaScript + Vue
+- Week 9, 10, 11: Django + Django Rest Framework
 - Week 12, 13, 14: Capstone
 
 ## Code of Conduct

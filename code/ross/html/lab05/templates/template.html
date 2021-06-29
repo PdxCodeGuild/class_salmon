@@ -1,0 +1,15 @@
+<p>Hello {{name}}</p>
+
+{% if temperature < 50 %}
+<p>cold</p>
+{% elif temperature < 80 %}
+<p>warm</p>
+{% else %}
+<p>hot</p>
+{% endif %}
+
+<ul>
+  {% for num in nums %}
+  <li>{{num}}</li>
+  {% endfor %}
+</ul>

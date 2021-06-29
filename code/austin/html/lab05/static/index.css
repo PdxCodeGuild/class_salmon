@@ -1,0 +1,38 @@
+html {
+  box-sizing: border-box;
+  text-align: justify;
+  max-width: 100vmax;
+  padding: 10px;
+}
+.wrapper {
+  max-width: 100vmax;
+}
+main{
+  display: flex;
+  justify-content: space-around;
+  max-width: 100vmax;
+}
+header{
+  text-align: center;
+  background-color: rgb(0, 204, 255);
+  padding: 0pt;
+}
+
+.taco{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.userinput{
+  word-wrap: break-word;
+}
+input{
+  max-width: 100%;
+}
+h3{
+  text-align: center;
+}
+button{
+  align-self: center ;
+}

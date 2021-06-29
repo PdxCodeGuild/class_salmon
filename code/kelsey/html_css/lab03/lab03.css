@@ -57,8 +57,10 @@ article {
     display: block;
     padding: 5%;
     text-align: center;
+    margin: 30px;
     margin-bottom: 50px;
-    /* want borders around each box */
+    border: 3px solid white;
+    border-radius: 20%;
     /* change color of button labels*/
 }
 

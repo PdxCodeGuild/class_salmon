@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Unit Converter</title>
+</head>
+<body>
+    <form name="conversion-form" action="/convert_units" method="post">
+        <div>
+            <label for="input-length">Length to convert:<span>*</span></label>
+            <input type="text" name="input-length"  maxlength="5" id="input-length" required="required">
+        </div>
+        <div>
+            <label for="input-units">Original Units<span>*</span></label>
+            <select name="input-units" id="input-units" required="required">
+                <option id="in" selected="true" value="in">inches</option>
+                <option value="ft" id="ft">feet</option>
+                <option value="yd" id="yd">yards</option>
+                <option value="m" id="m">meters</option>
+                <option value="km" id="ikm">kilometers</option>
+                <option value="mi" id="mi">miles</option>
+            </select>
+        </div>
+        <div>
+            <label>Output Units<span>*</span></label>
+            <select name="output-units" id="output-units" required="required">
+                <option value="in" id="out-in">inches</option>
+                <option id="out-ft" selected="true" value="ft">feet</option>
+                <option value="yd" id="out-yd">yards</option>
+                <option value="m" id="out-m">meters</option>
+                <option value="km" id="out-km">kilometers</option>
+                <option value="mi" id="out-mi">miles</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit"  name="convert-button"  id="convert-button">Convert</button>
+        </div>
+    </form>
+</body>
+</html>
