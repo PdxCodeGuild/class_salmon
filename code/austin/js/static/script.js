@@ -10,7 +10,7 @@ def num_matches():
         if winning_nums[i] == entry_nums[i]:
             matches+=1
     return matches*/
-var function pic6() {
+function pic6() {
     let numbers = []
     for (let i=0; i<6; i++) {
         //console.log(i)
@@ -20,16 +20,38 @@ var function pic6() {
         //console.log(numbers);
     }return numbers
 }
-console.log(pic6())
+//console.log(pic6())
 
 function numMatches(){
     let winningNums = pic6();
-    let entryNums =  pic6();
-    let matches = 0;
-    for (let i=0; i<6; i++)
-        if 
+    let balance = 0
+    let prizes = {
+        0:0,
+        1:4,
+        2:7,
+        3:100,
+        4:50000,
+        5:1000000,
+        6:25000000
+    }
+    for (let i=0; i<100000; i++){
+        let entryNums =  pic6();
+        let matches = 0;
+        for (let i=0; i<6; i++){
+            if (winningNums[i] === entryNums[i]){
+                matches++
+            }
+            //console.log(entryNums)
+        }
+        balance = balance + prizes[matches] - 2
+        console.log(balance)
+    }
+      //console.log(winningNums)
+    console.log(balance)
+    alert(`The balance after 100,000 games is ${balance}`)
 }
-
+numMatches()
+//console.log(numMatches())
 /* let a = parseFloat(prompt("first number"))
 let b = parseFloat(prompt("second number"))
 
