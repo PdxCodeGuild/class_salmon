@@ -33,7 +33,7 @@ function rot13(code) {
         let startingIndex = letters.indexOf(code[i]) + 1
         if (startingIndex <= 12) {
             output += letters[startingIndex + 13]
-        } else if (startingIndex+1 > 12 && startingIndex < 26) {
+        } else if (startingIndex > 12 && startingIndex < 26) {
             output += letters[startingIndex - 13]
         }
     }
