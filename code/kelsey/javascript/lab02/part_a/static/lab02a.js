@@ -21,8 +21,21 @@
 // # English	a	b	c	d	e	f	g	h	i	j	k	l	m	n	o	p	q	r	s	t	u	v	w	x	y	z
 // # ROT+13	n	o	p	q	r	s	t	u	v	w	x	y	z	a	b	c	d	e	f	g	h	i	j	k	l	m
 
+
+let letters = 'abcdefghijklmnopqrstuvwxyz'
 let code = prompt('Enter your letters: ').toLowerCase()
 
 function rot13(code) {
-    
+    let output = ''
+    for (i = 0; i < code.length; i++) {
+        let startingIndex = letters.indexOf(code[i])
+        if (startingIndex+1 <= 12) {
+            output += letters[startingIndex+1 + 13]
+        } else if (startingIndex+1 > 12 && startingIndex+1 < 26) {
+            output += letters[startingIndex+1 - 13]
+        }
+    }
+    return output
 }
+
+alert(rot13(code))
