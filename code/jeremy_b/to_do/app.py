@@ -7,8 +7,13 @@ db.load()
 
 data = db.get('todos')
 # x += 1
+<<<<<<< HEAD
+# db.set('x', data)
+# db.save()
+=======
 #db.set('x', data)
 #db.save()
+>>>>>>> f673fd74a580f60fd6292a19c462759018615d5c
 
 
 @app.route('/', methods=['GET'])
