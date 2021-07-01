@@ -1,6 +1,7 @@
-  
+
 // # Lab 2: Average Numbers
 // # We're going to average a list of numbers. Start with the following list, iterate through it, keeping a 'running sum'
+
 // nums = [5, 0, 8, 3, 4, 1, 6]
 
 // i = 0
@@ -27,4 +28,7 @@
 //     else:
 //         user_number = int(user_number)
 //         numbers.append(user_number)
+
+//         print(numbers)
+
 //         print(numbers)
