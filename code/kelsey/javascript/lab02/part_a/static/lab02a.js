@@ -27,11 +27,11 @@ let code = prompt('Enter your letters: ').toLowerCase()
 function rot13(code) {
     let output = ''
     for (i = 0; i < code.length; i++) {
-        let startingIndex = letters.indexOf(code[i])
-        if (startingIndex+1 <= 12) {
-            output += letters[startingIndex+1 + 13]
-        } else if (startingIndex+1 > 12 && startingIndex+1 < 26) {
-            output += letters[startingIndex+1 - 13]
+        let startingIndex = letters.indexOf(code[i]) + 1
+        if (startingIndex <= 12) {
+            output += letters[startingIndex + 13]
+        } else if (startingIndex+1 > 12 && startingIndex < 26) {
+            output += letters[startingIndex - 13]
         }
     }
     return output
