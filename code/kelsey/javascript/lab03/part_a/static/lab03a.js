@@ -1,9 +1,4 @@
-
-// # Lab 2: Average Numbers
-// # We're going to average a list of numbers. Start with the following list, iterate through it, keeping a 'running sum'
-
-// nums = [5, 0, 8, 3, 4, 1, 6]
-
+// lab 01 Unit Converter
 
 // # Version 1
 // # Ask the user for the number of feet, and print out the equivalent distance in meters. Hint: 1 ft is 0.3048 m. So we can get the output in meters by multiplying the input distance by 0.3048. Below is some sample input/output.
@@ -73,22 +68,4 @@ let totalMeters = parseFloat(distance) * convertedUnits[inputUnits]
 let finalConversion = totalMeters / convertedUnits[outputUnits]
 
 alert(`${distance} ${inputUnits} = ${finalConversion} ${outputUnits}`)
-
-// # Ask the user to enter the numbers one at a time, putting them into a list. If the user enters 'done', then calculate and display the average. The following code demonstrates how to add an element to the end of a list.
-// numbers = []
-
-// while True:
-//     user_number = input('Please enter a number or "done" to quit: ')
-//     i = 0
-//     for n in numbers:
-//         i += n
-//         avg_nums = i / len(numbers)
-//     if user_number == 'done':
-//          print(f'You entered {numbers}\nThe average of the numbers is {avg_nums:.2f}.')
-//          break
-//     else:
-//         user_number = int(user_number)
-//         numbers.append(user_number)
-
-//         print(numbers)
 
