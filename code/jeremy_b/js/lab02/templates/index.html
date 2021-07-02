@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
     <title>Lab 2a</title>
+    <script src="{{ url_for('static', filename='lab02b.js') }}"></script>
 </head>
 <body>
-
-<script src="{{ url_for('static', filename='lab02a.js') }}"></script>
+<form id="num2phrase">
+    <div class="rendered-form">
+        <div class=>
+            <label for="num-to-translate">Number</label>
+            <input type="number" placeholder="1-999" name="num-to-translate" min="1" max="999" id="num-to-translate" required="required">
+        </div>
+        <div>
+            <button type="submit" class="btn-default btn" name="submit-button" id="submit-button" onclick="translateNumber()">Translate Number</button>
+        </div>
+        <div>
+            <button type="reset" class="btn-default btn" name="reset-button" access="false" id="reset-button">Reset Form</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>
