@@ -10,7 +10,7 @@ function hundreds(number){
     hundreds = {
         1: "one hundred",
         2: "two hundred",
-        3: "three Hundred",
+        3: "three hundred",
         4: "four hundred",
         5: "five hundred",
         6: "six hundred",
@@ -88,20 +88,64 @@ function special_tens(number) {
 
 
 // get number to input
-let num_to_translate = prompt("Enter an integer between 1 and 999: ").split("");
-console.log(num_to_translate)
+let user_input = prompt("Enter an integer between 1 and 999: ");
+console.log(user_input);
 
+// Translate numbers to integers.
+let num_to_translate = user_input.split('').map(function(item) {
+    return parseInt(item, 10);
+});
+
+console.log(num_to_translate)
+console.log(num_to_translate.length)
 // Translate the number to phrase
 if (num_to_translate.length === 1){
-    console.log("In if")
-    alert(ones(parseInt(num_to_translate[0])));
-} else if (num_to_translate.length === 2 && parseInt(num_to_translate[0]) === 1 && (parseInt(num_to_translate[1]) in [0, 1, 2, 3, 5])){
-    console.log("In first if else")
-    alert(ones(num_to_translate[1]) + special_tens(num_to_translate));
-} else if (num_to_translate.length === 2 && parseInt(num_to_translate[0]) === 1 && (parseInt(num_to_translate[1]) in [4, 6, 7, 8, 9])){
-    console.log("in second if else")
-    alert(ones(num_to_translate[1]) + special_tens(num_to_translate));
-} else if (num_to_translate.length === 3 && parseInt(num_to_translate[1]) === 1 && parseInt(num_to_translate[2] in [0, 1, 2, 3, 5])){
+    console.log("In if");
+    alert(ones(num_to_translate[0]));
+} else if (num_to_translate.length === 2 && num_to_translate[0] === 1 && [0, 1, 2, 3, 5].includes(num_to_translate[1])){
+    console.log("in first else if.")
+    alert(special_tens(num_to_translate));
+} else if (num_to_translate.length === 2 && num_to_translate[0] === 1 && [4, 6, 7, 8, 9].includes(num_to_translate[1])){
+    console.log("In second else if");
+    alert(ones(num_to_translate[1]) + tens(num_to_translate[0]));
+} else if (num_to_translate.length === 2 && num_to_translate[0] > 1 && num_to_translate[1] === 0){
+    alert(tens(num_to_translate[0]))
+} else if (num_to_translate.length === 2 && num_to_translate[0] > 1){
+    console.log("In third else if");
+    alert(tens(num_to_translate[0]) + "-" + ones(num_to_translate[1]));
+} else if (num_to_translate.length === 3 && num_to_translate[1] === 0 && num_to_translate[2] ==0){
+    alert(hundreds(num_to_translate[0]));
+} else if (num_to_translate.length === 3 && num_to_translate[1] > 1){
+    console.log("in fourth else if");
+    alert(hundreds(num_to_translate[0]) + " " + tens(num_to_translate[1]) + "-" + ones(num_to_translate[2]));
+} else if (num_to_translate.length === 3 && num_to_translate[1] === 0){
+    console.log("in 5th else if");
+    alert(hundreds(num_to_translate[0]) + " " + ones(num_to_translate[2]));
+} else if (num_to_translate.length === 3 && num_to_translate[1] === 1 && [0, 1, 2, 3, 5].includes(num_to_translate[2])){
+    console.log("in 6th else if");
+    alert(hundreds(num_to_translate[0]) + " " + special_tens(num_to_translate));
+} else if (num_to_translate.length === 3 && num_to_translate[1] === 1 && [4, 6, 7, 8, 9].includes(num_to_translate[2])){
+    console.log("in seventh else if");
+    alert(hundreds(num_to_translate[0]) + " " + ones(num_to_translate[2]) + tens(num_to_translate[1]));
+}
+
+else{
+    console.log("in else");
+    alert("Check the number you are trying to translate and try again.");
+}
+
+
+
+
+
+
+
+/*
+else if (num_to_translate.length === 3 && parseInt(num_to_translate[1]) === 1 && parseInt(num_to_translate[2] in [0, 1, 2, 3, 5])){
+    console.log("in third if else")
+
+
+else if (num_to_translate.length === 3 && parseInt(num_to_translate[1]) === 1 && parseInt(num_to_translate[2] in [0, 1, 2, 3, 5])){
     console.log("in third if else")
     alert(hundreds(num_to_translate[0] + " " + special_tens(num_to_translate)));
 } else if (num_to_translate.length === 3 && parseInt(num_to_translate[1]) === 1 && parseInt(num_to_translate[2]) in [4, 6, 7, 8, 9]){
@@ -110,5 +154,5 @@ if (num_to_translate.length === 1){
 } else{
     console.log("in else")
     alert(hundreds(num_to_translate[0]) + " " + tens(num_to_translate[1]) + "-" + ones(num_to_translate[2]));
-}
+}*/
 
