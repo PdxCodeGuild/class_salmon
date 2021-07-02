@@ -1,4 +1,5 @@
 // # Lab 4: Blackjack Advice
+
 // # Let's write a python program to give basic blackjack playing advice during a game by asking the player for cards. First, ask the user for three playing cards (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K). 
 // first_card = input("What's your first card? ")
 // second_card = input("What's your second card? ")
