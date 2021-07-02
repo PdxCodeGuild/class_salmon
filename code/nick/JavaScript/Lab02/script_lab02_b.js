@@ -1,10 +1,14 @@
-let card_selection1 = document.getElementById("card1")
-let card_selection2 = document.getElementById("card2")
-let card_selection3 = document.getElementById("card3")
+// let card_selection1 = document.getElementById("card1")
+// let card_selection2 = document.getElementById("card2")
+// let card_selection3 = document.getElementById("card3")
 let addCardsBtn = document.getElementById("add_cards")
 // determine point value
 addCardsBtn.addEventListener("click", function(event) {
     event.preventDefault()
+    let card_selection1 = document.getElementById("card1").value
+    let card_selection2 = document.getElementById("card2").value
+    let card_selection3 = document.getElementById("card3").value
+    console.log(card_selection1)
     if (card_selection1 === 'J' || card_selection1 === 'Q' || card_selection1 === 'K') {
         card_selection1 = 10
     } else if (card_selection1 === 'A') {
@@ -12,7 +16,7 @@ addCardsBtn.addEventListener("click", function(event) {
     } else {
         card_selection1 = parseInt(card_selection1)
     }
-    // console.log(card_selection1) //confirmed working
+    console.log(card_selection1) //
     if (card_selection2 === 'J' || card_selection2 === 'Q' || card_selection2 === 'K') {
         card_selection2 = 10
     } else if (card_selection2 === 'A') {
@@ -34,17 +38,23 @@ addCardsBtn.addEventListener("click", function(event) {
     }, 0)
     console.log(total_pts);// confirmed working
     if (total_pts < 17) {
-        results.prepend(String("You are advised to HIT. Your current point total is: " + String(total_pts)))
+        let advice = document.createElement("p")
+        console.log(advice)
+        results.append(advice, String("You are advised to HIT. Your current point total is: " + String(total_pts)))
     }
     else if (total_pts >= 17 && total_pts < 21) {
-        results.prepend(String("You are advised to STAY. Your current point total is: " + String(total_pts)))
+        let advice = document.createElement("p")
+        results.append(advice, String("You are advised to STAY. Your current point total is: " + String(total_pts)))
         // alert('You are advised to STAY. Your current point total is: '+ String(total_pts))
     }
     else if (total_pts == 21) {
-        results.prepend(String("BLACKJACK - give me your money. Your current point total is: " + String(total_pts)))
+        let advice = document.createElement("p")
+        results.append(advice, String("BLACKJACK - give me your money. Your current point total is: " + String(total_pts)))
         // alert('BLACKJACK - give me your money.')
     } 
     else {
-        results.prepend(String("Already busted. Refresh to get advice on your next game."))
+        let advice = document.createElement("p")
+        results.append(advice, String("Already busted. Refresh to get advice on your next game."))
         // alert('Already busted. Play again.')
-    })
+    }
+})
