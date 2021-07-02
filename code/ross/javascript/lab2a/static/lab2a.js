@@ -3,6 +3,7 @@ function pick6() {
     let i = 0
     while (i < 6) {
         let num = Math.floor(Math.random()*99)
+
         // console.log("num: " + num)
         ticket[i] = num
         // console.log("ticket: " + ticket)

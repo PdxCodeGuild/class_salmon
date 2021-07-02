@@ -156,7 +156,7 @@ You can view a list of keycodes on [css-tricks.com](https://css-tricks.com/snipp
 ```html
 <script>
     document.body.onkeydown = function(evt) {
-      alert(evt.keyCode);
+      alert(evt.key);
     }
 </script>
 ```
