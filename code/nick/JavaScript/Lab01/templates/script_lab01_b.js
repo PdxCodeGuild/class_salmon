@@ -1,34 +1,52 @@
-let nums = document.getElementsByClassName("num")
+// let nums = document.getElementById("num").value
+// console.log(nums)
 let addNumBtn = document.getElementById("add-num")
 let submitBtn = document.getElementById("submitBtn")
 let results = document.getElementById("results")
 
-console.log(nums)
+// console.log(nums)
 function isNumeric(nums) {
     return !isNaN(parseFloat(nums))
 }
 
 addNumBtn.addEventListener("click", function(event) {
     event.preventDefault() //This should replace the boolean while loop, I think. 
-    let list_nums = []
-    if (isNumeric(nums) === true) {  //This is supposed to mean is not not a number for the parsefloat of the input https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
-        list_nums.push(parseFloat(nums)) //needs type conversion for the string inputs
-        // console.log(list_nums)
-        results.append(list_nums)
-    } else {
-        break
-    })
-let sum = list_nums.reduce(function (a, b) {
-    return a + b
-  }, 0)
-console.log(sum)
-let len = list_nums.length
-console.log(len)
+    let nums = document.getElementById("num").value
+    console.log(nums)
+    function isNumeric(nums) {
+        return !isNaN(parseFloat(nums))
+    }    
+    console.log(isNumeric(nums))
+    let boolean = true
+    while (boolean = true) {
+        var list_nums = []
+        if (isNumeric(nums) === true) {  //This is supposed to mean is not not a number for the parsefloat of the input https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
+            list_nums.push(parseFloat(nums)) //needs type conversion for the string inputs
+            console.log(list_nums)
+            let advice = document.createElement("p")
+            results.append(advice, String("The number " + String(list_nums) + " has been added to the list."))
+            console.log(list_nums)
+            return list_nums
+        } else {
+            let advice = document.createElement("p")
+            results.append(advice, String("This is not a number: " + String(nums)))
+            boolean = false
+            return list_nums
+        }
+    }
+})
+// let sum = list_nums.reduce(function (a, b) {
+//     return a + b
+//   }, 0)
+// console.log(sum)
+// let len = list_nums.length
+// console.log(len)
 //Need to make a calculate average function when the user decides they are done adding all numbers
 addNumBtn.addEventListener("click", function(event) {
     event.preventDefault()
     let average = sum / len
-    results.prepend(average)
+    let advice = document.createElement("p")
+    results.append(advice, String("The average of your list is: " + String(average)))
 })
 // while (boolean === true) {
 //     let num_or_done = prompt("Enter a number or 'done'")
