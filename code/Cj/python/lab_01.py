@@ -1,17 +1,17 @@
-numbers_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 conversion_table = {
-     'mm': .001,
-     'cm': .01,
-     'm': 1,
-     'km': 1000,
-     'in': 0.0254 , 
-     'inch': 0.0254, 
-     'inches': 0.0254, 
-     'ft': 0.3048, 
-     'feet': 0.3048,
-     'miles': 1609.34,
-     'mi':  1609.34,
-     }
+    'mm': .001,
+    'cm': .01,
+    'm': 1,
+    'km': 1000,
+    'in': 0.0254 , 
+    'inch': 0.0254, 
+    'inches': 0.0254, 
+    'ft': 0.3048, 
+    'feet': 0.3048,
+    'miles': 1609.34,
+    'mi':  1609.34,
+    }
 
 UI = input('Enter number of units: ')
 UI1 = UI.isnumeric()

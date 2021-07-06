@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab03b</title>
+</head>
+
+<body>
+    <h1>Unit Converter</h1>
+    <!-- CURRENTLY VERSION 4 ONLY-->
+    <p>Enter given measurements for desired conversion.</p>
+    <label for="distance">Convert: </label>
+    <input type="number" name="distance" id="distance" required>
+    <select name="inputUnits" id="inputUnits" required>
+        <option value="ft">ft</option>
+        <option value="mi">mi</option>
+        <option value="m">m</option>
+        <option value="km">km</option>
+        <option value="yd">yd</option>
+        <option value="in">in</option>
+    </select>
+    <label for="outputUnits">into: </label>
+    <select name="outputUnits" id="outputUnits" required>
+        <option value="ft">ft</option>
+        <option value="mi">mi</option>
+        <option value="m">m</option>
+        <option value="km">km</option>
+        <option value="yd">yd</option>
+        <option value="in">in</option>
+    </select>
+    <p></p>
+    <script src="script.js"></script>
+</body>
+
+</html>

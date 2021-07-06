@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
     <title>JsonDB Mob Lab</title>
 </head>
 <body>
-    <p>Enter task to your to do list:</p>
+    <header class="flex-header">
+    <h1>Your to do list!</h1>
+    <h3>Learn to love it.</h3>
+    </header>
+    <main class="flex-main">
+    <h4>Enter task to your to do list:</h4>
     <form method="post">
         <label for="thing-to-do">Enter item to your to do list:</label>
         <input type="text" id="thing-to-do" name="text">
@@ -19,5 +25,9 @@
        </select>
        <input type="submit" value="submit">
     </form>
+    </main>
+    <footer class="flex-footer">
+
+    </footer>
 </body>
 </html>

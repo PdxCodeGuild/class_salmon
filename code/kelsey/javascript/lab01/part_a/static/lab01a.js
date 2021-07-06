@@ -47,7 +47,7 @@ let firstCard = prompt("What's your first card? ").toUpperCase()
 let secondCard = prompt("What's your second card? ").toUpperCase()  
 let thirdCard = prompt("What's your third card? ").toUpperCase()
 
-let pointValue = {
+const pointValue = {
     A: 1,
     2: 2,
     3: 3,
