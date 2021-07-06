@@ -14,17 +14,19 @@
     </section>
 
     <section id="list">
-        <ul>
-        </ul>
-    </section>
-
+        <form >
+            <ul id ="list1">
+            </ul>
+            <button>Completed</button>
+            <button>Remove</button>    
+        </form>
+    </section> 
     <section id="completed">
         <ul>
-            <li></li>
         </ul>
     </section>
 
-    <script src="todolist.js"></src>
+    <script src="{{ url_for('static', filename='todolist.js') }}"></script>
 
 </body>
 
