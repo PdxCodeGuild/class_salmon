@@ -9,18 +9,18 @@ submitButton.addEventListener("click", function (event) {
     newerTask.innerText = newTask
     let removeBtn = document.createElement("button")
     removeBtn.innerText = "-"
-    document.body.appendChild(removeBtn)
+    newerTask.appendChild(removeBtn)
+    let checkBtn = document.createElement("button")
+    checkBtn.innerText = "✓"
+    newerTask.appendChild(checkBtn)
     taskList.append(newerTask)
     
-    // removeBtn.addEventListener("click", function (event) {
-    //     event.preventDefault()
-    //     this.previousSibling.remove()
-    //     this.remove()
-    // })
-})
+    checkBtn.addEventListener("click", function (event) {
+        event.preventDefault()
+              
+        newerTask.classList.add("striketext")
+    })
 
-// function myFunction() {
-//     var str = "Hello World!";
-//     var result = str.strike();
-//     document.getElementById("demo").innerHTML = result;
-//   }
+
+
+})

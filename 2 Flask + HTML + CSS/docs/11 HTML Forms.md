@@ -7,6 +7,7 @@
   - [Input: `input`](#input-input)
   - [Text Area: `textarea`](#text-area-textarea)
   - [Dropdown Lists: `select`](#dropdown-lists-select)
+- [Labels](#labels)
 - [Attributes](#attributes)
   - [The Name Attribute](#the-name-attribute)
   - [The Value Attribute](#the-value-attribute)
@@ -111,6 +112,22 @@ A `select` tag defines a dropdown list. Each `option` defines an option of that 
 </select>
 ```
 
+## Labels
+
+The `label` tag is used to provide a label to input elements. This is preferable to using a `p` tag or plain text for several reasons:
+
+- `label` is a block element that is easier to style than plain text.
+- When a user clicks on a `label` it selects the given element the label is for. This increases acccessibility and improves the user experience.
+- A `label` is a semantic element, so web crawlers and screen readers know exactly what the `label` is and what it describes.
+
+The `for` attribute is used to specify the `id` of the input element the label is labeling.
+
+```html
+<input type="text" name="first" id="first" placeholder="required" required>
+<label for="first">First Name</label><br>
+<input type="text" name="last" id="last" placeholder="required" required>
+<label for="last">Last Name</label><br>
+```
 
 ## Attributes
 

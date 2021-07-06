@@ -1,0 +1,125 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(to right, gold 25%, black 50%, gold 75%);
+    /* padding: 0.5em; */
+    height: 100%;
+    position: fixed;
+    /* align-items: flex-start; */
+    width: 20vw;
+    /* margin-left: 0; */
+}
+
+#logo {
+    margin: 1em;
+    opacity: 50%;
+    /* border-radius: 100%; */
+}
+
+#log img {
+    border-radius: 100%;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+nav a {
+    margin: 1em;
+    border: 50px, dotted, black;
+    background: linear-gradient(to right, grey 0%, black 50%, grey 100%);
+    color: white;
+    text-decoration: none;
+    padding: 0px, 50px;
+    width: fit-content;
+    text-align: center;
+}
+
+a:hover {
+    color: hsla(98, 84%, 57%, 0.89)
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 15px; */
+    margin-left: 20vw;
+    /* margin-right: 10vw; */
+    background: linear-gradient(to bottom, red 0%, orange 17%, yellow 33%, green 50%, blue 67%, indigo 83%, violet 100%)
+
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(to right, white 0%, black 100%);
+}
+
+.story {
+    position: relative;
+    /* text-align: center; */
+    /* color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+    /* display: flex; */
+    padding: 5%;
+    justify-content: space-between;
+    
+}
+
+.story:hover {
+    background: linear-gradient(to bottom right, chartreuse 25%, maroon 45%, maroon 55%, chartreuse 75%);
+    outline: crimson, dotted, 5px;
+    transition: 2s;
+}
+
+.title {
+    color: gold;
+    /* background-color: black; */
+    text-align: center;
+    /* margin: 20px; */
+}
+
+.subtitle {
+    text-align: center;
+    color: white;
+}
+
+#big {
+    font-size: xx-large
+}
+
+#big p {
+    font-size: large;
+}
+
+#small-stories {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+img {
+    max-width: 100%;
+}
+
+.small {
+    max-width: 25vw;
+    padding: 1%;
+}
+
+.small span {
+    font-size: large;
+}

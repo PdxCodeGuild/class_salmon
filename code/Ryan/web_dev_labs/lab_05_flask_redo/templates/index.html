@@ -1,28 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
+        <meta name="author" content="Ryan W">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>ROT Cipher</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"/>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     </head>
-
-    <header>
-
-    </header>
 
     <body>
 
-        <h1>this is a header</h1>
+        <header>
+            <h1>ROT 13 Cipher</h1>
+        </header>
 
-        <p>here is a paragraph</p>
+        <!-- Center objects in the screen -->
+        <div class="container">
 
-        <form action="" method="post">
+            <section>
 
-            <input type="text" name="input_text" placeholder="enter word"/>
-            <button type="submit">submit</button>
-            
-        </form>
+                <form action="" method="post">
+
+                    <!-- Text area for input content -->
+                    <label for="input_text"><h3>Input Text</h3></label>
+                    <textarea class="input_text_area" name="input_text" id="input_text" cols="30" rows="10" placeholder="Enter text to change"></textarea>
+
+                    <br>
+                    <!-- ROT entry -->
+                    <label class="rotate_label" for="rotate">Rotation Amount</label>
+                    <input type="number" name="rotate" id="rotate">
+
+                    <br>
+                    <!-- Submit button -->
+                    <button type="submit">submit</button>
+                    
+                </form>
+
+            </section>
+
+            <aside>
+                    <!-- Text area for output content -->
+                    <label for="output_text"><h3>Output Text</h3></label>
+                    <div class="output_text">
+                        <p>
+                            {{output_text}}
+                        </p>
+
+                    </div>
+            </aside>
+
+        </div>
+
+        <footer>
+
+            <p>
+                Copyright
+            </p>
+
+        </footer>
+
 
     </body>
 
