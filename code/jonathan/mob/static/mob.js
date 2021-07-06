@@ -1,12 +1,15 @@
 let submitButton = document.querySelector("#submit")
-let taskList = document.getElementById("tasks")
-let completed = document.getElementById("completed_tasks")
+let taskList = document.querySelector("#tasks")
+let completed = document.querySelector("#completed_tasks")
+let newTask = document.querySelector("#new_task")
+
 
 submitButton.addEventListener("click", function (event) {
     event.preventDefault()
-    let newTask = document.getElementById("new_task").value
     newerTask = document.createElement("li")
-    newerTask.innerText = newTask
+    newerTask.innerText = newTask.value
+    newerTask.setAttribute('id', 'taskItem')
+    // let currentTask = document.querySelector('#taskItem')
     let removeBtn = document.createElement("button")
     removeBtn.innerText = "-"
     newerTask.appendChild(removeBtn)
@@ -14,19 +17,19 @@ submitButton.addEventListener("click", function (event) {
     checkBtn.innerText = "✓"
     newerTask.appendChild(checkBtn)
     taskList.appendChild(newerTask)
-    
     checkBtn.addEventListener("click", function (event) {
         event.preventDefault()
-        newerTask.classList.add("striketext")
+        // newerTask.classList.add("striketext")
+        // let completedTask = document.createElement("li") 
+        event.target.parentNode.classList.add('striketext')
+        // event.target.parentNode.completed.appendChild(newerTask)
+        // completedTask.appendChild(newerTask)
+        // console.log(event.target.parentNode('#text'))
     })
     removeBtn.addEventListener("click", function(event) {
         event.preventDefault()
-        //taskList.removeChild(newerTask)
-        this.previousSibling.remove()
-        this.remove()
-        checkBtn.remove()
+        event.target.parentNode.remove(newerTask)
     })
-    
 
 })
 
