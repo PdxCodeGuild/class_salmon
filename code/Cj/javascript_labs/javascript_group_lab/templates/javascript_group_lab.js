@@ -52,11 +52,12 @@ submit_btn.addEventListener('click', function(event) {
     let li = document.createElement('li');
     li.innerText = data.value;
     li.id = data.value;
-    data.value = '';
+    data.value = ''
     
     let check = document.createElement('input');
         check.type = "checkbox"
         check.id = 'check'
+        check.name = "checkbox"
     li.appendChild(check);
     // li.appendChild(done_btn);
     todo_ul.appendChild(li);
@@ -67,16 +68,35 @@ let done_btn = document.createElement('input');
         done_btn.value = 'Done';
 div1.appendChild(done_btn);
 
+
+
 done_btn.addEventListener('click', function(event) {
     event.preventDefault()
-    let todo_ul = document.getElementById('todo');
-    console.log(todo_ul)
-    for (li in todo_ul) {
-        console.log(li)
-        if (document.getElementById('check').checked) {
-            done_ul.appendChild(li);
-            todo_ul.removeChild(li);
+
+    let done_list = document.getElementById('todo');
+    let items = done_list.getElementsByTagName('li');
+    // console.log(checkbox.checked);
+    // console.log(items)
+    let checkbox
+    // console.log(items);
+    var remove_list = []
+    for (item of items) {
+        // console.log(item)
+        checkbox = item.querySelector("input[name=checkbox]");
+        // console.log(checkbox.checked)
+        if (checkbox.checked) {
+            let new_li = document.createElement('li');
+            new_li.innerText = item.innerText;
+            done_ul.appendChild(new_li);
+            // console.log(item);
+            remove_list.push(item);
+            // todo_ul.removeChild(item);
+            // console.log(item.innerText)
         }
+    for (i=0; i < remove_list; i++) {
+        console.log(remove_list[i]);
     }
+    }
+console.log(remove_list)
    
 })
