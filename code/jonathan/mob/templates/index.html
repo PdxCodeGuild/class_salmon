@@ -7,6 +7,12 @@
         <title>ToDo List</title>
     </head>
     <body>
+        <h1>ToDo List</h1>
+        <form>
+            <textarea id="new_task" name="textarea" rows="1" cols="30" placeholder="Enter task" required></textarea><br>
+            <button type="submit" id="submit">Add Task</button>
+        </form>
+        <ol id="tasks"></ol>
         <script src="{{ url_for('static', filename='mob.js') }}"></script>
     </body>
 </html>
