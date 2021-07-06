@@ -93,10 +93,11 @@ done_btn.addEventListener('click', function(event) {
             // todo_ul.removeChild(item);
             // console.log(item.innerText)
         }
-    for (i=0; i < remove_list; i++) {
-        console.log(remove_list[i]);
     }
+    for (i=0; i <= remove_list.length-1; i++) {
+        // console.log(remove_list);
+        todo_ul.removeChild(remove_list[i]);
     }
-console.log(remove_list)
+// console.log(remove_list)
    
 })
