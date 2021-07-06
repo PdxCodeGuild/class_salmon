@@ -101,3 +101,60 @@ done_btn.addEventListener('click', function(event) {
 // console.log(remove_list)
    
 })
+let erase_btn = document.createElement('input');
+        erase_btn.type = 'submit';
+        erase_btn.value = 'Erase';
+        
+div1.appendChild(erase_btn);
+erase_btn.addEventListener('click', function(event) {
+    event.preventDefault()
+
+    let erase_list = document.getElementById('todo');
+    let items = erase_list.getElementsByTagName('li');
+    // console.log(checkbox.checked);
+    // console.log(items)
+    let checkbox
+    // console.log(items);
+    var remove_list = []
+    for (item of items) {
+        // console.log(item)
+        checkbox = item.querySelector("input[name=checkbox]");
+        // console.log(checkbox.checked)
+        if (checkbox.checked) {
+
+            remove_list.push(item); //
+            // todo_ul.removeChild(item);
+            // console.log(item.innerText)
+        }
+    }
+    for (i=0; i <= remove_list.length-1; i++) {
+        // console.log(remove_list);
+        todo_ul.removeChild(remove_list[i]);
+    }
+// console.log(remove_list)
+   
+})
+
+let clear_btn = document.createElement('input');
+        clear_btn.type = 'submit';
+        clear_btn.value = 'Clear';
+        
+div2.appendChild(clear_btn);
+clear_btn.addEventListener('click', function(event) {
+    event.preventDefault()
+
+    let clear_list = document.getElementById('done-ul');
+    let items = clear_list.getElementsByTagName('li');
+    let remove_list = []
+    for (item of items) {
+        console.log(items);
+        remove_list.push(item);
+    }
+   
+    for (i=0; i <= items.length-1; i++) {
+        // console.log(remove_list);
+        clear_list.innerHTML='';
+    }
+// console.log(remove_list)
+   
+})
