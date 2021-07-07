@@ -37,9 +37,11 @@ function newItem() {
 }
 
 function completed(event) {
+
     event.preventDefault();
 
 }
+
 
 
 function removeStuff(event) {
@@ -65,3 +67,4 @@ function removeStuff(event) {
 //  }
 // }
 // span.className = “close”;
+

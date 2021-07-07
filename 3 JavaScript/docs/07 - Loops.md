@@ -11,7 +11,7 @@
 
 ## While-Loops
 
-While-loops will run while the given condition is `true`. You can iterate through a range, or set a flag.
+While-loops will run while the given [condition](04%20-%20Booleans%2C%20Comparisons%20and%20Conditionals.md#comparisons) is `true`. You can iterate through a range, or set a flag.
 
 ```javascript
 let i = 0
