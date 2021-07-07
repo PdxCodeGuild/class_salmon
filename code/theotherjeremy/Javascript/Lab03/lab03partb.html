@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Select your starting units:</h3>
-    <select id="ddl">
+    <select id="dd1">
         <option value="feet" selected>feet</option>
         <option value="miles">miles</option>
         <option value="meters">meters</option>
@@ -19,20 +19,20 @@
     <!-- <select name="userUnits" id="ddl"></select> -->
 <br><br>
     <h3> What is the distance? </h3>
-    <input id="userDist" type="text"/>
+    <input id="userDist" type="number"/>
 <br><br>
     <h3>Select your output units:</h3>
     <select id="dd2">
-        <option value="feet" selected>feet</option>
+        <option value="feet">feet</option>
         <option value="miles">miles</option>
-        <option value="meters">meters</option>
+        <option value="meters" selected>meters</option>
         <option value="kilometers">kilometers</option>
         <option value="yards">yards</option>
         <option value="inches">inches</option>
     </select>
     <!-- <select name="convUnits" id="ddl2"></select> -->
     <br><br>
-    <button id="final">Convert It!</button>
+    <button id="btnFinal">Convert It!</button>
     <br>
     <div id="result"></div>
 
