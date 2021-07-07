@@ -5,16 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Average a list of numbers</title>
+    <!-- <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/> -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lab01_b.css') }}"/>
 </head>
 <body>
-    <h1 id="title">An average of your list values calculator.</h1>
-    <h3>Begin by entering and adding numbers to your list.</h3> <h3>When you are ready, click calculate average.</h3>
+    <h1 class="header col s12" id="title">An average of your list values calculator.</h1>
+    <h3 class="header">Begin by entering and adding numbers to your list.</h3> <h3 class="header">When you are ready, click calculate average.</h3>
     <!-- <input type="text" name="text" id="text"> -->
-    <form id="form">
-        <input type="number" id="num" placeholder="Enter a #"/>
-        <button id="add-num">Add number to list</button>
-        <input type="submit" value="Calculate Average" id="submitBtn" />
-    </form>
+    <div class="row">
+        <form id="form" class="col s12">
+            <div id="input-field col s12"></div>
+                <input type="number" id="num" placeholder="Enter a #"/>
+                <button id="add-num" class="indigo darken-3 btn">Add number to list</button>
+                <input type="submit" value="Calculate Average" id="submitBtn" class="indigo darken-3 btn"/>
+            </div>
+        </form>
+    </div>
     <ul id="results"></ul>
     <script src="script_lab01_b.js"></script>
 </body>
