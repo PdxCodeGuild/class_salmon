@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+</head>
+
+<body>
+    <section id="entry">
+        <input id="add-item" type="text" placeholder="Add to-do item here..."></input>
+        <button onclick=newItem()>Add</button>
+    </section>
+
+    <section id="list">
+        <form >
+            
+            <ul id ="list1">
+               
+            </ul>
+        </form>
+    </section> 
+    <section id="completed">
+        <ul>
+        </ul>
+    </section>
+
+    <script src="{{ url_for('static', filename='todolist.js') }}"></script>
+    <!-- <script src="/lab4/static/todolist.js"></script> -->
+</body>
+
+</html>
