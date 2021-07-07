@@ -1,70 +1,32 @@
 function newItem() {
     var itemName = document.querySelector("#add-item");
-    //var item = document.createElement("li")
-    // x.setAttribute("id", itemName);
-    // x.setAttribute("class", itemName);
-    // console.log(itemName);
-    // x.setAttribute("value", itemName);
-    // let text = document.createTextNode(itemName);
-    //item.appendChild(text)
     var firstList = document.querySelector("#list1");
+    // console.log()
     var listItem = document.createElement("li");
+    console.log("itemName: " + itemName.value)
     listItem.innerHTML = itemName.value;
-    // var y = document.createElement("label");
-    // y.setAttribute("for", itemName);
-    // y.setAttribute("class", itemName);
-    // y.setAttribute("id", itemName);
-    // y.innerHTML = itemName;
-    // var something2 = document.getElementById("#list1").appendChild(y);
-    // console.log(y);
+    console.log("listItem: " + listItem.innerHTML)
     var completeButton  = document.createElement("button");
     completeButton.innerHTML = "complete";
-    completeButton.setAttribute("onclick", "completed()");
+    var completeList = document.querySelector("#list2")
+    console.log("complete list: " + completeList)
+    console.log("parentNode: " + this.parentNode)
+    completeButton.setAttribute("onclick", "completeList.appendChild(this.parentNode);");
     console.log(completeButton);
     listItem.appendChild(completeButton);
-    //firstList.appendChild(itemName.value);
     var removeButton  = document.createElement("button");
     removeButton.innerHTML = "remove";
-    removeButton.setAttribute("onclick", "removeStuff()");
-    removeButton.setAttribute("class", "remove")
+    removeButton.setAttribute("onclick", 'return this.parentNode.remove()');
+    removeButton.setAttribute("class", "remove-btn")
     console.log(removeButton);
     listItem.appendChild(removeButton);
     listItem.setAttribute("id" , itemName)
     firstList.appendChild(listItem);
-    // let br = document.createElement("br");
-    // firstList.appendChild(br);
-    console.log(firstList)
+    console.log("first list: " + firstList)
+    console.log("listitem: " + listItem)
+    itemName.value = ''
+    completeButton.addEventListener("click", function(){
+        completeList.appendChild(listItem)
+        listItem.removeChild(completeButton)
+    })
 }
-
-function completed(event) {
-
-    event.preventDefault();
-
-}
-
-
-
-function removeStuff(event) {
-    event.preventDefault();
-    firstList.parentNode.removeChild(listItem)
-
-    // let close = document.getElementsByClassName("remove")
-    // for(let i = 0;i <close.length;i++){
-    //     close[i].onclick = function(){
-    //         var div = this.parentElement;
-    //         div.style.display = "none";
-    //     }
-    // }
-    
-}
-// Click on a close button to hide the current list item
-// var close = document.getElementsByClassName(“close”);
-// var i;
-// for (i = 0; i < close.length; i++) {
-//  close[i].onclick = function() {
-//     var div = this.parentElement;
-//    div.style.display = “none”;
-//  }
-// }
-// span.className = “close”;
-
