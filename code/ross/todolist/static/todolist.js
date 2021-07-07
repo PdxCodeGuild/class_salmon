@@ -10,7 +10,6 @@ function newItem() {
     var firstList = document.querySelector("#list1");
     var listItem = document.createElement("li");
     listItem.innerHTML = itemName.value;
-    firstList.appendChild(listItem);
     // var y = document.createElement("label");
     // y.setAttribute("for", itemName);
     // y.setAttribute("class", itemName);
@@ -22,30 +21,50 @@ function newItem() {
     completeButton.innerHTML = "complete";
     completeButton.setAttribute("onclick", "completed()");
     console.log(completeButton);
-    firstList.appendChild(completeButton);
-    firstList.appendChild(itemName.value);
+    listItem.appendChild(completeButton);
+    //firstList.appendChild(itemName.value);
     var removeButton  = document.createElement("button");
     removeButton.innerHTML = "remove";
     removeButton.setAttribute("onclick", "removeStuff()");
+    removeButton.setAttribute("class", "remove")
     console.log(removeButton);
-    firstList.appendChild(removeButton);
+    listItem.appendChild(removeButton);
+    listItem.setAttribute("id" , itemName)
+    firstList.appendChild(listItem);
     // let br = document.createElement("br");
     // firstList.appendChild(br);
+    console.log(firstList)
 }
 
-function completed() {
+function completed(event) {
+
     event.preventDefault();
 
 }
 
 
-function removeStuff() {
 
+function removeStuff(event) {
     event.preventDefault();
-    let itemVal = document.querySelector('input[type="checkbox"]:checked').value
-    console.log(itemVal)
-    let itemClass = document.getElementsByClassName(itemVal);
-    console.log(itemClass)
-    // itemClass.remove()
+    firstList.parentNode.removeChild(listItem)
+
+    // let close = document.getElementsByClassName("remove")
+    // for(let i = 0;i <close.length;i++){
+    //     close[i].onclick = function(){
+    //         var div = this.parentElement;
+    //         div.style.display = "none";
+    //     }
+    // }
     
 }
+// Click on a close button to hide the current list item
+// var close = document.getElementsByClassName(“close”);
+// var i;
+// for (i = 0; i < close.length; i++) {
+//  close[i].onclick = function() {
+//     var div = this.parentElement;
+//    div.style.display = “none”;
+//  }
+// }
+// span.className = “close”;
+
