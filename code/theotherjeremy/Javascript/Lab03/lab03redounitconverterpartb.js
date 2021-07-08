@@ -6,14 +6,6 @@ let result = document.querySelector('#result');
 let btnFinal = document.querySelector('#btnFinal')
 let units = ['feet', 'miles', 'meters', 'kilometers', 'yards', 'inches']
 
-
-// for (let i=0; i<units.length; ++i) {
-//     let option = document.createElement('option')
-//     option.innerText = units[i]
-//     option.value = units[i]
-//     dd1.appendChild(option)
-// }
-
 const convDict = {'meters': 1,
 'feet': .3048,
 'miles': 1609.34,
@@ -33,11 +25,8 @@ let finalDict = {'meters': 1,
 btnFinal.addEventListener("click", function(event) {
     event.preventDefault()
     let userDist = document.querySelector('#userDist')
-    let meters = userDist * (convDict[dd1])
-    console.log(meters)
-    console.log((userDist).value)
-    console.log((dd2).value)
-    console.log((dd1).value)
-    // result.innerText = userDist + dd1 + "  =  "  + output + dd2 
-    result.innerText = 'hello'    
+    let meters = userDist.value * (convDict[dd1.value])
+    let endResult = meters * (finalDict[dd2.value])
+    result.innerText = userDist.value + " " + dd1.value + "  =  " + endResult + ' ' + dd2.value 
+     
 })
