@@ -9,12 +9,20 @@
     <!-- <link rel="stylesheet" href="/css/site.css" /> -->
 </head>
 <body>
-    <div id="app-5">
-        <p>Task List: {{ tasklist }}</p>
-        <p>Added Task: {{ task }}</p>
+    <div id="app">
+        <button v-on:click="addToList">Add Task</button>
+        <input v-model="input_task"/>
+    <div v-for="item in tasklist" v-bind:key="item.tasklist">
+        <p>Task List: <li>{{ item.task }}</li></p>
+        <!-- <p >Added Task: {{ task[0].text }}</p> -->
         <!-- <input v-model="tasklist"> -->
-        <input type="text" name="tasklist[]" v-model="tasklist" v-on:input="task">
-        <button v-on:click="task">Add Task</button>
+        <!-- <input type="text" v-model="tasklist" v-on:input="text" id="text"> -->
+        <div>
+            <input type="checkbox" v-model="item.completed"/>{{item.completed}}
+        </div>    
+        <input type="checkbox" v-model="hide"/>
+        <label>Hide/Show<label/>
+    </div>
     </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
