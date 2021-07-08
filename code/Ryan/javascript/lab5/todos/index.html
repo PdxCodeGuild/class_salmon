@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="css/site.css" />
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+
+    <h1>Hello Vue</h1>
+
+    <div id="app">
+        <p>{{title}} - {{another}} - {{number}}</p>
+
+        <button v-on:click="number++">increase the number by 1</button>
+        <button v-on:click="number--">decrease the number by 1</button>
+
+        <div @click="changeTitle">change title</div>
+    </div>
+
+
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+</body>
+</html>
