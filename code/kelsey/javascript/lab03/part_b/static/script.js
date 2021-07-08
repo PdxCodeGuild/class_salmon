@@ -1,37 +1,22 @@
-let numFeet = document.querySelector("numfeet")
+let form = document.querySelector("#form")
+let distance = document.querySelector("#distance")
+let unitsIn = document.querySelector("#input_units")
+let unitsOut = document.querySelector("#output_units")
+let btn = document.querySelector("#submit")
+let final = document.querySelector("#final")
 
-let toMeters = function (numFeet) {
-    return parseInt(numFeet) * 0.3048
+const toMeters = {
+    ft: 0.3048,
+    mi: 1609.35,
+    m: 1,
+    km: 1000,
+    yd: 0.9144,
+    in: 0.0254
 }
 
-alert(`${numFeet} ft = ${toMeters(numFeet)} m`)
-
-// version2 & version3
-
-let units = prompt("Enter unit of measurement (ft, mi, m, km, yd, in) to convert to meters: ").toLowerCase()
-
-let convertedUnits = {
-    'ft': 0.3048,
-    'mi': 1609.35,
-    'm': 1,
-    'km': 1000,
-    'yd': 0.9144,
-    'in': 0.0254
-}
-
-let userChoice = prompt(`Number of ${units}:`)
-
-let conversion = convertedUnits[units] * parseFloat(userChoice)
-
-alert(`${userChoice} ${units} = ${conversion} m`)
-
-// version4
-
-let distance = prompt("What is the distance? Enter number:")
-let inputUnits = prompt("What are the input units (ft, mi, m, km, yd, in)?").toLowerCase()
-let outputUnits = prompt("What are the output units (ft, mi, m, km, yd, in)?").toLowerCase()
-
-let totalMeters = parseFloat(distance) * convertedUnits[inputUnits]
-let finalConversion = totalMeters / convertedUnits[outputUnits]
-
-alert(`${distance} ${inputUnits} = ${finalConversion} ${outputUnits}`)
+btn.addEventListener("click", function(event) {
+    event.preventDefault()
+    let startingUnits = unitsIn.value
+    let calc = parseInt(distance.value) * toMeters[startingUnits]/toMeters[unitsOut.value]
+    final.innerText = `${distance.value} ${unitsIn.value} = ${calc} ${unitsOut.value}`
+})
