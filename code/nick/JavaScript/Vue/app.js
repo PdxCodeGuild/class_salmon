@@ -1,6 +1,12 @@
-new Vue({
+let vm = new Vue({
     el: '#app',
     data: {
-        message: 'Hello world!'
+        tasklist: []
+    },
+    methods: {
+        task: function() {
+            console.log(this.tasklist);
+        }
+
     }
 })
