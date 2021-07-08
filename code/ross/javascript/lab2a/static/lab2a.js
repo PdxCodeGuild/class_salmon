@@ -31,7 +31,7 @@ function num_matches(winning_tick) {
     }
     // console.log("win: " + winning_tick)
     // console.log("player: " + player_tick)
-    console.log("matches: " + matches)
+    // console.log("matches: " + matches)
     return matches
 }
 
@@ -54,7 +54,7 @@ function money_won(matches) {
 }
 
 const winning_tick = pick6()
-console.log("winning tick: " + winning_tick)
+// console.log("winning tick: " + winning_tick)
 
 let bal = 0
 
@@ -66,7 +66,7 @@ while (rounds < 100000) {
     bal += money_won(matches)
 }
 
-console.log("bal: " + bal)
+// console.log("bal: " + bal)
 
 
 const ROI = bal / 200000
