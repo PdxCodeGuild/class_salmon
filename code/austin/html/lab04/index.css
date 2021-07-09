@@ -1,0 +1,13 @@
+html {
+  box-sizing: border-box;
+  display: flex;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: stretch;
+  max-width: 100%;
+}
+
+
