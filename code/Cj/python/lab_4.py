@@ -1,5 +1,6 @@
 import random
 
+
 card_values = {
     'A': 1,
     'J': 0,
@@ -11,60 +12,6 @@ card_values = {
     '5': 5,
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # user_error = "Error! Please make a valid entry: "
@@ -162,3 +109,4 @@ card_values = {
 #             raise ValueError('Incorrect input ')   
 #     except ValueError:
 #         main_menu = main_menu.replace("Enter: ", user_error)
+
