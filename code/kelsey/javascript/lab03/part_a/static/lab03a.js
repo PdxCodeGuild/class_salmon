@@ -68,4 +68,3 @@ let totalMeters = parseFloat(distance) * convertedUnits[inputUnits]
 let finalConversion = totalMeters / convertedUnits[outputUnits]
 
 alert(`${distance} ${inputUnits} = ${finalConversion} ${outputUnits}`)
-
