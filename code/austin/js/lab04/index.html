@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+<h1>My Todo List</h1>
+    <div id ="app">
+        <div>
+            <div>
+                <h5>Enter todos</h5>
+                <input v-model="newTodoText" >
+                <button v-on:click = 'addNewTodo'>+
+            </div>
+
+                <div v-for="todo in todos" v-bind:key="todo.id">
+                        <button v-on:click="toggleComplete(todo)">	{{todo.completed ? "&check;": "&#x25a2"}} </button>
+                        <!-- <button v-on:click="toggleComplete(todo)">	"false" </button>}} -->
+                    {{todo.value}}
+                    <button v-on:click="removeTodo(todo)">-</button>
+                </div>
+            </div>
+        </div>
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+</body>
+</html>
