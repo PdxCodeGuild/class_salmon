@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS Page</title>
+    </head>
+    <body>
+        <form id="form">
+            <text>Enter a distance please:</text>
+            <input type="number" class="user-value" id="user-value"/><br>
+            <text>Starting units</text><br>
+            <label>in<input type="radio" name="starting-units" value="in" id="in"/></label>
+            <label>ft<input type="radio" name="starting-units" value="ft" id="ft"/></label>
+            <label>yd<input type="radio" name="starting-units" value="yd" id="yd"/></label>
+            <label>mi<input type="radio" name="starting-units" value="mi" id="mi"/></label>
+            <label>m<input type="radio" name="starting-units" value="m" id="m"/></label>
+            <label>km<input type="radio" name="starting-units" value="km" id="km"/></label><br>
+            <text>Ending units</text><br>
+            <label>in<input type="radio" name="ending-units" value="in" id="in"/></label>
+            <label>ft<input type="radio" name="ending-units" value="ft" id="ft"/></label>
+            <label>yd<input type="radio" name="ending-units" value="yd" id="yd"/></label>
+            <label>mi<input type="radio" name="ending-units" value="mi" id="mi"/></label>
+            <label>m<input type="radio" name="ending-units" value="m" id="m"/></label>
+            <label>km<input type="radio" name="ending-units" value="km" id="km"/></label><br>
+            <button class="run-button" id="run-button">Convert</button>
+        </form>
+        <ul id="results"></ul>
+        <script src="{{ url_for('static', filename='lab01B.js') }}"></script>
+    </body>
+</html>
