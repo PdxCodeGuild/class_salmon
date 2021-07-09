@@ -1,16 +1,43 @@
 img {
-  border: 30px solid rgb(49, 49, 49);
+  padding: 20px;
+  max-width: 80%;
+  border: 1px solid white;
+  margin-top: 10px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
-  outline: 1px solid white;
+  border: 2px solid;
+  border-color: chartreuse;
+  margin-bottom: 20px;
 }
 
-div {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode";
+.subtext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", "Aclonica";
 }
 
-p {background-color: aquamarine;
-    color: violet}
+p {
+  display: flex;
+  max-width: 100%;
+  color: rgb(172, 255, 226);
+  background-color: black;
+  font-family: "Aclonica", Roboto, fantasy, Copperplate, Papyrus;
+}
+
+.hero-image {
+  display: flex;
+  background-image: url("wp.jpg");
+  height: 200px;
+
+  background-size: cover;
+}
 
 a {
   background-color: black;
@@ -21,7 +48,6 @@ header {
   display: flex;
   justify-content: center;
   color: whitesmoke;
-  background-color: black;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-decoration: overline;
   margin-bottom: 10px;
@@ -45,46 +71,50 @@ menu {
 
 .container {
   display: flex;
-  max-width: 80%;
   margin-top: 40px;
   align-self: flex-start;
 }
-
 .container2 {
+  display: grid;
+  grid-template-rows: 20% 20% 20% 20%;
+  grid-row-gap: 5px;
+  border: 2px solid;
+  border-color: chartreuse;
+}
+
+.tenor-gif-embed {
   display: flex;
-  max-width: 80%;
-  margin-top: 40px;
-  flex-direction: row-reverse;
-  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  /* display: flex;
+  justify-content: center; */
+  max-height: 100px;
+  border: 4px solid;
+  border-color: chartreuse;
 }
 
 body {
+  /* background-image: url("./content/wp.jpg"); */
   background-color: black;
   color: rgb(168, 168, 168);
   font-family: "brush script mt", cursive;
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-}
-
-.total {
-  display: flex;
-  flex-direction: column;
-}
-
 @media (min-width: 768px) {
-  menu {
-    bottom: 90%;
+  .container {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
   }
 }
 
 @media (min-width: 960px) {
-  nav {
-    justify-content: space-evenly;
-  }
-  img {
-    max-width: 70%;
+  .container {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
   }
 }

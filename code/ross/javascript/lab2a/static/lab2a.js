@@ -31,7 +31,8 @@ function num_matches(winning_tick) {
     }
     // console.log("win: " + winning_tick)
     // console.log("player: " + player_tick)
-    console.log("matches: " + matches)
+    // console.log("matches: " + matches)
+
     return matches
 }
 
@@ -53,15 +54,26 @@ function money_won(matches) {
     }
 }
 
-let play = confirm(`Do you want to play Pick 6?
+const winning_tick = pick6()
+// console.log("winning tick: " + winning_tick)
 
-Press 'OK' to proceed or 'cancel' to exit.`)
+let bal = 0
+
+let rounds = 0
+while (rounds < 100000) {
+    rounds++
+    bal -= 2
+    let matches = num_matches(winning_tick)
+    bal += money_won(matches)
+}
+
+// console.log("bal: " + bal)
 
 if (play == true) {
     alert("Thanks for choosing to play.") 
     const winning_tick = pick6()
     alert(`A winning ticket has been chosen.
-
+    
     Winning ticket: ${winning_tick}`)
     console.log("winning tick: " + winning_tick)
     

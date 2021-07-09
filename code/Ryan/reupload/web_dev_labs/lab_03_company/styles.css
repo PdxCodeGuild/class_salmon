@@ -1,0 +1,151 @@
+body, html{
+    height: 100%;
+    margin: 0;
+}
+
+.bg{
+    background-image: url("background.svg");
+
+    height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain ;
+}
+
+#backpic{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: -1;
+}
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2.5%;
+    height: auto;
+    width: auto;
+}
+
+.header-logo{
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-bottom: 0;
+}
+
+.header-logo-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+}
+
+.header-logo-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: medium;
+}
+
+.header-nav{
+    display: flex;
+    flex-wrap:wrap;
+    margin-right: 15%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: medium;    
+}
+
+li{
+    list-style: none;
+}
+.main-sections{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid gray;
+}
+
+.section-1{
+
+    border:1px solid blue;
+}
+.page-1-section-1{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: yellow;
+}
+
+h2{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: bold;  
+    border: 1px solid purple;
+    margin-top: 0;
+    bottom: 0;
+}
+
+.page-paragraph-content{
+    
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: medium;
+}
+
+.page-1-section-1-image{
+    border:1px solid orange;
+}
+
+.section-2{
+    border: 1px solid grey;
+    width: 100vw;
+    height: 1080px;
+}
+
+.section-3{
+    border: 1px solid grey;
+    width: 100vw;
+    height: 1080px;
+}
+
+.section-4{
+    border: 1px solid grey;
+    width: 100vw;
+    height: 1080px;
+}
+/* Small Screens */
+@media only screen and (max-width: 600px){
+
+}
+
+/* Large Screens */
+@media only screen and (min-width: 600px) {
+    .header-logo{
+        margin-left: 15%;
+    }
+
+    .section-1{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5%;
+        margin-right: 15%;
+        margin-left: 15%;
+        margin-bottom: 5%;
+    }
+
+    .page-1-section-1{
+        display: flex;
+        justify-content: left;
+    }
+}
+

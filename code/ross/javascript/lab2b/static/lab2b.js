@@ -33,6 +33,7 @@ function num_matches(winning_tick) {
     // console.log("player: " + player_tick)
     console.log("matches: " + matches)
     return matches
+
 }
 
 function money_won(matches) {
@@ -82,11 +83,11 @@ yes.onclick = function() {
 // Puts the round choice form into hiding until called
 var user_rounds = document.querySelector('#user_rounds')
 user_rounds.style.display = 'none'
-console.log(user_rounds)
+console.log("user rounds: " + user_rounds.value)
 
 proceed.onclick = function(){
     proceed.style.display = "none"
-    document.getElementById("user_rounds").innerHTML = 'type="text" placeholder="How many rounds would you like to play?'
+    document.querySelector("#user_rounds").innerHTML = 'type="text" placeholder="How many rounds would you like to play?'
     user_rounds.style.display = 'block'
     user_rounds = user_rounds.value
     console.log("user rds: " + user_rounds)
