@@ -12,17 +12,20 @@
     <div id="app">
         <button v-on:click="addToList">Add Task</button>
         <input v-model="input_task"/>
-    <div v-for="item in tasklist" v-bind:key="item.tasklist">
-        <p>Task List: <li>{{ item.task }}</li></p>
+        <h3>Task List: </h3>
+    <div v-for="item in incomplete_tasklist" v-bind:key="item.incomplete_tasklist">
+        <p><li v-model="selected_task">{{ item.incomplete_tasklist }}<button v-on:click="addToCompleted">Task Completed</button></li></p>
         <!-- <p >Added Task: {{ task[0].text }}</p> -->
         <!-- <input v-model="tasklist"> -->
         <!-- <input type="text" v-model="tasklist" v-on:input="text" id="text"> -->
-        <div>
+        <!-- <div>
             <input type="checkbox" v-model="item.completed"/>{{item.completed}}
-        </div>    
-        <input type="checkbox" v-model="hide"/>
-        <label>Hide/Show<label/>
+            <button v-on:click="addToList">Add Task</button>
+        </div>     -->
+        <!-- <input type="checkbox" v-model="hide"/>
+        <label>Hide/Show<label/> -->
     </div>
+    <div></div>
     </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
