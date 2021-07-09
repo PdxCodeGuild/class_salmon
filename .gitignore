@@ -114,3 +114,4 @@ token.txt
 #django uploaded files
 uploaded_files/
 node_modules
+/code/jeremy_b/to_do/

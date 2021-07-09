@@ -36,6 +36,7 @@ body {
     transition: 0.5s;
     overflow: hidden;
     box-shadow: 20px 20px 20px;
+    border-radius: 3px;
 }
 
 .navigation:hover,
@@ -106,6 +107,7 @@ main {
     height: 60px;
     background: #BF4BAC;
     cursor: pointer;
+    border-radius: 3px;
 }
 .toggle:hover {
     background: #F2357B;
@@ -127,6 +129,7 @@ main {
     font-size: 24px;
     color: #FFF;
     box-shadow: 10px 20px 20px black;
+    border-radius: 3px;
 }
 .toggle.active:before {
     content: '\F00d'
@@ -205,6 +208,7 @@ img {
     size: 100%;
     max-width: 100%;
     box-shadow: 30px 20px 20px;
+    border-radius: 3px;
 }
 main > img {
     margin-top: 40px;

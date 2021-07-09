@@ -11,20 +11,26 @@
         <main>
         <p>Unit converter.</p>
         <form action="" method="post">
-            <select name="unit_type" id="unit_type">
+            <select name="input-unit" id="input-unit">
                 <option value="mm">Millimeters</option>
-                <option value="">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                <option value="cm">Centimeters</option>
+                <option value="m">Meters</option>
+                <option value="km">Kilometers</option>
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="mi">Miles</option>
             </select>
             <label for="unit_type">Type of units</label><br>
-            <input type="number" name="num_1" id="number_of_units"/>
+            <input type="number" name="num_of_units" id="number_of_units"/>
             <label for="number_of_units">Enter number of units</label><br>
-            <select name="output_units" id="output_units">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+            <select name="output-unit" id="output-unit">
+                <option value="mm">Millimeters</option>
+                <option value="cm">Centimeters</option>
+                <option value="m">Meters</option>
+                <option value="km">Kilometers</option>
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="mi">Miles</option>
             </select>
             <label for="output_units">Output units</label><br>
             <input type="submit" value="submit">

@@ -8,28 +8,39 @@ function greaterThanNine(num) {
     return num
 }
 
-let runButton = document.querySelector("#run-button")
+let userInput = document.querySelector("#user-input")
+let runButton = document.querySelector("#run-btn")
+let results = document.querySelector("#results")
+let linebreak = document.createElement("br")
 
 runButton.addEventListener("click", function(event) {
     event.preventDefault()
-    let userCC = document.getElementById("textarea")
-    let newUserCC = parseFloat(userCC.value)
-    console.log(newUserCC)
-    let userCCList = newUserCC.split("")
-    let checkDigit = newUserCC.pop()
-    let reverseUserCCList = userCCList.reverse()
-    for (let i = 0; i < reverseUserCCList.length; i += 2) {
-    reverseUserCCList[i] *= 2;}
-    let doubleList = reverseUserCCList
-    let newList = doubleList.map(greaterThanNine)
-    let sumNum = newList.reduce(function(a, b){
+    let ccValue = userInput.value
+    //console.log(ccValue)
+    let ccSplit = ccValue.split("")
+    //console.log(ccSplit)
+    let checkDigit = ccSplit.pop()
+    //console.log(checkDigit)
+    let reverseUserCC = ccSplit.reverse()
+    //console.log(reverseUserCC)
+    for (let i = 0; i < reverseUserCC.length; i += 2) {
+        reverseUserCC[i] *= 2;}
+    let doubleCC = reverseUserCC
+    //console.log(doubleCC)
+    let nineList = doubleCC.map(greaterThanNine)
+    //console.log(nineList)
+    let sumList = nineList.reduce(function(a, b){
         return a + b;
     }, 0)
-    let lastCheck = sumNum % 10
+    console.log(sumList)
+    let lastCheck = sumList % 10
+    //console.log(lastCheck)
     if (lastCheck == checkDigit) {
-        alert("Valid.")
+        results.prepend(linebreak)
+        results.prepend("Your credit card is valid.")
     } 
     else {
-        alert("Sorry, that is not valid.")
+        results.prepend(linebreak)
+        results.prepend("Sorry, that is not valid.")
     }
 })
