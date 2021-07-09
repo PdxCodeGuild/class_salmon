@@ -9,15 +9,15 @@
 <body>
   <form action="https://webhook.site/e68dd3fc-caf7-4a04-950b-0822f815c205" method="post" class="wrapper">
     <div>
-      <label for="name">Name</label>
+      <label for="name" class="category">Name:</label>
         <input type="text" name="Name" id="name" placeholder="required" required>
     </div>
     <div>
-      <label for="pass">Password:</label>
-        <input type="password" id="pass" name="password" required>
+      <label for="pass" class="category">Password:</label>
+        <input  type="password" id="pass" name="password" required>
     </div>
     <div>
-      <label for="tortilla">Tortilla:</label>
+      <label for="tortilla" class="category">Tortilla:</label>
         <input type="radio" id="white" name="tortilla" value="white">
         <label for="white">White</label>
         <input type="radio" id="wheat" name="tortilla" value="wheat">
@@ -30,8 +30,8 @@
         <label for="none">None</label>
     </div>
     <div>
-      <label for="rice">Rice:</label>
-        <input type="radio" id="white" name="rice" value="white">
+      <label for="rice" class="category">Rice:</label>
+        <input type="radio" id="whiterice" name="rice" value="white">
         <label for="white">White</label>
         <input type="radio" id="brown" name="rice" value="brown">
         <label for="brown">Brown</label>
@@ -39,7 +39,7 @@
         <label for="none">None</label>
     </div>
     <div>
-      <label for="bean">Bean:</label>
+      <label for="bean" class="category">Bean:</label>
         <input type="radio" id="black" name="beans" value="black">
         <label for="black">Black</label>
         <input type="radio" id="kidney" name="beans" value="kidney">
@@ -48,7 +48,7 @@
         <label for="none">None</label>
     </div>
     <div>
-      <label for="protein">Protein:</label>
+      <label for="protein" class="category">Protein:</label>
         <input type="radio" id="chicken" name="protein" value="chicken">
         <label for="chicken">Chicken</label>
         <input type="radio" id="steak" name="protein" value="steak">
@@ -61,7 +61,7 @@
         <label for="none">None</label>
     </div>
     <div>
-      <label for="additional ingredients"> Additional ingredients:</label>
+      <label for="additional ingredients" class="category"> Additional ingredients:</label>
         <input type="checkbox" id="mild salsa" name="additional ingredients" value="mild salsa">
         <label for="mild salsa">Mild Salsa</label>
         <input type="checkbox" id="hot salsa" name="additional ingredients" value="hot salsa">
@@ -72,7 +72,7 @@
         <label for="guacamole">Guacamole</label>
     </div>
     <div>
-      <label for="delivery instructions">Delivery instructions:</label><br>
+      <label for="delivery instructions" class="category">Delivery instructions:</label>
         <input type="text" name="Delivery instructions" id="delivery instructions" placeholder="E.G. leave by garage door...">
     </div>
     <div>
