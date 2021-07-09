@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab01b</title>
+</head>
+
+<body>
+    <h1>Blackjack Advice</h1>
+    <p>Welcome to the Blackjack advice generator. Please enter the three cards that you were dealt. Based on the point
+        count total, the generator will advise you on what move to make next. Good luck!</p>
+    <form id="forms"></form>
+        <label for="first">1st card:</label>
+
+        <select id="first" required>
+            <option value="" disabled selected hidden></option>
+            <option value="1">A</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="10">J</option>
+            <option value="10">Q</option>
+            <option value="10">K</option>
+        </select>
+        <label for="second">2nd card:</label>
+
+        <select id="second" required>
+            <option value="" disabled selected hidden></option>
+            <option value="1">A</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="10">J</option>
+            <option value="10">Q</option>
+            <option value="10">K</option>
+        </select>
+
+        <label for="third">3rd card:</label>
+
+        <select id="third" required>
+            <option value="" disabled selected hidden></option>
+            <option value="1">A</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="10">J</option>
+            <option value="10">Q</option>
+            <option value="10">K</option>
+        </select>
+        <button type="submit" id="submit">submit</button>
+    </form>
+    <h4>Advice:</h4>
+    <ul id="advice"></ul>
+
+    <script src="./static/script.js"></script>
+</body>
+
+</html>

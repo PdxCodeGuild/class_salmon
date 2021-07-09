@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab03b</title>
+</head>
+
+<body>
+    <h1>Unit Converter</h1>
+    <p>Enter given measurements for desired conversion.</p>
+    <form id="form">
+        <label for="distance">Convert: </label>
+        <input type="number" name="distance" id="distance" placeholder="Enter number" required>
+        <select name="input_units" id="input_units" required>
+            <option value="ft" selected>ft</option>
+            <option value="mi">mi</option>
+            <option value="m">m</option>
+            <option value="km">km</option>
+            <option value="yd">yd</option>
+            <option value="in">in</option>
+        </select>
+        <label for="output_units">into:</label>
+        <select name="output_units" id="output_units" required>
+            <option value="ft" selected>ft</option>
+            <option value="mi">mi</option>
+            <option value="m">m</option>
+            <option value="km">km</option>
+            <option value="yd">yd</option>
+            <option value="in">in</option>
+        </select>
+        <button type="submit" id="submit">submit</button>
+    </form id="form">
+    <p id="final"></p>
+    <script src="./static/script.js"></script>
+</body>
+
+</html>
