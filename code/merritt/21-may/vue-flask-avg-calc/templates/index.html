@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <div v-for="num in nums" v-bind:key="num.id">
+                <input v-model="num.number" type="number">
+                <button v-on:click="removeNum(num)">-</button>
+            </div>
+        </div>
+        <button v-on:click="addNum">+</button>
+        <button v-on:click="clearNum">Clear</button>
+        <!-- <p v-if="!isNaN(average)">[[ average ]]</p> -->
+        <!-- <p v-if="!isNaN(average)">[[ average ]]</p>
+        <p v-else>-----<p> -->
+        <!-- <p v-show="!isNaN(average)">[[ average ]]</p> -->
+        <p>[[ isNaN(average) ? '-----' : average]]</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
