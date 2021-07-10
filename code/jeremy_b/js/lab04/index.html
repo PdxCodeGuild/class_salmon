@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/site.css">
+
+</head>
+<body>
+    <div id="app">
+        <h1>Todo List:</h1>
+        <div id="incompleteItems">
+            <h2>Incomplete Tasks:</h2>
+            <h4>Click on an item to mark complete.</h4>
+            <ul>
+                <div v-for="todo in todos">
+                    <li v-if="!todo.complete" v-on:click="markComplete(todo)" class="todo"><span>{{todo.todo}}</span></li>
+                </div>
+            </ul>
+        </div>
+        <div id="addTodo">
+            <input v-model="todo" type="text" id="todoInput">
+            <button v-on:click="addTodo">+</button>
+            <button v-on:click="clearTodo">Clear</button>
+        </div>
+        <hr>
+        <div id="completeItems">
+            <h2>Complete Tasks:</h2>
+            <h4>Click an item to mark incomplete.</h4>
+            <ul>
+                <div v-for="todo in todos">
+                    <li v-if="todo.complete" v-on:click="markIncomplete(todo)"><span>{{todo.todo}}</span></li>
+                </div>
+                <div>
+                    <button v-on:click="deleteComplete">Remove Complete</button>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/site.js"></script>
+</body>
+</html>
