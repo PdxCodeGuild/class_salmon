@@ -16,13 +16,13 @@
         <form v-on:submit.prevent="addTodo">
             <label for="newTodo">To Do: </label>
             <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
-            <button type="submit" name="button">add</button>
+            <button v-on:click="submit" type="submit">add</button>
         </form>
         <ol>
             <li v-for="todo in todos">
                 <input type="checkbox" v-model="todo.done">
-               <span v-bind:class="{ done: todo.done }">{{ todo.task }}</span> 
-               <button v-on:click="removeTodo(todo)" type="button">remove</button>
+                <span v-bind:class="{ done: todo.done }">{{ todo.task }}</span>
+                <button v-on:click="removeTodo(todo)" type="button">remove</button>
             </li>
         </ol>
         <button v-on:click="clear()" type="button">Clear All</button>
