@@ -21,8 +21,9 @@
         <ol>
             <li v-for="todo in todos">
                 <input type="checkbox" v-model="todo.done">
+                <button v-on:click="removeTodo(todo)" type="button">-</button>
                 <span v-bind:class="{ done: todo.done }">{{ todo.task }}</span>
-                <button v-on:click="removeTodo(todo)" type="button">remove</button>
+
             </li>
         </ol>
         <button v-on:click="clear()" type="button">Clear All</button>
