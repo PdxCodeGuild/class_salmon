@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <main id="app">
+    <div id="app">
         <h1>{{ title }}</h1>
         <form v-on:submit.prevent="addTodo">
             <label for="newTodo">To Do: </label>
@@ -26,7 +26,7 @@
             </li>
         </ol>
         <button v-on:click="clear()" type="button">Clear All</button>
-    </main>
+    </div>
     <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
 </body>
