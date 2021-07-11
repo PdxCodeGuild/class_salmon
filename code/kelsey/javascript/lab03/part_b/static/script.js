@@ -17,6 +17,6 @@ const toMeters = {
 btn.addEventListener("click", function(event) {
     event.preventDefault()
     let startingUnits = unitsIn.value
-    let calc = parseInt(distance.value) * toMeters[startingUnits]/toMeters[unitsOut.value]
+    let calc = parseInt(distance.value) * toMeters[startingUnits] / toMeters[unitsOut.value]
     final.innerText = `${distance.value} ${unitsIn.value} = ${calc} ${unitsOut.value}`
 })
