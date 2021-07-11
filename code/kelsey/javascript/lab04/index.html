@@ -16,7 +16,7 @@
         <form v-on:submit.prevent="addTodo">
             <label for="newTodo">To Do: </label>
             <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
-            <button v-on:click="submit" type="submit">add</button>
+            <button type="submit">add</button>
         </form>
         <ol>
             <li v-for="todo in todos">
