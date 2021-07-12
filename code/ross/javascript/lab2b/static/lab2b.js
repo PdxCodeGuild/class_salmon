@@ -23,7 +23,7 @@ function num_matches(winning_tick) {
     while (x < 6) {
         if (winning_tick[x] == player_tick[x]) {
             matches++
-            console.log("matches: " + matches)
+            // console.log("matches: " + matches)
             x++
         } else {
             x++
@@ -31,7 +31,7 @@ function num_matches(winning_tick) {
     }
     // console.log("win: " + winning_tick)
     // console.log("player: " + player_tick)
-    console.log("matches: " + matches)
+    // console.log("matches: " + matches)
     return matches
 }
 
@@ -54,10 +54,10 @@ function money_won(matches) {
 }
 
 const winning_tick = pick6()
-console.log("winning tick: " + winning_tick)
+// console.log("winning tick: " + winning_tick)
 
 let yes = document.querySelector('#yes_btn')
-console.log("yes: " + yes)
+// console.log("yes: " + yes)
 let no = document.querySelector('#no_btn')
 
 
@@ -81,36 +81,39 @@ yes.onclick = function() {
 
 // Puts the round choice form into hiding until called
 var user_rounds = document.querySelector('#user_rounds')
+// console.log("user rounds: " + user_rounds)
 user_rounds.style.display = 'none'
-console.log("user rounds: " + user_rounds.value)
+// console.log("user rounds: " + user_rounds.value)
 
 proceed.onclick = function(){
     proceed.style.display = "none"
     document.querySelector("#user_rounds").innerHTML = 'type="text" placeholder="How many rounds would you like to play?'
     user_rounds.style.display = 'block'
     user_rounds = user_rounds.value
-    console.log("user rds: " + user_rounds)
+    // console.log("user rds: " + user_rounds)
     submit.style.display = 'block'
 }
 
 submit.onclick = function() {
+    user_rounds = document.querySelector('#user_rounds')
+    user_rounds = user_rounds.value
     let bal = 0
-    console.log(user_rounds)    
+    // console.log(user_rounds)    
     let rounds = 0
     while (rounds < user_rounds) {
         rounds++
         bal -= 2
         let matches = num_matches(winning_tick)
         bal += money_won(matches)
-        console.log("bal: " + bal)
+        // console.log("bal: " + bal)
     }
     var str_rounds = user_rounds.toString()
     var str_bal = bal.toLocaleString()
-    console.log(bal)
+    // console.log(bal)
     const ROI = bal / 200000
-    document.getElementById("results1").innerText = "Your final balance after " + str_rounds + " rounds is " + str_bal + "."
-    document.getElementById("results2").innerText = "That means you earned " + (bal + 200000).toLocaleString() + "."    
-    document.getElementById("results3").innerHTML = "And you spent " + (2 * user_rounds) + "."
+    document.getElementById("results1").innerText = "Your final balance after " + str_rounds + " rounds is $" + str_bal + "."
+    document.getElementById("results2").innerText = "That means you earned $" + (bal + (user_rounds * 2)).toLocaleString() + "."    
+    document.getElementById("results3").innerHTML = "And you spent $" + (2 * user_rounds) + "."
     document.getElementById("results4").innerText = "Your ROI was " + `${Math.round((ROI) * 100)}` + "%."
 }
 
