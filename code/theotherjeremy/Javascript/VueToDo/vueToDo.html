@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Learn Vue</title>
 </head>
 <body>
+    <div id="app">
+        <h1>To Do in Vue:</h1>
+        
+        <form v-on:submit.prevent= "addItem">
+            <input type="text" v-model="itemText">
+            <button type="submit" id="submit">Add New Task</button>
+        </form>
+        <ol v-for="todo in incompleteTodos">
+            <li >
+                <span>{{todo}}</span>    
+                
+            </li>
+        </ol>
 
 
-    <script>"./vueToDo.js"</script>
+    <!-- <div>
+    </div> -->
+
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vueToDo.js"></script>
     </body>
 </html>
