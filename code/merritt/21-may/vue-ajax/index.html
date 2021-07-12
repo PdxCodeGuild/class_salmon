@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes!</title>
+    <!-- Add your styles here! -->
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+</head>
+<body>
+    <div id="app">
+        <h1>Quotes</h1>
+        <button @click="loadQotd">Quote me!</button>
+        <template v-if="Object.keys(qotd).length">
+            <p>{{ qotd.quote.body }}</p>
+            <p><a :href="qotd.quote.url">{{ qotd.quote.author }}</a></p>
+        </template>
+        <button @click="loadQuotes">Lincoln me!</button>
+        <ul>
+            <li v-for="quote in results.quotes" :key="quote.id">
+                <p>{{ quote.body }}</p>
+                <p><a :href="quote.url">{{ quote.author }}</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Include your code here... -->
+    <script src="secrets.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>

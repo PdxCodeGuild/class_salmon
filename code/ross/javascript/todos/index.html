@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <h2>Here is your current to-do list:</h2>
+    </div>
+
+    <div id="list">
+    <ol>
+        <li v-for="todo in todos">
+        {{ todo }}
+        </li>
+    </ol>
+    </div>
+
+    <!-- LATER ADD THE USER INPUT FUNCTIONALITY -->
+    <div id="add">
+        <input v-model="newItem" placeholder="Add a To-Do Item">
+        <button v-on:click="todos.push(newItem)">Add to list</button>
+        <p>You just added: {{ newItem }}</p>
+    </div>
+
+    <!-- ADD FUNCTIONALITY FOR USER TO REMOVE ITEMS -->
+    <div id="removeI">
+        <p><h3>If you'd like to remove an item from your list, simply type in it's number to remove it.</h3></p>
+        <input v-model="index" placeholder="Enter item number to be removed">
+        <button v-on:click="todos.splice(index, 1)">Remove</button>
+    </div>
+
+    <!-- ALLOW USER TO CHOOSE IF A TASK IS COMPLETE -->
+    <div>
+
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+    <script src="/js/site.js"></script>
+
+</body>
+
+</html>

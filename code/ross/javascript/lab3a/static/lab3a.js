@@ -1,43 +1,54 @@
-alert("Please choose three cards.")
-let first_card = prompt("Pick your first card (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K): ")
-console.log("first card: " + first_card)
-let second_card = prompt("Pick your second card (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K): ")
-console.log("second card: " + second_card)
-let third_card = prompt("Pick your third card (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K): ")
-console.log("third card: " + third_card)
-console.log("total = " + (parseInt(first_card) + parseInt(second_card) + parseInt(third_card)))
+let number = prompt("Please input your credit card number: ")
+number = Number(number)
 
-let values = {
-        A:1,
-        2:2,
-        3:3,
-        4:4,
-        5:5,
-        6:6,
-        7:7,
-        8:8,
-        9:9,
-        10:10,
-        J:10,
-        Q:10,
-        K:10,
-    }
+let card_list = String(number).split("").map((number)=>{
+    return Number(number)
+})
+console.log(card_list)
 
+let check_digit = card_list.pop()
+console.log(card_list)
+console.log(check_digit)
 
-console.log("first card: " + values[first_card])
-let total_value = (parseInt(values[first_card]) + parseInt(values[second_card]) + parseInt(values[third_card]))
-console.log("total val variable = " + total_value)
+let reversed_list = card_list.reverse()
+console.log(reversed_list)
 
-function advice() {
-    if (total_value < 17) {
-        alert("Hit")
-    } else if (total_value >= 17 && total_value < 21) {
-        alert("Stay")
-    } else if (total_value == 21) {
-        alert("Blackjack!")
+let doubled_list = []
+
+for (let i = 0; i<reversed_list.length; i++) {
+    if (i % 2 == 0) {
+        doubled_list[i] = reversed_list[i] * 2
     } else {
-        alert("Already Busted!")
+        doubled_list[i] = reversed_list[i]
     }
 }
+console.log("doubled list: " + doubled_list)
 
-alert(advice())
+let sub_nine = []
+
+for (let i = 0; i<doubled_list.length; i++) {
+    if (doubled_list[i] > 9) {
+        sub_nine[i] = doubled_list[i] - 9
+    } else {
+        sub_nine[i] = doubled_list[i]
+    }
+}
+console.log("sub nine " + sub_nine)
+
+let total = 0
+for (let i = 0; i<sub_nine.length; i++) {
+    total += sub_nine[i]
+}
+console.log(total)
+
+let second_dig = total % 10
+console.log(second_dig)
+
+let match = (check_digit == second_dig)
+console.log(match)
+
+if (match) {
+    alert("That is a valid card number.")
+} else {
+    alert("Sorry, that number is not valid. Refresh and try again.")
+}
