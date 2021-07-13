@@ -8,12 +8,16 @@
   </head>
   <body>
     <div id="app">
-      <button @click="loadQuote">Quote me!</button>
+      <button @click="loadQuote">Get a Quote</button>
       <div v-if="Object.keys(quoteResponse).length">
         <p>{{quoteResponse.quote.body}}</p>
-        <p><i><a :href="quoteResponse.quote.url">{{quoteResponse.quote.author}}</a></i></p>
+        <p><i><a :href="quoteResponse.quote.url">{{quoteResponse.quote.author}}</a></i></p> 
       </div>
-      <button @click="loadQuote">Quote me!</button>
+      <button @click="loadAuthor">Mark Twain</button>
+      <div v-if="Object.keys(authorResponse).length">
+      <p>{{authorResponse.quote.body}}</p>
+      <p><i><a :href="authorResponse.quote.url">{{authorResponse.quote.author}}</a></i></p>
+      </div> 
     </div>
     <!-- CDN for vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
