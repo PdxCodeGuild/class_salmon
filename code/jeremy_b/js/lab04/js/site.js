@@ -3,7 +3,8 @@ const vm = new Vue({
     data:{
         todos:[],
         todo: "",
-        nextID: 4
+        toDelete: [],
+        nextID: 0
     },
     methods: {
         addTodo: function(){
@@ -21,14 +22,23 @@ const vm = new Vue({
             this.todos[this.todos.indexOf(todo)].complete = false;
         },
         deleteComplete: function(){
-            for (let todo of this.todos){
-                if (todo.complete === true){
-                    console.log(this.todos.indexOf(todo));
-                    this.todos.splice(this.todos.indexOf(todo), 1);
-                    console.log(this.todos)
+            // Get index of elements to delete
+            for (let i = 0; i < this.todos.length;) {
+                if (this.todos[i].complete === true) {
+                    this.toDelete.push(i);
+                    i++;
+                } else {
+                    i++;
                 }
             }
+            this.toDelete.sort();
+            console.log(this.toDelete);
+            for(let i = this.toDelete.length - 1; i > -1;){
+                this.todos.splice(this.toDelete[i], 1);
+                i--;
+            }
         }
+
     },
     computed: {}
 })
