@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab04 Vue To-Do</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <form v-on:submit.prevent="addTodo">
+            <label for="newTodo">To Do: </label>
+            <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
+            <button type="submit">add</button>
+        </form>
+        <ol>
+            <li v-for="todo in todos">
+                <input type="checkbox" v-model="todo.done">
+                <button v-on:click="removeTodo(todo)" type="button">-</button>
+                <span v-bind:class="{ done: todo.done }">{{ todo.task }}</span>
+
+            </li>
+        </ol>
+        <button v-on:click="clear()" type="button">Clear All</button>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

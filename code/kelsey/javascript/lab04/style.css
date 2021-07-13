@@ -1,0 +1,13 @@
+body{
+    color: white;
+    background-color: black;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  h1 {
+    text-decoration: underline solid white;
+  }
+
+  .done {
+    text-decoration: line-through;
+  }
