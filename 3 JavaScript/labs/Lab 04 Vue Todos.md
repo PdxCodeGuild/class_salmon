@@ -1,4 +1,4 @@
-# Lab 11: Vue Todos
+# Lab 4: Vue Todos
 
 Use Vue to create a simple todo list in the browser.
 
