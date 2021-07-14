@@ -31,15 +31,34 @@ const vm = new Vue({
                 },
             }).then(response => this.results = response.data)
         },
-        pages: function(){
+        nextPage: function(searchBy,searchFor) {
             axios({
                 method: 'get',
                 url: 'https://favqs.com/api/quotes/',
                 headers: {
                     "Authorization": `Token token="${apiKey}"`
                 },
+                params: {
+                    type: searchBy,
+                    filter: searchFor,
+                    page: ++ this.page 
+                },
             }).then(response => this.results = response.data)
-        }
+        },
+        lastPage: function(searchBy,searchFor) {
+            axios({
+                method: 'get',
+                url: 'https://favqs.com/api/quotes/',
+                headers: {
+                    "Authorization": `Token token="${apiKey}"`
+                },
+                params: {
+                    type: searchBy,
+                    filter: searchFor,
+                    page: -- this.page 
+                },
+            }).then(response => this.results = response.data)
+        },
     },
     mounted: function() {
         this.loadRandom()

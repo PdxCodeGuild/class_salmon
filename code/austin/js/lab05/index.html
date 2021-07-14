@@ -26,7 +26,7 @@
                 <label for="tag">Tag</label>
             <input type="radio" id="user" value="user" v-model="picked">
                 <label for="user">User</label>
-            <button @click="if(message === ''){loadRandom()}else{loadQuotes(picked, message)}">Search Quotes</button>
+            <button @click="loadQuotes(picked, message)">Search Quotes</button>
             <ul>
                 <li v-for="quote in results.quotes" :key="quote.id">
                     <p>{{ quote.body }}</p>
@@ -35,9 +35,8 @@
             </ul>
         </div>
         <div>
-            <ul>
-                
-            </ul>
+            <button v-if = "results.page != 1" @click="lastPage(picked, message)">Previous Page</button>
+            <button v-if = "results.last_page === false" @click="nextPage(picked,message)">Next Page</button>
         </div>
     </div>
 
