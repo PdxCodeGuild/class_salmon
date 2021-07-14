@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+
+            <div id="prev-top">
+                <button id="prev-button">
+                    Prev
+                </button>
+            </div>
+
+            <div id="search-area">
+
+                <div id="search-select">
+
+                    <h2>Search By:
+                        <span id="search-keyword">
+                            <button>
+                                Keyword
+                            </button>
+                        </span>
+                        <span id="search-author">
+                            <button>
+                                Author
+                            </button>
+                        <span>
+                        <span id="search-tag">
+                            <button>
+                                Tag
+                            </button>
+                        </span>
+                    </h2>
+
+                    <p id="search-text">
+                        <input type="text" id="submit-query" placeholder="Tesla, Einstein">
+                        <button id="submit-button" @click="loadQotd">
+                            Go
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+            <div id="next-top">
+                <button id="next-button">Next</button>
+            </div>
+        </header>
+        <main>
+            <table>
+                <tr class="row">
+                    <td class="col" id="r0c0" v-once></td>
+                    <td class="col" id="r0c1">c2</td>
+                    <td class="col" id="r0c2">c3</td>
+                    <td class="col" id="r0c3">c4</td>
+                    <td class="col" id="r0c4">c5</td>
+                </tr>
+                <tr class="row">
+                    <td class="col" id="r1c0">c6</td>
+                    <td class="col" id="r1c1">c7</td>
+                    <td class="col" id="r1c2">c8</td>
+                    <td class="col" id="r1c3">c9</td>
+                    <td class="col" id="r1c4">c10</td>
+                </tr>
+                <tr class="row">
+                    <td class="col" id="r2c0">c11</td>
+                    <td class="col" id="r2c1">c12</td>
+                    <td class="col" id="r2c2">c13</td>
+                    <td class="col" id="r2c3">c14</td>
+                    <td class="col" id="r2c4">c15</td>
+                </tr>
+                <tr class="row">
+                    <td class="col" id="r3c0">c16</td>
+                    <td class="col" id="r3c1">c17</td>
+                    <td class="col" id="r3c2">c18</td>
+                    <td class="col" id="r3c3">c19</td>
+                    <td class="col" id="r3c4">c20</td>
+                </tr>
+                <tr class="row">
+                    <td class="col" id="r4c0">c21</td>
+                    <td class="col" id="r4c1">c22</td>
+                    <td class="col" id="r4c2">c23</td>
+                    <td class="col" id="r4c3">c24</td>
+                    <td class="col" id="r4c4">c25</td>
+                </tr>
+            </table>
+
+            <p id="test">
+            <h1>TEST HERE</h1>
+
+
+
+            <h1>TEST HERE</h1>
+            </p>
+        </main>
+        <footer>
+            <div id="prev-bottom">
+                <button id="prev-button">
+                    Prev
+                </button>
+            </div>
+
+            <div id="next-bottom">
+                <button id="next-button">
+                    Next
+                </button>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="vue.js"></script>
+</body>
+
+</html>

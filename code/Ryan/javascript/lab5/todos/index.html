@@ -14,18 +14,28 @@
 </head>
 <body>
 
-    <h1>Hello Vue</h1>
+    <h1>To Do List</h1>
 
-    <div id="app">
-        <p>{{title}} - {{another}} - {{number}}</p>
-
-        <button v-on:click="number++">increase the number by 1</button>
-        <button v-on:click="number--">decrease the number by 1</button>
-
-        <div @click="changeTitle">change title</div>
+    <div class="entry">
+        <label for="todo"><span>What to do</span></label><br>
+        <input type="text" id="input-box"/><br>
+        <div>
+            <button class="btn" id="add-btn">
+                Add Item
+            </button>
+        </div>
     </div>
 
+    <div id="app">
+        <ul v-for="item in items" :key="item">
 
+            {{item.text}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button @click="strikeThrough(item)">Completed</button>
+            |
+            <button >Remove</button>
+        <ul>
+    </div>
     <!-- Include your code here... -->
     <script src="js/site.js"></script>
 </body>

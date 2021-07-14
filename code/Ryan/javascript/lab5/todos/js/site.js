@@ -1,24 +1,53 @@
+// const items = []
+
+
+// items.push("Item 1")
+// items.push("Item 2")
+// items.push("Item 3")
+// items.push("Item 4")
+
 const app = Vue.createApp({
-    // data, functions
-    // template: "<h2>I am a h2</h2>"
 
-    data(){
+    data: function() {
         return{
-            title: "i am the title",
-            another: "here's another",
-            number: 45,
-
+            items: [
+                {id: 1, text: "Text One", completed: false},
+                {id: 2, text: "Text Two", completed: true},
+                {id: 3, text: "Text Three", completed: true}
+            ]
         }
     },
 
     methods: {
-        changeTitle(){
-            this.another = "Change from line 16"
-            console.log("line 16")
+        strikeThrough: function(item) {
+            let currentIndex = this.items.indexOf(item);
+            console.log(currentIndex);
+            console.log(this.items[currentIndex].completed);
+            this.items[currentIndex].completed = !this.items[currentIndex].completed;
+            console.log(this.items[currentIndex].completed);
         }
-    }
+    },
+
 })
 
 app.mount("#app") 
 
-cll
+
+
+// data: {
+//     items: [
+//       {id: 1, text: "Text One", completed: false},
+//       {id: 2, text: "Text Two", completed: true},
+//       {id: 3, text: "Text Three", completed: true}
+//     ]
+//   }
+  
+  
+  
+  
+//   <---------------HTML--------------->
+  
+//   <ul v-for="item in items">
+//     <li v-if="item.completed"><s>{{item.text}}</s>
+//     <li v-else>{{item.text}}
+//   </ul>
