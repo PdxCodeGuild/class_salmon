@@ -3,21 +3,51 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>title</title>
+    <title>This is about the quotes of life.</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <h2 class="title">Get a quote or search for quotes. You decide. We deliver.</h2>
     <div id="app">
-      <button @click="loadQuote">Get a Quote</button>
-      <div v-if="Object.keys(quoteResponse).length">
-        <p>{{quoteResponse.quote.body}}</p>
-        <p><i><a :href="quoteResponse.quote.url">{{quoteResponse.quote.author}}</a></i></p> 
+      <!-- <button @click="loadQuote">Get a Quote</button> -->
+      <!-- <div v-if="Object.keys(quoteResponse).length">
+        <p>{{ quoteResponse.quote.body }}</p>
+        <p><i><a v-bind:href="quoteResponse.quote.url">{{ quoteResponse.quote.author }}</a></i></p>  -->
+        <!-- <remove is="remove"
+        v-for="quote in quoteResponse"
+        v-bind:key="quote.id"
+        v-bind:title="quote.title"
+        ></refresh> -->
+        <qotd v-bind="quoteResponse" class="quote"></qotd>
+        <!-- {{ quoteResponse.quote.body }} -->
+      <!-- </div> -->
+      <br></br>
+      <div>
+      <template>
+        <input placeholder="Enter who or what to search for." v-model="filterInput"></input>
+        <select v-model="typeInput">
+          <option disabled value="">Please select one</option>
+          <option value="author">Author</option>
+          <option value="tag">Quote Tag</option>
+          <option value="keyword">Keyword</option>
+        </select>
+        <button @click="loadAuthor">Submit Search</button>
+      </template>
       </div>
-      <button @click="loadAuthor">Mark Twain</button>
-      <div v-if="Object.keys(authorResponse).length">
-      <p>{{authorResponse.quote.body}}</p>
-      <p><i><a :href="authorResponse.quote.url">{{authorResponse.quote.author}}</a></i></p>
-      </div> 
+      <!-- <div> -->
+      <ul>
+        <li v-for="quote in authorResponse.quotes" v-bind:key="quote.id" class="quote">
+          <p>{{ quote.body }}</p>
+          <p><i><a v-bind:href="quote.url">{{quote.author}}</a></i></p>
+        </li>
+      </ul>
+      <div>
+        <button v-on:click="nextPage">Next Page</button>
+        <button v-on:click="previousPage">Previous Page</button>
+        <!-- <next-page @next="nextPage"></next-page>
+        <previous-page @previous="previousPage"></previous-page> -->
+      </div>
+      <!-- </div>  -->
     </div>
     <!-- CDN for vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
