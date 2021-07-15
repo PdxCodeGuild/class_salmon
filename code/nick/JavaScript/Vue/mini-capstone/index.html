@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NREL Utility Rates by Address</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h2 class="title">Search for the commercial, residential, and industrial electricity rate by address.</h2>
+    <div id="app">
+      <br></br>
+      <div>
+      <template>
+        <!-- <input placeholder="Enter an address." v-model="addressInput"></input> -->
+        <!-- <button @click="loadLatlong">Find Lat Long</button> -->
+      </template>
+      <template>
+        <input placeholder="Enter an address." v-model="addressInput"></input>
+        <select v-model="limitInput">
+          <option disabled value="">Select limit on number of returns</option>
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="">No limit</option>
+        </select>
+        <button @click="loadLatlong">Submit Search</button>
+      </template>
+      </div>
+      <ul>
+        <p>The residential rate for utilities is ${{ residentialRate }}kWh</p>
+      </ul>
+      <!-- <ul>
+        <li v-for="output in rateResponse.outputs" v-bind:key="output.outputs" class="rate">
+          <p>{{ output.commercial }}</p>
+          <p><i><a v-bind:key="output.utility_info">{{output.utility_name}}</a></i></p>
+        </li>
+      </ul> -->
+    </div>
+    <!-- CDN for vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- CDN for axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- load secrets before app -->
+    <script src="secrets.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
