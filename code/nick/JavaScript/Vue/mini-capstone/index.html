@@ -4,39 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>NREL Utility Rates by Address</title>
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h2 class="title">Search for the commercial, residential, and industrial electricity rate by address.</h2>
     <div id="app">
       <br></br>
-      <div>
-      <template>
-        <!-- <input placeholder="Enter an address." v-model="addressInput"></input> -->
-        <!-- <button @click="loadLatlong">Find Lat Long</button> -->
-      </template>
+      <div class="container">
       <template>
         <input placeholder="Enter an address." v-model="addressInput"></input>
-        <select v-model="limitInput">
-          <option disabled value="">Select limit on number of returns</option>
-          <option value="1">1</option>
-          <option value="5">5</option>
-          <option value="">No limit</option>
+        <select data-target='dropdown1' v-model="limitInput">
+          <option id='dropdown1' disabled value="">Select limit on number of returns</option>
+          <option id='dropdown1' value="1">1</option>
+          <option id='dropdown1' value="5">5</option>
+          <option id='dropdown1' value="">No limit</option>
         </select>
         <button @click="loadLatlong">Submit Search</button>
       </template>
       </div>
+      <div v-if="variableCheck === true">
       <ul>
-        <p>The residential rate for utilities is ${{ residentialRate }}kWh</p>
+        <p>The residential rate for electricity is ${{ residentialRate }} per kWh</p>
+        <p>The commercial rate for electricity is ${{ commercialRate }} per kWh</p>
+        <p>The industrial rate for electricity is ${{ industrialRate }} per kWh</p>
+        <h3 class="subtitle">Operating companies in this service area ({{ cityName }}) include:</h3>
+        <li 
+        v-for="index in utilityInfo"
+        v-bind:key="index.id"
+        >{{ index.utility_name }}</li>
       </ul>
-      <!-- <ul>
-        <li v-for="output in rateResponse.outputs" v-bind:key="output.outputs" class="rate">
-          <p>{{ output.commercial }}</p>
-          <p><i><a v-bind:key="output.utility_info">{{output.utility_name}}</a></i></p>
-        </li>
-      </ul> -->
+      <img :src="mapUrl"></img>
+      <p>Source: Ventyx Research Inc. and the Energy Information Agency (EIA), 2012; compiled by the National Renewable Energy Laboratory</p>
+      </div>
     </div>
-    <!-- CDN for vue -->
+    <!-- Compiled and minified JavaScript Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- CDN for Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- CDN for axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

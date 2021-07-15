@@ -1,4 +1,4 @@
-html {
+/* html {
     box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -8,8 +8,11 @@ body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(to top left, rgba(83, 83, 83, 0), #D9D9D9), radial-gradient( rgb(87, 86, 86), #D9D9D9) ;
 }
-h3 {
+h2 {
     font-size: 2.5rem;
+}
+h3 {
+    font-size: 1.5rem;
 }
 .title {
     display: flex;
@@ -20,7 +23,15 @@ h3 {
     background-color: orange;
     padding: 1rem
 }
-.quote {
+.subtitle {
     display: flex;
-    flex-direction: row;
+    order: 4;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: orange;
+    padding: .75rem;
+    padding-left: .5rem;
+    margin-left: none;
 }
+#mapid { height: 180px; } */
