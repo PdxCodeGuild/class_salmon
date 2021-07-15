@@ -1,0 +1,48 @@
+p {
+  display: flex;
+  max-width: 100%;
+  color: rgb(172, 255, 226);
+  background-color: black;
+  font-family: "Aclonica", Roboto, fantasy, Copperplate, Papyrus;
+}
+
+h1 {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+header {
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  color: whitesmoke;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration: overline;
+  margin-bottom: 10px;
+  font-size: 200px;
+}
+
+body {
+  /* background-image: url("./content/wp.jpg"); */
+  background-color: black;
+  color: rgb(168, 168, 168);
+  font-family: "brush script mt", cursive;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <title>Capstone</title>
+    </head>
+    <body>
+        <center>
+            <div id="app">
+                <header>Scroll <br> Down</header>
+                <hr>
+                <h1>I WOULD LIKE TO SEND AN</h1> 
+                <br>
+                <select id="meanNice">
+                    <option value="insult" selected>INSULT</option>
+                    <option value="compliment">COMPLIMENT</option>
+                </select>
+                <br>
+                <h1>TO A</h1>
+                <select id="toWho">
+                    <option value="person" selected>PERSON</option>
+                    <option value="company">COMPANY</option>
+                </select>
+                <br>
+                <h1>NAMED</h1>
+                <input id="name" type="text">
+                <br><br>
+                <button @click="loadPhrase" id="send">NOW!!!</button>
+
+                <p>{{phrase}}</p>
+                
+                <!-- <script src="http://code.onion.com/fartscroll.js"></script> -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+        
+            </div>
+        </center>
+</body>
+</html>
