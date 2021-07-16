@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <div class="w3-container w3-teal w3-round w3-cell-middle">
+  <div class="w3-container w3-teal w3-round w3-cell-middle w3-card-4">
     <h2 class="w3-panel w3-border-left">Search for the commercial, residential, and industrial electricity rate by address.</h2>
   </div>
   <div>
@@ -20,7 +20,7 @@
   </div>
     <div id="app">
       <br></br>
-      <div class="w3-container w3-round w3-metro-green w3-padding-24 w3-center w3-margin">
+      <div class="w3-container w3-round w3-metro-green w3-padding-24 w3-center w3-margin w3-card-4">
       <template>
         <input class="w3-input" placeholder="Enter an address." v-model="addressInput"></input>
         <select class="w3-dropdown-click w3-margin" v-model="limitInput">
@@ -33,7 +33,7 @@
       </template>
       </div>
       <div class="w3-padding-16 w3-center" v-if="variableCheck === true">
-      <ol>
+      <ol class="w3-panel w3-white w3-card-4">
         <p>The residential rate for electricity is ${{ residentialRate }} per kWh</p>
         <p>The commercial rate for electricity is ${{ commercialRate }} per kWh</p>
         <p>The industrial rate for electricity is ${{ industrialRate }} per kWh</p>
@@ -48,7 +48,7 @@
       <img :src="mapUrl" style="padding:4px;width:85%"></img>
       <p>Source: Ventyx Research Inc. and the Energy Information Agency (EIA), 2012; compiled by the National Renewable Energy Laboratory</p>
       </div>
-      <div class="w3-container w3-teal w3-round w3-border-top">
+      <div class="w3-container w3-teal w3-round w3-border-top w3-card-4">
         <h5>The Geothermal Good Life 2021</h5>
         <p>Equitability in energy transitions.</p>
       </div>
