@@ -4,24 +4,27 @@ const vm = new Vue({
         unitsIn: '',
         amount: '',
         unitsOut: '',
-        // conversion: ''
+        conversion: '',
+        result: '',
+        message: `${this.amount} ${this.unitsIn} = ${this.result} ${this.unitsOut}`
     },
     methods: {
         getCurrency() {
             axios({
                 method: 'get',
-                url: 'https://api.exchangerate.host/latest',
+                url: 'https://api.exchangerate.host/convert',
                 params: {
                     amount: this.amount,
                     from: this.unitsIn,
                     to: this.unitsOut
                 }
             }).then((response) => {
-                console.log(response.data.rates[this.unitsOut])
+                this.conversion = response.data.info.rate
+                this.result = response.data.result
             })
-        // },
-        // clear() {
-        //   conversion = ''  
+        },
+        clear() {
+          this.result = ''
         }
     }
 })

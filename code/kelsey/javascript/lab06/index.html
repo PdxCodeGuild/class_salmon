@@ -20,9 +20,11 @@
             <input v-model="unitsOut" type="text" name="to" id="to" placeholder="EUR" required>
             <button type="submit">Convert</button>
         </form>
-        <!-- <p>{{ conversion }}</p>
-        <button @click="clear()">Clear</button> -->
+    <div>
+        {{ result }}
+        <button @click="clear()" type="button">Clear</button>
     </div>
+</div>
     <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="site.js"></script>
