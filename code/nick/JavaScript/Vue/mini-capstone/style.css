@@ -1,5 +1,5 @@
 /* html {
-    box-sizing: border-box;
+    box-sizing: unset
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -33,5 +33,23 @@ h3 {
     padding: .75rem;
     padding-left: .5rem;
     margin-left: none;
+} */
+/* #mapid { height: 180px; } */
+#picture {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
 }
-#mapid { height: 180px; } */
+#powercoys {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: auto;
+}
+#button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}

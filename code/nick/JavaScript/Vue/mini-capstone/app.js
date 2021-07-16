@@ -51,7 +51,6 @@
 //     ',
 //     props: ['residentialRate', 'commercialRate', 'industrialRate', 'utilityInfo', 'latlonResponse.latt', 'latlonResponse.longt']
 //   })
-
 let vm = new Vue({
     el: '#app',
     data: {
@@ -111,7 +110,7 @@ let vm = new Vue({
                 this.commercialRate = response.data.outputs.commercial,
                 this.residentialRate = response.data.outputs.residential,
                 this.industrialRate = response.data.outputs.industrial,
-                this.mapUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/static/${this.latlonResponse.longt},${this.latlonResponse.latt},8.75,0/275x200?access_token=pk.eyJ1IjoiYXplcm1hbiIsImEiOiJja3I1YXgzYmszM2o2Mm9xcGd6NThkZTZjIn0.O3OKKsfIG0ZyyF-LvNdu_g`,
+                this.mapUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/static/${this.latlonResponse.longt},${this.latlonResponse.latt},8.75,0/350x240?access_token=pk.eyJ1IjoiYXplcm1hbiIsImEiOiJja3I1YXgzYmszM2o2Mm9xcGd6NThkZTZjIn0.O3OKKsfIG0ZyyF-LvNdu_g`,
                 console.log(String(this.mapUrl))
                 console.log(response.data.outputs.utility_info),
                 console.log(response.data.outputs),
@@ -120,3 +119,8 @@ let vm = new Vue({
         },
     },
 });
+vm.use(VueMaterial.default)
+
+      new Vue({
+        el: '#app'
+      })
