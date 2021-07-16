@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,40 +16,42 @@
 </head>
 
 <body>
+
     <h1>Find the Perfect City for You</h1>
     <h2>Welcome to the City Match Tool</h2>
     <p>This tool allows you to choose three metrics by which to compare cities. Begin by picking the top three most important characteristics of where you'd like to live.</p>
     
     <div id="cityGen">
-        <span class="step">
-        Step One
-        <br>
-        <i class="fas fa-chevron-circle-down"></i>
-        <br>
-        </span>
-    <!-- User will pick how many cities they want to compare (ideally up to 10) -->
-    <br>
-    <label for="numcomparisons">How many cities would you like to compare?</label>
-    <input id="numcomparisons"type="number" max="10" min="1">
-    <br>
 
+        <!-- STEP ONE: 
+            User will pick how many cities they want to compare (ideally up to 10) -->
         <span class="step">
-        Step Two
-        <br>
-        <i class="fas fa-chevron-circle-down"></i>
-        <br>
+            Step One
+            <i class="fas fa-chevron-circle-right"></i>
         </span>
-    <!-- User will input the cities they want to research -->
-    <add-city @add="add_city"></add-city>
-    <br>
-    <!-- <label for="cityName">Input a city name here:</label>
-    <input type="text" id="cityName" v-model="search">
-    <br> -->
+        <div id="num_sel">
+            <label for="num_comparisons">How many cities would you like to compare?</label>
+            <select name="num_comparisons" v-model="num_comparisons">
+                <option disabled value="#">#</option>
+                <option v-for="n in 5" v-bind:value="n">{{n}}</option>
+            </select>
+        </div>
+        <!-- <button id="numcomparisons">Add cities</button> -->
+        <br><br>
 
-    <!-- User will input their top three characteristics by which to compare cities using a radio form here -->
+        <!-- STEP TWO:
+            User will input the cities they want to research -->
+        <span class="step">
+            Step Two
+            <i class="fas fa-chevron-circle-down"></i>
+            <add-city v-for="num in num_comparisons" @add="add_to_list"></add-city>
+        </span>
+        <br>
+
+        <!-- STEP THREE:
+            User will input their top three characteristics by which to compare cities using a radio form here -->
         <span class="step">
         Step Three
-        <br>
         <i class="fas fa-chevron-circle-down"></i>
         <br>
         </span>
@@ -102,25 +107,26 @@
     <button id="submit">Submit</button>
     <br>
 
-        <div id="results">
-        <!-- Results will display here. Cities will be side by side so you can easily compare them using the metrics selected -->
-        <!-- Cities will be ordered by how good of a fit they are -->
+    <!-- STEP FOUR:
+        Results will display here. Cities will be side by side so 
+        you can easily compare them using the metrics selected -->
+    <!-- Cities will be ordered by how good of a fit they are -->
             <span class="step">
             Results!
-            <br>
             <i class="fas fa-chevron-circle-down"></i>
             <br>
             </span>
-            <!-- <button @click="addCity" id="randCity">Give me a random city</button>
-            <button @click="citySearch" id="citySearch">Add a specific city</button> -->
             
             <!-- City Image -->
 
             <!-- Overall Score -->
+        <div id="results" v-for="i in num_comparisons.length">
             <table style='width:50%'>
                     <caption>
-                    <h1>{{ search }}</h1>
-                    <p v-html='city.data["summary"]'></p>
+                    <div id="titles">
+                        <h1>{{ num_comparisons[i-1].city_str }}</h1>
+                        <p v-html='city.data["summary"]'></p>
+                    </div>
                     </caption>
                 <tr>
                     <td>Overall Score:</td>
@@ -137,7 +143,6 @@
                 <tr>
                     <td>{{ trait_three }} (10 possible):</td>
                     <td>{{ city.data.categories[7]["score_out_of_10"] }}</td>
-                    
                 </tr>
             </table>
         </div>
