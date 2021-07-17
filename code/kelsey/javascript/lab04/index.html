@@ -23,23 +23,9 @@
                 <input type="checkbox" v-model="todo.done">
                 <button @click="removeTodo(todo)" type="button">-</button>
                 <span :class="{ done: todo.done }">{{ todo.task }}</span>
-
             </li>
         </ol>
-        <button @click="checkAll" type="button">Mark All Complete</button>
-        <h4>Completed
-            <span id="clear">
-                <button @click="clear()" type="button">Clear All</button>
-            </span>
-        </h4>
-        <ol>
-            <li v-for="todo in completed">
-                <button @click="removeTodo(todo)" type="button">-</button>
-                <span :class="{ done: todo.done }">{{ todo.task }}</span>
-
-            </li>
-        </ol>
-
+        <button @click="clear()" type="button">Clear All</button>
     </div>
     <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>

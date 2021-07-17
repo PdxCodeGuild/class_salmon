@@ -1,11 +1,9 @@
-
 const app = new Vue({
     el: '#app',
     data: {
         title: 'To-Do List',
         newTodo: '',
-        todos: [],
-        completed: []
+        todos: []
     },
     methods: {
         addTodo() {
@@ -17,16 +15,10 @@ const app = new Vue({
         },
         removeTodo(todo) {
             const index = this.todos.indexOf(todo)
-            this.completed.splice(index, 1)
-        },
-       
-        completedTodo(todo) {
-            const index = this.todos.indexOf(todo)
             this.todos.splice(index, 1)
-            this.completed.push(todo)
         },
         clear() {
-            this.completed = []
-        },
+            this.todos = []
+        }
     }
 })

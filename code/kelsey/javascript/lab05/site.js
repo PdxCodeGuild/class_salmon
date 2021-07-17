@@ -6,16 +6,26 @@
 // When the page first loads, show the user a set of completely random quotes.
 // You must have at least one Vue component in your app.
 
+Vue.component('', {
+    data: function() {
+        return
+    }, 
+    template: ''
+})
 const vm = new Vue({
     el: '#app',
     data: {
+        results: ''
     },
-    mounted() {
+    search() {
         axios({
             method: 'get',
             url: 'https://favqs.com/api/quotes/',
             headers: {
                 "Authorization": `Token token="75781e1e8edbf2eb68848384abbbd2bb"`
-            }).then(response => (this.info = response))
+            }.then(response => {
+                console.log(response)
+            })
+        })
     }
 })

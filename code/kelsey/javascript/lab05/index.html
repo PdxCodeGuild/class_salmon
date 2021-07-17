@@ -18,7 +18,25 @@ You must have at least one Vue component in your app. -->
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <form @submit.prevent="">
+      <label for="search_by">Search by:</label>
+      <select name="search" id="search">
+        <option value="keyword">Keyword</option>
+        <option value="author">Author</option>
+        <option value="tag">Tag</option>
+      </select>
+      <input type="text" name="search" id="search">
+      <button @click="search()" type="submit">search</button>
+    </form>
+    <div>
+      <ol>
+        <li v-for="result in results">{{ result.text }}</li>
+      </ol>
+      <button>Previous</button>
+      <button>Next</button>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/vue"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -6,7 +6,7 @@ const vm = new Vue({
         unitsOut: '',
         conversion: '',
         result: '',
-        message: `${this.amount} ${this.unitsIn} = ${this.result} ${this.unitsOut}`
+        message: ''
     },
     methods: {
         getCurrency() {
@@ -21,10 +21,14 @@ const vm = new Vue({
             }).then((response) => {
                 this.conversion = response.data.info.rate
                 this.result = response.data.result
+                this.message = `${this.amount} ${this.unitsIn.toUpperCase()} = ${this.result} ${this.unitsOut.toUpperCase()}`
+                this.amount = ''
+                this.unitsOut = ''
+                this.unitsIn = ''
             })
         },
         clear() {
-          this.result = ''
+          this.message = ''
         }
     }
 })
