@@ -1,8 +1,6 @@
 Vue.component('individual', {
     data: function () {
-        return {
-            fartscroll(50);
-        }
+
     },
 
 })

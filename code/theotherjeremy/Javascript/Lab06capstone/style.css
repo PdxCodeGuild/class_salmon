@@ -1,27 +1,35 @@
 p {
-  display: flex;
+  /* display: flex; */
   max-width: 100%;
-  color: rgb(172, 255, 226);
+  font-size: 30px;
+  /* color: rgb(172, 255, 226); */
   background-color: black;
-  font-family: "Aclonica", Roboto, fantasy, Copperplate, Papyrus;
+  /* font-family: "Aclonica", Roboto, fantasy, Copperplate, Papyrus; */
+}
+
+button {
+  border: 5px solid rgb(241, 107, 30);
 }
 
 h1 {
   margin-bottom: 50px;
   margin-top: 50px;
   padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 50px;
 }
 
 header {
-  font-size: xx-large;
+  font-size: 200px;
+  max-width: fit-content;
   display: flex;
   justify-content: center;
-  color: whitesmoke;
+  color: rgb(241, 107, 30);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-decoration: overline;
   margin-bottom: 10px;
-  font-size: 200px;
+  border: 5px solid whitesmoke;
 }
 
 body {
@@ -32,11 +40,14 @@ body {
 }
 
 @media (min-width: 768px) {
-  .container {
-    display: grid;
-    grid-row-gap: 5px;
-    grid-template-columns: 30% 30% 30%;
-  }
+  /* header {
+    font-size: 75px; */
+}
+.container {
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-columns: 30% 30% 30%;
+  font-size: 50px;
 }
 
 @media (min-width: 960px) {

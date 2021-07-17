@@ -11,29 +11,23 @@
     <body>
         <center>
             <div id="app">
-                <header>Scroll <br> Down</header>
-                <hr>
-                <h1>I WOULD LIKE TO SEND AN</h1> 
-                <br>
-                <select id="meanNice">
-                    <option value="insult" selected>INSULT</option>
-                    <option value="compliment">COMPLIMENT</option>
-                </select>
-                <br>
-                <h1>TO A</h1>
-                <select id="toWho">
-                    <option value="person" selected>PERSON</option>
-                    <option value="company">COMPANY</option>
-                </select>
-                <br>
-                <h1>NAMED</h1>
-                <input id="name" type="text">
-                <br><br>
-                <button @click="loadPhrase" id="send">NOW!!!</button>
-
-                <p>{{phrase}}</p>
+                <header>Watch Your Astroids</header>
+                <h1>A near-Earth object is an asteroid or comet which passes close to the Earth's orbit.</h1>
+                <h1>What Was The Closest Near Earth Object On:</h1> 
                 
-                <!-- <script src="http://code.onion.com/fartscroll.js"></script> -->
+                <input v-model="inputDate" id="inputDate" type="date"> 
+                <br><br>
+                <button @click="loadPhrase" id="send">???</button>
+                
+
+               
+                <p v-if="test==true">On {{date}}, there were {{quantity}} Near Earth Objects. <br> The closest of those {{quantity}} was an asteroid named {{name}}. <br> It's {{avgDiam}} meters wide and is traveling {{mph}} MPH. <br> It missed Earth by {{missDistance}} miles. <br> </p>
+                
+                
+                <!-- <p>{{phrase}}</p> -->
+
+                
+                
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="app.js"></script>
