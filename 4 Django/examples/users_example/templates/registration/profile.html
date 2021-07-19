@@ -1,0 +1,12 @@
+<h1>{{ user.username }}</h1>
+<p>
+    <div>{{ user.first_name }}</div>
+    <div>{{ user.last_name }}</div> 
+    <div>{{ user.email }}</div>
+</p>
+<h4>Posts</h4>
+{% for post in user.posts.all %}
+<div>
+    <h5><a href="{% url 'posts:detail' pk=post.pk %}">{{ post.title }}</a></h5>
+</div>
+{% endfor %}
