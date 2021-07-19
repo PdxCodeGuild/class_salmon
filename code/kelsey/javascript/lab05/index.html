@@ -23,7 +23,7 @@ You must have at least one Vue component in your app. -->
     <form @submit.prevent="search">
       <label for="search_by">Search by:</label>
       <select v-model="searchSelect" id="searchSelect">
-        <option value="user">User</option>
+        <option value="keyword">Keyword</option>
         <option value="author">Author</option>
         <option value="tag">Tag</option>
       </select>
@@ -31,11 +31,7 @@ You must have at least one Vue component in your app. -->
       <button type="submit">search</button>
     </form>
     <show-results v-bind:results="results" v-if="results"></show-results>
-    <!-- <div>
-      <ol>
-        <li v-for="result in results">{{ result.body }}</li>
-      </ol>
-    </div> -->
+
     <button @click="">Previous</button>
     <button @click="">Next</button>
   </div>
