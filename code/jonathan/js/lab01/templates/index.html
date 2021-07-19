@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS Page</title>
+    </head>
+    <body>
+        <text>Enter a distance please:</text>
+        <input id="user_value" type="number"/>
+        <button id="value_button">enter</button><br>
+        <text>And they are which units? (in, ft, yd, mi, m, km):</text>
+        <input id="user_units" type="text"/>
+        <button id="unit_button">enter</button><br>
+        <text>And you would like the output in what unit? (in, ft, yd, mi, m, km):</text>
+        <input id="answer_units" type="text"/>
+        <button id="answer_button">enter</button><br>
+        <button id="run_button">run</button><br>
+        
+        <script src="{{ url_for('static', filename='lab01A.js') }}"></script>
+    </body>
+</html>
