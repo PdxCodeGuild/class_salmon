@@ -1,3 +1,20 @@
+Vue.component('add-traits', {
+    data: function() {
+        return {
+            trait_one: "Cost of Living",
+            trait_two: "Commute",
+            trait_three: "Safety"
+        }
+    }, 
+    methods: {
+        addTraits: function() {
+            trait_one = '',
+            trait_two = '',
+            trait_three = ''
+        }
+    }
+})
+
 Vue.component('add-city', {
     data: function() {
         return {
@@ -8,33 +25,54 @@ Vue.component('add-city', {
     },
     template: `
     <div>
-    <label for="cityName">Input a city name here:</label>
-    <input type="text" name="cityName" placeholder="Type city name" v-model="city_str"><br>
-    <button @click='add_to_list'>Add City</button>
-    <br>
+        <label for="cityName">Input a city name here:</label>
+        <input type="text" name="cityName" placeholder="Type city name" v-model="city_str" @keydown.enter="add_to_list"><br>
+        <button @click='add_to_list'>Add City</button>
+        <br>
     </div>
     `,
     methods: {
         add_to_list: function() {
-            this.$emit('add', {id: this.id, city_str: this.city_str, url: 'https://api.teleport.org/api/urban_areas/slug:${city_str}/scores/'})
+            url = `https://api.teleport.org/api/urban_areas/slug:${this.city_str}/scores/`
+            console.log(url)
+            this.$emit('add', {id: this.id, city_str: this.city_str, url: url})
             console.log("id: " + this.id)
             console.log("city_str: " + this.city_str)
             this.id++
             this.city_str = ""
-            console.log("num comp: " + num_comparisons)
+            console.log("num comp: " + city_data)
         }
     }
 })
 
+// Vue.component('dataPull', {
+//     data: {
+//         city: {}
+//     },
+//     mounted () {
+//         axios
+//             .get(`https://api.teleport.org/api/urban_areas/slug:${encodeURIComponent(this.search)}/scores/`)
+//             .then(response => {
+//                 this.city_data[0].data = response
+//                 this.city_data[0].overall = Math.round(response.data["teleport_city_score"])
+//                 this.city_data[0].summary = response.data["summary"]
+//                 // this.overall = Math.round(response.data["teleport_city_score"])
+//                 this.city = response
+//             })
+//     }
+// })
+
 const cityGen = new Vue({
-    el: '#cityGen',
+    el: '#vue-app',
     data: {
-        num_comparisons: [
-            // {id: "1", city_str: "seattle", url: 'https://api.teleport.org/api/urban_areas/slug:seattle/scores/'},
-            // {num: "1", city: "seattle", trait_one: "", trait_two: "", trait_three: ""},
+        city_data: [
+            {id: "1", city_str: "seattle", url: 'https://api.teleport.org/api/urban_areas/slug:seattle/scores/', overall: 0, summary: '', trait_one: "Cost of Living", trait_two: "commute", trait_three: "safety", data: ""},
+            // {id: "1", city_str: "portland", url: 'https://api.teleport.org/api/urban_areas/slug:portland/scores/', overall: 1, summary: '', trait_one: "startups", trait_two: "women", trait_three: "dogs"},
+            // {num: "1", city: "portland", trait_one: "", trait_two: "", trait_three: ""},
             // {id: "2", city_str: "vancouver"},
             // {id: "3", city_str: "portland"}
         ],
+        num_comps: 1,
         city: {},
         search: 'seattle',
         overall: 0,
@@ -47,7 +85,7 @@ const cityGen = new Vue({
         //     third: trait_three
         // },
         traits: {
-            traits1: 'housing',
+            'startups': '3',
             traits2: 'cola',
             traits3: 'housing',
             traits4: 'housing',
@@ -65,26 +103,23 @@ const cityGen = new Vue({
             traits16: 'housing',
             traits17: 'housing',
         }
+        // response: dataPull
     },
     methods: {
         add_to_list: function(payload) {
-            this.num_comparisons.push(payload)
-            console.log(num_comparisons)
+            this.city_data.push(payload)
+            console.log("num com: " + city_data)
         }
     },
     mounted () {
-        axios 
-            // .get('https://api.teleport.org/api/urban_areas/slug:seattle/scores/')
-            // for (i in num_comparisons) {
-                // .get(`https://api.teleport.org/api/urban_areas/slug:${this.test.url}/scores/`)
-                .get(`${this.num_comparisons[0].url}`)
-                .then(response => {
-                    this.overall = Math.round(response.data["teleport_city_score"])
-                    console.log("overall: " + this.overall)
-                    console.log("search: " + this.search)
-                    console.log("num comp: " + this.num_comparisons)
-                    this.city = response
-                })
-            // }
+        axios
+            .get(`https://api.teleport.org/api/urban_areas/slug:${encodeURIComponent(this.search)}/scores/`)
+            .then(response => {
+                this.city_data[0].data = response.data
+                this.city_data[0].overall = Math.round(response.data["teleport_city_score"])
+                this.city_data[0].summary = response.data["summary"]
+                // this.overall = Math.round(response.data["teleport_city_score"])
+                this.city = response
+            })
     }
 })
