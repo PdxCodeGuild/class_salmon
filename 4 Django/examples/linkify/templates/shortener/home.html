@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+    <div class="content">
+        <h1>Linkify<img src="https://3.bp.blogspot.com/-DUZfc8HMwaI/WO8viISpVpI/AAAAAAABDzM/EHFjtJHO_-0D62o7iFwGLxxy12uPWO1wQCLcB/s800/food_sausage_gyoniku.png" alt="suggestive sausage"></h1>
+        {% if url %}
+        <div class="cover">
+            <div class="link">
+                <div class="close">×</div>
+                <h5>Here's your link you lazy bastard.</h5>
+                <a target="_blank" href="http://localhost:8000/{{ url.code }}">http://localhost:8000/{{ url.code }}</a>
+            </div>
+        </div>
+        {% endif %}
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="long_url" placeholder="Long URL Here...">
+                <button>Linkify Me!</button>
+            </form>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy;SaucyLinks&trade; <em>1999-2018</em>
+    </div>
+    <script>
+        var closeButton = document.querySelector('.close')
+        var modalCover = document.querySelector('.cover')
+
+        closeButton.addEventListener('click', function() {
+           modalCover.classList.add('hide') 
+        })
+    </script>
+</body>
+</html>
