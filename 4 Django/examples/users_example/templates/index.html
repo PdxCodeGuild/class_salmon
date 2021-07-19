@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Website!</title>
+</head>
+<body>
+    <div>
+        {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+            <a href="{% url 'accounts:profile' %}">My Profile</a>
+            <a href="{% url 'accounts:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'accounts:login' %}">Sign-In</a>
+            <a href="{% url 'accounts:register' %}">Sign-Up</a>
+        {% endif %}
+    </div>
+</body>
+</html>
