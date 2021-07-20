@@ -1,0 +1,23 @@
+.flex-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+span {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+div {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+p {
+    display: flex;
+    flex-direction: column;
+}
+/* li {
+    display: flex;
+    flex-direction: column;
+} */

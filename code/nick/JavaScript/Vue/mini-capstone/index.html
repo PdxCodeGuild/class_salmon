@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="w3-container w3-metro-dark-green">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NREL Utility Rates by Address</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <div class="w3-container w3-teal w3-round w3-cell-middle w3-card-4">
+    <h2 class="w3-panel w3-border-left">Search for the commercial, residential, and industrial electricity rate by address.</h2>
+  </div>
+  <div>
+    <img src="https://thumbs.dreamstime.com/b/power-lines-landscape-sunrise-57539714.jpg" onclick="document.getElementById('modal01').style.display='block'" class="w3-hover-opacity w3-round" id="picture" alt="Hungry powerlines" style="width:75%">
+    <div id="modal01" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
+    <img class="w3-modal-content" src="https://thumbs.dreamstime.com/b/power-lines-landscape-sunrise-57539714.jpg" style="width:100%">
+</div>
+  </div>
+    <div id="app">
+      <br></br>
+      <div class="w3-container w3-round w3-metro-green w3-padding-24 w3-center w3-margin w3-card-4">
+      <template>
+        <input class="w3-input" placeholder="Enter an address." v-model="addressInput"></input>
+        <select class="w3-dropdown-click w3-margin" v-model="limitInput">
+          <option disabled value="">Select limit on number of returns</option>
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="">No limit</option>
+        </select>
+        <button class="w3-button w3-block w3-black w3-center w3-monospace" id="button" style="width:50%" @click="loadLatlong">Submit Search</button>
+      </template>
+      </div>
+      <div class="w3-padding-16 w3-center" v-if="variableCheck === true">
+      <ol class="w3-panel w3-white w3-card-4">
+        <p>The residential rate for electricity is ${{ residentialRate }} per kWh</p>
+        <p>The commercial rate for electricity is ${{ commercialRate }} per kWh</p>
+        <p>The industrial rate for electricity is ${{ industrialRate }} per kWh</p>
+        <h3 class="w3-monospace w3-black">Operating utililty companies in this service area ({{ cityName }}) include:</h3>
+        <li 
+        v-for="index in utilityInfo"
+        v-bind:key="index.id"
+        class="w3-monospace w3-center"
+        id="powercoys"
+        >{{ index.utility_name }}</li>
+      </ol>
+      <img :src="mapUrl" style="padding:4px;width:85%"></img>
+      <p>Source: Ventyx Research Inc. and the Energy Information Agency (EIA), 2012; compiled by the National Renewable Energy Laboratory</p>
+      </div>
+      <div class="w3-container w3-teal w3-round w3-border-top w3-card-4">
+        <h5>The Geothermal Good Life 2021</h5>
+        <p>Equitability in energy transitions.</p>
+      </div>
+    </div>
+    <!-- CDN for Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- CDN for axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- load secrets before app -->
+    <script src="secrets.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

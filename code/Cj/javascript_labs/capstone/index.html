@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class='yellow lighten-4' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <style>
+    /* .flex-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%
+    } */
+    span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+    h2 {
+        text-decoration: underline;
+    }
+    p {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    .stats {
+        font-size: 20px;;
+    }
+    body {
+       height: 100vh;
+    }
+    /* display-card {
+        max-width: 100vw;
+    } */
+    u {
+        text-decoration: underline;
+    }
+    #poke-pic {
+    width: 40%;
+    }
+    #search {
+        display: flex; 
+        flex-direction: row;
+        position: fixed;
+        justify-content: center;
+     
+        bottom: .5rem;
+        width: 100%;
+    }
+    .flex-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        height: 2.5rem;
+    }
+    #pokemon-card {
+        border-radius: 10px;
+        box-shadow: 20px 20px 20px;
+    }
+    /* .flexbox {
+        display: flex;
+        flex-direction: column;
+    } */
+    </style>
+</head>
+<body>
+    <header class='flex-header red'>
+        <h1 class='center-align'>Pokédex App</h1>
+    </header>
+    <div id="app">
+    <!-- <span>
+        <button @click='retrieve'>Get info</button>
+    </span> -->
+    <main id='main'>
+        <pokemon-display v-on:pokemon-found='foundPokemon($event)' :results='results' :pic_id='pic_id' :evolution_chain='evolution_chain' :types='types' :pokemon='pokemon' :stats='stats' :species='species'></pokemon-display>
+    </main>
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <searchbar id="search">
+        <search-pokemon :previous_pokemon='previous_pokemon' :next_pokemon='next_pokemon' v-bind:results='results' v-on:pokemon-found='foundPokemon($event)'></search-pokemon>
+    </searchbar>
+    <footer class='flex-footer red'>
+        <paginator v-on:pokemon-found='foundPokemon($event)' :previous_pokemon='previous_pokemon' :next_pokemon='next_pokemon'></paginator>
+        </div>
+        <div class='row'>
+        </span>
+    
+    </footer>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="js/site.js"></script>
+<script src="js/materialize.min.js"></script>
+</html>
+
