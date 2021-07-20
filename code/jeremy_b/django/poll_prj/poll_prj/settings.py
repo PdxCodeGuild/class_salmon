@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'polls.apps.PollsConfig',
 ]
 
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'poll_prj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'polls/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
