@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <title>Capstone</title>
+    </head>
+    <body>
+        <center>
+            <div id="app">
+                <header>Watch Your Astroids</header>
+                <h1>A near-Earth object is an asteroid or comet which passes close to the Earth's orbit.</h1>
+                <h1>What Was The Closest Near Earth Object On:</h1> 
+                
+                <input v-model="inputDate" id="inputDate" type="date"> 
+                <br><br>
+                <button @click="loadPhrase" id="send">???</button>
+                
+
+               
+                <p v-if="test==true">On {{date}}, there were {{quantity}} Near Earth Objects. <br> The closest of those {{quantity}} was an asteroid named {{name}}. <br> It's {{avgDiam}} meters wide and is traveling {{mph}} MPH. <br> It missed Earth by {{missDistance}} miles. <br> </p>
+                
+                
+                <!-- <p>{{phrase}}</p> -->
+
+                
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+        
+            </div>
+        </center>
+</body>
+</html>
