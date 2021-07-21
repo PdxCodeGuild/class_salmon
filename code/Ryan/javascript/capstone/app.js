@@ -9,6 +9,9 @@ const vm = new Vue({
         isShuffled: false,
         cardsRemaining: "0",
         output: "",
+
+        p1hand:[],
+        p2hand:[],
     },
     methods: {
       // Get a new deck -> Output deck_id
@@ -40,13 +43,42 @@ const vm = new Vue({
         drawCardP1: function () {
           axios({
                 method: "get",
-                url: `http://deckofcardsapi.com/api/deck/${this.deckID}/draw/?count=1`
+                url: `http://deckofcardsapi.com/api/deck/${this.deckID}/draw/?count=52`
               }).then(response => {
                 this.player1Cards = response.data;
                 this.cardsRemaining = response.data.remaining;
                 this.output = "Player 2 Turn"
+                console.log(this.player1Cards)
+                console.log(this.player1Cards.data)
+                console.log(this.player1Cards.cards)
+                console.log(this.player1Cards.cards[0])
+                console.log(this.player1Cards.cards.length)
+
+                // how to deal to players
+                for(let i = 0; i < 52; i++){
+                  if (i % 2 === 0){this.p1hand.push(this.player1Cards.cards[i])}
+                  else {this.p2hand.push(this.player1Cards.cards[i])}
+                }
+
+                // this.p1hand.push(this.player1Cards.cards[0])
+                // this.p2hand.push(this.player1Cards.cards[1])
+
+                console.log(this.p1hand)
+                console.log(this.p2hand)
               })
         },
+
+        // // Player 1 draw card
+        //   drawCardP1: function () {
+        //     axios({
+        //           method: "get",
+        //           url: `http://deckofcardsapi.com/api/deck/${this.deckID}/draw/?count=1`
+        //         }).then(response => {
+        //           this.player1Cards = response.data;
+        //           this.cardsRemaining = response.data.remaining;
+        //           this.output = "Player 2 Turn"
+        //         })
+        //   },
 
       // Player 2 draw card
         drawCardP2: function () {
@@ -99,7 +131,10 @@ const vm = new Vue({
 
         },
 
-    },
+        created: function(){
+          this.drawCardP1
+        }
+      },
 
 })
 
