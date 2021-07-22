@@ -25,6 +25,9 @@ const vm = new Vue({
 
     },
     methods: {
+        loadQuotes() {
+
+        },
         search() {
             axios({
                 method: 'get',
@@ -41,6 +44,9 @@ const vm = new Vue({
                 this.results = response.data.quotes
             })
         },
+        created: function() {
+            this.loadQuotes()
+        }
 
     }
 
