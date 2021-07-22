@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 1 :: Grocery List</title>
+</head>
+<body>
+    <!-- display active lists or message saying there aren't any. -->
+    <p>This is the grocery index.</p>
+    {% if list_len == 0 %}
+        <p>You have no lists to display!</p>
+        <br>
+        <a href="{% url 'grocery:add_list' %}">Add New List</a>
+    {% else %}
+        <ul>
+            {% for list in active_lists %}
+                <li><a href="{% url 'grocery:list_detail' list.id %}">{{ list.list_name }}</a></li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{% url 'grocery:add_list' %}">Add New List</a><br>
+        <a href="{% url 'grocery:edit_list' %}">Edit List</a>
+    {% endif %}
+</body>
+</html>

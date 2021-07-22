@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'polls.apps.PollsConfig',
+    'grocery.apps.GroceryConfig',
 ]
 
 MIDDLEWARE = [

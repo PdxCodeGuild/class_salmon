@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 1 :: Grocery List Detail</title>
+</head>
+<body>
+    {% if item_list_len == 0 %}
+        <p>This list is empty!</p>
+    {% else %}
+        <ul>
+            {% for item in list_items %}
+                <li>{{ item.list_item_text }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
