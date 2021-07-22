@@ -26,7 +26,7 @@ const vm = new Vue({
     },
     methods: {
         loadQuotes() {
-
+            
         },
         search() {
             axios({

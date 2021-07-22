@@ -6,7 +6,7 @@ Implement pagination buttons when the search returns more than 25 quotes.
 When the page first loads, show the user a set of completely random quotes.
 You must have at least one Vue component in your app. -->
 
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,60 +41,4 @@ You must have at least one Vue component in your app. -->
   <script src="site.js"></script>
 </body>
 
-</html> {% endcomment %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Quotes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-
-</head>
-<body>
-    <div id="app">
-        <h1>Get A Free Quote!!</h1>
-        <br>
-        <button @click="loadQuotes" id="quoteButton">Hit Me With Your Best Shot</button>
-        
-        <p>{{qotd}}</p>
-        <p>{{author}}</p>
-
-        
-
-
-        <!-- <template> -->
-            <!-- <p>{{ qotd.quote.body }} </p> -->
-            <!-- <p><a :href="qotd.quote.url">{{ qotd.quote.author }}</a>  </p> -->
-        <!-- </template> -->
-       
-        <br> <br>
-        
-        <h3>Search By:</h3>
-        <input v-model="searchInput" id="searchTerm" type="text"/>
-        <br> <br>
-        
-        <!-- <button v-on:click="searchKey" id="keyButton">Key Word</button> -->
-        <button v-on:click="searchAuthor" id="authorButton">Author</button>
-        <!-- <button v-on:click="searchTag" id="TagButton">Tag</button> -->
-        <br><br> 
-        <ul>
-            <li v-for="quote in results.quotes" :key="quote.id">
-                <p>{{  quote.body }}</p>
-                <p><a :href="quote.url">{{ quote.author }}</a></p>
-            </li>
-        </ul> 
-        
-        
-        
-        <br><br>
-        <!-- <button v-on:click="nextPage" id="nextPage">Next Page</button>  -->
-        
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+</html> 
