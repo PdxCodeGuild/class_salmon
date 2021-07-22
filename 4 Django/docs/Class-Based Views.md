@@ -2,27 +2,34 @@
 
 # Class-Based Views
 
-- [Reference Documentation](https://docs.djangoproject.com/en/2.0/ref/class-based-views/)
-- [Introduction to class-based views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/intro/)
-- [Part of the polls tutorial](https://docs.djangoproject.com/en/2.0/intro/tutorial04/#use-generic-views-less-code-is-better)
-- [Built-in class-based generic views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/generic-display/)
-- [Form handling with class-based views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/generic-editing/)
-- [Using mixins with class-based views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/mixins/)
+
+- [Overview](#overview)
+- [Using Class-Based Views with Routing](#using-class-based-views-with-routing)
+- [Base Views](#base-views)
+  - [View](#view)
+  - [TemplateView](#templateview)
+- [Display Views](#display-views)
+  - [ListView](#listview)
+  - [DetailView](#detailview)
+- [Editing Views](#editing-views)
 
 
+## Overview
+
+The caveat with class-based views is that while they provide much for you, you must know how to customize them, they reflect the balance of convenience and control you find elsewhere in programming.
+
+- [Reference Documentation](https://docs.djangoproject.com/en/3.2/ref/class-based-views/)
+- [Introduction to Class-Based Views](https://docs.djangoproject.com/en/3.2/topics/class-based-views/intro/)
+- [Polls Tutorial: Part 4](https://docs.djangoproject.com/en/3.2/intro/tutorial04/#use-generic-views-less-code-is-better)
+- [Built-in class-based generic views](https://docs.djangoproject.com/en/3.2/topics/class-based-views/generic-display/)
+- [Form handling with class-based views](https://docs.djangoproject.com/en/3.2/topics/class-based-views/generic-editing/)
+- [Using mixins with class-based views](https://docs.djangoproject.com/en/3.2/topics/class-based-views/mixins/)
 - [simpleisbetterthancomplex.com's overview](https://simpleisbetterthancomplex.com/article/2017/03/21/class-based-views-vs-function-based-views.html)
 
 
-## Types of Views
+## Using Class-Based Views with Routing
 
-- [Base Views: View, TemplateView, RedirectView](https://docs.djangoproject.com/en/2.0/ref/class-based-views/base/)
-- [Display Views: DetailView,List View](https://docs.djangoproject.com/en/2.0/ref/class-based-views/generic-display/)
-- [Editing Views: FormView, CreateView, UpdateView, DeleteView](https://docs.djangoproject.com/en/2.0/ref/class-based-views/generic-editing/)
-
-
-## Routing
-
-To create a route to a class-based view, you have to call `as_view()` and pass the result to `path`. The `DetailView` requires a `pk` in the path.
+There are two ways to use the built-in class-based views, either directly in the `urls.py` or by subclassing them. To create a route to a class-based view, you have to call `as_view()` and pass the result to `path`. The `DetailView` requires a `pk` in the path.
 
 ```python
 from django.urls import path
@@ -40,7 +47,11 @@ urlpatterns = [
 ]
 ```
 
-## View
+## Base Views
+
+- [Base Views: View, TemplateView, RedirectView](https://docs.djangoproject.com/en/3.2/ref/class-based-views/base/)
+
+### View
 
 This the the base class of all other class-based views. It allows you to write a method to handle each HTTP method.
 
@@ -61,7 +72,7 @@ class MyView(View):
         #...
 ```
 
-## TemplateView
+### TemplateView
 
 The `TemplateView` allows you to define a view just by specifying a template name and the data used to render it.
 
@@ -86,7 +97,11 @@ urlpatterns = [
 ```
 
 
-## ListView
+## Display Views
+
+- [Display Views: DetailView,List View](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-display/)
+
+### ListView
 
 A `ListView` 
 
@@ -110,7 +125,7 @@ class MyListView(generic.ListView):
 
 
 
-## DetailView
+### DetailView
 
 DetailView expects a 'pk' in the route: `path('<int:pk>/', views.DetailView.as_view(), name='detail')`.
 
@@ -132,5 +147,11 @@ class MyDetailView(generic.DetailView):
     #   object = super().get_object()
     #   return object
 ```
+
+
+## Editing Views
+
+- [Editing Views: FormView, CreateView, UpdateView, DeleteView](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
+
 
 
