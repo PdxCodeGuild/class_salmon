@@ -1,21 +1,32 @@
+
 # How to start a Django project &nbsp;(_PDXCG Style_)
 
-Open a terminal and navigate to the new (blank) folder to create your project!
+## Table of Contents
 
-Make sure to replace **$PROJECT_NAME** with your own project name. Your project name should be named in snake_case and contain no captial letters.
+1. [Setup the project](#setup)
+    - [Reference: "Am I inside or outside the virtual environment?"](#where-am-i)
+1. [Create a Django App](#create-app)
+1. [Create a View](#create-view)
+1. [Create a Route to the View](#create-route)
+1. [Running the web server locally](#runserver)
+1. [Create Models](#create-models)
+1. [Add the Model to the Admin Panel](#add-model)
+1. [Create a Template](#create-template)
+1. [Render a Template](#render-template)
+1. [Set up template directories](#template-dirs)
+1. [Set up static directories](#static-dirs)
 
-This will also require `pipenv` to be installed! (`pip install pipenv`)
+- ## [Quickstart (Abbreviated version)](#quickstart)
 
 ---
-## Setup the project
+## Setup the project <a name="setup"></a>
 
-1. Create a directory
+1. Create a directory. Open a terminal and navigate to a new (blank) folder, and  create your project folder. Make sure to replace **$PROJECT_NAME** with your own project name. Your project name should be named in snake_case and contain no capital letters.
     * `mkdir $PROJECT_NAME`
 2. Change into that directory 
     * `cd $PROJECT_NAME`
-3. Install django
+3. Install django (requires `pipenv` to be installed via `pip install pipenv` . In case you ever need to remove the virtual environment, use `pipenv --rm`)
     * `pipenv install django`
-    (In case you ever need to remove the virtual environment, use `pipenv --rm`.
 4. Get into the environment
     * `pipenv shell`
     * `pip list` (verify Django is installed)
@@ -23,7 +34,8 @@ This will also require `pipenv` to be installed! (`pip install pipenv`)
     * `django-admin startproject $PROJECT_NAME .`
     * **The period at the end of this command is important!** It says ignore creating a new folder and put the contents of our new project in the current directory. 
 
-### How to tell, "Where am I?" "Inside the virtual environment or not?"
+
+### How to tell, "Where am I?" "Inside the virtual environment or not?" <a name="where-am-i"></a>
 
 There are several ways to check whethe you are inside the virtual environment or not:
 
@@ -34,7 +46,7 @@ There are several ways to check whethe you are inside the virtual environment or
 
 
 ---   
-## Create a Django app inside the project
+## Create a Django app inside the project <a name="create-app"></a>
 
 Creating an app to add to your project is done by calling `python manage.py startapp $APPNAME_HERE`
 
@@ -49,7 +61,7 @@ INSTALLED_APPS = [
 ```
 
 ---
-## Create a View
+## Create a View <a name="create-view"></a>
 
 - In your app's `views.py`:
 ```python
@@ -60,7 +72,7 @@ def <viewname>(request):
 A common `<viewname>` is `index`.
 
 ---
-## Create a Route to the View
+## Create a Route to the View <a name="create-route"></a>
 
 - Create a `urls.py` inside your app
 - Add a route in your app's `urls.py` which points to the the view
@@ -88,13 +100,13 @@ urlpatterns = [
 ]
 ```
 ---
-## Running the web server locally
+## Running the web server locally <a name="runserver"></a>
 
 At this point, you should run the server (`python manage.py runserver`) and go to `localhost:8000/app_path/view_path` and verify that you can access the view.
 The local Django web server will generally remain running and automatically restart if it detects changes in any .py files, but this is the first place you should check if you can't access it locally. Close the server like any python file with `Cmd+C / Control+C`. Remember to restart it after performing any direct commands to the manage.py file. 
 
 ---
-## Create Models
+## Create Models <a name="create-models"></a>
 
 - Define your models (Python classes) in the app's `models.py`
 - Stage your migrations: `python manage.py makemigrations <appname>`
@@ -102,7 +114,7 @@ The local Django web server will generally remain running and automatically rest
 - Perform migrations (synchronize your models with your database): `python manage.py migrate`
 
 ---
-## Add the Model to the Admin Panel
+## Add the Model to the Admin Panel <a name="add-model"></a>
 
 - Add a `def __str__(self):` to your model so the admin interface knows how to display it.
 - Make your app visible in the admin panel by registering your models with our app's `admin.py`
@@ -120,12 +132,12 @@ admin.site.register(<model name 2>)
 - Go to `localhost:8000/admin` in your browser, and add some data.
 
 ---
-## Create a Template
+## Create a Template <a name="create-template"></a>
 
 - Create a folder inside your app called `templates`, inside of that create another folder with the name of your app, and inside of *that* create a `<filename>.html`. You can view examples of the template syntax [here](03%20-%20Templates.md).
 
 ---
-## Render a Template
+## Render a Template <a name="render-template"></a>
 
 - Inside your view, you can use the `render` shortcut to render a template. The first parameter is the request, the second parameter is the name of the template, and the third is a dictionary containing the values you'd like to render in the template.
 
@@ -137,7 +149,7 @@ def <view name>(request):
 ```
 
 ---
-### Set up template directories
+### Set up template directories <a name="template-dirs"></a>
 In `settings.py`:
 ```py
 TEMPLATES = [
@@ -150,7 +162,7 @@ TEMPLATES = [
 ```
 
 ---
-### Set up static directories
+### Set up static directories <a name="static-dirs"></a>
 In `settings.py`
 ```py
 STATIC_URL = '/static/'
@@ -165,7 +177,7 @@ STATICFILES_DIRS = (
 
 ---
 ---
-# Quickstart (Abbreviated version)
+# Quickstart (Abbreviated version) <a name="quickstart"></a>
 ## Create the Project
 
 - Create a site/project: `django-admin startproject $PROJECT_NAME`
