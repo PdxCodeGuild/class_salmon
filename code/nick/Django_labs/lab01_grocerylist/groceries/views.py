@@ -1,3 +1,6 @@
+import datetime
+from django.utils import timezone
+
 from django.http.response import HttpResponseForbidden, HttpResponseRedirect
 from .models import GroceryItem
 from django.shortcuts import render
@@ -21,6 +24,16 @@ def add_grocery(request):
 
 def delete_grocery(request, id):
     delete_item = get_object_or_404(GroceryItem, id=id)
-    print(delete_item)
+    # print(delete_item)
     delete_item.delete()
+    # print('hello')
+    return HttpResponseRedirect(reverse('groceries:index'))
+
+def mark_complete(request, id):
+    complete_item = get_object_or_404(GroceryItem, id=id)
+    complete_item.completed_date = timezone.now()
+    complete_item.is_completed = True
+    # print('hello')
+    # print(f'{complete_item} is complete item, {complete_item.is_completed} - {complete_item.completed_date}')
+    complete_item.save()#just save for the object
     return HttpResponseRedirect(reverse('groceries:index'))

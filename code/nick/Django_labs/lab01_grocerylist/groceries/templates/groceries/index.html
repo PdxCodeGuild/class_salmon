@@ -6,24 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'groceries/style.css' %}">
 </head>
 <body class="index">
-    <form action="{% url 'groceries:new_item' %}" method="post">
+<h1 class="w3-margin-right w3-padding-16" id="title">Enter items into your grocery list!</h1>
+    <form action="{% url 'groceries:new_item' %}" method="post" id="title">
     {% csrf_token %}
             <input name="new_item"/>
         <button type="submit">submit</button>
+    <br><br>
     </form>
+    <h3 class="w3-margin-right w3-padding-16" id="title">Grocery List:</h3>
+    <div class="w3-panel w3-leftbar w3-red w3-card-4">
+    {% if grocery_list %}
     <div>
+        <ul>
+        {% for grocery in grocery_list %}
+            <div>
+            {% if grocery.is_completed == False %}
+                <li>{{ grocery.item_description }} <a href="{% url 'groceries:delete_item' grocery.id %}" ><button class="button">Delete</button></a> <a href="{% url 'groceries:complete_item' grocery.id %}"><button class="button">Mark Complete</button></a></li>
+            {% endif %}
+            </div>
+        {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+        <p>No unpurchased groceries are listed.</p>
+    {% endif %} 
+    </div>
+    <h3 class="w3-padding-16" id="title">Purchased Groceries:</h3>
+    <div class="w3-panel w3-leftbar w3-green w3-card-4">
     {% if grocery_list %}
         <ul>
         {% for grocery in grocery_list %}
-            <li>{{ grocery.item_description }}<button action="{% url 'groceries:delete_item' grocery.id %}" method="post">delete</button></li>
+            <div>
+            {% if grocery.is_completed == True %}
+                <li>{{ grocery.item_description }} <a href="{% url 'groceries:delete_item' grocery.id %}" ><button class="button">Delete</button></a></li>
+            {% endif %}
+            </div>
         {% endfor %}
-
         </ul>
     {% else %}
-        <p>No list items are available.</p>
+        <p>No purchased groceries are listed.</p>
     {% endif %} 
     </div>
+    
 </body>
 </html>

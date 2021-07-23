@@ -11,4 +11,4 @@ class GroceryItem(models.Model):
     is_completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.item_description
+        return self.item_description #, self.is_completed
