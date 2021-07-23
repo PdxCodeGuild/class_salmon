@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lab01 Grocery List</title>
+    <link rel="stylesheet" href="{% static 'grocery_list/style.css' %}"/>
+</head>
+<body>
+    <h1>Grocery List</h1>
+    {% for item in GroceryItem %}
+        <ol>
+            <li>{{ item.text }}
+            <p>Created on: {{ item.created }}</p>
+            <p>Completed? {{ item.completed }}</p>
+            </li>
+        </ol>
+    {% endfor %}
+    <form type="submit">
+    <input type="checkbox">
+    <button>Add</button>
+    </form>
+    <button>Delete</button>
+</body>
+</html>
