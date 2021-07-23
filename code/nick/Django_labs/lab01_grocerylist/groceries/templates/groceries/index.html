@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="index">
+    <form action="{% url 'groceries:new_item' %}" method="post">
+    {% csrf_token %}
+            <input name="new_item"/>
+        <button type="submit">submit</button>
+    </form>
+    <div>
+    {% if grocery_list %}
+        <ul>
+        {% for grocery in grocery_list %}
+            <li>{{ grocery.item_description }}<button action="{% url 'groceries:delete_item' grocery.id %}" method="post">delete</button></li>
+        {% endfor %}
+
+        </ul>
+    {% else %}
+        <p>No list items are available.</p>
+    {% endif %} 
+    </div>
+</body>
+</html>
