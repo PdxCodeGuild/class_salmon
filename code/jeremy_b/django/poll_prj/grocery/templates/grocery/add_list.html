@@ -6,6 +6,7 @@
     <title>Django Lab 1 :: New Grocery List</title>
 </head>
 <body>
+<h1>Add New List</h1>
 <form action="{% url 'grocery:add_list' %}" method="post">
     {% csrf_token %}
     <fieldset>

@@ -6,14 +6,21 @@
     <title>Django Lab 1 :: Grocery List Detail</title>
 </head>
 <body>
-    {% if item_list_len == 0 %}
-        <p>This list is empty!</p>
-    {% else %}
-        <ul>
-            {% for item in list_items %}
-                <li>{{ item.list_item_text }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+<h1>{{ list_name }}</h1>
+{% if item_list_len == 0 %}
+    <h2>This list is empty!</h2>
+    <a href="{% url 'grocery:add_list_item' list_id %}">Add List Item</a><br>
+    <a href="{% url 'grocery:edit_list' list_id %}">Edit List Settings</a>
+{% else %}
+    <h2>The following items are on your list:</h2>
+    <ul>
+        {% for item in list_items %}
+            <li> {{ item.list_item_text }} </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'grocery:add_list_item' list_id %}">Add List Item</a><br>
+    <a href="{% url 'grocery:edit_list' list_id %}">Edit List Settings</a><br>
+    <a href="{% url 'grocery:index' %}">Lists Main</a>
+{% endif %}
 </body>
 </html>
