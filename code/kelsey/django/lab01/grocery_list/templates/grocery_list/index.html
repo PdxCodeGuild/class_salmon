@@ -8,18 +8,26 @@
     <link rel="stylesheet" href="{% static 'grocery_list/style.css' %}"/>
 </head>
 <body>
+
     <h1>Grocery List</h1>
-    {% for item in GroceryItem %}
+    {% for item in groceryitems %}
         <ol>
             <li>{{ item.text }}
             <p>Created on: {{ item.created }}</p>
             <p>Completed? {{ item.completed }}</p>
+            <a href="{% url 'grocery_list:deleteItem' item.id %}"><button>Delete</button></a>
             </li>
         </ol>
     {% endfor %}
-    <form type="submit">
-    <input type="checkbox">
-    <button>Add</button>
+    <form method="POST">
+        {% csrf_token %}
+    <input type="checkbox" name="check">
+    <button type="submit">Add</button>
+    </form>
+    <form method="post" action="{% url 'grocery_list:add' %}">
+    {% csrf_token %}
+    <input type="text" name="add">
+    <button>Add Item</button>
     </form>
     <button>Delete</button>
 </body>
