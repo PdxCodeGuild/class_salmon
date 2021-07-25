@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Grocery List</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <!-- Load CSS -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'grocerylist/style.css'%}">
+</head>
+<body>
+  <h1>Grocery List</h1>
+
+  <h2>Add Item</h2>
+  <form action="{% url 'app_grocerylist:add' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="add_item" value="">
+    <button type="submit" name="button_submit">Add Item</button>
+  </form>
+
+  {% if item_list %}
+  <h2>Incomplete</h2>
+  <table>
+    <!-- Headers -->
+    <tr>
+      <th></th>
+      <th>Item</th>
+      <th>Created Date</th>
+      <th></th>
+    </tr>
+    <!-- list incomplete items -->
+    {% for item in item_list %}
+      {% if item.completed == False %}
+      <tr>
+        <td>
+          <form class="" action="{% url 'app_grocerylist:update' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="status" value="Complete">
+          </form>
+        </td>
+        <td>{{ item.item_text }}</td>
+        <td>{{ item.created_date }}</td>
+        <td>
+          <form  action="{% url 'app_grocerylist:delete' item.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="button_delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+  <h2>Completed</h2>
+    <table>
+      <!-- Headers -->
+      <tr>
+        <td></td>
+        <th>Item</th>
+        <th>Created Date</th>
+        <th>Completed Date</th>
+        <th></th>
+      </tr>
+      <!-- List Completed Items -->
+      {% for item in item_list %}
+        {% if item.completed == True %}
+        <tr>
+          <td>
+            <form class="" action="{% url 'app_grocerylist:update' item.id %}" method="post">
+              {% csrf_token %}
+              <input type="submit" name="status" value="Change Incomplete">
+            </form>
+          </td>
+          <td>{{ item.item_text }}</td>
+          <td>{{ item.created_date }}</td>
+          <td>{{ item.completed_date }}</td>
+          <td>
+            <form  action="{% url 'app_grocerylist:delete' item.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" name="button_delete">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+  {% endif %}
+</body>
+</html>
