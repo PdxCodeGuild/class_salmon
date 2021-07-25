@@ -1,3 +1,7 @@
+<!-- Load CSS -->
+<!-- {% load static %}
+<link rel="stylesheet" href="{% static 'grocerylist/style.css'%}"> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +9,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-  <!-- Load CSS -->
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'grocerylist/style.css'%}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <style>
+    html {
+      font-family: 'Indie Flower', cursive;
+      background-color: #81ABBC;
+    },
+
+    table {
+      font-family: 'Indie Flower', cursive;
+      font-weight: bold;
+      border-collapse: collapse;
+      width: 100%;
+    },
+
+    th {
+      border: 10px solid #e5c1bd;
+      text-align: center;
+      padding: 0px
+    },
+
+    td {
+      border: 10px solid #e5c1bd;
+      text-align: center;
+      padding: 4px;
+    },
+
+    tr:nth-child(even) {
+      border: 10px solid #e5c1bd;
+      text-align: center;
+      padding: 4px;
+      background-color: #e5c1bd;
+    },
+
+    .fa-trash{
+      color: #774A62;
+    },
+
+    .add_item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    },
+
+  </style>
 </head>
 <body>
-  <h1>Grocery List</h1>
+  <div class="title_logo">
+    <h1>Grocery List</h1>
+  </div>
 
-  <h2>Add Item</h2>
-  <form action="{% url 'app_grocerylist:add' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="add_item" value="">
-    <button type="submit" name="button_submit">Add Item</button>
-  </form>
-
+  <div class="add_item">
+    <h2>Add Item</h2>
+    <form action="{% url 'app_grocerylist:add' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="add_item" value="">
+      <button type="submit" name="button_submit"><i class="fas fa-plus"></i></button>
+    </form>
+  </div>
   {% if item_list %}
   <h2>Incomplete</h2>
   <table>
@@ -36,7 +88,7 @@
         <td>
           <form class="" action="{% url 'app_grocerylist:update' item.id %}" method="post">
             {% csrf_token %}
-            <input type="submit" name="status" value="Complete">
+            <button type="submit" name="status"><i class="fas fa-check"></i></button>
           </form>
         </td>
         <td>{{ item.item_text }}</td>
@@ -44,7 +96,7 @@
         <td>
           <form  action="{% url 'app_grocerylist:delete' item.id %}" method="post">
             {% csrf_token %}
-            <button type="submit" name="button_delete">Delete</button>
+            <button type="submit" name="button_delete" class="button_delete"><i class="fas fa-trash"></i></button>
           </form>
         </td>
       </tr>
@@ -68,7 +120,7 @@
           <td>
             <form class="" action="{% url 'app_grocerylist:update' item.id %}" method="post">
               {% csrf_token %}
-              <input type="submit" name="status" value="Change Incomplete">
+              <button type="submit" name="status"><i class="fas fa-undo-alt"></i></button>
             </form>
           </td>
           <td>{{ item.item_text }}</td>
@@ -77,7 +129,7 @@
           <td>
             <form  action="{% url 'app_grocerylist:delete' item.id %}" method="post">
               {% csrf_token %}
-              <button type="submit" name="button_delete">Delete</button>
+              <button type="submit" name="button_delete" class="button_delete"><i class="fas fa-trash"></i></button>
             </form>
           </td>
         </tr>
