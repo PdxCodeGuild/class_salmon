@@ -15,12 +15,35 @@
     <h2>The following items are on your list:</h2>
     <ul>
         {% for item in list_items %}
-            <li> {{ item.list_item_text }} </li>
+            {% if not item.is_complete %}
+                <li> {{ item.list_item_text }}
+                    <form action="{% url 'grocery:delete_list_item' item.id %}" method="post">
+                        {%  csrf_token %}
+                        <button type="submit">Delete Item</button>
+                    </form>
+                    <form action="{% url 'grocery:item_complete' item.id %}" method="post">
+                        {%  csrf_token %}
+                        <button type="submit">Purchased!</button>
+                    </form>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
     <a href="{% url 'grocery:add_list_item' list_id %}">Add List Item</a><br>
     <a href="{% url 'grocery:edit_list' list_id %}">Edit List Settings</a><br>
     <a href="{% url 'grocery:index' %}">Lists Main</a>
 {% endif %}
+<h2>Purchased Items:</h2>
+<ul>
+    {% for item in list_items %}
+        {% if item.is_complete  %}
+            <li>{{ item.list_item_text }}</li>
+            <form action="{% url 'grocery:delete_list_item' item.id %}" method="post">
+                {%  csrf_token %}
+                <button type="submit">Delete Item</button>
+            </form>
+        {% endif %}
+    {% endfor %}
+</ul>
 </body>
 </html>

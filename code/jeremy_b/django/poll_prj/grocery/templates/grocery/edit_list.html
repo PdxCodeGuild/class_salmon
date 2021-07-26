@@ -15,13 +15,6 @@
         </legend>
         <input type="text" name="list_name" value="{{ list_name }}">
         <label for="list_name">List Name</label>
-            {% if is_active %}
-                <input type="checkbox" name="is_active" checked>
-                <label for="is_active">Active</label>
-            {% else %}
-                <input type="checkbox" name="is_active">
-                <label for="is_active">Active</label>
-            {% endif %}
     </fieldset>
     <input type="submit" value="Submit Changes">
 </form>

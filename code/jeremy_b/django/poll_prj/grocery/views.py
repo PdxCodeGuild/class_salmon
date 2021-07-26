@@ -6,19 +6,21 @@ from .models import List, ListItem
 
 
 def index(request):
-    active_lists = List.objects.filter(is_active=True)
-    list_len = len(active_lists)
-    return render(request, 'grocery/index.html', {'active_lists': active_lists, 'list_len': list_len})
+    active_list = List.objects.filter(is_active=True)
+    inactive_list = List.objects.filter(is_active=False)
+    active_list_len = len(active_list)
+    inactive_list_len = len(inactive_list)
+    return render(request, 'grocery/index.html', {'active_lists': active_list, 'list_len': active_list_len, 'inactive_lists': inactive_list, 'inactive_list_len': inactive_list_len})
 
 def list_detail(request, list_id):
-    list_items = ListItem.objects.filter(list_id=list_id).filter(is_complete=False)
+    list_items = ListItem.objects.filter(list_id=list_id)
     item_list_len = len(list_items)
     list_name = List.objects.filter(pk=list_id).get().list_name
     context = {
         'list_items': list_items,
         'item_list_len': item_list_len,
         'list_id': list_id,
-        'list_name': list_name
+        'list_name': list_name,
     }
     return render(request, 'grocery/list_detail.html', context)
 
@@ -28,7 +30,7 @@ def add_list(request):
         new_list_name = request.POST
         new_list = List(list_name=new_list_name['list_name'])
         new_list.save()
-        return HttpResponseRedirect(reverse('grocery:request_complete'))
+        return index(request)
     else:
         return render(request, 'grocery/add_list.html')
 
@@ -63,14 +65,33 @@ def edit_list(request, list_id):
         }
         return render(request, 'grocery/edit_list.html', context)
 
-def edit_list_item(request):
-    pass
+def delete_list(request, list_id):
+    q = List.objects.get(pk=list_id)
+    q.delete()
+    return index(request)
 
-def delete_list(request):
-    pass
+def list_disable(request, list_id):
+    q = List.objects.get(pk=list_id)
+    q.is_active = 0
+    q.save()
+    return index(request)
 
-def delete_list_item(request):
-    pass
+def list_enable(request, list_id):
+    q = List.objects.get(pk=list_id)
+    q.is_active = 1
+    q.save()
+    return index(request)
+
+def delete_list_item(request, item_id):
+    i = ListItem.objects.get(pk=item_id)
+    i.delete()
+    return list_detail(request, i.list_id)
+
+def item_complete(request, item_id):
+    i = ListItem.objects.get(pk=item_id)
+    i.is_complete = 1
+    i.save()
+    return list_detail(request, i.list_id)
 
 def request_complete(request):
     return render(request, 'grocery/request_complete.html')
