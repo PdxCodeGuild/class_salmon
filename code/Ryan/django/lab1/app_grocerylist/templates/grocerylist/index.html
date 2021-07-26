@@ -1,6 +1,6 @@
 <!-- Load CSS -->
-<!-- {% load static %}
-<link rel="stylesheet" href="{% static 'grocerylist/style.css'%}"> -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'grocerylist/style.css'%}">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,50 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-  <style>
-    html {
-      font-family: 'Indie Flower', cursive;
-      background-color: #81ABBC;
-    },
-
-    table {
-      font-family: 'Indie Flower', cursive;
-      font-weight: bold;
-      border-collapse: collapse;
-      width: 100%;
-    },
-
-    th {
-      border: 10px solid #e5c1bd;
-      text-align: center;
-      padding: 0px
-    },
-
-    td {
-      border: 10px solid #e5c1bd;
-      text-align: center;
-      padding: 4px;
-    },
-
-    tr:nth-child(even) {
-      border: 10px solid #e5c1bd;
-      text-align: center;
-      padding: 4px;
-      background-color: #e5c1bd;
-    },
-
-    .fa-trash{
-      color: #774A62;
-    },
-
-    .add_item{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    },
-
-  </style>
 </head>
 <body>
   <div class="title_logo">
@@ -77,8 +33,8 @@
     <!-- Headers -->
     <tr>
       <th></th>
-      <th>Item</th>
-      <th>Created Date</th>
+      <th id="table_head">Item</th>
+      <th id="table_head">Created Date</th>
       <th></th>
     </tr>
     <!-- list incomplete items -->
@@ -86,7 +42,7 @@
       {% if item.completed == False %}
       <tr>
         <td>
-          <form class="" action="{% url 'app_grocerylist:update' item.id %}" method="post">
+          <form class="form_icon" action="{% url 'app_grocerylist:update' item.id %}" method="post">
             {% csrf_token %}
             <button type="submit" name="status"><i class="fas fa-check"></i></button>
           </form>
@@ -94,7 +50,7 @@
         <td>{{ item.item_text }}</td>
         <td>{{ item.created_date }}</td>
         <td>
-          <form  action="{% url 'app_grocerylist:delete' item.id %}" method="post">
+          <form class="form_icon" action="{% url 'app_grocerylist:delete' item.id %}" method="post">
             {% csrf_token %}
             <button type="submit" name="button_delete" class="button_delete"><i class="fas fa-trash"></i></button>
           </form>
@@ -108,9 +64,9 @@
       <!-- Headers -->
       <tr>
         <td></td>
-        <th>Item</th>
-        <th>Created Date</th>
-        <th>Completed Date</th>
+        <th id="table_head">Item</th>
+        <th id="table_head">Created Date</th>
+        <th id="table_head">Completed Date</th>
         <th></th>
       </tr>
       <!-- List Completed Items -->
@@ -118,7 +74,7 @@
         {% if item.completed == True %}
         <tr>
           <td>
-            <form class="" action="{% url 'app_grocerylist:update' item.id %}" method="post">
+            <form class="form_icon" action="{% url 'app_grocerylist:update' item.id %}" method="post">
               {% csrf_token %}
               <button type="submit" name="status"><i class="fas fa-undo-alt"></i></button>
             </form>
@@ -127,7 +83,7 @@
           <td>{{ item.created_date }}</td>
           <td>{{ item.completed_date }}</td>
           <td>
-            <form  action="{% url 'app_grocerylist:delete' item.id %}" method="post">
+            <form class="form_icon" action="{% url 'app_grocerylist:delete' item.id %}" method="post">
               {% csrf_token %}
               <button type="submit" name="button_delete" class="button_delete"><i class="fas fa-trash"></i></button>
             </form>
