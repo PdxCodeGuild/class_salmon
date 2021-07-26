@@ -42,12 +42,25 @@ def add_item(request):
     return render(request, 'grocery_app/index.html', context)
 
 
-def delete_item(request):
-
+def delete_item(request, id):
+    delete_item = GroceryItem.objects.get(id=id)
+    delete_item.delete()
+    incomplete_items = GroceryItem.objects.filter(done_box=False)
+    complete_items = GroceryItem.objects.filter(done_box=True)
+    context = {'incomplete_items': incomplete_items,
+               'complete_items': complete_items}
     return render(request, 'grocery_app/index.html', context)
 
 
-def check_item(request):
+def check_item(request, id):
+    # GroceryItem.objects.create(item_text=new_item)
+    check_item = GroceryItem.objects.get(id=id)
+    check_item.done_box = True
+    check_item.save()
+    incomplete_items = GroceryItem.objects.filter(done_box=False)
+    complete_items = GroceryItem.objects.filter(done_box=True)
+    context = {'incomplete_items': incomplete_items,
+               'complete_items': complete_items}
     return render(request, 'grocery_app/index.html', context)
 
 

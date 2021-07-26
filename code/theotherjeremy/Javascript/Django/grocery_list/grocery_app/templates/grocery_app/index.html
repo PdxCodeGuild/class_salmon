@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'grocery_app/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
     <title>Grocery_App</title>
   </head>
   <body>
@@ -19,7 +19,7 @@
     <h3> Shopping List:</h3>
     <form method="post"  action="{% url 'grocery_app:new_item' %}">
         {% csrf_token %}
-        <input type="text" name="new_item">
+        <input type="text" name="new_item" required>
         <button type="submit">Add New Item</button>
     </form>
 
@@ -28,7 +28,8 @@
     <ul>
     {% comment %} <form action="{% url 'grocery_app:new_item' item.id %}"> {% endcomment %}
       {% for item in incomplete_items %}
-        <li>{{ item.item_text }} <button type="submit" id="done"> Got It!</button> <button type="submit" id="delete">Delete</button></li>
+        <li>{{ item.item_text }} <a href={% url 'grocery_app:check_item' item.id %}><button type="submit" name="done"> Got It!</button></a> 
+        <a href= {% url 'grocery_app:delete_item' item.id %} ><button type="submit" name="delete">Delete</button><a></li>
         {% endfor %} 
     </ul>
     {% else %}
@@ -41,7 +42,7 @@
         <h3>Already got these: </h3>
         <ul>
           {% for item in complete_items %}
-            <li> {{ item.item_text }} <button type="submit" id="delete">Delete</button> </li>
+            <li class="list2"> {{ item.item_text }}  <a href= {% url 'grocery_app:delete_item' item.id %} ><button type="submit" name="delete">Delete</button><a></li>
            {% endfor %} 
         </ul>
     {% else %}

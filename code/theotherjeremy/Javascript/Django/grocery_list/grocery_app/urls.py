@@ -9,6 +9,7 @@ urlpatterns = [
     # path('rando', views.rando, name='rando'),
 
     path('new_item/', views.add_item, name='new_item'),
-
+    path('check_item/<int:id>', views.check_item, name='check_item'),
+    path('delete_item/<int:id>', views.delete_item, name='delete_item')
 
 ]
