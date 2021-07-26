@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ross's Grocery List</title>
+</head>
+
+
+<body>
+    <h1>Ross' Grocery List</h1>
+
+    <h2>Grocery List</h2>
+    <h3>-- To buy --</h3>
+
+    {% for item in items %}
+        <ul>
+            <li>{{ item }}</li>
+        </ul>
+    {% endfor %}
+
+    <h2>Grocery List</h2>
+    <h3>-- Already bought --</h3>
+
+    <h2>Add Items</h2>
+    <form>
+        <input type='text'></input>
+        <button>+</button>
+
+</body>
+</html>
