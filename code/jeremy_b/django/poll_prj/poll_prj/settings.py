@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'polls.apps.PollsConfig',
     'grocery.apps.GroceryConfig',
+    'url_shortener.apps.UrlShortenerConfig',
 ]
 
 MIDDLEWARE = [

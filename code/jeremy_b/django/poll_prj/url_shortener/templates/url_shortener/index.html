@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 2 :: URL Shortener</title>
+</head>
+<body>
+<h1>Lab 2: URL Shortener</h1>
+<h2>Active URL List:</h2>
+{% if active_list_len == 0 %}
+    <h3>No URLs Active!</h3>
+    <a href="{% url 'url_shortener:add_url' %}">Add New URL</a>
+{% else %}
+    <h3>Click a URL to edit:</h3>
+    <ul>
+    {% for url in active_urls %}
+        <li><a href="{% url 'url_shortener:edit_url' url.id %}">{{ url.url_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<h2>Inactive URL List:</h2>
+{% if inactive_list_len == 0 %}
+    <h3>No inactive URLs to display!</h3>
+{% else %}
+    <h3>Click URL to edit:</h3>
+    {% for url in inactive_urls %}
+        <li><a href="{% url 'url_shortener:edit_url' url.id %}">{{ url.url_name }}</a></li>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
