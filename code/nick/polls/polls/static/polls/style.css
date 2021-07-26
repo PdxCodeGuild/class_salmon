@@ -1,0 +1,18 @@
+li a {
+    color: red;
+
+}
+
+.index {
+    background-image: url('./images/GRC_RU.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+}
+.choices {
+    background-color: rgb(5, 240, 240);
+}
+.results {
+    background-color: burlywood;
+}
