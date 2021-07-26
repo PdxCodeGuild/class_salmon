@@ -11,7 +11,7 @@ class Question(models.Model):
     pub_date=models.DateTimeField()#publication date allows for ordering, latest questions first, etc.
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() -datetime.timedelta(days=1)#was this published within the last 24 hours? now minus 1 day
+        return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)#was this published within the last 24 hours? now minus 1 day, we should test with a question in the future
         
     def __str__(self):
         return self.question_text
