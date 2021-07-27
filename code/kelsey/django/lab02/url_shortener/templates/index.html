@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab02 Url shortener</title>
+    <title>Lab02 URL shortener</title>
   </head>
   <body>
-  <form action="{% url '' %}" method="post">
-    {% csrf_token %}
-
-    <button type="submit">save</button>
-</form>
+    <h1>URL Shortener</h1>
+    <form method="post" action="{% url 'url_shortener:shorty' %}">
+      {% csrf_token %}
+      <label for="long_url">Enter URL to be shortened:</label>
+      <input type="text" id="long_url" name="long_url">
+      <button type="submit">shorten</button>
+    </form>
+    {% for shortener in shorteners %}
+    <p>Here is your shortened link: <a href="{{ shortener.long_url }}">{{ shortener.short_url }}</a></p>
+    {% endfor %}
   </body>
 </html>
