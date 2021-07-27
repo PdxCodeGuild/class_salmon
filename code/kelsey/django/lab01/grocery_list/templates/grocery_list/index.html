@@ -15,7 +15,7 @@
             <form class="p-5" method="post" action="{% url 'grocery_list:add' %}">
             {% csrf_token %}
             <input type="text" name="add" placeholder="milk, bread, etc." required>
-            <button type="submit" class="m-2" name='add' id='add'>add item</button>
+            <button type="submit" class="m-2" id='add'>add item</button>
             </form>
             {% if incomplete_items %}
             <table>
