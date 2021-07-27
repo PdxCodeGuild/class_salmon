@@ -1,0 +1,30 @@
+{% comment %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'grocery_list/style.css' %}"
+
+{% if grocery_item_list %}
+    <ul>
+    {% for item in grocery_item_list %}
+        <li>{{ item.item_text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Your Grocery list is empty.</p>
+{% endif %} {% endcomment %}
+
+<form action="{% url 'grocery_list:index' %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>Grocery list:</h1></legend>
+    <input type="text">
+    <input type="submit" value="Add">
+    <br>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for item in grocery_item_list.all %}
+        <li>{{ item.item_text }}
+        <input type="submit" value="Complete">
+        <input type="submit" value="Delete ">
+        </li>
+    {% endfor %}
+</fieldset>
+</form>
