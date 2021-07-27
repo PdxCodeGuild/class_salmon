@@ -17,5 +17,12 @@
         <button type="submit">submit</button>
     <br><br>
     </form>
+    <h3 class="w3-margin-right w3-padding-16" id="leftmargin">Short URL Code:</h3>
+    <div class="w3-panel w3-leftbar w3-red w3-card-4">
+    {% if latest_url %}
+        <p>url_shortener_app/{{ latest_url.code_for_url }}</p>
+    {% endif %}
+    </div>
+    <button class="w3-button w3-orange w3-round-16" id="leftmargin"><a href="/url_shortener_app/">Hide Your Short URL</a></button>
 </body>
 </html>

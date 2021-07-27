@@ -21,14 +21,29 @@ def index(request):
                }
     return render(request, 'url_shortener_app/index.html', context)#attributes are: 1. the request 2. the template 3. the dictionary
 
+def template2(request):#this may not be necessary to have as a function, unless the user types url_shortener_app/template2.html into browser
+    url_list = SubmittedUrl.objects.all()#.filter(create_date__lte=timezone.now()).order_by('-id')[0]
+    # print(url_list)
+    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id')[0]
+    context = {
+        'url_list': url_list,
+        'latest_url': latest_url
+               }
+    return render(request, 'url_shortener_app/template2.html', context)#attributes are: 1. the request 2. the template 3. the dictionary
+
 def submit_url(request):
     new_url = request.POST['new_url']
     print(new_url)
     alphabet = string.ascii_letters + string.digits
     code = ''.join(secrets.choice(alphabet) for i in range(8)) #8 character code
     # print(code)#working
+    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id')[0]
     SubmittedUrl.objects.create(url_description=new_url, code_for_url=code)
-    return HttpResponseRedirect(reverse('url_shortener_app:index'))
+    context = {
+        'latest_url': latest_url
+               }
+    return render(request, 'url_shortener_app/template2.html', context)
+    # return HttpResponseRedirect(reverse('url_shortener_app:template2'))
 
 def url_by_code(request, from_user):
     # print('request path is ' + request.path)
