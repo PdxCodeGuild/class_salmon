@@ -33,17 +33,20 @@ def add_new_url(request):
 
 def edit_url(request, url_id):
     u = UrlShortener.objects.filter(pk=url_id).get()
-    u_click_data = ClickData.objects.filter(pk=url_id)
-    if request.POST:
-        pass
+    total_clicks = u.clicks
+    if ClickData.objects.filter(related_url=url_id).exists():
+        u_click_data = ClickData.objects.filter(related_url=url_id).order_by('click_date')[:5]
     else:
-        context = {
-            'long_url': u.long_url,
-            'shortcode': u.short_code,
-            'short_url': u.short_url,
-            'click_data': u_click_data
-
-        }
+        u_click_data = []
+    context = {
+        'long_url': u.long_url,
+        'short_code': u.short_code,
+        'short_url': u.short_url,
+        'click_data': u_click_data,
+        'url_name': u.url_name,
+        'clicks': total_clicks,
+    }
+    return render(request, 'url_shortener/edit_url.html', context)
 
 def delete_url(request, url):
     pass
@@ -51,5 +54,17 @@ def delete_url(request, url):
 def search_url(request, url):
     pass
 
-def url_redirect(request, url):
-    pass
+def url_redirect(request, shortcode):
+    if UrlShortener.objects.filter(short_code=shortcode).exists():
+        u = UrlShortener.objects.filter(short_code=shortcode).get()
+        cd = ClickData(related_url=u, ip_addr=request.META['REMOTE_ADDR'], host=request.META['REMOTE_HOST'])
+        u.clicks += 1
+        u.save()
+        cd.save()
+        return HttpResponseRedirect(u.long_url)
+    else:
+        return error(request)
+
+def error(request):
+    return render(request, 'url_shortener/error.html')
+

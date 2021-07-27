@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete_url/<int:url_id>', views.delete_url, name="delete_url"),
     path('search', views.search_url, name="search"),
     path('to/<str:shortcode>', views.url_redirect, name="redirect"),
+    path('error', views.error, name="error"),
 ]

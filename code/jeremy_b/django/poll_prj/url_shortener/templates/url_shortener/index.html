@@ -28,6 +28,8 @@
         <li><a href="{% url 'url_shortener:edit_url' url.id %}">{{ url.url_name }}</a></li>
     {% endfor %}
 {% endif %}
-
+<hr>
+<br>
+<a href="{% url 'url_shortener:add_url' %}">Add New URL</a>
 </body>
 </html>
