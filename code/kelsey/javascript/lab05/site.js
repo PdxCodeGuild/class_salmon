@@ -18,9 +18,6 @@ Vue.component('show-results', {
 
 const vm = new Vue({
     el: '#app',
-    // components: {
-    //     'show-results': show-results
-    // },
     data: {
         results: null,
         searchSelect: '',
@@ -28,8 +25,10 @@ const vm = new Vue({
 
     },
     methods: {
+        loadQuotes() {
+            
+        },
         search() {
-
             axios({
                 method: 'get',
                 url: 'https://favqs.com/api/quotes/',
@@ -39,14 +38,16 @@ const vm = new Vue({
                 params: {
                     filter: this.searchInput,
                     type: this.searchSelect
-
                 }
             }).then(response => {
                 console.log(response)
                 this.results = response.data.quotes
             })
         },
-        
+        created: function() {
+            this.loadQuotes()
+        }
+
     }
 
 })
