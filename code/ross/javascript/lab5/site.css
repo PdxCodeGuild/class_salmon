@@ -1,0 +1,19 @@
+* {
+    background-color: aqua;
+    font-style: normal;
+    font-family: 'Courier New', Courier, monospace;
+}
+div {
+    margin: 20px;
+}
+input {
+    margin: 10px;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+    color: gray;
+}
+#page {
+    text-align: center;
+}

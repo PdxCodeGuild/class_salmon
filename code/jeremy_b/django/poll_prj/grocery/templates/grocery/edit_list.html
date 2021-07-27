@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 1 :: Edit List Details</title>
+</head>
+<body>
+<h1>Edit {{ list_name }} List Settings</h1>
+<form action="{% url 'grocery:edit_list' list_id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h2>List Settings</h2>
+        </legend>
+        <input type="text" name="list_name" value="{{ list_name }}">
+        <label for="list_name">List Name</label>
+    </fieldset>
+    <input type="submit" value="Submit Changes">
+</form>
+</body>
+</html>

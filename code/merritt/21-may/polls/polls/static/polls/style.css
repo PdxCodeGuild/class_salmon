@@ -1,0 +1,9 @@
+li a {
+    color: whitesmoke;
+    background-color: navy;
+    padding: 4px;
+}
+
+body {
+    background-image: url('./images/source.gif')
+}

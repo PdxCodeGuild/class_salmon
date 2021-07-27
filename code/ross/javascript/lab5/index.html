@@ -12,24 +12,49 @@
 
     <div id="randQuotes">
         <h1>Random Quote Finder</h1>
-            <button @click="findQ()">Give me a random quote</button>
+            <button @click="randQ" id="randB">Give me a random quote</button>
+
                 <p id="random" hidden='true'> 
                     {{ quote }}
                     </br></br>
                     - {{ author }}
                 </p>
+            
+            <button @click="anotherE" id="anotherrandB" hidden='true'>Another random quote</button>
+
     </div>
 
     <div id="searchQuotes">
-        <h1>Quote Finder</h1>
-            <input type="text" v-model="search" placeholder="Type in an author"></input>
-            <button @click="findQ()">Search</button>
-                <p id="search" hidden='true'> 
-                    {{ quote }}
-                    </br></br>
-                    - {{ author }}
+        <h1>Custom Quote Finder</h1>
+            <input type="text" id='sel' v-model="search" placeholder="Type in a search"></input>
+            </br>
+            <input type="radio" id='auth' value='author' v-model="sel">
+            <label for="auth">Author</label>
+            <input type="radio" id='key' value='key' v-model="sel">
+            <label for="keyword">Keyword</label>
+            <input type="radio" id='tag' value='tag' v-model="sel">
+            <label for="tag">Tag</label>
+            </br>
+            <button @click="findQ" id='sel'>Search</button>
+                <p id="disp" hidden='true'> 
+                    <ul>
+                        <li v-for="q in quote.quotes">
+                            {{ q.body }}
+                            </br></br>
+                            - {{ q.author }}
+                            </br></br>
+                        </li>
+                    </ul>
+
+                    <div id="page" hidden="true">
+                        <button @click="pagination" id="page-prev" value="prev" hidden="true">Prev Page</button>
+                        - {{ quote.page }} -
+                        <button @click="pagination" id="page-next" value="next">Next Page</button>
+                    </div>
+
                 </p>
     </div>
+
 
 
     <script src="https://unpkg.com/vue"></script>

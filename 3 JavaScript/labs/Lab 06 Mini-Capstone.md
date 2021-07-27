@@ -1,4 +1,4 @@
-# Lab 14: Mini-Capstone: Any API in Vue
+# Lab 6: Mini-Capstone: Any API in Vue
 
 Choose any API and write a page to interact with it. Be warned: some have particular security restrictions, and some return results in XML (which makes data more difficult to parse).
 

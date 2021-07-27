@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div>Name: <input type="text" name="name"></div>
+        <div>Manufacturer: <input type="text" name="manufacturer"></div>
+        <div>Price: <input type="text" name="price"></div>
+        <div>String Count: <input type="text" name="string_count"></div>
+        <div><button>Sumbit</button></div>
+    </form>
+
+    {% for cello in cellos %}
+    <a href="{% url 'cellos:detail' id=cello.id %}">
+        <h1>{{ cello.name }} <small>by {{ cello.manufacturer }}</small></h1>
+    </a>
+    <p>${{ cello.price }}</p>
+    <p>Strings: {{ cello.string_count }}</p>
+    {% endfor %}
+</body>
+</html>

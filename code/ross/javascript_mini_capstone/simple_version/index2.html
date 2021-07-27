@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Capstone City Comparer</title>
+    <link rel="stylesheet" href="/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h1>Find the Perfect City for You</h1>
+    <h2>Welcome to the City Match Tool</h2>
+    <p>This tool allows you to see data on a city of your choice.</p>
+    
+    <div id="vue-app">
+
+        <input type="text" v-model="city_one" placeholder="Enter a city" @keydown.enter="get_data">
+        <!-- <input type="text" v-model="city_two" placeholder="Second city">
+        <input type="text" v-model="city_three" placeholder="Third city"> -->
+        <!-- <button @click="add_to_list">Search</button> -->
+
+        <button @click="get_data">Data me</button>
+
+        <div id='results' v-if='show == true'>
+
+            <h1>{{ city_one }}</h1>
+            <button @click='get_photo'>Get photo of {{ city_one }}</button>
+            <div v-html='image'></div>
+            <h2 v-html='data.summary'></h2>
+            <table>
+                <h3 id="overview">Overall Score (out of 100): {{ Math.round(data.teleport_city_score) }}</h3>
+                <tr v-for="item in data.categories">
+                    <td>{{ item.name }} (out of 10):</td>
+                    <td>{{ item.score_out_of_10 }}</td>
+                </tr>
+            </table>
+            <button @click="hide">Click Here to Start Over</button>
+
+        </div>
+
+        <div id='results' v-else>
+            <h1>{{ message }}</h1>
+        </div>
+        
+    </div>
+    
+    
+    <!-- After the program has been run, there will be a reset button to clear and refresh the page -->
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/site2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b5621d315f.js" crossorigin="anonymous"></script>
+</body></body>
+
+</html>
