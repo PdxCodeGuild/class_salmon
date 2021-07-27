@@ -1,27 +1,33 @@
-from django import template
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils import timezone
 
 from .models import GroceryItem
 # Create your views here.
 
 def index(request):
-    grocery_item_list = GroceryItem.objects.order_by('-created_date')
+    completed_items = GroceryItem.objects.filter(completed=True).order_by('-completed_date')
+    incomplete_items = GroceryItem.objects.filter(completed=False).order_by('created_date')
     context = {
-        'grocery_item_list' : grocery_item_list
+        'completed_items': completed_items,
+        'incomplete_items': incomplete_items
     }
     return render(request, 'grocery_list/index.html', context)
 
-def detail(request, grocery_item_id):
-    grocery_item = get_object_or_404(GroceryItem, pk=grocery_item_id)
-    return render(request, 'grocery_list/detail.html', {'grocery_item': grocery_item})
+def new(request):
+    description = request.POST.get('description',False)
+    GroceryItem.objects.create(description = description, created_date=timezone.now(), completed=False)
+    return HttpResponseRedirect(reverse('grocery_list:index'))
 
-def updates(request,grocery_item_id):
-    grocery_item = get_object_or_404(GroceryItem, pk=grocery_item_id)
-    
-    return HttpResponseRedirect(reverse('grocery_list:index',args=[grocery_item.id]))
-def deleteItem(request, grocery_item_id):
-    grocery_item = get_object_or_404(GroceryItem, pk=grocery_item_id)
-    
-    return render(request, 'grocery_list/index.html', context)
+def complete(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.completed = False if item.completed else True
+    item.completed_date = timezone.now() if item.completed else None
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def delete(request,pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
