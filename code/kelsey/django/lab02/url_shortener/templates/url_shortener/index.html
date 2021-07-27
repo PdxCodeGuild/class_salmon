@@ -11,7 +11,7 @@
     <form method="post" action="{% url 'url_shortener:shorty' %}">
       {% csrf_token %}
       <label for="long_url">Enter URL to be shortened:</label>
-      <input type="text" id="long_url" name="long_url">
+      <input type="text" id="long_url" name="long_url" required>
       <button type="submit">shorten</button>
     </form>
     {% for shortener in shorteners %}

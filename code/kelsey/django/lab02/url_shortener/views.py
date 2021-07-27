@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Shortener
 import random, string
@@ -9,7 +9,7 @@ def index(request):
     context = {
         'shorteners': shorteners
     }
-    return render(request, 'index.html', context)
+    return render(request, 'url_shortener/index.html', context)
    
 def shorty(request):
     long_url = request.POST['long_url']

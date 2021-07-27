@@ -5,5 +5,5 @@ app_name = 'url_shortener'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('shorty', views.shorty, name='shorty')
+    path('shorty/', views.shorty, name='shorty')
 ]
