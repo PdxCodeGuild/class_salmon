@@ -13,4 +13,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('posts:detail', args=[self.id])
+
+    class Meta:
+        ordering = ['-created']
     

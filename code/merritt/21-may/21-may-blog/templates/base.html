@@ -15,7 +15,14 @@
             <h1><a href="{% url 'posts:home' %}">My Super Cool Blog</a></h1>
         </div>
         <div class="nav-right">
-            <a href="{% url 'posts:new' %}">+ New Blog Post</a>
+            {% if user.is_authenticated %}
+            <p>Hello, <a href="{% url 'users:profile' user.username %}">{{ user.username }}</a>!</p>
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+            <p><a href="{% url 'posts:new' %}">+ New Blog Post</a></p>
+            {% else %}
+            <p><a href="{% url 'login' %}">Login</a></p>
+            <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
         </div>
     </header>
     <div class="container">
