@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 1 :: Request Complete</title>
+</head>
+<body>
+<h2>Request Complete</h2>
+<p>Your request has been completed.</p><br>
+<ul>
+    <li><a href="{% url 'grocery:index' %}">View Lists</a></li>
+    <li><a href="{% url 'grocery:add_list' %}">Add Another List</a></li>
+</ul>
+</body>
+</html>

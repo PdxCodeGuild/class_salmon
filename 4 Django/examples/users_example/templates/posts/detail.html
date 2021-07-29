@@ -1,0 +1,10 @@
+<h1>{{ post.title }}</h1>
+{% if post.image %}
+<p>
+    <img src="{{ post.image.url }}">
+</p>
+{% endif %}
+<p>
+    {{ post.text }}
+</p>
+<strong>{{ post.author.username }}</strong>

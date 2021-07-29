@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Grocery_App</title>
+  </head>
+  <body>
+  {% comment %} {% this is a django thing. for using a python expression in html%} {% endcomment %}
+    {% comment %} use double curly braces when referring to a variable in normal HTML, {% no braces when referring to variable in this type of python expression%}  {% endcomment %}
+    <center>
+    <h1> Oh boy, a shopping list app!!!</h1>
+    <hr>
+    <br><br>
+    </center>
+    <h3> Shopping List:</h3>
+    <form method="post"  action="{% url 'grocery_app:new_item' %}">
+        {% csrf_token %}
+        <input type="text" name="new_item" required>
+        <button type="submit">Add New Item</button>
+    </form>
+
+    <br><br>
+    {% if incomplete_items %}
+    <ul>
+    {% comment %} <form action="{% url 'grocery_app:new_item' item.id %}"> {% endcomment %}
+      {% for item in incomplete_items %}
+        <li>{{ item.item_text }} <a href={% url 'grocery_app:check_item' item.id %}><button type="submit" name="done"> Got It!</button></a> 
+        <a href= {% url 'grocery_app:delete_item' item.id %} ><button type="submit" name="delete">Delete</button><a></li>
+        {% endfor %} 
+    </ul>
+    {% else %}
+        <p>Add a grocery item.</p>
+    {% endif %}
+    <br><br>
+        
+    {% if complete_items %}
+    <div>
+        <h3>Already got these: </h3>
+        <ul>
+          {% for item in complete_items %}
+            <li class="list2"> {{ item.item_text }}  <a href= {% url 'grocery_app:delete_item' item.id %} ><button type="submit" name="delete">Delete</button><a></li>
+           {% endfor %} 
+        </ul>
+    {% else %}
+        <p></p>
+    {% endif %}
+   
+    
+   
+    </ul>
+  </body>
+</html>

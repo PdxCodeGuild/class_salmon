@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 1 :: Grocery List</title>
+</head>
+<body>
+    <!-- display active lists or message saying there aren't any. -->
+    <h1>List App</h1>
+    <h2>Active Lists</h2>
+    {% if list_len == 0 %}
+        <p>You have no lists to display!</p>
+        <br>
+        <a href="{% url 'grocery:add_list' %}">Add New List</a>
+    {% else %}
+        <ul>
+            {% for list in active_lists %}
+                <li>
+                    <a href="{% url 'grocery:list_detail' list.id %}">{{ list.list_name }}</a>
+                    <form action="{% url 'grocery:delete_list' list.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="{% url 'grocery:disable_list' list.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Disable</button>
+                    </form>
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{% url 'grocery:add_list' %}">Add New List</a><br>
+    {% endif %}
+    <!-- Inactive lists -->
+    <h2>Inactive Lists</h2>
+    {% if inactive_list_len == 0 %}
+        <p>No lists have been disabled.</p>
+    {% else %}
+        <ul>
+            {% for list in inactive_lists %}
+                <li>
+                    {{ list.list_name }}
+                    <form action="{% url 'grocery:enable_list' list.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Enable</button>
+                    </form>
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{% url 'grocery:add_list' %}">Add New List</a><br>
+    {% endif %}
+
+</body>
+</html>

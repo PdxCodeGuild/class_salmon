@@ -1,0 +1,44 @@
+<!-- Requirements:
+
+Your app must use Vue to fetch data and interact with the results.
+Let the user enter a search term and select whether to search by keyword, author, or tag.
+Implement pagination buttons when the search returns more than 25 quotes.
+When the page first loads, show the user a set of completely random quotes.
+You must have at least one Vue component in your app. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lab05 FavQs in Vue</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <h1>Quotes</h1>
+    <form @submit.prevent="search">
+      <label for="search_by">Search by:</label>
+      <select v-model="searchSelect" id="searchSelect">
+        <option value="keyword">Keyword</option>
+        <option value="author">Author</option>
+        <option value="tag">Tag</option>
+      </select>
+      <input type="text" v-model="searchInput" id="searchInput">
+      <button type="submit">search</button>
+    </form>
+    <show-results v-bind:results="results" v-if="results"></show-results>
+
+    <button @click="">Previous</button>
+    <button @click="">Next</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="site.js"></script>
+</body>
+
+</html> 

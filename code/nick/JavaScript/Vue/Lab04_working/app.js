@@ -7,7 +7,7 @@ Vue.component('task-item', {
   ',
   props: ['title']
 })
-
+//`$emit()` sends an event up the component tree. The parent listens for click in this case//
 new Vue({
   el: '#app',
   data: {

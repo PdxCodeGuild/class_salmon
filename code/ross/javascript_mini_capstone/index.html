@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Capstone City Comparer</title>
+    <link rel="stylesheet" href="/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h1>Find the Perfect City for You</h1>
+    <h2>Welcome to the City Match Tool</h2>
+    <p>This tool allows you to choose three metrics by which to compare cities.</p>
+    
+    <div id="vue-app">
+
+        <!-- STEP ONE: 
+            User will pick how many cities they want to compare (ideally up to 10) -->
+        <span class="step">
+            Step One
+            <i class="fas fa-chevron-circle-right"></i>
+            <div id="num_sel">
+                <label for="num_comps">How many cities would you like to compare?</label>
+                <select name="num_comps" v-model="num_comps">
+                    <option disabled value="#">#</option>
+                    <option v-for="n in 5" v-bind:value="n">{{n}}</option>
+                </select>
+            </div>
+        </span>
+        <br><br>
+
+        <!-- STEP TWO:
+            User will input the cities they want to research -->
+        <span class="step">
+            Step Two
+            <i class="fas fa-chevron-circle-down"></i>
+            <add-city v-for="num in num_comps" @add="add_to_list"></add-city>
+        </span>
+        <br>
+
+        <!-- STEP THREE:
+            User will input their top three characteristics by which to compare cities using a radio form here -->
+        <span class="step">
+        Step Three
+        <i class="fas fa-chevron-circle-down"></i>
+        <br>
+        </span>
+    <label for="traits">Select three traits you want to compare:</label>
+    <table id="trait_select">
+        <tr>
+        <td><input type="checkbox" id="traits1" v-model="traits.traits1">
+        <label for="traits1">Housing</label></td>
+        <td><input type="checkbox" id="traits2">
+        <label for="traits2">Cost of Living</label></td>
+        <td><input type="checkbox" id="traits3">
+        <label for="traits3">Startup Friendliness</label></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="traits4">
+        <label for="traits4">Venture Capital</label></td>
+        <td><input type="checkbox" id="traits5">
+        <label for="traits5">Travel Connectivity</label></td>
+        <td><input type="checkbox" id="traits6">
+        <label for="traits6">Commute</label></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="traits7">
+        <label for="traits7">Business Freedom</label></td>
+        <td><input type="checkbox" id="traits8">
+        <label for="traits8">Safety</label></td>
+        <td><input type="checkbox" id="traits9">
+        <label for="traits9">Healthcare</label></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="traits10">
+        <label for="traits10">Education</label></td>
+        <td><input type="checkbox" id="traits11">
+        <label for="traits11">Environmental Quality</label></td>
+        <td><input type="checkbox" id="traits12">
+        <label for="traits12">Economy</label></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="traits13">
+        <label for="traits13">Taxation</label></td>
+        <td><input type="checkbox" id="traits14">
+        <label for="traits14">Internet Speeds</label></td>
+        <td><input type="checkbox" id="traits15">
+        <label for="traits15">Leisure and Culture</label></td>
+        </tr>
+        <tr>
+        <td><input type="checkbox" id="traits16">
+        <label for="traits16">Tolerance</label></td>
+        <td><input type="checkbox" id="traits17">
+        <label for="traits17">Outdoors</label></td>
+        </tr>
+    </table>
+    <button id="submit">Submit</button>
+    <br>
+
+    <!-- STEP FOUR:
+        Results will display here. Cities will be side by side so 
+        you can easily compare them using the metrics selected -->
+    <!-- Cities will be ordered by how good of a fit they are -->
+            <span class="step">
+            Results!
+            <i class="fas fa-chevron-circle-down"></i>
+            <br>
+            </span>
+            
+            <!-- City Image -->
+
+            <!-- Overall Score -->
+        <div id="results" v-for="c in city_data">
+            <table style='width:50%'>
+                    <caption>
+                    <div id="titles">
+                        <h1>{{ c.city_str }}</h1>
+                        <!-- <p v-html='city.data["summary"]'></p> -->
+                        <p v-html='c.summary'></p>
+                    </div>
+                    </caption>
+                <tr>
+                    <td>Overall Score:</td>
+                    <td>{{ c.overall }}</td>
+                </tr>
+                <tr>
+                    <td>{{ c.trait_one }} (10 possible):</td>
+                    <td>{{ city.data.categories[1]["score_out_of_10"] }}</td>
+                    <!-- <td>{{ c.data.categories[] }} </td> -->
+                    <!-- <td>{{ c.data.categories[traits[trait_one]]["score_out_of_10"] }}</td> -->
+                </tr>
+                <tr>
+                    <td>{{ c.trait_two }} (10 possible):</td>
+                    <td>{{ city.data.categories[5]["score_out_of_10"] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ c.trait_three }} (10 possible):</td>
+                    <td>{{ city.data.categories[7]["score_out_of_10"] }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    
+    <!-- After the program has been run, there will be a reset button to clear and refresh the page -->
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/site.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b5621d315f.js" crossorigin="anonymous"></script>
+</body></body>
+
+</html>
