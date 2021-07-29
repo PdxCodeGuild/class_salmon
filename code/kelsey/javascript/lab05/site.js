@@ -1,17 +1,19 @@
-Vue.component('show-results', {
-    props: ["results"],
-    data: function () {
-        return {
-            results: this.results
-        }
-    },
-    template: `<div v-for="result in results">{{ result.body }}</div>`
-})
+// Vue.component('display', {
+//     props: ["quotes"],
+//     data: function () {
+//         return {
+//             results: this.results
+//         }
+//     },
+//     template: `<div>
+//                 <div v-for="result in results">{{ result.body }}</div>
+//                 </div>`
+// })
 
 const vm = new Vue({
     el: '#app',
     data: {
-        results: null,
+        results: [],
         searchSelect: '',
         searchInput: ''
     },
@@ -21,7 +23,7 @@ const vm = new Vue({
                 method: 'get',
                 url: 'https://favqs.com/api/quotes/',
                 headers: {
-                    "Authorization": `Token token=${apiKey}`
+                    "Authorization": `Token token="75781e1e8edbf2eb68848384abbbd2bb"`
                 }
             }).then(response => {
                 console.log(response)

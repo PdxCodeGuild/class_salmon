@@ -13,21 +13,24 @@
 <body>
   <div id="app">
     <h1 class="text-5xl text-center m-7 font-bold">'Quoth the Raven...'</h1>
-    <form @submit.prevent="search">
-      <label for="search_by" class="m-3">Search by:</label>
+    <!-- <form @submit.prevent="search">
+      <label for="searchSelect" class="m-3">Search by:</label>
       <select v-model="searchSelect" id="searchSelect" class="w-28">
         <option value="keyword">Keyword</option>
         <option value="author">Author</option>
         <option value="tag">Tag</option>
       </select>
-      <input type="text" v-model="searchInput" id="searchInput" placeholder="Enter search term here" required class="m-5">
+      <input type="text" v-model="searchInput" id="searchInput" placeholder="Enter search term here" class="m-5" required >
       <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">search</button>
     </form>
-    <show-results v-bind:results="results" v-if="results"></show-results>
-    <div class="text-center">
-      <button @click="previousPg" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Previous</button>
+   -->
+    <ul>
+      <li v-for="result in results">{{ result.body }}</li>
+    </ul>
+    <!-- <div class="text-center">
+      <button @click="previousPg()" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Previous</button>
       <button @click="nextPg()" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Next</button>
-      </div>
+      </div> -->
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
