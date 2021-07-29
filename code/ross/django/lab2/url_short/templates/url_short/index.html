@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener Official</title>
+
+</head>
+
+<body>
+    <form method="post" action="{% url 'index' %}">
+        {% csrf_token %}
+        <label for="url">URL to be shortened here: </label>
+        <input type="text" name="url" id="url" placeholder="Enter your URL here">
+        <input type="submit" value="Shorten">
+    </form>
+
+    <h3>You entered the following URL:</h3>
+    <p>{{ url }}</p>
+
+    <h3>Here is your shortened URL code:</h3>
+    <p>{{ code }}</p>
+
+    <form method="post" action="{% url 'redirect' %}">
+        {% csrf_token %}
+        <label for="redirect">Enter your code here to be redirected: </label>
+        <input type="text" name="code" id="code" placeholder="Enter your code here">
+        <input type="submit" value="Redirect Me">
+    </form>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+{% extends 'grocery_list/index.html' %}
+
+{% block content %}
+    <form  method='post' action="{% url 'index' %}" class='new-item'> 
+        {% csrf_token %}
+        <input type='text' placeholder="Input grocery item here." name="description"></input>
+        <input type='submit' value="Add to list"></input>
+    </form>
+{% endblock %}
