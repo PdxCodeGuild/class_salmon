@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('grocery/', include('grocery.urls')),
+    path('url_shortener/', include('url_shortener.urls')),
 ]
