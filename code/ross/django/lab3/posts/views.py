@@ -12,11 +12,13 @@ class Home(ListView):
     model = Post
     template_name = 'home.html'
 
-    def home(request):
-        chirp = Post.objects.all()
-        context = {'chirp': chirp}
-        return render(request, 'posts/home.html', context)
+    # def home(request):
+    #     chirp = Post.objects.all()
+    #     context = {'chirp': chirp}
+    #     return render(request, 'posts/home.html', context)
 
+
+# allows user to create a new chirp
 class CreateChirp(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'new_chirp.html'
@@ -26,6 +28,7 @@ class CreateChirp(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+# def user_feed(request):
 
 # displays Chirp feed
 # class ChirpFeed():
