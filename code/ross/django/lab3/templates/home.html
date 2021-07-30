@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3><a href='{% url 'posts:chirp' %}'>Click here to fire off a Chirp ©</a></h3>
+
+    <h3>Most recent chirps:</h3>
+
+    <ul>
+        {% for c in object_list %}
+        <li>
+        {{ c }} </br>
+        - Chirped by {{c.author }} on {{ c.time_posted }}
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

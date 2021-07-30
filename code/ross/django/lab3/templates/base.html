@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp: Like Twitter, but BETTER</title>
+</head>
+
+<body>
+    <h1>©hirp: Like Twitter, but BETTER</h1>
+    {% if user.is_authenticated %}
+        <p>Thanks for choosing ©hirp, <a href='{% url 'users:profile' user.username %}'>{{ user.username }}</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+        <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+    
+    
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+
+</html>

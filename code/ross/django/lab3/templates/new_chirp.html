@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% comment %} <form method='posts' action=''> # {% url 'posts:chirp' %} {% endcomment %}
+    <form method='post' action=''>
+        {% csrf_token %}
+        <label for='new_chirp'>Enter your new chirp here:</label>
+        {% comment %} <input type='text' name="new_chirp"> {% endcomment %}
+        {{ form.as_p }}
+        <button type='submit'>CHIRP!</button>
+    </form>
+
+{% endblock content %}
