@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>{{ title }}</title>
+    <!-- Compiled and minified CSS -->
+</head>
+<body class="blue-grey darken-4">
+<header>
+    <div>
+        <h1 class="yellow-text lighten-3"><a href="{% url 'posts:index' %}">Qua<span class="blue-gray-text lighten-4">ckr</span></a></h1>
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+            <ul>
+                <li><a href="{% url 'users:profile' 'user.username'%}">Greetings, {{ users.username }}!</a></li>
+                <li><a href="{% url 'posts:new' %}">New Quack</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        {% else %}
+            <ul>
+                <li><a href="{% url 'login' %}">login</a></li>
+                <li><a href="{% url 'users:signup' %}">Sign Up</a></li>
+            </ul>
+        {% endif %}
+    </div>
+</header>
+<section>{% block content  %}{% endblock content %}</section>
+<footer>
+
+</footer>
+</body>
+</html>
