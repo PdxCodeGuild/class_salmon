@@ -2,9 +2,13 @@
 
 {% block content %}
     <h1>Recent Quacks:</h1>
+    <div class="card card-container">
     {% for post in post_list %}
         <h3>{{ post.post_author }} quacked on {{ post.post_created }}:</h3>
-        <p>{{ post.post_body }}</p>
-        <a class-="responsive-img" href="{% url 'posts:detail' post.id %}"><img src="{{ post.post_image.url }}" alt="{{ post.post_author }} says {{ post.post_body }}"></a>
+        <p>
+            <a href="{% url 'posts:detail' post.id %}"><img class="card-image" src="{{ post.post_image.url }}" alt="{{ post.post_author }} says {{ post.post_body }}"></a>
+            <span class-="card-text">{{ post.post_body }}</span>
+        </p>
+    </div>
     {% endfor %}
 {% endblock content %}

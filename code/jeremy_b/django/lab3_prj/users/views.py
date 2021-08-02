@@ -14,7 +14,7 @@ class Signup(CreateView):
 
 class UserProfile(DetailView):
     model = User
-    template_name = 'accounts/profile/../templates/profile.html'
+    template_name = 'profile.html'
     context_object_name = 'profile'
     title = 'Profile'
 

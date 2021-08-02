@@ -1,19 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
     <title>{{ title }}</title>
-    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
-<body class="blue-grey darken-4">
-<header>
-    <div>
-        <h1 class="yellow-text lighten-3"><a href="{% url 'posts:index' %}">Qua<span class="blue-gray-text lighten-4">ckr</span></a></h1>
+<body>
+<nav class="navbar max-width">
+    <div class="logo">
+        <h1 ><a href="{% url 'posts:index' %}">Qua<span>ckr</span></a></h1>
     </div>
-    <div>
+    <div class="menu">
         {% if user.is_authenticated %}
             <ul>
-                <li><a href="{% url 'users:profile' 'user.username'%}">Greetings, {{ users.username }}!</a></li>
+                <li><a href="{% url 'users:profile' user.username %}">Greetings, {{ user.username }}!</a></li>
                 <li><a href="{% url 'posts:new' %}">New Quack</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
@@ -24,8 +25,8 @@
             </ul>
         {% endif %}
     </div>
-</header>
-<section>{% block content  %}{% endblock content %}</section>
+</nav>
+<section class="main max-width">{% block content  %}{% endblock content %}</section>
 <footer>
 
 </footer>

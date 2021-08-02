@@ -20,7 +20,7 @@ class PostDetailView(DetailView):
 class CreatePost(CreateView):
     model = Post
     template_name = 'create_post.html'
-    fields = ['body', 'image']
+    fields = ['post_body', 'post_image']
     title = 'New Quack'
 
     def form_valid(self, form):
