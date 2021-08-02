@@ -10,9 +10,11 @@ const randQuote = new Vue({
         randQ: function() {
             document.querySelector('#random').removeAttribute('hidden')
             document.querySelector('#randB').setAttribute('hidden', 'true')
+            document.querySelector('#anotherrandB').setAttribute('hidden', 'false')
+
         },
         anotherE: function() {
-            document.querySelector('#anotherrandB').setAttribute('hidden', false)
+            document.querySelector('#anotherrandB').setAttribute('hidden', 'false')
             document.querySelector('#random')
         }
     },

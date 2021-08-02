@@ -8,12 +8,17 @@ db.load()
 data = db.get('todos')
 # x += 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 # db.set('x', data)
 # db.save()
 =======
 #db.set('x', data)
 #db.save()
 >>>>>>> f673fd74a580f60fd6292a19c462759018615d5c
+=======
+# db.set('x', data)
+# db.save()
+>>>>>>> 6df610f (Updated files)
 
 
 @app.route('/', methods=['GET'])
