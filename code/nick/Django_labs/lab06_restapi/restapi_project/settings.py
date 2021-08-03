@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restapi_app.apps.RestapiAppConfig',
-    'posts.apps.PostsConfig',
     'rest_framework',
 ]
 
