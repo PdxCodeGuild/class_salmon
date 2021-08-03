@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 2 :: URL Details</title>
+</head>
+<body>
+<h1>{{ url_name }}</h1>
+<h2>URL Info</h2>
+<ul>
+    <li>Redirect URL: <a href="{{ long_url }}">{{ long_url }}</a></li>
+    <li>Shortened URL: <a href="{{ short_url }}">{{ short_url }}</a></li>
+    <li>Short Code: {{ short_code }}</li>
+    <li>Total Clicks: {{ clicks }}</li>
+</ul>
+<h2>Click Data</h2>
+{% if clicks == 0 %}
+    <h3>No data.</h3>
+{% else %}
+    <h3>Data for 5 most recent clicks:</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Host</th>
+            <th>IP Address</th>
+        </tr>
+        {% for data in click_data %}
+            <tr>
+                <td>{{ data.click_date }}</td>
+                <td>{{ data.host }}</td>
+                <td>{{ data.ip_addr }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<hr>
+<br>
+<a href="{% url 'url_shortener:index' %}">All URLs</a>
+</body>
+</html>
