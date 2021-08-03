@@ -13,20 +13,13 @@
     <div id="randQuotes">
         <h1>Random Quote Finder</h1>
         
-        <p id="random" hidden='true'> 
+        <p id="random"> 
             {{ quote }}
         </br></br>
         - {{ author }}
-    </p>
+        </p>
     
-    <!-- Will add functionality to keep getting more random quotes here -->
-    <!-- <label for="number">How many random quotes would you like?</label>
-    <input type="number" v-model="number" name="number">
-    <br> -->
     <button @click="randQ" id="randB">Give me a random quote</button>
-    <!-- <button @click="anotherE" id="anotherrandB" hidden='true'>Another random quote</button> -->
-            
-
     </div>
 
     <div id="searchQuotes">
@@ -52,9 +45,9 @@
                     </ul>
 
                     <div id="page" hidden="true">
-                        <button @click="pagination" id="page-prev" value="prev" hidden="true">Prev Page</button>
+                        <button @click="pageprev" id="page-prev" value="prev">Prev Page</button>
                         - {{ quote.page }} -
-                        <button @click="pagination" id="page-next" value="next">Next Page</button>
+                        <button @click="pagenext" id="page-next" value="next">Next Page</button>
                     </div>
 
                 </p>
