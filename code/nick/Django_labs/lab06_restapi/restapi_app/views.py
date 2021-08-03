@@ -1,8 +1,15 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets
+from django.contrib.auth import get_user_model
 
-from students.models import Students
-from .serializers import StudentsSerializer
+from students_app.models import Students
+from .serializers import StudentsSerializer, UserSerializer
+from .permissions import IsAuthorOrReadOnly
 
-class StudentsView(generics.ListAPIView):
+class StudentsViewSet(viewsets.ModelViewSet):
     queryset = Students.objects.all()
     serializer_class = StudentsSerializer
+    permission_classes = [IsAuthorOrReadOnly]
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer

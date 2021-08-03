@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import StudentsView
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    path('', StudentsView.as_view(), name='home')
-]
+from .views import StudentsViewSet, UserViewSet
+
+router = DefaultRouter()
+router.register('students', StudentsViewSet, basename='students')
+router.register('users', UserViewSet, basename='users')
+
+urlpatterns = router.urls
