@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+
+
+    'api_app.apps.ApiAppConfig',
     'pokemon.apps.PokemonConfig',
     'users.apps.UsersConfig',
 ]
@@ -131,6 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'#changed this, not sure if it is right now
 
 LOGIN_URL = 'login'

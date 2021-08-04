@@ -1,7 +1,124 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+    <div id="app">
+        <ul>
+            <li v-for="poke in pokemon">
+                <h3>Pokemon: [[ poke.name ]]</h3>
+                <h4>Height: [[ poke.height ]]</h4>
+                <h4>Weight: [[ poke.weight ]]</h4>
+                <p>Image: [[ poke.image_front ]]</p>
+            </li>
+        </ul>
+        <div>
+            <input type="text" placeholder="Title" v-model="newPost.title"><br>
+            <template v-if="postErrors.title">
+                <p v-for="error in postErrors.title">[[ error ]]</p>
+            </template>
+            <!-- <select v-model="newPost.author">
+                <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
+            </select><br> -->
+            <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
+            <template v-if="postErrors.body">
+                <p v-for="error in postErrors.body">[[ error ]]</p>
+            </template>
+            <button @click="createPost">New Post</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                pokemon: [],
+                users: [],
+                type: [],
+                newPost: {
+                    "title": "",
+                    "author": null,
+                    "body": ""
+                },
+                csrf_token: "",
+                currentUser: {},
+                postErrors: {}
+            },
+            methods: {
+                loadPokes: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api_app/pokemon/'
+                    }).then(response => {
+                        this.pokemon = response.data
+                    })
+                },
+                createPost: function() {
+                    axios({
+                        method: "post",
+                        url: '/api_app/pokemon/',
+                        headers: {
+                            'X-CSRFToken': this.csrf_token 
+                        },
+                        data: {
+                            "title": this.newPost.title,
+                            "author": this.currentUser.id,
+                            "body": this.newPost.body,
+                        }
+                    }).then(response => {
+                        this.loadPokes()
+                        this.newPost = {
+                            "title": "",
+                            "author": null,
+                            "body": ""
+                        }
+                        this.postErrors = {}
+                    }).catch(error => {
+                        if (error.response.status === 400) {
+                            this.postErrors = error.response.data
+                        }
+                    })
+                },
+                loadUsers: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api_app/users/'
+                    }).then(response => {
+                        this.users = response.data
+                    })
+                },
+                loadCurrentUser: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api_app/currentuser/'
+                    }).then(response => {
+                        this.currentUser = response.data
+                    })
+                }
+            },
+            created: function() {
+                this.loadPokes()
+                this.loadUsers()
+                this.loadCurrentUser()
+            },
+            mounted: function() {
+                this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+            }
+        })
+    </script>
+</body>
+</html>
