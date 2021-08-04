@@ -1,25 +1,29 @@
-# Lab 06 - Django REST Framework and Vue
+# Lab 06 - Django REST Framework
 
-I built a Django app. It's got a basic user framework, a model, and a database full of data. Let's build it an API, and then use that API to build a single page Vue application.
+Let's build a full API using Django REST Framework!
 
 ## Part 1
 
-You can find the app to download here: https://github.com/flamingveggies/drf-example *make sure you download it, don't clone it*
+Start a new Django project and create an app named `students`. Create a `Student` model with:
 
-Use the [WSVincent DRF tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api) as a reference. Build an API using the instructions. Notice how little code it takes it build a full API with Django REST Framework! Once you have the API built, use the built in API documentation website provided by DRF to explore your API and get a sense for the API calls you'll need to make from the frontend.
+- First Name (CharField)
+- Last Name (CharField)
+- Cohort (CharField)
+- Favorite Topic (CharField)
+- Favorite Teacher (CharField)
+- Capstone (URLField)
+
+Use the admin panel to add several students to your database.
 
 ## Part 2
 
-Build a Vue frontend for our students! I already provided you with a `home.html` template you can use. Make sure to leave the links to the login/logout/signup pages so that a user can get themselves authenticated (otherwise the API won't work!).
+Use the [WSVincent DRF tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api) and the in-class examples as references to build your API. Once you have the API built, use the built in API documentation website provided by DRF to explore your API and get a sense for the API calls you'll need to make from the frontend.
 
-Your frontend should display a list of students upon loading. It should also offer the ability to create new students in the database.
+Your API needs to have the ability to create students, retrieve either a list of students or any specific student, edit a student, and delete students. Make sure you use the browsable API to test all these features out.
 
-[DRF and Vue](https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/docs/DRF%20and%20Vue.md)  
-[Axios](https://github.com/axios/axios)
+## Part 3 (Optional)
 
-## Part 3 (Optional, but good capstone practice)
-
-Add student update and delete functionality to your Vue application.
+Add the ability to search or filter students using URL parameters. Consult the DRF documentation here: https://www.django-rest-framework.org/api-guide/filtering/
 
 ## Part 4 (Optional)
 
