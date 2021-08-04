@@ -14,6 +14,11 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
+class CurrentUserView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    def get_object(self):
+        return self.request.user
+
 # class PostList(generics.ListCreateAPIView):
 #     queryset = Post.objects.all()
 #     serializer_class = PostSerializer
