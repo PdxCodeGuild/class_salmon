@@ -23,7 +23,7 @@ Your frontend should display a list of Pokemon upon loading.
 [DRF and Vue](https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/docs/DRF%20and%20Vue.md)  
 [Axios](https://github.com/axios/axios)
 
-## Part 4
+## Part 4 - More Features
 
 You must implement ONE of the following features into your app. You can implement more if you'd like.
 
