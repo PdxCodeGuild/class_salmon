@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'chirp/static.css' %}" />
+    <title>Chirp</title>
+    </head>
+    <header>
+        <img src="{% static 'chirp/images/skeeter3.png' %}"
+    alt="skeeter"
+    style="width:300;height:300px; transform: scaleX(-1);"
+    />
+      <center>
+      <h1>'Skeeter</h1>
+    
+        
+      </center>
+</header>
+    <nav>  
+        {% comment %} <a href= {% url 'users:login' %}><button type="submit" name="login">Login</button></a></li>  {% endcomment %}
+        <a href= {% url 'users:signup' %}><button type="submit" name="signup">Sign Up</button></a></li> 
+    </nav>
+    <body >
+    
+    <center>
+      <hr >
+      <form method="post" action="{% url 'chirp_app:add_item' %}">
+        {% csrf_token %}
+        <input type="text" name="new_item" required >
+        <button type="submit">New Buzz</button>
+      </form>
+      <hr >
+      <br ><br>
+      {% if all_posts %} 
+      <ul >
+        {% for item in all_posts %}
+        <li>{{ item.item_text }} 
+            <a href={% url 'chirp_app:delete_item' item.id %}><button type="submit" name="delete_item">Kill</button></a></li>
+                {% endfor %} 
+            </ul>
+            {% else %}
+            <p>No buzz yet!</p>
+        </center>
+    {% endif %}
+    <br>
+        <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+  </body>
+  <footer>
+      <p>something something</p> <br><br>
+      <h1>this is a footer</h1>
+      <p>something something</p>
+  </footer>
+</html>
