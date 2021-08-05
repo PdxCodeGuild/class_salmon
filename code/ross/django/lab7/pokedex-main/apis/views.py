@@ -15,7 +15,7 @@ class TypeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TypeSerializer
 
 class CurrentPokemonView(generics.RetrieveAPIView):
-    serializer_class = TypeSerializer
+    serializer_class = PokemonSerializer
     def get_object(self):
         return self.request.user
 
