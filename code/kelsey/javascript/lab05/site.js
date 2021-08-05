@@ -1,61 +1,62 @@
-// Vue.component('display', {
-//     props: ["quotes"],
-//     data: function () {
-//         return {
-//             results: this.results
-//         }
-//     },
-//     template: `<div>
-//                 <div v-for="result in results">{{ result.body }}</div>
-//                 </div>`
-// })
+Vue.component ('previous-page', {
+    template: `<button @click="$emit('previouspage')" type='button' class='btn btn-dark ml-3 mr-3'>Previous</button>` 
+})
 
-const vm = new Vue({
-    el: '#app',
-    data: {
-        results: [],
-        searchSelect: '',
-        searchInput: ''
+Vue.component ('next-page', {
+    template: `<button @click="$emit('nextpage')" type='button' class='btn btn-dark ml-3 mr-3'>Next</button>` 
+})
+
+
+new Vue ({
+    el:'#app',
+    data : {
+        quotes: [],
+        search: '',
+        key: '',
+        page: 1,
+        last_page: false
     },
-    methods: {
-        loadQuotes() {
+    methods : {
+        loadQuotes: function () {
             axios({
+                url: 'https://favqs.com/api/quotes',
                 method: 'get',
-                url: 'https://favqs.com/api/quotes/',
                 headers: {
-                    "Authorization": `Token token="75781e1e8edbf2eb68848384abbbd2bb"`
-                }
-            }).then(response => {
-                console.log(response)
-                this.results = response.data.quotes
-            })
-        },
-        search() {
-            axios({
-                method: 'get',
-                url: 'https://favqs.com/api/quotes/',
-                headers: {
-                    "Authorization": `Token token=${apiKey}`
+                    "Authorization": `Token token="${apiKey}"`
                 },
                 params: {
-                    filter: this.searchInput,
-                    type: this.searchSelect
+                    type: this.key,
+                    filter: this.search,
+                    page: this.page
                 }
             }).then(response => {
-                console.log(response)
-                this.results = response.data.quotes
+                this.quotes = response.data.quotes,
+                this.page = response.data.page,
+                this.last_page = response.data.last_page
             })
         },
-        created() {
+        termSelect(event) {
+            key = event.target.value
+        },
+        nextPage: function () {
+            this.page += 1
             this.loadQuotes()
         },
-        nextPg() {
-
-        },
-        previousPg() {
-
+        previousPage: function () {
+            this.page -= 1
+            this.loadQuotes(this.page)
         }
-
-    }
-
+    },
+    mounted: function () {
+        axios({
+            url: 'https://favqs.com/api/quotes',
+                method: 'get',
+                headers: {
+                    "Authorization": `Token token="${apiKey}"`
+                },
+        })
+        .then (response => {
+            this.quotes = response.data.quotes
+        })
+    },
 })
