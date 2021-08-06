@@ -1,0 +1,39 @@
+.banner-login{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.banner-login > h1{
+  color: orange;
+}
+
+.banner-login > p{
+}
+
+#banner{
+  background-color: red;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#column-left{
+  background-color:lightgray;
+  height:500px;
+  width: 500px;
+}
+
+#column-right{
+  background-color: green;
+  height:500px;
+  width: 500px;
+}
+
+.image-slider{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello, world!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+
+  <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+
+  <header class="banner-login">
+  <!-- User Authenticated Heading -->
+  {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+  {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+  {% endif %}
+  </header>
+
+  <!-- Banner -->
+  <h1 id="banner"><span>Hello, I Am Pokedex!</span></h1>
+
+  <!-- 2 column spilt with main pokemon data -->
+  <span class="columns">
+    <div id="column-left">
+      <p>im the left column</p>
+    </div>
+
+    <div id="column-right">
+      <h2>Pokemon name here</h2>
+    </div>
+  </span>
+  <!-- image slider -->
+  <div class="image-slider">
+    <span>
+      <p>image slider here</p>
+    </span>
+  </div>
+
+</body>
+</html>

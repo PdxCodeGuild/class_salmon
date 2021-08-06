@@ -5,5 +5,6 @@ app_name = "app_shortURL"
 urlpatterns = [
     path('', views.index, name="index"),
     path('input/', views.InputURL, name="input"),
-    path('redirect/', views.RedirectURL, name="redirect")
+    path('redirect/', views.RedirectURL, name="redirect"),
+    path("encrypt/", views.URLEncryption, name="encrypt")
 ]

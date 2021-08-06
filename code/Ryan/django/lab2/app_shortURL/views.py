@@ -12,36 +12,39 @@ def index(request):
     return render(request, "app_shortURL/index.html", context)
 
 def InputURL(request):
-    # Gather the original URL from the input
-    original_url = request.POST['input_URL']
+    # Check if the url is already in the Database
+    # if yes, check if the code exists
+    if Links.objects.filter(url=url).exists():
 
-    # Set params for the short URL
-    size = 8
-    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits
+        return HttpResponse("I'm a duplicate URL!")
 
-    # Create the short URL
-    short_url = ''.join(random.choice(chars) for _ in range(size))
+    # Check if the code is in the database
+    elif Links.objects.filter(code=code).exists():
 
-    # Check if the original_URL is already in the Database
-    # if yes, check if the short_url exists
-    #
-    if Links.objects.filter(original_url=original_url).exists():
+        return HttpResponseRedirect(url)
 
-        return HttpResponseRedirect("http://www.duckduckgo.com")
-    # Check if the short_url is in the database
-    elif Links.objects.filter(short_url=short_url).exists():
-        print("line 32 url not found")
-        return HttpResponseRedirect(original_url)
     # Create new objects and save
     else:
-        return Links.objects.create(original_url = original_url, short_url = short_url)
 
-
-
+        return Links.objects.create(url = url, code = code)
 
     return HttpResponseRedirect(reverse("app_shortURL:index"))
 
 def RedirectURL(request):
     # refer to polls urls example
-    # path('<str:question_id>/vote/', views.vote, name='vote'),
-    return HttpResponseRedirect("Hi")
+    # get from the input text URL
+    # search for link associated with it
+    # return original url
+    # # path('<str:question_id>/vote/', views.vote, name='vote'),
+    return HttpResponseRedirect("https://www.duckduckgo.com")
+
+def URLEncryption(request):
+    # Gather the original URL from the input
+    # Set params for the short URL
+    # Create the short URL
+    url = request.POST['encrypt']
+    size = 8
+    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits
+    code = ''.join(random.choice(chars) for _ in range(size))
+    url_string = f"https://www.shor.ty/{code}"
+    print(url_string)

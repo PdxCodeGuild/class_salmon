@@ -11,8 +11,16 @@
 <body>
   <h1>Hello, world!</h1>
 
-<h2>Input URL</h2>
+<h2>Input Original URL</h2>
   <form action="{% url 'app_shortURL:input' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="input_URL">
+    <!-- <label for="input_URL">Input URL</label> -->
+    <button type="submit" name="input_url_button"><i class="far fa-arrow-alt-circle-right"></i></button>
+  </form>
+
+<h2>Input Short URL</h2>
+  <form action="{% url 'app_shortURL:encrypt' %}" method="post">
     {% csrf_token %}
     <input type="text" name="input_URL">
     <!-- <label for="input_URL">Input URL</label> -->
@@ -28,8 +36,8 @@
       </tr>
       {% for url in link_list %}
       <tr>
-        <td>{{ url.original_url }}</td>
-        <td>{{ url.short_url }}</td>
+        <td>{{ url.url }}</td>
+        <td>{{ url.code }}</td>
       </tr>
       {% endfor %}
       </table>
