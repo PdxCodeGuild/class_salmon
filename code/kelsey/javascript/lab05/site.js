@@ -1,53 +1,62 @@
-// Requirements:
-
-// Your app must use Vue to fetch data and interact with the results.
-// Let the user enter a search term and select whether to search by keyword, author, or tag.
-// Implement pagination buttons when the search returns more than 25 quotes.
-// When the page first loads, show the user a set of completely random quotes.
-// You must have at least one Vue component in your app.
-
-Vue.component('show-results', {
-    props: ["results"],
-    data: function () {
-        return {
-            results: this.results
-        }
-    },
-    template: `<div v-for="result in results">{{ result.body }}</div>`
+Vue.component ('previous-page', {
+    template: `<button @click="$emit('previouspage')" type='button' class='btn btn-dark ml-3 mr-3'>Previous</button>` 
 })
 
-const vm = new Vue({
-    el: '#app',
-    data: {
-        results: null,
-        searchSelect: '',
-        searchInput: '',
+Vue.component ('next-page', {
+    template: `<button @click="$emit('nextpage')" type='button' class='btn btn-dark ml-3 mr-3'>Next</button>` 
+})
 
+
+new Vue ({
+    el:'#app',
+    data : {
+        quotes: [],
+        search: '',
+        key: '',
+        page: 1,
+        last_page: false
     },
-    methods: {
-        loadQuotes() {
-            
-        },
-        search() {
+    methods : {
+        loadQuotes: function () {
             axios({
+                url: 'https://favqs.com/api/quotes',
                 method: 'get',
-                url: 'https://favqs.com/api/quotes/',
                 headers: {
-                    "Authorization": `Token token="75781e1e8edbf2eb68848384abbbd2bb"`
+                    "Authorization": `Token token="${apiKey}"`
                 },
                 params: {
-                    filter: this.searchInput,
-                    type: this.searchSelect
+                    type: this.key,
+                    filter: this.search,
+                    page: this.page
                 }
             }).then(response => {
-                console.log(response)
-                this.results = response.data.quotes
+                this.quotes = response.data.quotes,
+                this.page = response.data.page,
+                this.last_page = response.data.last_page
             })
         },
-        created: function() {
+        termSelect(event) {
+            key = event.target.value
+        },
+        nextPage: function () {
+            this.page += 1
             this.loadQuotes()
+        },
+        previousPage: function () {
+            this.page -= 1
+            this.loadQuotes(this.page)
         }
-
-    }
-
+    },
+    mounted: function () {
+        axios({
+            url: 'https://favqs.com/api/quotes',
+                method: 'get',
+                headers: {
+                    "Authorization": `Token token="${apiKey}"`
+                },
+        })
+        .then (response => {
+            this.quotes = response.data.quotes
+        })
+    },
 })

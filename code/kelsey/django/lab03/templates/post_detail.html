@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+        <h5><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></em></h5>
+        <p><em>Posted on {{ post.created }}</em></p>
+        <p><em>Last updated on {{ post.updated }}</em></p>
+        <h4>{{ post.body|linebreaksbr }}</h4>
+    </div>
+
+    {% if request.user == post.author %}
+    <p><a href="{% url 'posts:edit' post.pk %}">Edit Post</a></p>
+    <p><a href="{% url 'posts:delete' post.pk %}">Delete Post</a></p>
+    {% endif %}
+
+{% endblock content %}
