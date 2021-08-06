@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username }}!</h1>
+<p><a href="{% url 'logout' %}">Logout</a><p>
+{% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+
+{% csrf_token %}
+
+<div id="app">
+    <p>[[ message ]]</p> # Message here
+    <ul v-for="poke in pokemon">
+        <li>
+        Pokemon #: [[ poke.number ]]<br>
+        Name: [[ poke.name ]]<br>
+        Types: <span v-for="type in poke.types">[[  type.type ]] </span><br>
+        Height:[[ poke.height ]]<br>
+        Weight: [[ poke.weight ]]<br>
+        Front Photo: <br><img :src="poke.image_front" /><br>
+        Back Photo: <br><img :src="poke.image_back" /><br>
+        Caught By: [[ poke.caught_by ]]<br>
+        </li>
+    </ul>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            message: 'Message here',
+            pokemon: [],
+            csrf_token: "",
+        },
+        methods: {
+            loadPokemon: function() {
+                axios({
+                    method: 'get',
+                    url: '/apis/v1/pokemon/',
+                }).then(response => {
+                    this.pokemon = response.data
+                })
+            }
+        },
+        created: function() {
+            this.loadPokemon()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+        }
+    //            {
+    //        let crsf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+    //        axios({
+    //            url: '/apis/v1/pokemon/',
+    //            method: 'get',
+    //            headers: {
+    //                'X-CSRFToken': csrf_token
+    //            }
+    //        }).then(response => this.pokemon = response.data)
+    //    }
+    //    mounted: {{
+    //        axios
+    //            .get('apis/v1/')
+    //            .then(response => (this.pokemon = response))
+    //    }
+    })
+</script>
+
+{% endblock %}
