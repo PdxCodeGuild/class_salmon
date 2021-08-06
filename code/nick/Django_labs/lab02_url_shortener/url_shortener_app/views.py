@@ -33,7 +33,7 @@ def template2(request):#this may not be necessary to have as a function, unless 
 
 def submit_url(request):
     new_url = request.POST['new_url']
-    print(new_url)
+    # print(new_url)
     alphabet = string.ascii_letters + string.digits
     code = ''.join(secrets.choice(alphabet) for i in range(8)) #8 character code
     # print(code)#working
@@ -50,5 +50,5 @@ def url_by_code(request, from_user):
     # print('request body is ' + request.body)
     # print('request path_info is ' + request.path_info)
     code = get_object_or_404(SubmittedUrl, code_for_url=from_user)
-    print(from_user + ' line 38') #only the short url, 
+    # print(from_user + ' line 38') #only the short url, 
     return HttpResponseRedirect(code.url_description)
