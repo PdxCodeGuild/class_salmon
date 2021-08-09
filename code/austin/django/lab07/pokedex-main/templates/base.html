@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Super Cool Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        {% comment %} <div class="nav-left">
+            <h1><a href="{% url 'home' %}">My Super Cool Blog</a></h1>
+        </div> {% endcomment %}
+        <div class="nav-right">
+            {% if user.is_authenticated %}
+            <h1>Welcome {{ user.username }}!</h1>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+    {% block content %}
+    {% endblock content %}
+    </div>
+    {% csrf_token %}
+    <div id="app">
+        <ul>
+            <li v-for="pokemon in pokemon">
+                <h3>[[ pokemon.name ]]</h3>
+                <h4>[[ pokemon.id]]</h4>
+                <p>[[ pokemon.type_detail]]</p>
+                <p>Height:[[ pokemon.height ]] meters       Weight: [[ pokemon.weight ]] kilograms</p>
+                <p> [[ pokemon.image_front]]</p>
+                <p> [[ pokemon.image_back ]] </p>
+                <p> [[ pokemon.caught_by ]]
+                <h4>[[ pokemon ]]</h4>
+                <p>[[ pokemon.type_detail.type ]]</p>
+
+            </li>
+        </ul>
+        {% comment %} <div>
+            <input type="text" placeholder="Title" v-model="newPost.title"><br>
+            <template v-if="postErrors.title">
+                <p v-for="error in postErrors.title">[[ error ]]</p>
+            </template>
+            <!-- <select v-model="newPost.author">
+                <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
+            </select><br> -->
+            <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
+            <template v-if="postErrors.body">
+                <p v-for="error in postErrors.body">[[ error ]]</p>
+            </template>
+            <button @click="createPost">New Post</button>
+        </div> {% endcomment %}
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                pokemon: [],
+                types: [],
+                users: [],
+                csrf_token: "",
+                currentUser: {},
+                postErrors: {},
+            },
+            methods: {
+                loadPokemon: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/pokemon/'
+                    }).then(response => {
+                        this.pokemon = response.data
+                    })
+                },
+               
+                loadUsers: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/users/'
+                    }).then(response => {
+                        this.users = response.data
+                    })
+                },
+                loadCurrentUser: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/currentuser/'
+                    }).then(response => {
+                        this.currentUser = response.data
+                    })
+                }
+            },
+            created: function() {
+                this.loadPokemon()
+                this.loadUsers()
+                this.loadCurrentUser()
+            },
+            mounted: function() {
+                this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+            }
+        })
+    </script>
+</body>
+</html>
+</body>
+</html>
