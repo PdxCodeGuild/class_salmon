@@ -9,4 +9,4 @@ class Student(models.Model):
     capstone = models.URLField()
 
     def __str__(self):
-        return self.first_name
+        return f'{self.last_name}, {self.first_name}'
