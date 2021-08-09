@@ -3,12 +3,12 @@ from django.contrib.auth import get_user_model
 
 class Pokemon(models.Model):
     number = models.IntegerField()
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=250)
     height = models.FloatField()
     weight = models.FloatField()
     image_front = models.URLField()
     image_back = models.URLField()
-    caught_by = models.ManyToManyField(get_user_model(), related_name='caught')
+    caught_by = models.ManyToManyField(get_user_model(), related_name='caught', blank=True)
     # types = the set of Types associated with that Pokemon
 
     def __str__(self):
