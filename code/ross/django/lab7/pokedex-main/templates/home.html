@@ -14,7 +14,6 @@
 {% csrf_token %}
 
 <div id="app">
-    <p>[[ message ]]</p> # Message here
     <ul v-for="poke in pokemon">
         <li>
         Pokemon #: [[ poke.number ]]<br>
@@ -35,7 +34,6 @@
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
-            message: 'Message here',
             pokemon: [],
             csrf_token: "",
         },
