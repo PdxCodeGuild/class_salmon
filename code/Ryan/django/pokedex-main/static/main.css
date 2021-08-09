@@ -14,26 +14,32 @@
   background-color: red;
 }
 
-.columns {
+.main-gallery {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-left: 10%;
+  margin-right:10%;
+}
+
+.pokemon-card{
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 }
 
-#column-left{
-  background-color:lightgray;
-  height:500px;
-  width: 500px;
+.image{
+  padding: 0;
+  margin:15px;
 }
 
-#column-right{
-  background-color: green;
-  height:500px;
-  width: 500px;
+.image:hover{
+  transform:
 }
 
-.image-slider{
-  display:flex;
-  flex-direction:row;
-  justify-content: center;
+.image > h4{
+  margin: 0;
+  padding: 0
+}
+
+.stats{
+  display: flex;
+  align-items: center
 }
