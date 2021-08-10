@@ -4,26 +4,35 @@
 
 
 {% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
+<div class="blue-text text-darken-2"><h1>Welcome, {{ user.username }}!</h1></div>
+{% comment %} <button href='{% url 'users:add' %}'></button> {% endcomment %}
 <p><a href="{% url 'logout' %}">Logout</a><p>
 {% else %}
 <h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+<p>You are not logged in. <br>
+You must be logged in to make changes to the Pokemon list. <br>
+<a href="{% url 'login' %}">Login</a> | <a href="{% url 'users:signup' %}">Sign Up</a></p>
 {% endif %}
 
 {% csrf_token %}
 
 <div id="app">
     <ul v-for="poke in pokemon">
-        <li>
-        Pokemon #: [[ poke.number ]]<br>
+        <li class="card-panel red">
+        <h5>Pokemon # [[ poke.number ]]</h5><br>
         Name: [[ poke.name ]]<br>
-        Types: <span v-for="type in poke.types">[[  type.type ]] </span><br>
+        Type(s): <span v-for="type in poke.types">[[  type.type ]] </span><br>
         Height:[[ poke.height ]]<br>
         Weight: [[ poke.weight ]]<br>
         Front Photo: <br><img :src="poke.image_front" /><br>
         Back Photo: <br><img :src="poke.image_back" /><br>
         Caught By: [[ poke.caught_by ]]<br>
+        {% if user.is_authenticated %}
+        <form action="{% url 'pokemon:catch' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Catch this Pokemon"></input>
+        </form>
+        {% endif %}
         </li>
     </ul>
 </div>

@@ -23,4 +23,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('apis/v1/', include('apis.urls')),
+    path('pokemon/', include('pokemon.urls')),
 ]
