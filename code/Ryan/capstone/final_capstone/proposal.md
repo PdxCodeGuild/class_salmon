@@ -61,6 +61,7 @@ Boxy is an application that allows users to *quickly bet on live football square
 - Squares
   - teams
   - Users
+  - positions
 
 - Store
   - prizes
