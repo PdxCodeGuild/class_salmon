@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Lab06 DRF Students</title>
+<style>
+table, td, th {
+  border: 1px solid black;
+  max-width: 80%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+ {% csrf_token %}
+<div id="app">
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Cohort</th>
+          <th>Favorite Topic</th>
+          <th>Favorite Teacher</th>
+          <th>Capstone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for='student in students'>
+          <td >[[ student.first_name ]] [[ student.last_name ]]</td>
+          <td>[[ student.cohort ]]</td>
+          <td>[[ student.favorite_topic ]]</td>
+          <td>[[ student.favorite_teacher ]]</td>
+          <td>[[ student.capstone ]]</td>
+        </tr>
+      </tbody>
+    </table> 
+  </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      delimiters: ["[[", "]]"],
+      data: {
+        students: [],
+      },
+      methods: {
+        loadStudents: function() {
+          axios({
+            method: 'get',
+            url: '/api_app/'
+          }).then(response => {
+            this.students = response.data
+          })
+        },
+        create () {
+
+        }
+      },
+        retrieve () {
+
+        },
+        edit () {
+
+        },
+        delete () {
+          this.student = ''
+          this.cohort = ''
+        },
+      mounted: function () {
+        this.loadStudents()
+      }
+    });
+
+    </script>

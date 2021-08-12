@@ -6,4 +6,3 @@ from .serializers import StudentSerializer
 class StudentAPIView(generics.ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    
