@@ -9,49 +9,72 @@
 
     <title>Lab06 DRF Students</title>
 <style>
-table, td, th {
-  border: 1px solid black;
-  max-width: 80%;
-}
+  table, td, th {
+    border: 1px solid black;
+    max-width: 80%;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 </style>
 </head>
 <body>
- {% csrf_token %}
+{% csrf_token %}
 <div id="app">
-    <table>
+    <table class="m-5">
       <thead>
         <tr>
-          <th>Student</th>
-          <th>Cohort</th>
-          <th>Favorite Topic</th>
-          <th>Favorite Teacher</th>
-          <th>Capstone</th>
+          <th class="p-2">Student</th>
+          <th class="p-2">Cohort</th>
+          <th class="p-2">Favorite Topic</th>
+          <th class="p-2">Favorite Teacher</th>
+          <th class="p-2">Capstone</th>
+          <th class="p-2">Edit</th>
+          <th class="p-2">Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for='student in students'>
-          <td >[[ student.first_name ]] [[ student.last_name ]]</td>
-          <td>[[ student.cohort ]]</td>
-          <td>[[ student.favorite_topic ]]</td>
-          <td>[[ student.favorite_teacher ]]</td>
-          <td>[[ student.capstone ]]</td>
+        {% for student in students %}
+        <tr>
+          <td class="p-2">{{ student.first_name }}</td>
+          <td class="p-2">[[ student.cohort ]]</td>
+          <td class="p-2">[[ student.favorite_topic ]]</td>
+          <td class="p-2">[[ student.favorite_teacher ]]</td>
+          <td class="p-2">[[ student.capstone ]]</td>
+          <td class="p-2"><button @click="update">Edit</td>
+          <td class="p-2"><button @click="delete">Delete</td>
         </tr>
+         {% endfor %}
       </tbody>
     </table> 
+    <div class="m-5">
+      <input type="text" placeholder="First Name" v-model="newStudent.first_name">
+      <input type="text" placeholder="Last Name" v-model="newStudent.last_name">
+      <input type="text" placeholder="Cohort" v-model="newStudent.cohort">
+      <input type="text" placeholder="Favorite Topic" v-model="newStudent.favorite_topic">
+      <input type="text" placeholder="Favorite Teacher" v-model="newStudent.favorite_teacher">
+      <input type="text" placeholder="Capstone URL" v-model="newStudent.capstone">
+      <button @click="create">Add Student</button>
+    </div>
   </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
+    {% comment %} <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
+  {% comment %} <script>
     const app = new Vue({
       el: "#app",
       delimiters: ["[[", "]]"],
       data: {
         students: [],
+        newStudent: {
+          "first_name": "",
+          "last_name": "",
+          "cohort": "",
+          "favorite_topic": "",
+          "favorite_teacher": "",
+          "capstone": ""
+        }
       },
       methods: {
         loadStudents: function() {
@@ -62,23 +85,59 @@ table {
             this.students = response.data
           })
         },
-        create () {
-
+        create: function() {
+            axios({
+            method: "post",
+            url: '/api_app/'
+            },
+            data: {
+              "first_name": this.newStudent.first_name,
+              "last_name": this.newStudent.last_name,
+              "cohort": this.newStudent.cohort,
+              "favorite_topic": this.newStudent.favorite_topic,
+              "favorite_teacher": this.newStudent.favorite_teacher,
+              "capstone": this.newStudent.capstone
+            }
+          }).then(response => {
+            this.loadStudents()
+            this.newStudent = {
+              "first_name": "",
+              "last_name": "",
+              "cohort": "",
+              "favorite_topic": "",
+              "favorite_teacher": "",
+              "capstone": ""
+            }
+          })
         }
       },
-        retrieve () {
+        update: function() {
+          axios({
+            method: 'get',
+            url: '/api_app/'
+          }).then(response => {
+            this.students = response.data
+          })
 
         },
-        edit () {
-
-        },
-        delete () {
-          this.student = ''
-          this.cohort = ''
+        delete: function() {
+          axios({
+            method: "post",
+            url: '/api_app/students/'
+            },
+            data: {
+              first_name = '',
+              last_name = '',
+              cohort = '',
+              favorite_topic = '',
+              favorite_teacher= '',
+              capstone = '',
         },
       mounted: function () {
         this.loadStudents()
       }
     });
 
-    </script>
+    </script> {% endcomment %}
+</body>
+</html>

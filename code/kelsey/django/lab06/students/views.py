@@ -1,7 +1,5 @@
-from django.views.generic import ListView
-
+from django.shortcuts import render
 from .models import Student
 
-class StudentListView(ListView):
-    model = Student
-    template_name = 'student_list.html'
+def home(request):
+    return render(request, 'student_list.html')
