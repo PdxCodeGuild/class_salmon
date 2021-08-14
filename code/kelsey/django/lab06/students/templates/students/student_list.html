@@ -36,9 +36,8 @@
         </tr>
       </thead>
       <tbody>
-        {% for student in students %}
-        <tr>
-          <td class="p-2">{{ student.first_name }}</td>
+        <tr v-for="student in students">
+          <td class="p-2">[[ student.first_name ]]</td>
           <td class="p-2">[[ student.cohort ]]</td>
           <td class="p-2">[[ student.favorite_topic ]]</td>
           <td class="p-2">[[ student.favorite_teacher ]]</td>
@@ -46,7 +45,6 @@
           <td class="p-2"><button @click="update">Edit</td>
           <td class="p-2"><button @click="delete">Delete</td>
         </tr>
-         {% endfor %}
       </tbody>
     </table> 
     <div class="m-5">
@@ -61,7 +59,7 @@
   </div>
     {% comment %} <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
-  {% comment %} <script>
+<script>
     const app = new Vue({
       el: "#app",
       delimiters: ["[[", "]]"],
@@ -88,7 +86,7 @@
         create: function() {
             axios({
             method: "post",
-            url: '/api_app/'
+            url: '/api_app/students/'
             },
             data: {
               "first_name": this.newStudent.first_name,
@@ -138,6 +136,6 @@
       }
     });
 
-    </script> {% endcomment %}
+    </script>
 </body>
 </html>
