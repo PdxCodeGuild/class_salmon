@@ -3,6 +3,7 @@ from . import views
 
 app_name = "square"
 urlpatterns = [
-    path("", views.square, name="square-home")
-    path("square/<int:pk>", views.square, name="square-id")
+    path("", views.CreateSquare, name="square-home"),
+    path("<int:pk>/", views.index, name="square-id"),
+    path("new/", views.CreateSquare, name="square-new")
 ]

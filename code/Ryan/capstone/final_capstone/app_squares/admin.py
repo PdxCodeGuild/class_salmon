@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Square, Cell
 
-# Register your models here.
+admin.site.register(Square)
+admin.site.register(Cell)
