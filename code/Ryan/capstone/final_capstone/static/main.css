@@ -1,0 +1,149 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #0C1120;
+  position: fixed;
+  top: 0;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #0C1120;
+  position: sticky;
+  bottom: 0;
+}
+
+.container-banner-top {
+  height: 105px;
+  width: 100%;
+}
+
+.logo-name{
+  display: flex;
+  flex-direction: row;
+}
+
+#logo{
+  height: 105px;
+  width: 105px;
+}
+
+#name{
+  display: flex;
+  justify-content: flex-end;
+  align-items:center;
+  color: #ffffff;
+  font-size: 40px
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav{
+  padding-top: 59px;
+  padding-bottom: 0px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.dropdown{
+
+}
+
+#poolsDropDown{
+
+}
+
+.dropbtn{
+
+}
+
+.dropdown-content{
+
+}
+
+#footer-credits{
+  margin: 15px;
+  color: white
+}
+
+main{
+  margin-top: 105px;
+  height: 1080px;
+  width: 100%;
+}
+
+.login-container{
+  background-color: red
+}
+
+#app{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  align-items:stretch;
+  justify-content: space-between;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.pools-live{
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+}
+
+.pools-upcoming{
+  background-color:yellow;
+
+}
+
+.pools-list{
+  border: 1px solid black;
+}

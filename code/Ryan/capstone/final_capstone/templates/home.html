@@ -1,0 +1,42 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+
+  <div id="app">
+
+    <!-- Live pool scrolling box -->
+    <aside class="pools-live">
+      <h2><strong><u>Live Pools</u></strong></h2>
+      <section class="pools-list">
+
+      </section>
+    </aside>
+
+    <!-- Current Square -->
+      <div class="grid-container">
+        <template v-for="y in 10">
+          <div class="grid-item" v-for="x in 10">
+            <button v-on:click="getCoords(x, y)">[[ x ]], [[ y ]]</button>
+          </div>
+        </template>
+      </div>
+
+    <!-- Upcoming pool scrolling box -->
+    <aside class="pools-upcoming">
+      <h2><strong><u>Upcoming Pools</u></strong></h2>
+    </aside>
+
+  </div>
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+{% endblock %}
