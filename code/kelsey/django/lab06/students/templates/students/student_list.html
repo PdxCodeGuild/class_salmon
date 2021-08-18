@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Lab06 DRF Students</title>
+<style>
+  table, td, th {
+    border: 1px solid black;
+    max-width: 80%;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+</style>
+</head>
+<body>
+{% csrf_token %}
+<div id="app">
+    <table class="m-5">
+      <thead>
+        <tr>
+          <th class="p-2">Student</th>
+          <th class="p-2">Cohort</th>
+          <th class="p-2">Favorite Topic</th>
+          <th class="p-2">Favorite Teacher</th>
+          <th class="p-2">Capstone</th>
+          <th class="p-2">Edit</th>
+          <th class="p-2">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="student in students">
+          <td class="p-2">[[ student.first_name ]]</td>
+          <td class="p-2">[[ student.cohort ]]</td>
+          <td class="p-2">[[ student.favorite_topic ]]</td>
+          <td class="p-2">[[ student.favorite_teacher ]]</td>
+          <td class="p-2">[[ student.capstone ]]</td>
+          <td class="p-2"><button @click="update">Edit</td>
+          <td class="p-2"><button @click="delete">Delete</td>
+        </tr>
+      </tbody>
+    </table> 
+    <div class="m-5">
+      <input type="text" placeholder="First Name" v-model="newStudent.first_name">
+      <input type="text" placeholder="Last Name" v-model="newStudent.last_name">
+      <input type="text" placeholder="Cohort" v-model="newStudent.cohort">
+      <input type="text" placeholder="Favorite Topic" v-model="newStudent.favorite_topic">
+      <input type="text" placeholder="Favorite Teacher" v-model="newStudent.favorite_teacher">
+      <input type="text" placeholder="Capstone URL" v-model="newStudent.capstone">
+      <button @click="create">Add Student</button>
+    </div>
+  </div>
+    {% comment %} <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
+<script>
+    const app = new Vue({
+      el: "#app",
+      delimiters: ["[[", "]]"],
+      data: {
+        students: [],
+        newStudent: {
+          "first_name": "",
+          "last_name": "",
+          "cohort": "",
+          "favorite_topic": "",
+          "favorite_teacher": "",
+          "capstone": ""
+        }
+      },
+      methods: {
+        loadStudents: function() {
+          axios({
+            method: 'get',
+            url: '/api_app/'
+          }).then(response => {
+            this.students = response.data
+          })
+        },
+        create: function() {
+            axios({
+            method: "post",
+            url: '/api_app/students/'
+            },
+            data: {
+              "first_name": this.newStudent.first_name,
+              "last_name": this.newStudent.last_name,
+              "cohort": this.newStudent.cohort,
+              "favorite_topic": this.newStudent.favorite_topic,
+              "favorite_teacher": this.newStudent.favorite_teacher,
+              "capstone": this.newStudent.capstone
+            }
+          }).then(response => {
+            this.loadStudents()
+            this.newStudent = {
+              "first_name": "",
+              "last_name": "",
+              "cohort": "",
+              "favorite_topic": "",
+              "favorite_teacher": "",
+              "capstone": ""
+            }
+          })
+        }
+      },
+        update: function() {
+          axios({
+            method: 'get',
+            url: '/api_app/'
+          }).then(response => {
+            this.students = response.data
+          })
+
+        },
+        delete: function() {
+          axios({
+            method: "post",
+            url: '/api_app/students/'
+            },
+            data: {
+              first_name = '',
+              last_name = '',
+              cohort = '',
+              favorite_topic = '',
+              favorite_teacher= '',
+              capstone = '',
+        },
+      mounted: function () {
+        this.loadStudents()
+      }
+    });
+
+    </script>
+</body>
+</html>
