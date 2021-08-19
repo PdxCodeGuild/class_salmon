@@ -13,6 +13,7 @@ class CustomUser(AbstractUser):
 
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
+    user_image = models.ImageField()
 
     def __str__(self):
         return self.username
