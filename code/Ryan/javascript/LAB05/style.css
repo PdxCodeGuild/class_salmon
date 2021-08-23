@@ -1,0 +1,24 @@
+header{
+    display:flex;
+    justify-content: space-between;
+}
+
+#prev-top{
+    align-items: bottom;
+}
+
+table{
+    width: 100%;
+    padding: 8px;
+}
+
+td{
+    border: 1px solid #dddddd;
+    padding: 1rem;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between
+}
+
