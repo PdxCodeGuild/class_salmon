@@ -1,3 +1,4 @@
+  
 from rest_framework import generics, viewsets
 from django.contrib.auth import get_user_model
 
@@ -12,4 +13,3 @@ class PokemonViewSet(viewsets.ModelViewSet):
 class TypeViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
-    
