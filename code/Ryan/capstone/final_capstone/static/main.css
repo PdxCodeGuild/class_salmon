@@ -1,15 +1,17 @@
-body{
+*{
   margin: 0;
   padding: 0;
+}
+
+body{
+  height: 100vh;
 }
 
 header{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   background-color: #0C1120;
-  position: fixed;
-  top: 0;
+  height: 7vh;
 }
 
 footer{
@@ -18,23 +20,22 @@ footer{
   align-items: center;
   justify-content: flex-end;
   background-color: #0C1120;
-  position: sticky;
-  bottom: 0;
+  height: 5vh;
 }
 
 .container-banner-top {
-  height: 105px;
+  /* height: 105px; */
   width: 100%;
 }
 
-.logo-name{
+.banner-left-side{
   display: flex;
   flex-direction: row;
+  width: 60%;
 }
 
 #logo{
-  height: 105px;
-  width: 105px;
+  height: 7vh;
 }
 
 #name{
@@ -45,65 +46,33 @@ footer{
   font-size: 40px
 }
 
-.search{
+.banner-right-side{
   display: flex;
   flex-direction: row;
+  width: 40%
 }
 
 .nav{
-  padding-top: 59px;
-  padding-bottom: 0px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border: 1px solid green;
+  justify-content: space-between;
+  padding-right: 5px
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
+a{
   color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-.dropdown{
-
-}
-
-#poolsDropDown{
-
-}
-
-.dropbtn{
-
-}
-
-.dropdown-content{
-
 }
 
 #footer-credits{
-  margin: 15px;
   color: white
 }
 
 main{
-  margin-top: 105px;
-  height: 1080px;
   width: 100%;
+  height: 88vh;
 }
 
 .login-container{
@@ -111,39 +80,74 @@ main{
 }
 
 #app{
-  display: flex;
-  flex-direction:row;
-  flex-wrap: nowrap;
-  align-items:stretch;
-  justify-content: space-between;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 10fr 1fr;
+    background-color: pink;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+.pools-side-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
-.grid-item {
+
+.pools-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-mid-container{
+  display: grid;
+  grid-template-rows: 2fr 10fr;
+  background-color: grey;
+  height: 100%;
+}
+
+.main-mid-container .mid-header{
+  background-color: blue;
+}
+
+.main-mid-container .mid-square{
+  display: grid;
+  grid-template-rows: 2fr 10fr;
+  border: 1px solid red;
+}
+
+.mid-square .square-container{
+  display: grid;
+  grid-template-columns: 1.25fr 10fr;
+  border: 1px solid blue;
+}
+
+.square-container .square-side{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.square-side .side-values{
+
+}
+
+.square-grid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(10, auto);
+  background-color: #2196F3;
+
+}
+
+.square-grid .square-units {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
   text-align: center;
 }
 
-.pools-live{
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
-}
-
-.pools-upcoming{
-  background-color:yellow;
-
-}
-
-.pools-list{
-  border: 1px solid black;
+#grid-button{
+  height: 100%;
+  width: 100%;
+  border-radius: 0px;
 }

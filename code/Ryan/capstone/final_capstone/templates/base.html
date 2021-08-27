@@ -13,26 +13,27 @@
   <!-- Header start -->
   <header class="container-banner-top">
       <!-- Logo and Name. Link back to the homepage. -->
-      <aside class="logo-name">
+      <aside class="banner-left-side">
         <img id="logo" src="{% static 'logo.jpg' %}">
         <div id="name">
           <h1>Boxy</h1>
         </div>
       </aside>
       <!-- Search Bar -->
-      <div class="search">
+      <div class="banner-right-side">
+
         <input type="text" name="search" value="Search Box">
-      <!-- Navigation links -->
-      <nav class="nav">
-          <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="square.html">Live Pools</a></li>
-            <li><a href="#upcomingpools">Upcoming Pools</a></li>
-            <li><a href="#closedpools">Closed Pools</a></li>
-          </ul>
-      </nav>
+        <!-- Navigation links -->
+        <nav class="nav">
+          <a class="active" href="#home">Home</a>
+          <a href="square.html">Live Pools</a>
+          <a href="#upcomingpools">Upcoming Pools</a>
+          <a href="#closedpools">Closed Pools</a>
+          <a href="#setting">Settings</a>
+        </nav>
       </div>
   </header>
+
   <main>
     {% block content %}
     {% endblock %}
