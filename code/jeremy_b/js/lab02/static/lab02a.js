@@ -93,7 +93,6 @@ let y = [0, 1, 2, 3, 5, 8];
 // get number to input
 let num_to_translate = prompt("Enter an integer between 1 and 999: ").split("");
 console.log(num_to_translate)
-console.log(num_to_translate.length)
 
 // Translate the number to phrase
 if (num_to_translate.length === 1){
