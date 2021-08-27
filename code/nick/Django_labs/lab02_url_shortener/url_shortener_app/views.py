@@ -14,7 +14,7 @@ from django.urls import reverse
 def index(request):
     url_list = SubmittedUrl.objects.all()#.filter(create_date__lte=timezone.now()).order_by('-id')[0]
     # print(url_list)
-    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id')[0]
+    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id').first()
     context = {
         'url_list': url_list,
         'latest_url': latest_url
@@ -24,7 +24,7 @@ def index(request):
 def template2(request):#this may not be necessary to have as a function, unless the user types url_shortener_app/template2.html into browser
     url_list = SubmittedUrl.objects.all()#.filter(create_date__lte=timezone.now()).order_by('-id')[0]
     # print(url_list)
-    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id')[0]
+    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id').first()
     context = {
         'url_list': url_list,
         'latest_url': latest_url
@@ -36,9 +36,9 @@ def submit_url(request):
     # print(new_url)
     alphabet = string.ascii_letters + string.digits
     code = ''.join(secrets.choice(alphabet) for i in range(8)) #8 character code
-    # print(code)#working
-    latest_url = SubmittedUrl.objects.all().filter(create_date__lte=timezone.now()).order_by('-id')[0]
+    # print(code)#workingfirst()
     SubmittedUrl.objects.create(url_description=new_url, code_for_url=code)
+    latest_url = SubmittedUrl.objects.all().last()
     context = {
         'latest_url': latest_url
                }
