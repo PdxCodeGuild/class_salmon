@@ -7,22 +7,29 @@ from .models import Shortener
 import random
 
 def index(request):
-    # return HttpResponse('it worked!')
-    # code = Shortener.objects.all()
-    # url = request.POST['url']
-    url = request.POST['url']
+    # url = ''
+    print(request.POST['site'])
     code = []
     for i in range(6): 
         code.append(random.choice('abcdefghijklmnopqrstuvwxyz1234567890'))
     code = ''.join(code)
-    Shortener.objects.create(url=url, code=code)
-    print("URL: " + url)
+    site = request.POST['site']
+    Shortener.objects.create(url=site, code=code)
+    # print("URL: " + url)
     context = {
-        'url': url,
+        'site': site,
         'code': code,
     }
     return render(request, 'url_short/index.html', context)
 
 def redirect(request):
-    code = get_object_or_404(Shortener, pk=pk)
-    return HttpResponseRedirect(code)
+    # code = get_object_or_404(Shortener, pk=pk)
+    redirect_code = request.POST['code']
+    print(redirect_code)
+    redirect_url = Shortener.objects.get(code=redirect_code) # figure out how to get the redirect code from the given code and pass it to the redirect
+    # redirect_url = Shortener.red.get(code=redirect_code) # figure out how to get the redirect code from the given code and pass it to the redirect
+    print(redirect_url)
+    redirect_url = str(redirect_url)
+    print('redirect' + str(redirect_url))
+    # print(redirect_url.Shortener)
+    return HttpResponseRedirect(redirect_url)

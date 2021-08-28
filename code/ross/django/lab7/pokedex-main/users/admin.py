@@ -8,6 +8,9 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
-    list_display = ['email', 'username',]
+    # list_display = ['email', 'username',]
+    fieldsets = UserAdmin.fieldsets + (
+            (None, {'fields': ('pokemon_caught',)}),
+    )
 
 admin.site.register(CustomUser, CustomUserAdmin)

@@ -18,7 +18,13 @@ def index(request):
 def new(request):
     description = request.POST['description']
     GroceryItem.objects.create(description=description, created_date=timezone.now(), completed=False)
-    return HttpResponseRedirect(reverse('grocery_list:index'))
+    completed_items = GroceryItem.objects.filter(completed=True).order_by('-completed_date')
+    incomplete_items = GroceryItem.objects.filter(completed=False).order_by('created_date')
+    context = {
+        'completed_items': completed_items,
+        'incomplete_items': incomplete_items
+    }
+    return render(request, 'grocery_list/index.html', context)
 
 def complete(request, pk):
     item = get_object_or_404(GroceryItem, pk=pk)
@@ -30,4 +36,4 @@ def complete(request, pk):
 def delete(request, pk):
     item = get_object_or_404(GroceryItem, pk=pk)
     item.delete()
-    return HttpResponseRedirect(reverse('grocery_list:index'))
+    return HttpResponseRedirect('index.html')
