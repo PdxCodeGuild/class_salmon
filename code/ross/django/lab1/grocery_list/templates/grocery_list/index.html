@@ -25,34 +25,45 @@
         {% csrf_token %}
         <label for="description">What do you need from the grocery store?</label>
         <input type='text' id="description" placeholder="Input grocery item here." name="description">
-        <button type='submit' value="Add to list" class="waves-effect waves-light btn">Add</button>
+        <button type='submit' value="Add to list" class="waves-effect waves-light btn-small">Add</button>
     </form> 
 
     <h2>Grocery List</h2>
     <h3>-- To buy --</h3>
         <ul>
-            {% for item in incomplete_items %}
+            {% for item in items %}
+                {% if item.completed == False %}
                 <li>{{ item.description }}
+                {% comment %} ID:{{ item.id }} {% endcomment %}
                     <form action="{% url 'grocery_list:complete' item.id %}" method="post">
+                    {% comment %} ID:{{ item.id }} {% endcomment %}
                     {% csrf_token %}
-                    <button type="submit" class="waves-effect waves-light btn">Completed</button>
+                    <button type="submit" class="waves-effect waves-light btn-small">Completed</button>
+                    </form>
+
                     <form action="{% url 'grocery_list:delete' item.id %}" method="post">
+                    {% comment %} ID:{{ item.id }} {% endcomment %}
                     {% csrf_token %}
-                    <button type="submit" class="waves-effect waves-light btn">Delete</button>
+                    <button type="submit" class="waves-effect waves-light btn-small">Delete</button>
+                    </form>
                 </li>
+                {% endif %}
             {% endfor %}
         </ul>
 
     <h2>Grocery List</h2>
     <h3>-- Already bought --</h3>
         <ul>
-        {% for item in completed_items %}
+        {% for item in items %}
+                {% if item.completed == True %}
                 <li>
-                    {{ item.description }}
+                    <strike>{{ item.description }}</strike>
                     <form action="{% url 'grocery_list:delete' item.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="waves-effect waves-light btn">Delete</button>
+                    </form>
                 </li>
+                {% endif %}
         {% endfor %}
         </ul>
 
