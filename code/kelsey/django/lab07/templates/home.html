@@ -16,8 +16,12 @@
         <h1>Welcome, visitor!</h1>
         <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
         {% endif %}
-    <ul>
-        <li v-for="poke in pokemon">[[ pokemon ]]</li>
+    <ul v-for="poke in pokemon">
+        <li>Pokemon: [[ poke.name ]]</li>
+        <li>Height: [[ poke.height ]]</li>
+        <li>Weight: [[ poke.weight ]]</li>
+        <li>[[ poke.image_front]], [[ poke.image_back ]]</li>
+        <li>Types: </li>
     </ul>
     </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -28,7 +32,7 @@
         delimiters: ['[[', ']]'],
         data: {
             pokemon: [],
-            csrf_token: "",
+            csrf_token: document.querySelector("input[name=csrfmiddlewaretoken]").value,
         },
         methods: {
             loadPokemon: function() {
@@ -37,11 +41,12 @@
                     url: '/api/v1/pokemon/',
                 }).then(response => {
                     this.pokemon = response.data
+                    console.log(this.pokemon)
                 })
             }
         },
         mounted: function() {
-            this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+            this.loadPokemon()
         }
 
     })
