@@ -3,7 +3,7 @@ from rest_framework.routers import SimpleRouter
 from .views import StudentViewSet
 
 router = SimpleRouter()
-router.register('', StudentViewSet, basename='students')
+router.register('students', StudentViewSet)
 
 urlpatterns = router.urls
 
