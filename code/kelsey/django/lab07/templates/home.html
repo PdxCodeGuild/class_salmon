@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Lab07 Pokedex</title>
 </head>
 <body>
@@ -11,29 +12,29 @@
     {% csrf_token %}
 
         {% if user.is_authenticated %}
-        <h1>Welcome {{ user.username }}!</h1>
+        <h1>Welcome, {{ user.username }}!</h1>
         <p><a href="{% url 'logout' %}">Logout</a><p>
         {% else %}
         <h1>Welcome, visitor!</h1>
         <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
         {% endif %}
-        <div v-for="poke in pokemon">
+        <div v-for="poke in pokemon" class="m-10">
             <ul>
-                <img :src="poke.image_front">
-                <img :src="poke.image_back">
-                <button @click="addUser(poke.id)">Add to Collection</button>
-                <li>Pokemon: [[ poke.name ]]</li>
+                <h3 class="font-bold">Pokemon: [[ poke.name ]]</h3>
                 <li>Height: [[ poke.height ]]</li>
                 <li>Weight: [[ poke.weight ]]</li>
+                <img :src="poke.image_front" class="inline-block">
+                <img :src="poke.image_back" class="inline-block"><br>
+                <button @click="addUser(poke.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add to Collection</button>
             </ul>
-                <h3>Types: </h3>
+                <h3 class="underline">Types:</h3>
             <ul v-for="type in poke.type_detail">
-                <li>[[ type.type ]]</li>
+                <li class="list-disc">[[ type.type ]]</li>
             </ul>
-            <h3>Caught by:</h3>
+            <h3 class="underline">Caught by:</h3>
             <ul v-for="trainer in poke.caught_by_users">
-                <li>[[ trainer.username ]]</li>
-                <button v-if="trainer.username == user.username" @click="removeUser(trainer.id)">Remove From Collection</button>
+                <li class="list-disc">[[ trainer.username ]]</li>
+                <button v-if="trainer.username == user.username" @click="removeUser(trainer.id)" class="inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Remove From Collection</button>
             </ul>
     
         </div>
