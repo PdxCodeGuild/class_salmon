@@ -9,6 +9,7 @@
 <body>
     <div id="app">
     {% csrf_token %}
+
         {% if user.is_authenticated %}
         <h1>Welcome {{ user.username }}!</h1>
         <p><a href="{% url 'logout' %}">Logout</a><p>
@@ -16,23 +17,38 @@
         <h1>Welcome, visitor!</h1>
         <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
         {% endif %}
-    <ul v-for="poke in pokemon">
-        <li>Pokemon: [[ poke.name ]]</li>
-        <li>Height: [[ poke.height ]]</li>
-        <li>Weight: [[ poke.weight ]]</li>
-        <li>[[ poke.image_front]], [[ poke.image_back ]]</li>
-        <li>Types: </li>
-    </ul>
+        <div v-for="poke in pokemon">
+            <ul>
+                <img :src="poke.image_front">
+                <img :src="poke.image_back">
+                <button @click="addUser(poke.id)">Add to Collection</button>
+                <li>Pokemon: [[ poke.name ]]</li>
+                <li>Height: [[ poke.height ]]</li>
+                <li>Weight: [[ poke.weight ]]</li>
+            </ul>
+                <h3>Types: </h3>
+            <ul v-for="type in poke.type_detail">
+                <li>[[ type.type ]]</li>
+            </ul>
+            <h3>Caught by:</h3>
+            <ul v-for="trainer in poke.caught_by_users">
+                <li>[[ trainer.username ]]</li>
+                <button v-if="trainer.username == user.username" @click="removeUser(trainer.id)">Remove From Collection</button>
+            </ul>
+    
+        </div>
     </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue"></script>
 <script>
-    let app = new Vue({
+    new Vue({
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
+            user: '',
             pokemon: [],
             csrf_token: document.querySelector("input[name=csrfmiddlewaretoken]").value,
+            caughtList: [],
         },
         methods: {
             loadPokemon: function() {
@@ -43,12 +59,51 @@
                     this.pokemon = response.data
                     console.log(this.pokemon)
                 })
+            },
+            addUser: function(pokemon_id) {
+                console.log(pokemon_id)
+                axios({
+                    method: 'patch',
+                    url: `/api/v1/users/${this.user.id}/`,
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: {
+                        caught: [pokemon_id,]
+                    }
+                }).then(response => {
+                    this.loadPokemon()
+                })
+            },
+            removeUser: function(pokemon_id) {
+                console.log(pokemon_id)
+                let pokemon = this.caughtList.indexOf(pokemon_id);
+                this.caughtList.splice(pokemon, 1)
+                axios({
+                    method: 'patch',
+                    url: `/api/v1/users/${this.user.id}/`,
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: {
+                        caught: this.caughtList
+                    }
+                }).then(response => {
+                    this.loadPokemon()
+                })
             }
         },
         mounted: function() {
             this.loadPokemon()
-        }
+            axios({
+                method: 'get',
+                url: '/api/v1/currentuser/'
+            }).then(response => {
+                this.user = response.data
 
+                this.caughtList = this.user.caught
+            })
+        }
     })
 </script>
 </body>
