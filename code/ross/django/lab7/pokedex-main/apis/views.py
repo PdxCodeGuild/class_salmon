@@ -2,7 +2,7 @@ from rest_framework import generics, viewsets
 from django.contrib.auth import get_user_model
 
 from pokemon.models import Pokemon
-from .serializers import PokemonSerializer, TypeSerializer
+from .serializers import PokemonSerializer, TypeSerializer, UserSerializer
 # from .permissions import IsAuthorOrReadOnly
 
 class PokemonViewSet(viewsets.ModelViewSet):
@@ -13,6 +13,10 @@ class PokemonViewSet(viewsets.ModelViewSet):
 class TypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = TypeSerializer
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
 
 class CurrentPokemonView(generics.RetrieveAPIView):
     serializer_class = PokemonSerializer

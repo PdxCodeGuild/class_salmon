@@ -16,23 +16,44 @@ You must be logged in to make changes to the Pokemon list. <br>
 
 {% csrf_token %}
 
+{% if user.is_authenticated %}
+<form action="{% url 'users:catch' %}" method="post" id="catchform">
+    <label>Catch a Pokemon!</label>
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="{{ user.username}}" />
+    <input type="number" name="pokemon" placeholder="Enter the number of the Pokemon."/>
+    <input type="submit" value="Catch this Pokemon"></input>
+</form>
+{% endif %}
+
 <div id="app">
     <ul v-for="poke in pokemon">
         <li class="card-panel red">
         <h5>Pokemon # [[ poke.number ]]</h5><br>
         Name: [[ poke.name ]]<br>
-        Type(s): <span v-for="type in poke.types">[[  type.type ]] </span><br>
+        Type(s): 
+        <ul class="row">
+        <span v-for="type in poke.types">
+        <li class="column">
+        <b>[[  type.type ]]</b>
+        </span>
+        <br>
+        </li>
+        </ul>
         Height:[[ poke.height ]]<br>
         Weight: [[ poke.weight ]]<br>
         Front Photo: <br><img :src="poke.image_front" /><br>
         Back Photo: <br><img :src="poke.image_back" /><br>
-        Caught By: [[ poke.caught_by ]]<br>
-        {% if user.is_authenticated %}
-        <form action="{% url 'pokemon:catch' %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Catch this Pokemon"></input>
-        </form>
-        {% endif %}
+
+        Caught By: 
+        <ul class="row">
+        <span v-for='user in poke.caught_by_users'>
+        <li class="column">    
+        <b>[[ user.username ]]</b>
+        </li>
+        </span><br>
+        </ul>
+        <a href="#catchform">Click here to catch this Pokemon! Poke #: [[ poke.number ]]</a>
         </li>
     </ul>
 </div>

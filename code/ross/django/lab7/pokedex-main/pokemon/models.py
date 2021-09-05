@@ -8,7 +8,7 @@ class Pokemon(models.Model):
     weight = models.FloatField()
     image_front = models.URLField()
     image_back = models.URLField()
-    caught_by = models.ManyToManyField(get_user_model(), related_name='caught')
+    # caught_by = models.ManyToManyField(get_user_model(), related_name='caught')
     # pokemon_types = 
 
     def __str__(self):
@@ -20,4 +20,3 @@ class Type(models.Model):
 
     def __str__(self):
         return self.type
-    
