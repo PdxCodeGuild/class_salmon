@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
     <title>Lab06 DRF Students</title>
 <style>
   table, td, th {
@@ -37,13 +35,13 @@
       </thead>
       <tbody>
         <tr v-for="student in students">
-          <td class="p-2">[[ student.first_name ]]</td>
+          <td class="p-2">[[ student.first_name ]] [[ student.last_name ]]</td>
           <td class="p-2">[[ student.cohort ]]</td>
           <td class="p-2">[[ student.favorite_topic ]]</td>
           <td class="p-2">[[ student.favorite_teacher ]]</td>
           <td class="p-2">[[ student.capstone ]]</td>
-          <td class="p-2"><button @click="update">Edit</td>
-          <td class="p-2"><button @click="delete">Delete</td>
+          <td class="p-2"><button @click="update(student)">Edit</td>
+          <td class="p-2"><button @click="erase(student)">Delete</td>
         </tr>
       </tbody>
     </table> 
@@ -57,84 +55,82 @@
       <button @click="create">Add Student</button>
     </div>
   </div>
-    {% comment %} <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
-<script>
-    const app = new Vue({
-      el: "#app",
-      delimiters: ["[[", "]]"],
-      data: {
-        students: [],
-        newStudent: {
-          "first_name": "",
-          "last_name": "",
-          "cohort": "",
-          "favorite_topic": "",
-          "favorite_teacher": "",
-          "capstone": ""
-        }
-      },
-      methods: {
-        loadStudents: function() {
-          axios({
-            method: 'get',
-            url: '/api_app/'
-          }).then(response => {
-            this.students = response.data
-          })
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+      const app = new Vue({
+        el: "#app",
+        delimiters: ["[[", "]]"],
+        data: {
+          students: [],
+          newStudent: {
+            first_name: '',
+            last_name: '',
+            cohort: '',
+            favorite_topic: '',
+            favorite_teacher: ''
+          },
+          csrf_token: document.querySelector("input[name=csrfmiddlewaretoken]").value
         },
-        create: function() {
+        methods: {
+          loadStudents: function() {
             axios({
-            method: "post",
-            url: '/api_app/students/'
+              method: 'get',
+              url: '/api_app/'
+            }).then(response => {
+              this.students = response.data
+            })
+          },
+          create: function() {
+              axios({
+              method: "post",
+              url: '/api_app/student/',
+              headers: {
+                  'X-CSRFToken': this.csrf_token 
+              },
+              data: {
+                "first_name": this.newStudent.first_name,
+                "last_name": this.newStudent.last_name,
+                "cohort": this.newStudent.cohort,
+                "favorite_topic": this.newStudent.favorite_topic,
+                "favorite_teacher": this.newStudent.favorite_teacher,
+                "capstone": this.newStudent.capstone
+              }
+            }).then(response => {
+              this.loadStudents()
+              this.students.push(this.newStudent.data)
+              this.newStudent = ''
+              })
             },
-            data: {
-              "first_name": this.newStudent.first_name,
-              "last_name": this.newStudent.last_name,
-              "cohort": this.newStudent.cohort,
-              "favorite_topic": this.newStudent.favorite_topic,
-              "favorite_teacher": this.newStudent.favorite_teacher,
-              "capstone": this.newStudent.capstone
-            }
-          }).then(response => {
-            this.loadStudents()
-            this.newStudent = {
-              "first_name": "",
-              "last_name": "",
-              "cohort": "",
-              "favorite_topic": "",
-              "favorite_teacher": "",
-              "capstone": ""
-            }
-          })
-        }
-      },
-        update: function() {
-          axios({
-            method: 'get',
-            url: '/api_app/'
-          }).then(response => {
-            this.students = response.data
-          })
+        
+        },
+          update: function() {
+            axios({
+              method: 'get',
+              url: '/api_app/student/'
+            }).then(response => {
+              this.students = response.data
+            })
 
-        },
-        delete: function() {
-          axios({
-            method: "post",
-            url: '/api_app/students/'
-            },
-            data: {
-              first_name = '',
-              last_name = '',
-              cohort = '',
-              favorite_topic = '',
-              favorite_teacher= '',
-              capstone = '',
-        },
-      mounted: function () {
-        this.loadStudents()
-      }
-    });
+          },
+          erase: function() {
+            axios({
+              method: "post",
+              url: '/api_app/student/',
+              data: {
+                first_name: '',
+                last_name:'',
+                cohort:'',
+                favorite_topic: '',
+                favorite_teacher: '',
+                capstone: '',
+          },
+        mounted: function () {
+          this.loadStudents()
+        }
+            })
+          }
+      })
 
     </script>
 </body>
