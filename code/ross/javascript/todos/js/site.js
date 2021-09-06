@@ -28,8 +28,8 @@ var list = new Vue({
             this.todos.push({id: this.nextID, todo: this.newItem, completed: false})
             this.nextID++
         },
-        removeItem: function(markRemove) {
-            console.log(this.markRemove)
+        removeItem: function() {
+            console.log("markRemove: " + this.markRemove)
             this.todos.splice((this.markRemove - 1), 1)
         },
         completeItem: function(markComplete) {

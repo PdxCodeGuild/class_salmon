@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>You are signed in as: {{ user_profile.username }}</h1>
+    <h5><em>Chirpin' your ass off since {{ user_profile.date_joined }}!</em></h5>
+
+    <h3>Your Chirps</h3>
+    {% comment %} {{ user_profile.contents }} {% endcomment %}
+    {% for c in user_profile.post_set.all %}
+        <li>
+        {{ c }} ==> Chirped on {{ c.time_posted }}</br>
+        </li>
+        {% endfor %}
+
+
+{% endblock content %}

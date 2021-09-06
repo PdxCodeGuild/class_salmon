@@ -1,0 +1,52 @@
+header {
+    border-bottom: 1px solid #999;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+.nav-right {
+    display: flex;
+    padding-top: 2rem;
+}
+  
+.nav-right p {
+    margin-left: auto;
+    padding-right:  1rem;
+
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    margin: auto;
+    flex-direction: column;
+    align-content: center;
+    
+}
+
+.chirp-entry {
+    border-style: groove;
+    margin: .1rem;
+}
+
+.chirp-entry > * {
+    margin: 1rem;
+}
+
+.chirp-entry h4 {
+    margin-top: .3rem;
+    margin-bottom: 0rem;
+}
+
+.date{
+    font-size: .7rem;
+    font-style: italic;
+    margin-top: 0rem;
+    margin-left: 1rem;
+}
+

@@ -3,27 +3,31 @@ const randQuote = new Vue({
     data () {
         return {
             quote: null,
-            author: null
+            author: null,
+            number: 1,
         }
     },
     methods: {
         randQ: function() {
-            document.querySelector('#random').removeAttribute('hidden')
-            document.querySelector('#randB').setAttribute('hidden', 'true')
-        },
-        anotherE: function() {
-            document.querySelector('#anotherrandB').setAttribute('hidden', false)
-            document.querySelector('#random')
-        }
-    },
-    mounted () {
-        axios 
-            .get('https://favqs.com/api/qotd')
-            .then(response => {
+            // console.log("sel: " + sel)
+            // console.log("search: " + search)
+            axios({
+                method: 'get',
+                url: 'https://favqs.com/api/qotd',
+            }).then(response => {
                 this.quote = response.data.quote.body,
                 this.author = response.data.quote.author
             })
+        }
     }
+    // mounted () {
+    //     axios 
+    //         .get('https://favqs.com/api/qotd')
+    //         .then(response => {
+    //             this.quote = response.data.quote.body,
+    //             this.author = response.data.quote.author
+    //         })
+    // }
 })
 
 const searchQuote = new Vue({
@@ -54,18 +58,17 @@ const searchQuote = new Vue({
                 }
             }).then(response => this.quote = response.data)
         },
-        pagination: function() {
-            let page_choice 
-            let page_next = document.querySelector("#page-next")
-            let page_prev = document.querySelector("#page-prev")
-            page_next.addEventListener('click', console.log(page_next))
-            // if (page_choice == true) {
-            //     this.current_page++
-            //     console.log(this.current_page)
-            //     this.findQ()
-            // } else {
-            //     console.log(this.current_page)
-            // }
-        }
+        pagenext: function() {
+           this.current_page++,
+           this.findQ()
+        },
+        pageprev: function() {
+            if (this.current_page < 1) {
+                alert("You are already on the first page.")
+            } else {
+                this.current_page--
+            }
+            this.findQ()
+         },
     }
 })

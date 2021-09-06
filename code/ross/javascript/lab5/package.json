@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ocrv/vue-tailwind-pagination": "^0.0.4"
+  }
+}

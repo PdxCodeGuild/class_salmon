@@ -12,16 +12,14 @@
 
     <div id="randQuotes">
         <h1>Random Quote Finder</h1>
-            <button @click="randQ" id="randB">Give me a random quote</button>
-
-                <p id="random" hidden='true'> 
-                    {{ quote }}
-                    </br></br>
-                    - {{ author }}
-                </p>
-            
-            <button @click="anotherE" id="anotherrandB" hidden='true'>Another random quote</button>
-
+        
+        <p id="random"> 
+            {{ quote }}
+        </br></br>
+        - {{ author }}
+        </p>
+    
+    <button @click="randQ" id="randB">Give me a random quote</button>
     </div>
 
     <div id="searchQuotes">
@@ -47,9 +45,9 @@
                     </ul>
 
                     <div id="page" hidden="true">
-                        <button @click="pagination" id="page-prev" value="prev" hidden="true">Prev Page</button>
+                        <button @click="pageprev" id="page-prev" value="prev">Prev Page</button>
                         - {{ quote.page }} -
-                        <button @click="pagination" id="page-next" value="next">Next Page</button>
+                        <button @click="pagenext" id="page-next" value="next">Next Page</button>
                     </div>
 
                 </p>

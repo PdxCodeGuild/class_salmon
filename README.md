@@ -25,11 +25,17 @@ August 20th -- Study Day/No Class
 
 ## Capstone Dates:
 
-Capstone proposal due: TBA  
+Capstone proposal due: August 9th, 2021  
 Presentation Day: August 27th, 2021  
 
 
-<!-- ## Django Labs Assigned: -->
+## Django Labs Assigned:
+
+Lab 01 Todo List  
+Lab 02 URL Shortener  
+Lab 03 Chirp  
+Lab 06 Students API  
+Lab 07 Pokedex  
 
 ## JavaScript Labs Assigned:
 

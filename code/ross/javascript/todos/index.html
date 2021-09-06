@@ -20,12 +20,14 @@
     </div>
 
     <div id="list">
-        <ol>
+        <ul>
             <li v-for="todo in todos">
+                {{ todo.id }}:
+                <!-- <input type='button' @click="removeItem" value='-'></input> -->
                 {{ todo.todo }} -- <input type="checkbox" v-model="todo.completed">
-                <button v-on:click="removeItem(todo)">-</button> -- {{todo.completed ? "complete" : "incomplete"}}
+                 -- {{todo.completed ? "complete" : "incomplete"}}
             </li>
-        </ol>
+        </ul>
 
         <!-- USER INPUT FUNCTIONALITY -->
         <input type="text" v-model="newItem" placeholder="Add a To-Do Item">
@@ -35,14 +37,14 @@
         <!-- USER TO REMOVE ITEMS -->
         <p><h3>If you'd like to remove an item from your list, simply type in it's number to remove it.</h3></p>
         <input type="number" v-model="markRemove" placeholder="Enter item number to be removed">
-        <button v-on:click="removeItem(markRemove)">Remove</button>
+        <button v-on:click="removeItem">Remove</button>
 
-        <!-- ALLOW USER TO CHOOSE IF A TASK IS COMPLETE/INCOMPLETE -->
+        <!-- ALLOW USER TO CHOOSE IF A TASK IS COMPLETE -->
         <p><h3>If you'd like to mark an item complete/incomplete, enter the number here.</h3></p>
         <input type="number" v-model="markComplete" placeholder="Enter item to mark complete">
         <button v-on:click="completeItem(markComplete)">Mark Complete</button>
-        <button v-on:click="incompleteItem(markComplete)">Mark Incomplete</button>
         
+        <h2>Here is your current list of completed items:</h2>
         <ol>
             <li v-for="todo in todos">
                 {{ todo.completed ? todo.todo : ""}}

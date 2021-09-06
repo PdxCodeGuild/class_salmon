@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab03 Chirp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <h1><span title="Home"><a href="{% url 'posts:home' %}">Chirp!</a></span></h1>
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+            <p>Welcome, <a href="{% url 'users:profile' user.username %}">{{ user.username }}</a>!</p>
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+            <p><a href="{% url 'posts:new' %}">+ Add New Chirp</a></p>
+            {% else %}
+            <p><a href="{% url 'login' %}">Login</a></p>
+            <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </header>
+    <div class="container">
+    {% block content %}
+    {% endblock content %}
+    </div>
+    <footer>
+        <div class="footer-copyright">
+            © 2021 Chirp
+        </div>    
+    </footer>
+</body>
+</html>
