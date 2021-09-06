@@ -1,108 +1,125 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BlackJack!</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-  </head>
-  <body>
-      <section class="hero is-link">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-primary">
         <div class="hero-body">
-          <div class="container">
-            <h1 class="title">BlackJack Advice</h1>
-            <h2 class="subtitle">Get your blackjack answers</h2>
-          </div>
+            <p class="title">
+                Unit Converter
+            </p>
+            <p class="subtitle">
+                Simple Live Converter
+            </p>
         </div>
-      </section>
-
-      <section class="section">
+    </section>
+    <section class="container mt-4">
         <div class="container">
-          <div class="box">
-            <h1 class="title">Advice</h1>
-            <h2>Hit!</h2>
-          </div>
+            <div class="box has-text-centered">
+                <div class="columns">
+                    <div class="column is-vcentered">
+
+                        <div class="field">
+                            <label class="label">Enter the amount</label>
+                            <div class="control">
+                                <input class="input has-text-centered" type="number" placeholder="Length Amount"
+                                    id="inputLength">
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h1>What Would You Like To Convert?</h1>
+                        </div>
+                        <button class="button" onclick="convertLength('in')">Inches</button>
+                        <button class="button" onclick="convertLength('ft')">Feet</button>
+                        <button class="button" onclick="convertLength('yd')">Yards</button>
+                        <button class="button" onclick="convertLength('m')">Meters</button>
+                        <button class="button" onclick="convertLength('km')">Kilometers</button>
+                        <button class="button" onclick="convertLength('mi')">Miles</button>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </section>
-      <section class="section">
-        <!-- Pick card 1 container -->
-        <nav class="level">
-          <!-- Left side -->
-            <div class="level-item">
-              <p class="subtitle is-5">
-                <strong>Card 1</strong>
-              </p>
-            </div>
+    </section>
+    <section class="container mt-6">
+        <div class="box">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Inches</p>
+                        <p class="title" id="inches">3,456</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Feet</p>
+                        <p class="title" id="feet">123</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Yards</p>
+                        <p class="title" id="yards">456K</p>
+                    </div>
+                </div>
 
-          <!-- Right side -->
-            <p class="level-item"><button class="button is-success">Ace</button></p>
-            <p class="level-item"><button class="button is-success">2</button></p>
-            <p class="level-item"><button class="button is-success">3</button></p>
-            <p class="level-item"><button class="button is-success">4</button></p>
-            <p class="level-item"><button class="button is-success">5</button></p>
-            <p class="level-item"><button class="button is-success">6</button></p>
-            <p class="level-item"><button class="button is-success">7</button></p>
-            <p class="level-item"><button class="button is-success">8</button></p>
-            <p class="level-item"><button class="button is-success">9</button></p>
-            <p class="level-item"><button class="button is-success">10</button></p>
-            <p class="level-item"><button class="button is-success">Jack</button></p>
-            <p class="level-item"><button class="button is-success">Queen</button></p>
-            <p class="level-item"><button class="button is-success">King</button></p>
-        </nav>
+            </nav>
+        </div>
+        <div class="box">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Meters</p>
+                        <p class="title" id="meters">3,456</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Kilometers</p>
+                        <p class="title" id="kilometers">123</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Miles</p>
+                        <p class="title" id="miles">456K</p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <script>
+        const conversion_table = {
+            "ft": 0.3048,
+            "mi": 1609.34,
+            "m": 1,
+            "km": 1000,
+            "yd": 0.9144,
+            "in": 0.0254
+        };
+        let userInput = document.querySelector("#inputLength");
 
-        <!-- Pick card 2 container -->
-        <nav class="level">
-          <!-- Left side -->
-            <div class="level-item">
-              <p class="subtitle is-5">
-                <strong>Card 2</strong>
-              </p>
-            </div>
+        function convertLength(inputUnit) {
+            let userInputDistance = userInput.value
+            inputDistance = Number(userInput.value);
+            console.log(conversion_table[inputUnit])
+            let base_measure = (conversion_table[inputUnit] * inputDistance) / conversion_table["m"];
+            console.log(inputDistance, inputUnit, base_measure);
+            document.querySelector("#feet").innerHTML = base_measure * conversion_table["ft"];
+            document.querySelector("#miles").innerHTML = base_measure * conversion_table["mi"];
+            document.querySelector("#meters").innerHTML = base_measure * conversion_table["m"];
+            document.querySelector("#kilometers").innerHTML = base_measure * conversion_table["km"];
+            document.querySelector("#yards").innerHTML = base_measure * conversion_table["yd"];
+            document.querySelector("#inches").innerHTML = base_measure * conversion_table["in"];
+        }
+    </script>
+</body>
 
-          <!-- Right side -->
-            <p class="level-item"><button class="button is-info">Ace</button></p>
-            <p class="level-item"><button class="button is-info">2</button></p>
-            <p class="level-item"><button class="button is-info">3</button></p>
-            <p class="level-item"><button class="button is-info">4</button></p>
-            <p class="level-item"><button class="button is-info">5</button></p>
-            <p class="level-item"><button class="button is-info">6</button></p>
-            <p class="level-item"><button class="button is-info">7</button></p>
-            <p class="level-item"><button class="button is-info">8</button></p>
-            <p class="level-item"><button class="button is-info">9</button></p>
-            <p class="level-item"><button class="button is-info">10</button></p>
-            <p class="level-item"><button class="button is-info">Jack</button></p>
-            <p class="level-item"><button class="button is-info">Queen</button></p>
-            <p class="level-item"><button class="button is-info">King</button></p>
-        </nav>
-
-        <!-- Pick card 3 container -->
-        <nav class="level">
-          <!-- Left side -->
-            <div class="level-item">
-              <p class="subtitle is-5">
-                <strong>Card 3</strong>
-              </p>
-            </div>
-
-          <!-- Right side -->
-            <p class="level-item"><button class="button is-danger">Ace</button></p>
-            <p class="level-item"><button class="button is-danger">2</button></p>
-            <p class="level-item"><button class="button is-danger">3</button></p>
-            <p class="level-item"><button class="button is-danger">4</button></p>
-            <p class="level-item"><button class="button is-danger">5</button></p>
-            <p class="level-item"><button class="button is-danger">6</button></p>
-            <p class="level-item"><button class="button is-danger">7</button></p>
-            <p class="level-item"><button class="button is-danger">8</button></p>
-            <p class="level-item"><button class="button is-danger">9</button></p>
-            <p class="level-item"><button class="button is-danger">10</button></p>
-            <p class="level-item"><button class="button is-danger">Jack</button></p>
-            <p class="level-item"><button class="button is-danger">Queen</button></p>
-            <p class="level-item"><button class="button is-danger">King</button></p>
-        </nav>
-      </section>
-      <script src="scripts/main.js"></script>
-  </body>
 </html>
