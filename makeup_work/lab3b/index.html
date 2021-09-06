@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="hero is-success">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Number Average Machine
+                </h1>
+                <h2 class="subtitle">
+                    Add Numbers and Find their Average.
+                </h2>
+            </div>
+        </div>
+    </section>
+    <div class="block"></div>
+    <section class="container">
+        <div class="box">
+            <h1 class="title is-2">Current Numbers</h1>
+            <ul id="numbers-list"></ul>
+        </div>
+    </section>
+    <div class="block"></div>
+    <section class="container">
+        <div class="box">
+            <div class="field">
+                <label class="label">Add Number</label>
+                <div class="control">
+                    <input class="input" type="number" placeholder="Input a number"  id="userInput">
+                </div>
+            </div>
+            <button class="button" id="submitUserInput">Add Number</button>
+        </div>
+    </section>
+    <div class="block"></div>
+    <section class="container">
+        <div class="box">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Running Total</p>
+                    <p class="title" id="runningTotal">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Numbers Count</p>
+                    <p class="title" id="numbersCount">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Average</p>
+                    <p class="title" id="average">0</p>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </section>
+
+    <script>
+
+        // Define unchanging variables
+        let numList = [];
+        let runningTotal = 0;
+
+        // define document selectors
+        let submitUserInput = document.querySelector("#submitUserInput");
+        let showAverage = document.querySelector("#average");
+        let showNumList = document.querySelector("#numbers-list");
+        let showRunningTotal = document.querySelector("#runningTotal");
+        let numbersCount = document.querySelector("#numbersCount");
+
+        submitUserInput.onclick = function(){
+
+            // Add number to current numbers display
+            numList.push(Number(userInput.value));
+            showNumList.innerHTML = numList;
+            // console.log(numList);
+
+            // show Count of current numbers in list
+            numbersCount.innerHTML = numList.length;
+            // console.log(numList.length)
+
+            // show running total
+            runningTotal = runningTotal + parseInt(userInput.value)
+            showRunningTotal.innerHTML = runningTotal
+            // console.log(runningTotal)
+
+            // show average
+            average = runningTotal / numList.length
+            showAverage.innerHTML = average
+            // console.log(average)
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
