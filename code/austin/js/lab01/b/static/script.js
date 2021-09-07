@@ -7,6 +7,7 @@ function pic6() {
     }return numbers
 }
 
+
 function numMatches(){
     let winningNums = pic6();
     let balance = 0
@@ -29,8 +30,15 @@ function numMatches(){
         }
         balance = balance + prizes[matches] - 2
         console.log(balance)
+
     }
-    console.log(balance)
-    alert(`The balance after 100,000 games is ${balance}`)
+    return balance
 }
-numMatches()
+let play = document.getElementById("play")
+
+play.addEventListener("click", function(event) {
+    event.preventDefault()
+    let endbalance = numMatches()
+    let results = document.getElementById("results")
+    results.innerText = "Your ending balance after 100,000 tickest is $" + endbalance
+})
