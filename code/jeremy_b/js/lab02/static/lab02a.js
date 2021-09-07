@@ -68,7 +68,11 @@ function special_tens(number) {
 
     //calculate 10s digit
     if (number[0] === 1 && number[1] === 0){
+<<<<<<< HEAD
         tens_digit = 'ten';
+=======
+        let tens_digit = 'ten';
+>>>>>>> a11e12c... Lab2 initial code is complete.  Need to fix logic.
     } else if (number[0] === 1 && number[0] in [1, 2, 3, 5]) {
         if (number[1] === 1){
             tens_digit = 'eleven';
@@ -89,6 +93,7 @@ function special_tens(number) {
 
 // get number to input
 let num_to_translate = prompt("Enter an integer between 1 and 999: ").split("");
+<<<<<<< HEAD
 console.log(num_to_translate)
 
 // Translate the number to phrase
@@ -109,6 +114,21 @@ if (num_to_translate.length === 1){
     alert(hundreds(num_to_translate[0]) + " " + ones(num_to_translate[2]) + tens(num_to_translate[1]));
 } else{
     console.log("in else")
+=======
+
+// Translate the number to phrase
+if (num_to_translate.length === 1){
+    alert(ones(num_to_translate[0]));
+} else if (num_to_translate.length === 2 && parseInt(num_to_translate[0]) === 1 && parseInt(num_to_translate[1] in [0, 1, 2, 3, 5])){
+    alert(special_tens(num_to_translate));
+} else if (num_to_translate.length === 2 && parseInt(num_to_translate[0]) === 1 && parseInt(num_to_translate[1]) in [4, 6, 7, 8, 9]){
+    alert(ones(num_to_translate[1]) + tens(num_to_translate[1]));
+} else if (num_to_translate.length === 3 && parseInt(num_to_translate[0]) === 1 && parseInt(num_to_translate[1] in [0, 1, 2, 3, 5])){
+    alert(hundreds(num_to_translate[0] + " " + special_tens(num_to_translate)));
+} else if (num_to_translate.length === 3 && parseInt(num_to_translate[1]) === 1 && parseInt(num_to_translate[2]) in [4, 6, 7, 8, 9]){
+    alert(hundreds(num_to_translate[0]) + " " + ones(num_to_translate[2]) + tens(num_to_translate[1]));
+} else{
+>>>>>>> a11e12c... Lab2 initial code is complete.  Need to fix logic.
     alert(hundreds(num_to_translate[0]) + " " + tens(num_to_translate[1]) + "-" + ones(num_to_translate[2]));
 }
 
