@@ -17,8 +17,9 @@ def catch(request):
     print(request.POST)
     # print("pk: " + pk)
     # print("username: " + username)
-    username = request.POST['username']
+    username = request.user.username
     pokemon = request.POST['pokemon']
+    # pokemon = request.POST['poke.number']
     print('pokemon: ' + pokemon)
     print('user: ' + username)
     caught = get_object_or_404(Pokemon, pk=pokemon)

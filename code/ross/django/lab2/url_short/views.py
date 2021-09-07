@@ -8,12 +8,14 @@ import random
 
 def index(request):
     # url = ''
-    print(request.POST['site'])
+    # print(request.POST.get['site']
     code = []
     for i in range(6): 
         code.append(random.choice('abcdefghijklmnopqrstuvwxyz1234567890'))
     code = ''.join(code)
-    site = request.POST['site']
+    site = request.POST.get('site')
+    print(site)
+    print(Shortener)
     Shortener.objects.create(url=site, code=code)
     # print("URL: " + url)
     context = {
