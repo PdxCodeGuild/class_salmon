@@ -99,7 +99,7 @@ let atm = new ATM()
 console.log(atm)
 alert("Welcome to the ATM")
 while(true){
-    alert("Available commands:\nbalance  - get the current balance\ndeposit  - deposit money\nwithdraw - withdraw money\ninterest - accumulate interest\ntransactions - see a list of transactions\nexit     - exit the program")
+    alert("Available commands:\nbalance  - get the current balance\ndeposit  - deposit money\nwithdrawal - withdrawal money\ninterest - accumulate interest\ntransactions - see a list of transactions\nexit     - exit the program")
     let command = prompt("Enter a command:")
     if(command ==="balance" ){
         alert(`Balance: ${atm.getBalance()}`)
