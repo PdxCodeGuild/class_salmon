@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Todo List</title>
+    <!-- Add your styles here! -->
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="addToList">Add Task</button>
+        <input v-model="input_task"/>
+        <h3>Task List: </h3>
+    <div v-for="item in incomplete_tasklist" v-bind:key="item.incomplete_tasklist">
+        <p><li v-model="selected_task">{{ item.incomplete_tasklist }}<button v-on:click="addToCompleted">Task Completed</button></li></p>
+        <!-- <p >Added Task: {{ task[0].text }}</p> -->
+        <!-- <input v-model="tasklist"> -->
+        <!-- <input type="text" v-model="tasklist" v-on:input="text" id="text"> -->
+        <!-- <div>
+            <input type="checkbox" v-model="item.completed"/>{{item.completed}}
+            <button v-on:click="addToList">Add Task</button>
+        </div>     -->
+        <!-- <input type="checkbox" v-model="hide"/>
+        <label>Hide/Show<label/> -->
+    </div>
+    <div></div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

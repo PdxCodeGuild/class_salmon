@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+</head>
+
+<body>
+    <header class="entry">
+        <label for="todo"><span>What to do</span></label><br>
+        <input type="text" id="input-box"/><br>
+        <div>
+            <button class="btn" id="add-btn">
+                Add Item
+            </button>
+        </div>
+    </header>
+
+    <section class="item-container">
+        <h2>In Progress</h2>
+        <ul class="item-list" id="uncompleted">
+            item 1
+        </ul>
+    </section>
+
+    <div class="modifiers">
+        <button class="btn" id="completed-btn">
+            Completed
+        </button>
+
+        <button class="btn" id="remove-btn">
+            Remove Item
+        </button>
+    </div>
+
+    <section class="item-container">
+        <h2>Completed</h2>
+        <ul class="item-list" id="completed">
+            item 2
+        </ul>
+    </section>
+
+    <!-- <script src="{{ url_for('static', filename='todolist.js') }}"></script> -->
+    <script src="/lab4/static/todolist.js"></script>
+</body>
+
+</html>

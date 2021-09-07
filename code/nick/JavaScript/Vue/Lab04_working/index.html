@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Task List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2>Here you will find the power of the incoherent vue.js front end framework.</h2>
+    <div id="app">
+    <form v-on:submit.prevent="addNewTask" class="form">
+        <label for="new-task" class=:"form-label">Add a task</label>
+        <input
+        v-model="newTaskText"
+        id="new-task"
+        placeholder="E.g. Avoid learning vue.js"
+        >
+        <button class="form-button">Add</button>
+    </form>
+    <ul>
+        <li
+        is="task-item"
+        v-for="(task, index) in tasks"
+        v-bind:key="task.id"
+        v-bind:title="task.title"
+        v-on:remove="tasks.splice(index, 1)"
+        class="list-items"
+        ></li>
+    </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

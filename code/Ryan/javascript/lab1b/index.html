@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Hello World</h1>
+    </header>
+
+    <section class = "container">
+        <form id="main-form">
+            <h1>Form title</h1>
+            <div>
+                <label for="input-distance">Input Distance:</label>
+                <input type="number" id="input-distance">
+            </div>
+
+            <h2>Select Input Unit</h2>
+            <div class="unit-button-container">
+                <button onclick="converter('ft')">Feet</button>
+                <button onclick="converter('mi')">Mile</button>
+                <button onclick="converter('m')">Meter</button>
+                <button onclick="converter('km')">Kilometer</button>
+                <button onclick="converter('yd')">Yard</button>
+                <button onclick="converter('in')">Inch</button>
+            </div>
+
+        </form>
+
+        <ul class="output-results">
+            <li class="items">Feet: <span id="feet"></span></li>
+            <li class="items">Miles: <span id="miles"></span></li>
+            <li class="items">Meters: <span id="meters"></span></li>
+            <li class="items">Kilometers: <span id="kilometers"></span></li>
+            <li class="items">Yards: <span id="yards"></span></li>
+            <li class="items">Inches: <span id="inches"></span></li>
+        </ul>
+    </section>
+
+    <!-- Javascript goes right above the body closing tag -->
+    <script src="lab1b.js"></script>
+</body>
+</html>

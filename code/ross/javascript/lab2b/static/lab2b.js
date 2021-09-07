@@ -33,6 +33,7 @@ function num_matches(winning_tick) {
     // console.log("player: " + player_tick)
     // console.log("matches: " + matches)
     return matches
+
 }
 
 function money_won(matches) {

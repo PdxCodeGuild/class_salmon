@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 2 :: Add URL</title>
+</head>
+<body>
+<form action="{% url 'url_shortener:add_url' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h2>Add URL</h2>
+        </legend>
+        <label for="long_url">URL:</label>
+        <input type="text" name="long_url" id="long_url" placeholder="Enter URL..."><br>
+        <label for="url_name">URL Name:</label>
+        <input type="text" name="url_name" id="url_name"><br>
+        <button type="submit">Add URL</button>
+    </fieldset>
+</form>
+</body>
+</html>

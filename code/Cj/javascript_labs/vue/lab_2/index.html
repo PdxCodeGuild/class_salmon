@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote picker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Quotes Lab</h1>
+    </header>
+    <main> 
+        <div id="app" class= flex-gallery>
+            <span>
+                <qotd></qotd>
+            </span>
+            <span>
+                <input type="text" id="author" v-model="authorFilter" placeholder="Search">
+                <button v-on:click='byAuthor'>by Author</button>
+                <input type="text" id="keyword" name="" v-model="keywordFilter" placeholder="Search">
+                <button @click="byKeyword">by Keyword</button>
+                <input type="text" id="tag" name="" v-model="tagFilter" placeholder="Search">
+                <button @click='byTag'>by Tag</button>
+            </span>
+            <h3>Results:</h3>
+            <ol>
+                <li  v-for="object in results.quotes">
+                
+                        {{ object.body }} <br>
+                    - {{ object.author }}
+            
+                </li>
+            </ol>
+            <span>
+                <button v-on:click='previousPage'>Previous Page</button>
+                <button v-on:click='nextPage' >Next Page</button>
+            </span>
+
+        </div>
+    <div>
+      
+    </div>
+    </main>
+    <footer>
+        
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="secrets.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>

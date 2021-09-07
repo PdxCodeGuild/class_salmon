@@ -1,0 +1,17 @@
+body{
+    color: white;
+    background-color: black;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  h1, h4 {
+    text-decoration: underline solid white;
+  }
+
+  .done {
+    text-decoration: line-through;
+  }
+
+ #clear {
+    margin: auto 2em;
+  }
