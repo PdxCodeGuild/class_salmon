@@ -1,0 +1,47 @@
+{% comment %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'grocery_list/style.css' %}"
+
+{% if grocery_item_list %}
+    <ul>
+    {% for item in grocery_item_list %}
+        <li>{{ item.item_text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Your Grocery list is empty.</p>
+{% endif %} {% endcomment %}
+<h1>Grocery list</h1>
+<form action="{% url 'grocery_list:new'%}" method="post">
+{% csrf_token %}
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" required>
+    <input type="submit" value="Add Item">
+</form>
+<h2>Incompleted</h2>
+    {% for item in incomplete_items %}
+    <li>{{ item.description }}
+        <form action="{% url 'grocery_list:complete' item.id%}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="&#x2610;">
+        </form>
+        <form action="{% url 'grocery_list:delete' item.id%}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="delete">
+        </form>
+    </li>    
+    {% endfor %}
+
+<h2>Completed</h2>
+    {% for item in completed_items %}
+    <li>{{ item.description }}
+    <form action="{% url 'grocery_list:complete' item.id%}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="&#x2611;">
+        </form>
+        <form action="{% url 'grocery_list:delete' item.id%}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="delete">
+        </form>
+    </li>
+{% endfor %}
