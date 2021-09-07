@@ -1,0 +1,19 @@
+{% extends 'grocery_list/index.html' %}
+
+{% block content %}
+    
+    <div class="#f3e5f5 purple lighten-5">
+    <h2>Grocery List</h2>
+    <h3>-- To buy --</h3>
+    
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Grocery List</h2>
+    <h3>-- Already bought --</h3>
+
+
+{% endblock %}

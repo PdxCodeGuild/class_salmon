@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'square.css' %}">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+</head>
+<body>
+
+  <div id="app">
+    <p id="username">{{ user.username }}</p>
+    <div class="grid-container">
+      <template v-for="y in 10">
+        <div class="grid-item" v-for="x in 10">
+          <button v-on:click="getCoords(x, y)">[[ x ]], [[ y ]]</button>
+        </div>
+      </template>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        x: 0,
+        y: 0,
+        // TODO how to grab the current user performing the action
+        user: "",
+      },
+      delimiters: ['[[', ']]'],
+      methods:{
+        getCoords: function (x, y){
+          console.log(`x coord: ${x}`)
+          console.log(`y coord: ${y}`)
+          console.log(this.user)
+          console.log(this.request)
+          // axios({
+          //   method: "post",
+          //   URL: "https://127.0.0.1:8000/"
+          // }).then(response => this.getCoords = response.data)
+        },
+      },
+      mounted: function(){
+        this.user = document.getElementById('username')
+      },
+    })
+  </script>
+
+</body>
+</html>

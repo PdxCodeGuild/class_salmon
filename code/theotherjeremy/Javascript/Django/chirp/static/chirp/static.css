@@ -1,0 +1,139 @@
+h1 {
+  /* margin-bottom: 50px;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 50px; */
+  /* first number */
+  text-shadow: -4px 4px #7e0f2f, -6px 6px black, -20px 20px 10px black;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 30px;
+}
+
+.skeet {
+  transform: scaleX(-1);
+  width: 80%;
+  /* height: 20%; */
+  /* aspect-ratio: 1:1; */
+  /* position: fixed;
+  left: -40px;
+  top: 0px;  } */
+}
+
+.big {
+  /* font-size: 200px !important; */
+  /* position: fixed; */
+  /* top: 0px; */
+  /* right: 100px; */
+  /* min-width: 200% !important; */
+  text-shadow: -7px 7px #7e0f2f, -9px 9px black, -20px 20px 10px black !important;
+}
+
+.grid-container {
+  /* font-size: 200px; */
+  /* max-width: fit-content; */
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-column-gap: 5px;
+  /* font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; */
+  /* margin-bottom: 10px; */
+  /* max-width: 90%; */
+}
+
+/* .grid-item {
+   max-block-size: fit-content; 
+} */
+
+body {
+  background-color: darkslategray;
+  font-family: Verdana, serif;
+}
+
+p {
+  /* display: flex; */
+  max-width: 100%;
+  font-size: 30px;
+  color: white;
+  padding: 4px 4px 4px 4px;
+  margin: 10px 4px 5px 4px;
+  box-shadow: -5px 5px black;
+  text-shadow: -4px 4px black;
+  /* color: rgb(172, 255, 226); */
+  background-color: rgb(7, 47, 66);
+  /* font-family: "Aclonica", Roboto, fantasy, Copperplate, Papyrus; */
+}
+
+ul {
+  /* border: 5px solid black; */
+  background-color: #7cacb7;
+  outline: 2px solid white;
+  max-width: 80%;
+  min-width: 60%;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  list-style-type: none;
+  margin-top: 20px;
+  z-index: -1;
+  box-shadow: -4px 4px 2px black, -10px 10px 10px #7e0f2f;
+}
+
+li {
+  outline: 2px solid white;
+  color: white(241, 107, 30);
+  padding: 10px 10px 10px 10px;
+  margin: 10px 35px 35px 10px;
+  box-shadow: -4px 4px 2px black, -10px 10px 10px #7e0f2f;
+}
+
+input {
+  box-shadow: 5px 5px 5px black;
+}
+
+a {
+  color: white(241, 107, 30);
+  padding-bottom: 10px;
+}
+
+button {
+  border: 2px solid black;
+  background-color: #7e0f2f;
+  outline: dotted 5px #b4d6cf;
+  margin: 6px 6px 6px 6px;
+  padding: 6px 6px 6px 6px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  text-shadow: -1px 1px white, 1px 0px white, -1px 0px white, 0px -1px white,
+    0px 1px white;
+}
+
+footer {
+  font-size: 50% !important;
+  outline: 3px solid white;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  background-position: center top;
+  background-image: url("../chirp/images/skeeter2.png");
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
+    font-size: 50px;
+  }
+  .big {
+    font-size: 100px !important;
+  }
+
+  @media (min-width: 960px) {
+    .container {
+      display: grid;
+      grid-row-gap: 5px;
+      grid-template-columns: 30% 30% 30%;
+    }
+  }
+}

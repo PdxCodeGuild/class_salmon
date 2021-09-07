@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <h2>Here is your current to-do list:</h2>
+    </div>
+
+    <div id="list">
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo.id }}:
+                <!-- <input type='button' @click="removeItem" value='-'></input> -->
+                {{ todo.todo }} -- <input type="checkbox" v-model="todo.completed">
+                 -- {{todo.completed ? "complete" : "incomplete"}}
+            </li>
+        </ul>
+
+        <!-- USER INPUT FUNCTIONALITY -->
+        <input type="text" v-model="newItem" placeholder="Add a To-Do Item">
+        <button v-on:click="add">Add to list</button>
+        <p>Your most recently added to-do: {{ newItem }}</p>
+
+        <!-- USER TO REMOVE ITEMS -->
+        <p><h3>If you'd like to remove an item from your list, simply type in it's number to remove it.</h3></p>
+        <input type="number" v-model="markRemove" placeholder="Enter item number to be removed">
+        <button v-on:click="removeItem">Remove</button>
+
+        <!-- ALLOW USER TO CHOOSE IF A TASK IS COMPLETE -->
+        <p><h3>If you'd like to mark an item complete/incomplete, enter the number here.</h3></p>
+        <input type="number" v-model="markComplete" placeholder="Enter item to mark complete">
+        <button v-on:click="completeItem(markComplete)">Mark Complete</button>
+        
+        <h2>Here is your current list of completed items:</h2>
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.completed ? todo.todo : ""}}
+            </li>
+        </ol>
+
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+    <script src="/js/site.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+body {
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+div {
+  padding: 10px;
+}
+
+h1 {
+  margin-bottom: 33px;
+}
+
+input {
+    max-width: 120px;
+}
+
+form > * {
+    margin-top: 8px;
+}
+
+#table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 300px;
+    margin: 20px;
+  }
+  
+  #table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #table tr:hover {background-color: #ddd;}
+  
+  #table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1982ac;
+    color: white;
+  }

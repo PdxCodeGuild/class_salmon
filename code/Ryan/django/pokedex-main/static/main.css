@@ -1,0 +1,45 @@
+.banner-login{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.banner-login > h1{
+  color: orange;
+}
+
+.banner-login > p{
+}
+
+#banner{
+  background-color: red;
+}
+
+.main-gallery {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-left: 10%;
+  margin-right:10%;
+}
+
+.pokemon-card{
+  display: flex;
+}
+
+.image{
+  padding: 0;
+  margin:15px;
+}
+
+.image:hover{
+  transform:
+}
+
+.image > h4{
+  margin: 0;
+  padding: 0
+}
+
+.stats{
+  display: flex;
+  align-items: center
+}

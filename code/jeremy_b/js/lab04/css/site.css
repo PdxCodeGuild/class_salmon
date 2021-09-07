@@ -1,0 +1,11 @@
+div #incompleteItems ul li span:hover {
+    background-color: gray;
+}
+
+div #completeItems ul li span {
+    text-decoration: line-through;
+}
+
+div #completeItems ul li span:hover {
+    background-color: gray;
+}

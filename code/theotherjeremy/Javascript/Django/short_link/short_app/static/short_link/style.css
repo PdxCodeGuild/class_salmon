@@ -1,0 +1,75 @@
+p {
+  /* display: flex; */
+  max-width: 100%;
+  font-size: small;
+  /* color: rgb(172, 255, 226); */
+  background-color: rgb(250, 200, 0);
+  /* font-family: "Aclonica", Roboto, fantasy, Copperplate, Papyrus; */
+}
+
+.list2 {
+  text-decoration: line-through;
+  text-decoration-style: dotted;
+
+  text-decoration-color: white;
+}
+
+li {
+  color: rgb(241, 107, 30);
+  padding-bottom: 10px;
+}
+
+button {
+  border: 2px solid black;
+  background-color: rgb(250, 200, 0);
+  outline: white dotted 5px;
+  margin: 6px 6px 6px 6px;
+  padding: 6px 6px 6px 6px;
+}
+
+h1 {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+}
+
+header {
+  font-size: 200px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  color: rgb(241, 107, 30);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration: overline;
+  margin-bottom: 10px;
+  border: 5px solid whitesmoke;
+}
+
+body {
+  /* background-image: url("./content/wp.jpg"); */
+  background-color: goldenrod;
+  color: black;
+  font-family: "brush script mt", cursive;
+}
+
+@media (min-width: 768px) {
+  /* header {
+      font-size: 75px; */
+}
+.container {
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-columns: 30% 30% 30%;
+  font-size: 50px;
+}
+
+@media (min-width: 960px) {
+  .container {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
+  }
+}

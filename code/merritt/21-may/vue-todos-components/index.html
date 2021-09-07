@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+</head>
+<body>
+    <div id="app">
+        <h1>My Tasks</h1>
+        <add-todo @add="addTodo"></add-todo>
+        <div>
+            <todo-item
+                v-for="todo in incompleteTodos"
+                :key="todo.id"
+                :todo="todo"
+                @remove="removeTodo"
+                ></todo-item>
+        </div>
+        <div>
+            <h3>Completed</h3>
+            <todo-item
+                v-for="todo in completeTodos"
+                :key="todo.id"
+                :todo="todo"
+                @remove="removeTodo"
+                ></todo-item>
+        </div>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... -->
+    <script src="site.js"></script>
+</body>
+</html>

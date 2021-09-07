@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%  load static %}
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Django Lab 1 ::  Add List Item</title>
+</head>
+<body>
+<h1>Add Item to {{ list_name }} List:</h1>
+<form action="{% url 'grocery:add_list_item' pk=list_id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h2>Add Item to List</h2>
+            <input type="text" name="list_item_name" placeholder="Item name"><label for="add_list_item"
+                                                                                    value="Add Item"></label></legend>
+    </fieldset>
+    <input type="submit" value="Add Item">
+</form>
+</body>
+</html>

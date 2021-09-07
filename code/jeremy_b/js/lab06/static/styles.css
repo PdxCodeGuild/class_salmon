@@ -1,0 +1,27 @@
+/* general panel styling */
+.panels{
+    display: block;
+    border: 3px dotted black;
+    padding: 10px;
+    margin: 20px auto;
+    width: 70%;
+    border-radius: 10px;
+}
+
+.nav img {
+    height: 250px;
+    width: auto;
+    border-radius: 10px;
+    display: block;
+    padding: 10px;
+    margin: auto;
+
+}
+
+.nav h1 {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    display: block;
+    padding-top: 25px;
+}

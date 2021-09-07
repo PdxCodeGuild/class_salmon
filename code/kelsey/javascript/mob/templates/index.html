@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" type="text/css" href="./static/style.css" />
+
+</head>
+
+<body>
+
+    <h1>ToDo List</h1>
+    <form>
+        <textarea id="new_task" name="textarea" rows="1" cols="30" placeholder="Enter task" required></textarea><br>
+        <button type="submit" id="submit">Add Task</button>
+    </form>
+    <ul id="tasks"></ul>
+
+    <p>Completed Tasks:</p>
+    <ul id="completed_tasks"></ul>
+
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="css/site.css" />
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+
+    <h1>To Do List</h1>
+
+    <div class="entry">
+        <label for="todo"><span>What to do</span></label><br>
+        <input type="text" id="input-box"/><br>
+        <div>
+            <button class="btn" id="add-btn">
+                Add Item
+            </button>
+        </div>
+    </div>
+
+    <div id="app">
+        <ul v-for="item in items" :key="item">
+
+            {{item.text}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button @click="strikeThrough(item)">Completed</button>
+            |
+            <button >Remove</button>
+        <ul>
+    </div>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+</body>
+</html>

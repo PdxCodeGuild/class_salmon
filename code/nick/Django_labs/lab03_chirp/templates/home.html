@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for post in object_list %}
+        <div class="w3-hide-small w3-padding-large" style="margin-top:.8rem">
+            <div class="w3-card-4 test">
+                <header class="w3-container w3-blue" style="height:3rem">
+                <h3 class="w3-monospace"><a href="{% url 'posts_app:detail' post.id %}">{{ post.title }}</a></h3>
+                </header>
+                <div class="w3-container w3-cursive" style="height:4rem">
+                <p>{{ post.body|linebreaksbr }}</p>
+                </div>
+                <footer class="w3-container w3-blue" style="height:3rem">
+                <h4><em>---<a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }}</a></em></h4>
+                </footer>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
