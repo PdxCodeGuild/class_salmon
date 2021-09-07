@@ -9,15 +9,18 @@
 <body>
     <header>
         <h1>ATM</h1>
-        <h3 id="balance">Balance: </h3>
+        <h3 id="balance">Balance: $0</h3>
     </header>
     <main>
         <form id="form">
             <input type="number" class="num" id="number"/>
-            <input type="submit" value="Deposit" id="deposit" />
-            <input type="submit" value="Withdrawal" id="withdrawal" />
-            <input type="submit" value="Interest" id="interest" />
+            <input type="submit" class="button" value="Deposit" id="deposit" />
+            <input type="submit" class="button" value="Withdrawal" id="withdrawal" />
+            <input type="submit" class="button" value="Interest" id="interest" />
         </form>
+    <h3>Transactions:</h3>
+    <ul id="transList">
+    </ul>
     </main>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

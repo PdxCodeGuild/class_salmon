@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'chirp/static.css' %}" />
+    <title>Chirp</title>
+    </head>
+    <header class="grid-container">
+      <img class="grid-item skeet" src="{% static 'chirp/images/skeeter3.png' %}" alt="skeeter"/>
+      <h1 class="grid-item big">'Skeeter</h1>
+      </header>
+
+    <nav>  
+        <a href= {% url 'users:login' %}><button type="submit" name="login">Login</button></a>
+        <a href= {% url 'users:signup' %}><button type="submit" name="signup">Sign Up</button></a> 
+    </nav>
+    <body>
+    <div>
+      <hr >
+      <form method="post" action="{% url 'chirp_app:add_item' %}">
+        {% csrf_token %}
+        <input type="text" name="new_item" required="true">
+        <button type="submit">New Buzz</button>
+      </form>
+      <hr >
+      <br><br>
+      </div>
+     <br>
+        <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+  </body>
+  <br><br>
+  <footer>
+      <hr>
+      <hr>
+      <h1>this is a footer © 2021</h1>
+  </footer>
+</html>

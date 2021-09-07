@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+        <h2>{{ post.title }}</h2>
+        <h6><em><a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }}</a></em></h4>
+        <h6><em>Chirped on {{ post.created }}</em></h4>
+        <h6><em>Last updated on {{ post.updated }}</em></h4>
+        <p>{{ post.body|linebreaksbr }}</p>
+    </div>
+
+    {% if request.user == post.author %}
+    <hr>
+    <div class="w3-margin" id="tragic">
+        <div class="w-3 half w3-margin"><a href="{% url 'posts_app:edit' post.pk %}"><i class="w3-xxxlarge material-icons">refresh</i></a><br>Edit Chirp</div>
+        <div class="w-3 half w3-margin"><a href="{% url 'posts_app:delete' post.pk %}"><i class="w3-xxxlarge material-icons">delete</i></a><br>Delete Chirp</div>
+    </div>
+    {% endif %}
+
+{% endblock content %}

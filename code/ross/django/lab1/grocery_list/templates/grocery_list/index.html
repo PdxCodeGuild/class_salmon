@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ross's Grocery List</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+
+<body>
+    <div class="card-panel teal lighten-2">
+    <h1>Ross' Grocery List</h1>
+    </div>
+
+    <div class="#f3e5f5 purple lighten-5">
+    <h2>Grocery List</h2>
+    <h3>-- To buy --</h3>
+        <ul>
+            {% for item in incomplete_items %}
+                <li>{{ item.description }}
+                    <form action="{% url 'grocery_list:complete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark Complete"></input>
+                    <form action="{% url 'grocery_list:delete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete Item"></input>
+                </li>
+            {% endfor %}
+        </ul>
+
+    <h2>Grocery List</h2>
+    <h3>-- Already bought --</h3>
+        <ul>
+        {% for item in completed_items %}
+                <li>{{ item.description }}
+                    <form action="{% url 'grocery_list:delete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete Item"></input>
+                </li>
+        {% endfor %}
+        </ul>
+
+    <h2>Add Items</h2>
+    <form  method='post' action="{% url 'grocery_list:new' %}"> 
+        {% csrf_token %}
+        <label for="description">What do you need from the grocery store?</label>
+        <input type='text' id="description" placeholder="Input grocery item here." name="description">
+        <input type='submit' value="Add to list">
+    </form> 
+    </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

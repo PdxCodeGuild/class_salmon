@@ -36,7 +36,7 @@ function blackjackAdvice(){
     let card1 = validCard("first")
     let card2 = validCard("second")
     let card3 = validCard("third")
-    let cardTotal = card1 +card2 +card3
+    let cardTotal = card1 + card2 + card3
     if (cardTotal < 17) {
         alert(`${cardTotal} Hit`)
     } else if (cardTotal <21) {

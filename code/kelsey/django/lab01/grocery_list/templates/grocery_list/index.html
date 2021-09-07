@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lab01 Grocery List</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'grocery_list/style.css' %}"/>
+</head>
+<body>
+    <div class="flex flex-row justify-evenly">
+        <div class="flex flex-col">
+            <h2 class="text-3xl text-center m-7">Grocery List</h2>  
+            <form class="p-5" method="post" action="{% url 'grocery_list:add' %}">
+            {% csrf_token %}
+            <input type="text" name="add" placeholder="milk, bread, etc." required>
+            <button type="submit" class="m-2" id='add'>add item</button>
+            </form>
+            {% if incomplete_items %}
+            <table>
+                <tr>
+                    <th>Completed</th>
+                    <th>Item</th>
+                    <th>Created Date</th>
+                    <th>Delete</th>
+                </tr>
+            {% for item in incomplete_items %}
+                <tr>
+                    <td>
+                        <form action="{% url 'grocery_list:complete' item.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="complete">
+                        </form>
+                    </td>
+                    <td>{{ item.text }}</td>
+                    <td>{{ item.created }}</td>
+                    <td><a href="{% url 'grocery_list:deleteItem' item.id %}"><button>delete</button></a></td>
+                </tr>
+            {% endfor %}
+            </table>
+            {% else %}
+            <p>No groceries to buy!</p>
+            {% endif %}
+        </div>
+    
+        <div class="flex flex-col">
+            <h2 class="text-3xl text-center m-9 mb-20">Completed</h2>  
+            {% if completed_items %}
+            <table>
+                <tr>
+                    <th>Completed</th>
+                    <th>Item</th>
+                    <th>Completed Date</th>
+                    <th>Delete</th>
+                </tr>
+            {% for item in completed_items %}
+                <tr>
+                    <td>
+                        <form action="{% url 'grocery_list:complete' item.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="undo">
+                        </form>
+                    </td>
+                    <td>{{ item.text }}</td>
+                    <td>{{ item.completed_date }}</td>
+                    <td><a href="{% url 'grocery_list:deleteItem' item.id %}"><button>delete</button></a></td>
+                </tr>
+            {% endfor %}
+            </table>
+            {% else %}
+            <p>No groceries bought!</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
