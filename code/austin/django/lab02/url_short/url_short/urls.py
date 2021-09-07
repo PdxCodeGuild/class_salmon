@@ -1,8 +1,9 @@
 from django.urls import path
-from . import views
-from django.lab02.url_short import url_short
+from url_short import views
 
-app_name = url_short
+app_name = 'url_short'
+
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('redirect/', views.redirect, name='redirect'),
 ]
