@@ -3,11 +3,12 @@ class ATM {
       this.balance = balance
       this.interest = interest
       this.transactions = []
+      this.interestAccrued = 0
     }getBalance(){
         return this.balance
     }deposit(amount){
         this.balance += parseFloat(parseFloat(amount).toFixed(2))
-        this.transactions.push(`Deposited $${amount}\n`)
+        this.transactions.push(`Deposited $${amount}`)
     }checkWithdrawal(amount){
         if(this.balance > amount){
             return true
@@ -16,40 +17,65 @@ class ATM {
         } 
     }withdrawal(amount){
         this.balance -= parseFloat(parseFloat(amount).toFixed(2))
-        this.transactions.push(`Withdrew $${amount}\n`)
+        this.transactions.push(`Withdrew $${amount}`)
     }calcInterest(){
-        let interestAccrued = parseFloat((this.balance * this.interest).toFixed(2))
-        return interestAccrued
+        this.interestAccrued = parseFloat((this.balance * this.interest).toFixed(2))
+        this.balance += this.interestAccrued
     }printTrans(){
-        
-        alert(`Transaction history:\n ${this.transactions}`)
+        return this.transactions
     }
 
 }
+
 var atm = new ATM()
 let depositBtn = document.getElementById("deposit")
 let withdrawalBtn = document.getElementById("withdrawal")
 let interestBtn = document.getElementById("interest")
 var showBal = document.getElementById("showBal")
 let button = document.getElementsByClassName("button")
+var num = document.getElementById("number")
 console.log(button)
 depositBtn.addEventListener("click", function(event) {
     event.preventDefault()
-    let num = document.getElementById("number")
     atm.deposit(parseFloat(num.value))
+    let bal = atm.balance
+    let displayBal =document.getElementById("balance")
+    displayBal.innerText = "Balance: $" + bal
+    //let transList = document.getElementById("transList")
+    let node =document.createElement("li")
+    let numstr = num.value
+    let textnode = document.createTextNode("Deposited -- $" + numstr)
+    node.appendChild(textnode)
+    document.getElementById("transList").appendChild(node)
     console.log(parseFloat(num.value))
-    console.log(atm.balance)
+    console.log(atm.transactions)
     console.log(number)
     })
 withdrawalBtn.addEventListener("click", function(event) {
     event.preventDefault()
-    let num = document.getElementById("number")
-    atm.withdrawl(parseFloat(num.value))
+    atm.withdrawal(parseFloat(num.value))
+    let bal = atm.balance
+    let displayBal =document.getElementById("balance")
+    displayBal.innerText = "Balance: $" + bal
+    let node =document.createElement("li")
+    let numstr = num.value
+    let textnode = document.createTextNode("Withdrew -- $" + numstr)
+    node.appendChild(textnode)
+    document.getElementById("transList").appendChild(node)
     })
 interestBtn.addEventListener("click", function(event) {
     event.preventDefault()
-    atm.interest()
+    atm.calcInterest()
+    let bal = atm.balance
+    let displayBal =document.getElementById("balance")
+    displayBal.innerText = "Balance: $" + bal
+    let node =document.createElement("li")
+    let numstr = atm.interestAccrued
+    let textnode = document.createTextNode("Interest accrued-- $" + numstr)
+    node.appendChild(textnode)
+    document.getElementById("transList").appendChild(node)
     })
+
 /*while(true){
     //let command = prompt("Enter a command:")
     if(command ==="balance" ){
