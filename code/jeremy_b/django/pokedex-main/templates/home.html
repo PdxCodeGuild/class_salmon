@@ -1,0 +1,72 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+<section class="container">
+    <nav class="nav-wrapper">
+        <div class="brand-logo center">
+            <ul>
+                <li>Poke</li>
+                <li><a href="{% url 'home' %}"><img src="https://img.icons8.com/fluency/96/000000/pokemon.png" alt=""></a></li>
+                <li>Dex</li>
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+            <ul class="right">
+                <li>Welcome {{ user.username }}!</li>
+                <li><a href="{% url 'logout' %}">Logout</a><p>
+            </ul>
+        {% else %}
+            <ul class="right">
+                <li>Welcome, visitor!</li>
+                <li>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></li>
+            </ul>
+        {% endif %}
+    </nav>
+</section>
+<section>
+    <div>
+        {% csrf_token %}
+        <div v-for="poke in pokemon">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">[[ poke.name ]]<i class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title activator grey-text text-darken-4">[[ poke.name ]]<i class="material-icons right">close</i></span>
+                    <ul class="pokemon-details">
+                        <li>Number: [[poke.number]]</li>
+                        <li>Height: [[poke.height]]</li>
+                        <li>Weight: [[poke.weight]]</li>
+                        <li>Card Image</li>
+                        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<!-- Materialize JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- Axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- Local JS -->
+<script src="{% static 'pokedex.js' %}"></script>
+</body>
+</html>
+
