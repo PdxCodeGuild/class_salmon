@@ -1,7 +1,5 @@
-from django.db.models.query import QuerySet
-from rest_framework import generics, viewsets
+from rest_framework import generics
 """ from django.contrib.auth import get_user_model """
-
 from students.models import Student
 from .serializers import StudentSerializer
 

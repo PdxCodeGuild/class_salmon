@@ -10,6 +10,6 @@ router.register('students', StudentViewSet, basename='students')
 urlpatterns = router.urls """
 
 urlpatterns = [
-    path('students/<int:pk>/',StudentDetail.as_view()),
+    path('student/<int:pk>/',StudentDetail.as_view()),
     path('students/', StudentList.as_view()),
 ]
