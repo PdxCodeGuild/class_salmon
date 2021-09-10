@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const numList = [];
+
+        let runningTotal = 0;
+
+        loop = true;
+
+        while (loop){
+            let userInput = prompt("Enter a number or 'done' to calculate: ");
+
+            if (userInput != "done"){
+                numList.push(Number(userInput));
+                runningTotal = runningTotal + parseInt(userInput);
+            } else if(isNaN(userInput)) {
+                loop = false;
+            }
+        }
+
+        let numCount = numList.length;
+
+        alert(`Total sum: ${runningTotal} ; Number of elements: ${numCount} ; Numbers entered: ${numList}`)
+
+        average = runningTotal / numCount
+
+        alert(`${average}`)
+        
+    </script>
+</body>
+</html>

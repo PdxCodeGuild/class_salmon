@@ -1,0 +1,52 @@
+{% extends "app_shortURL/base.html" %}
+
+{% block content%}
+<div class="box">
+  <div class="section">
+    <form action="{% url 'app_shortURL:app-encrypt' %}" method="post">
+      {% csrf_token %}
+      <div class="field">
+        <label class="label">Paste in the URL you would like to shorten</label>
+        <div class="control">
+          <input class="input" type="url" placeholder="Make something tiny!" name="input_URL">
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" type="submit" name="input_url_button">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="level has-background-info">
+    <div class="level-item">
+      <h1 class="title">URL Table</h1>
+    </div>
+  </div>
+  {% if link_list %}
+  <table class="table is-fullwidth is-hoverable is-striped">
+    <thead>
+      <tr>
+        <th>Original URL</th>
+        <th>Short URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for url in link_list %}
+      <tr>
+        <td>{{ url.url }}</td>
+          <form action="{% url 'app_shortURL:app-redirect' %}" method="post">
+            {% csrf_token %}
+            <td><button class="button is-text" type="submit" name="short_URL" value={{ url.code }}>{{ url.code }}</button></td>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+{% endblock content%}

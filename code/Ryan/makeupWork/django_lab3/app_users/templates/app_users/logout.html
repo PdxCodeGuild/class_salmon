@@ -1,0 +1,35 @@
+{% extends "app_posts/base.html" %}
+
+
+
+{% block content%}
+    <div class="container">
+
+
+
+            <h2 class="title">Logged out</h2>
+
+            <div class="section">
+
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-success" type="submit">
+                        Join Today!
+                      </button>
+                    </p>
+                  </div>
+
+                  <div class="field">
+                    <p class="control">
+                      <a class="button is-success" href="{% url 'login' %}">
+                        login again?
+                      </a>
+                    </p>
+                  </div>
+
+                </div>
+
+
+
+    </div>
+{% endblock content%}
