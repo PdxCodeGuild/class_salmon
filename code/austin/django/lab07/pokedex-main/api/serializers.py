@@ -13,14 +13,14 @@ class NestedTypeSerializer(serializers.ModelSerializer):
         model = models.Type
         fields = ('id', 'type')
 
-class NestedUserSerializer(serializers.ModelSerializer):
+class UserCaughtSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('username', )
+        fields = ('pokemon_caught', )
 
 class PokemonSerializer(serializers.ModelSerializer):
     type_detail = NestedTypeSerializer(read_only = True, many = True, source = 'types')
-    caught_by_user = NestedUserSerializer(read_only = True, many  = True, source = 'caught_by')
+    caught_by_user = UserCaughtSerializer(read_only = True, many  = True, source = 'caught_by')
     class Meta:
         model = models.Pokemon
         fields = ('id','name','type_detail', 'height', 'weight', 'image_front', 'image_back', 'caught_by_user')

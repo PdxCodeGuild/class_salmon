@@ -1,10 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.db.models.fields import CharField
+from pokemon.models import Pokemon
 
 class CustomUser(AbstractUser):
-    pass
-    # caught = the set of Pokemon associated with that user
+    pokemon_caught = models.ManyToManyField(Pokemon, related_name="caught_by_user")
 
     # This is where you would add additional fields.
     # These will be in the DB alongside username, email, etc

@@ -23,6 +23,11 @@ class CurrentUserView(generics.RetrieveAPIView):
     def get_object(self):
         return self.request.user
 
+class CurrentPokemonView(generics.RetrieveAPIView):
+    serializer_class = PokemonSerializer
+    def get_object(self):
+        return self.request.user
+
 """ class ListPokemon(generics.ListCreateAPIView):
     queryset = models.Pokemon.objects.all()
     serializer_class = PokemonSerializer
