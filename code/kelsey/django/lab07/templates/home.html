@@ -20,7 +20,7 @@
         {% endif %}
         <div v-for="poke in pokemon" class="m-10">
             <ul>
-                <h3 class="font-bold">Pokemon: [[ poke.name ]]</h3>
+                <h3 class="font-bold mt-20">Pokemon: [[ poke.name ]]</h3>
                 <li>Height: [[ poke.height ]]</li>
                 <li>Weight: [[ poke.weight ]]</li>
                 <img :src="poke.image_front" class="inline-block">
@@ -52,17 +52,31 @@
             caughtList: [],
         },
         methods: {
+            getCurrentUser: function() {
+                axios({
+                method: 'get',
+                url: '/api/v1/currentuser/'
+            }).then(response => {
+                this.user = response.data
+                this.caughtList = this.user.caught
+            })
+            },
             loadPokemon: function() {
                 axios({
                     method: 'get',
                     url: '/api/v1/pokemon/',
                 }).then(response => {
                     this.pokemon = response.data
-                    console.log(this.pokemon)
                 })
             },
             addUser: function(pokemon_id) {
-                console.log(pokemon_id)
+                let newList = []
+                
+                for (let i=0; i < this.caughtList.length; i++) {
+                    newList.push(this.caughtList[i])
+                }
+                newList.push(pokemon_id)
+                console.log(newList)
                 axios({
                     method: 'patch',
                     url: `/api/v1/users/${this.user.id}/`,
@@ -70,11 +84,14 @@
                         'X-CSRFToken': this.csrf_token
                     },
                     data: {
-                        caught: [pokemon_id,]
+                        'caught': newList
                     }
                 }).then(response => {
                     this.loadPokemon()
+                    this.getCurrentUser()
                 })
+
+                
             },
             removeUser: function(pokemon_id) {
                 console.log(pokemon_id)
@@ -87,7 +104,7 @@
                         'X-CSRFToken': this.csrf_token
                     },
                     data: {
-                        caught: this.caughtList
+                        'caught': this.caughtList
                     }
                 }).then(response => {
                     this.loadPokemon()
@@ -101,7 +118,6 @@
                 url: '/api/v1/currentuser/'
             }).then(response => {
                 this.user = response.data
-
                 this.caughtList = this.user.caught
             })
         }
