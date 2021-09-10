@@ -32,12 +32,13 @@ import random
 from string import ascii_letters, digits
 
 def index(request):
+    print(request.POST.get('site', ''))
     available_chars= ascii_letters + digits
     code = []
     for i in range(10): 
         code.append(random.choice(available_chars))
     code = ''.join(code)
-    site = request.POST['site']
+    site = request.POST.get('site','')
     Shortener.objects.create(url=site, code=code)
     # print("URL: " + url)
     context = {
@@ -51,4 +52,5 @@ def redirect(request):
     redirect_code = request.POST['code']
     print(redirect_code)
     redirect_url = Shortener.objects.get(code=redirect_code) # figure out how to get the redirect code from the given code and pass it to the redirect
+    redirect_url = str(redirect_url)
     return HttpResponseRedirect(redirect_url)
