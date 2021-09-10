@@ -24,7 +24,11 @@
     </form>
 
     <h3>You entered the following URL:</h3>
+    {% if site == None %}
+    <p>You have not entered a URL yet.</p>
+    {% else %}
     <p>{{ site }}</p>
+    {% endif %}
 
     <h3>Here is your shortened URL code:</h3>
     <p>{{ code }}</p>
