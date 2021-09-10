@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
     <title>Lab 03a</title>
-    <script src="{{ url_for('static', filename='lab03a.js') }}"></script>
+    <script src="{{ url_for('static', filename='lab03b.js') }}"></script>
 
 </head>
 <body>
-
+    <h2>Calculate Average</h2>
+    <label for="numsToAvg">Enter Numbers to Average: </label><input type="text" id="numsToAvg" name="numsToTranslate">
+    <input type="submit" onclick="calcAvg()" value="Get Average">
+    <p id="prtAvg">Click button to see averages</p>
 </body>
 </html>

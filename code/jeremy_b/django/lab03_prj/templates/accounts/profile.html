@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="blue-text">{{ author.username }}'s Profile</h2>
+    <h4>Member since: {{ author.date_joined }}</h4>
+    <h4>Last Login: {{ author.last_login }}</h4>
+    <h3 class="blue-text">{{ author.username }}'s Chirps:</h3>
+    {% for chirp in chirps %}
+        <div class="row">
+            <h5>On {{ chirp.created }}:</h5>
+            <div class="col s12 m5">
+                <div class="card-panel blue">
+                    <span class="white-text">{{ chirp.body }}</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{%  endblock content %}

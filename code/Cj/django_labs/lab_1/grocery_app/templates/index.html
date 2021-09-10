@@ -1,0 +1,14 @@
+<ul>
+    {% for item in grocery_list %}
+    <li>
+        {{ item.item_text }}
+        <input type="checkbox" ></input>
+       <a href="{% url 'grocery_list:delete_item' item.id %}"> <button>-</button> </a>
+    </li>
+    {% endfor %}
+</ul>
+<form action="{% url 'grocery_list:add_item' %}" method="post">
+{% csrf_token %}
+<input tpye='text' name='newItem'></input>
+<button type="submit" value = ''> Add Item </button>
+</form> 

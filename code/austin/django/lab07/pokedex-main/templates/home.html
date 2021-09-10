@@ -7,14 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Super Cool Blog</title>
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
+
     <link href="{% static 'main.css' %}" rel="stylesheet">
+
 </head>
 <body>
     <header>
         {% comment %} <div class="nav-left">
             <h1><a href="{% url 'home' %}">My Super Cool Blog</a></h1>
         </div> {% endcomment %}
+
         <div class="nav-top">
+
             {% if user.is_authenticated %}
             <h1>Welcome {{ user.username }}!</h1>
             <p><a href="{% url 'logout' %}">Logout</a><p>
@@ -48,6 +52,7 @@
             </div>
             
         </div>
+
     </div>
         {% comment %} <div>
             <input type="text" placeholder="Title" v-model="newPost.title"><br>
@@ -63,7 +68,7 @@
             </template>
             <button @click="createPost">New Post</button>
         </div> {% endcomment %}
-    
+
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
@@ -76,6 +81,7 @@
                 pokemon: [],
                 caughtList: [],
                 csrf_token: document.querySelector("input[name=csrfmiddlewaretoken]").value,
+
             },
             methods: {
                 loadPokemon: function() {
@@ -100,6 +106,7 @@
                     }).then(response => {
                         this.loadPokemon()
                     })
+
                 },
                 removeUser: function(pokemon_id) {
                     console.log(pokemon_id)
@@ -129,6 +136,7 @@
 
                     this.caughtList = this.user.caught
                 })
+
             }
         })
     </script>

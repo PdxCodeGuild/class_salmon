@@ -6,11 +6,13 @@ from pokemon.models import Pokemon, Type
 class NestedPokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pokemon
+
         fields = ('id', 'name')
 
 class NestedTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Type
+
         fields = ('id', 'type')
 
 class NestedUserSerializer(serializers.ModelSerializer):
@@ -24,6 +26,7 @@ class PokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pokemon
         fields = ('id','name','type_detail', 'height', 'weight', 'image_front', 'image_back', 'caught_by_user', 'caught_by')
+
         
 
 class TypeSerializer(serializers.ModelSerializer):
@@ -36,5 +39,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'username', 'date_joined', 'caught')
+
 
         

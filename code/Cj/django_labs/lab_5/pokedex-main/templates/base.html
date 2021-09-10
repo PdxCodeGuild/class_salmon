@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Pokedex Lab</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/materialize.min.css'  %}" rel="stylesheet"/>
+    <style>
+        .col {
+          padding: 10px;
+          background: #ddd;
+          border: 5px solid #fff;
+          line-height: 60px;
+          width: 75vw;
+          border-radius: 15px;
+        }
+        i.icon-red {
+            color: red;
+        }
+        .flex-img {
+            display: flex;
+            justify-content: center;
+        }
+        .flex-id {
+           line-height: 5px;
+           padding-right: 5px;
+           font-size: .9rem;
+        }
+        .flex-catch {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+           
+        }
+        .flex-title {
+            display: flex;
+            justify-content: center;
+            font-size: 1rem;
+            text-transform: capitalize;
+        }
+    
+        .img-span {
+            display: flex;
+            justify-content: center;
+        }
+        p {
+            padding: 3px;
+            line-height: 25px;
+        }
+        .flex-stats {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .btn-txt {
+            font-size: 10px;
+            line-height: 5px;
+        }
+        .flex-trainers {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat{
+            line-height: 6px;
+            padding-right: 15px;
+            font-size: .75rem;
+        }
+        .types {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .type {
+            max-width: 8rem;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+       
+        
+    </style>
+</head>
+<body>
+<header>
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username }}!</h1>
+<p><a href="{% url 'logout' %}">Logout</a><p>
+{% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+</header>
+<main>
+{% comment %} <div id="app"> {% endcomment %}
+    <div class='container'>
+        {% block content %}
+        {% endblock content %}
+    </div>
+{% comment %} </div> {% endcomment %}
+</main>
+<footer>
+
+</footer>
+</body>
+{% comment %} <script src="{% static 'js/site.js' %}"></script> {% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="{% static 'js/materialize.min.js' %}"></script>
+
+{% block script %}
+
+
+{% endblock script %}
+</html>
+

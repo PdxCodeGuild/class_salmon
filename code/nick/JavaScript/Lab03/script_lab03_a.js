@@ -43,6 +43,7 @@
 // result = list(peaks_and_valleys(peak_indices, valley_indices))
 // print(result) #I am not sure why this is appearing as ordered pairs but it is working otherwise.
 let data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+<<<<<<< HEAD
 
 // console.log(data)
 function peaks(data) {
@@ -90,3 +91,24 @@ function peaks_and_valleys(peak_indices, valley_indices) { //referenced https://
 console.log(peaks_and_valleys(peak_indices,valley_indices))
 let result = peaks_and_valleys(peak_indices, valley_indices)
 alert(result)
+=======
+let peak_indices = []
+// console.log(data)
+function peaks(data) {
+    for (i in range(data[0], data[length(data)])) {
+        if ( i === 0 || i === ((length(data))-1)) {
+            continue
+        }
+        // #won't let me start on the list at 0 or -1 position; added above if statement
+        else if (data[i-1] < data[i] > data[i+1]) {
+            peak_indices.push(i)
+        }
+        else if (data[i-1] > data[i] <data[i+1]) {
+            continue
+        }
+    return peak_indices
+    }
+}
+console.log(peak_indices)
+// peak_indices = peaks(data)
+>>>>>>> df42f13... lab 03 work in progress

@@ -68,6 +68,11 @@ function special_tens(number) {
     }
 
     //calculate 10s digit
+
+    if (number[0] === 1 && number[1] === 0){
+        let tens_digit = 'ten';
+    } else if (number[0] === 1 && number[0] in [1, 2, 3, 5]) {
+        if (number[1] === 1){
     if (parseInt(number[0]) === 1 && parseInt(number[1]) === 0){
         tens_digit = 'ten';
     } else if (parseInt(number[0]) === 1 && parseInt(number[1]) === 1) {
@@ -93,7 +98,6 @@ let y = [0, 1, 2, 3, 5, 8];
 // get number to input
 let num_to_translate = prompt("Enter an integer between 1 and 999: ").split("");
 console.log(num_to_translate)
-console.log(num_to_translate.length)
 
 // Translate the number to phrase
 if (num_to_translate.length === 1){

@@ -141,8 +141,8 @@ REST_FRAMEWORK ={
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_REDIRECT_URL = 'users:home'
-LOGIN_URL = reverse_lazy('users:home')
-LOGOUT_REDIRECT_URL = 'users:home'
+LOGIN_REDIRECT_URL = 'pokemon:home'
+LOGIN_URL = reverse_lazy('pokemon:home')
+LOGOUT_REDIRECT_URL = 'pokemon:home'
 
 LOGIN_URL = 'login'

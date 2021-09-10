@@ -1,11 +1,15 @@
+
 from django.http.response import HttpResponseRedirect
+
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+
 from pokemon.models import Pokemon
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
+
 
 from .forms import CustomUserCreationForm
 
@@ -21,3 +25,4 @@ class UserAppProfileView(DetailView):
 
     def get_object(self):
         return get_object_or_404(User, username=self.kwargs['username'])
+

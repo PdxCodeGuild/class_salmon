@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import SignUpView, UserAppProfileView
 from . import views
+
 app_name = 'users'
 
 urlpatterns = [

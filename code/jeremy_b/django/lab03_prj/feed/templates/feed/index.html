@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="blue-text">Feed</h2>
+    {% if user.is_authenticated %}
+        <h5><a href="{% url 'add_post' %}" class="btn-floating"><i class="small material-icons blue">add</i> New Chirp</a></h5>
+    {% endif  %}
+    <div class="pagination section">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <div class="section">
+        {% for chirp in page_obj %}
+            <div class="row">
+                <h5><a href="{% url 'profile' chirp.author %}">{{ chirp.author }}</a> chirped on {{ chirp.created }}:</h5>
+                <div class="col s12 m5">
+                    <div class="card-panel blue">
+                        <span class="white-text">{{ chirp.body }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{%  endblock content %}
