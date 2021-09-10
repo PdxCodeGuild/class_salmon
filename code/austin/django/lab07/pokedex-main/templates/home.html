@@ -7,14 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Super Cool Blog</title>
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    <link href="{% static 'main.css' %}" rel="stylesheet">
+
 </head>
 <body>
     <header>
         {% comment %} <div class="nav-left">
             <h1><a href="{% url 'home' %}">My Super Cool Blog</a></h1>
         </div> {% endcomment %}
-        <div class="nav-right">
+
+        <div class="nav-top">
+
             {% if user.is_authenticated %}
             <h1>Welcome {{ user.username }}!</h1>
             <p><a href="{% url 'logout' %}">Logout</a><p>
@@ -27,23 +31,28 @@
     <main>
     </div>
     {% csrf_token %}
-    <div id="app">
-    <div v-for="pokemon in pokemon">
-        <ul>
-            <h3>[[ pokemon.name ]]</h3>
-            <h4>[[ pokemon.id]]</h4>
-            <p>Height:[[ pokemon.height ]] meters       Weight: [[ pokemon.weight ]] kilograms</p>
-            <img :src="pokemon.image_front" class="inline_block">
-            <img :src="pokemon.image_back" class="inline_block">
-            <button @click="addUser(poke.id)">Catch</button>
-        </ul>
-        <h3>Types:</h3>
-        <ul v-for="type in pokemon.type_detail">
-            <li> [[ type.type ]] </li>
-        </ul>
-        <h3>Caught by:</h3>
-        <ul v-for="trainer in pokemon.caught_by_user">
-            <li> [[ trainer.username ]]</li>
+    <div id="app" class="pokemons">
+        <div class= "pokemon" v-for="pokemon in pokemon">
+            <div class="name">
+                <h3>[[ pokemon.name ]]</h3>
+                <h4>[[ pokemon.id]]</h4>
+            </div>
+                <img :src="pokemon.image_front" class="inline_block">
+                <img :src="pokemon.image_back" class="inline_block">
+                <p>Height: [[ pokemon.height ]] meters</p>          
+                <p>Weight: [[ pokemon.weight ]] kilograms</p>
+                <button @click="addUser(pokemon.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Catch</button>
+            <h3>Types:</h3>
+            <div v-for="type in pokemon.type_detail">
+                <p> [[ type.type ]] </p>
+            </div>
+            <h3>Caught by:</h3>
+            <div v-for="trainer in pokemon.caught_by_user">
+                <p class="list-disc">[[ trainer.username ]] <button v-if="trainer.username == user.username" @click="removeUser(trainer.id)">Release</button> </p>
+            </div>
+            
+        </div>
+
     </div>
         {% comment %} <div>
             <input type="text" placeholder="Title" v-model="newPost.title"><br>
@@ -59,6 +68,7 @@
             </template>
             <button @click="createPost">New Post</button>
         </div> {% endcomment %}
+
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
@@ -67,13 +77,11 @@
             el: '#app',
             delimiters: ['[[', ']]'],
             data: {
+                user: '',
                 pokemon: [],
-                types: [],
-                users: [],
-                csrf_token: "",
-                currentUser: {},
-                postErrors: {}, 
                 caughtList: [],
+                csrf_token: document.querySelector("input[name=csrfmiddlewaretoken]").value,
+
             },
             methods: {
                 loadPokemon: function() {
@@ -86,18 +94,19 @@
                 },
                 addUser: function(pokemon_id) {
                 console.log(pokemon_id)
-                axios({
-                    method: 'patch',
-                    url: `/api/v1/users/${this.user.id}/`,
-                    headers: {
-                        'X-CSRFToken': this.csrf_token
-                    },
-                    data: {
-                        caught: [pokemon_id,]
-                    }
-                }).then(response => {
-                    this.loadPokemon()
-                })
+                    axios({
+                        method: 'patch',
+                        url: `/api/v1/users/${this.user.id}/`,
+                        headers: {
+                            'X-CSRFToken': this.csrf_token
+                        },
+                        data: {
+                            caught: [pokemon_id,]
+                        }
+                    }).then(response => {
+                        this.loadPokemon()
+                    })
+
                 },
                 removeUser: function(pokemon_id) {
                     console.log(pokemon_id)
@@ -117,13 +126,17 @@
                     })
                 }
             },
-            created: function() {
-                this.loadPokemon()
-                this.loadUsers()
-                this.loadCurrentUser()
-            },
             mounted: function() {
-                this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+                this.loadPokemon()
+                axios({
+                    method: 'get',
+                    url: '/api/v1/currentuser/'
+                }).then(response => {
+                    this.user = response.data
+
+                    this.caughtList = this.user.caught
+                })
+
             }
         })
     </script>
