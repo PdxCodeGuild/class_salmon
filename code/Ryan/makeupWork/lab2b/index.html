@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BlackJack!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+  </head>
+  <body>
+      <section class="hero is-link">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">BlackJack Advice</h1>
+            <h2 class="subtitle">Get your blackjack answers</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="box">
+            <div class="columns">
+
+              <div class="column">
+                <h3 class="title">Card Picks</h3>
+                <div class="content">
+                  <ul><li id="displayCards"></li></ul>
+                </div>
+              </div>
+              <div class="column">
+                <h1 class="title">Advice</h1>
+                <div class="block"><strong><h2 class="subtitle is-3" id="advice"></h2></strong></div>
+                <div class="block">Current Total: <label id="displayTotal"></label></div>
+              </div>
+              <div class="column">
+                <button class="button" id="reset" onclick="location.reload();">Refresh Page</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <section class="section">
+        <!-- Pick card 1 container -->
+
+        <nav class="level">
+          <!-- Left side -->
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Card 1</strong>
+              </p>
+            </div>
+
+          <!-- Right side -->
+            <p class="level-item"><button class="button is-success" onclick="addAce()">Ace</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add2()">2</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add3()">3</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add4()">4</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add5()">5</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add6()">6</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add7()">7</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add8()">8</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add9()">9</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add10()">10</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add10()">Jack</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add10()">Queen</button></p>
+            <p class="level-item"><button class="button is-success" onclick="add10()">King</button></p>
+        </nav>
+
+        <!-- Pick card 2 container -->
+        <nav class="level">
+          <!-- Left side -->
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Card 2</strong>
+              </p>
+            </div>
+
+          <!-- Right side -->
+            <p class="level-item"><button class="button is-info" onclick="addAce()">Ace</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add2()">2</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add3()">3</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add4()">4</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add5()">5</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add6()">6</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add7()">7</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add8()">8</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add9()">9</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add10()">10</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add10()">Jack</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add10()">Queen</button></p>
+            <p class="level-item"><button class="button is-info" onclick="add10()">King</button></p>
+        </nav>
+
+        <!-- Pick card 3 container -->
+        <nav class="level">
+          <!-- Left side -->
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Card 3</strong>
+              </p>
+            </div>
+
+          <!-- Right side -->
+            <p class="level-item"><button class="button is-danger" onclick="addAce()">Ace</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add2()">2</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add3()">3</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add4()">4</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add5()">5</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add6()">6</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add7()">7</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add8()">8</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add9()">9</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add10()">10</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add10()">Jack</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add10()">Queen</button></p>
+            <p class="level-item"><button class="button is-danger" onclick="add10()">King</button></p>
+        </nav>
+      </section>
+      <script src="scripts/main.js"></script>
+  </body>
+</html>

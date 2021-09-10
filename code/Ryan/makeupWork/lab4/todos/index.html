@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+</head>
+
+<body>
+    <div id="app">
+        <section class="hero is-info">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        To-Do List
+                    </h1>
+                    <h2 class="subtitle">
+                        Track your list easily
+                    </h2>
+                </div>
+            </div>
+        </section>
+        <div class="block"></div>
+        <section class="container">
+            <div class="box ">
+                <nav class="level">
+                    <div class="container">
+                        <div class="notification has-background-grey">
+
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input class="input" v-model="newItem" type="text"
+                                        placeholder="What would you like to do?">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-info" @click="addItem" :disabled="newItem.length === 0">
+                                        Add to list
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="columns">
+                    <div class="column">
+                        <div class="notification is-warning">
+                            <strong>Incomplete</strong>
+                        </div>
+                        <div class="box">
+                            <div class="content">
+                                <ul id="incompleteItems">
+                                    <li v-for="item in reversedItems" v-if="!item.completed">
+                                        <nav class="level">
+                                            <div class="level-left">
+                                                <div class="level-item">
+                                                    <span>{{ item.name }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="level-right">
+                                                <div class="level-item">
+                                                    <div class="buttons">
+                                                        <button class="button is-success is-light"
+                                                            @click="toggleComplete(item)">
+                                                            <span class="icon">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </button>
+                                                        <button class="button is-danger is-light"
+                                                            @click="removeItem(item)">
+                                                            <span class="icon">
+                                                                <i class="fas fa-trash"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="notification is-success">
+                            <strong>Completed</strong>
+                        </div>
+                        <div class="box">
+                            <div class="content">
+                                <ul id="completedItems">
+                                    <li v-for="item in reversedItems" v-if="item.completed">
+                                        <nav class="level">
+                                            <div class="level-left">
+                                                <div class="level-item">
+                                                    <span>{{ item.name }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="level-right">
+                                                <div class="level-item">
+                                                    <div class="buttons">
+                                                        <button class="button is-warning is-light"
+                                                            @click="toggleComplete(item)">
+                                                            <span class="icon">
+                                                                <i class="fas fa-undo-alt"></i>
+                                                            </span>
+                                                        </button>
+                                                        <button class="button is-danger is-light"
+                                                            @click="removeItem(item)">
+                                                            <span class="icon">
+                                                                <i class="fas fa-trash"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+</body>
+
+</html>

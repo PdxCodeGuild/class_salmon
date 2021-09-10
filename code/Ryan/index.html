@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <p class="title">
+                Unit Converter
+            </p>
+            <p class="subtitle">
+                Simple Live Converter
+            </p>
+        </div>
+    </section>
+    <section class="container mt-4">
+        <div class="container">
+            <div class="box has-text-centered">
+                <div class="columns">
+                    <div class="column is-vcentered">
+
+                        <div class="field">
+                            <label class="label">Enter the amount</label>
+                            <div class="control">
+                                <input class="input has-text-centered" type="number" placeholder="Length Amount"
+                                    id="inputLength">
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h1>What Would You Like To Convert?</h1>
+                        </div>
+                        <button class="button" onclick="convertLength('in')">Inches</button>
+                        <button class="button" onclick="convertLength('ft')">Feet</button>
+                        <button class="button" onclick="convertLength('yd')">Yards</button>
+                        <button class="button" onclick="convertLength('m')">Meters</button>
+                        <button class="button" onclick="convertLength('km')">Kilometers</button>
+                        <button class="button" onclick="convertLength('mi')">Miles</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="container mt-6">
+        <div class="box">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Inches</p>
+                        <p class="title" id="inches">3,456</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Feet</p>
+                        <p class="title" id="feet">123</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Yards</p>
+                        <p class="title" id="yards">456K</p>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div class="box">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Meters</p>
+                        <p class="title" id="meters">3,456</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Kilometers</p>
+                        <p class="title" id="kilometers">123</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Miles</p>
+                        <p class="title" id="miles">456K</p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <script>
+        const conversion_table = {
+            "ft": 0.3048,
+            "mi": 1609.34,
+            "m": 1,
+            "km": 1000,
+            "yd": 0.9144,
+            "in": 0.0254
+        };
+        let userInput = document.querySelector("#inputLength");
+
+        function convertLength(inputUnit) {
+            let userInputDistance = userInput.value
+            inputDistance = Number(userInput.value);
+            console.log(conversion_table[inputUnit])
+            let base_measure = (conversion_table[inputUnit] * inputDistance) / conversion_table["m"];
+            console.log(inputDistance, inputUnit, base_measure);
+            document.querySelector("#feet").innerHTML = base_measure * conversion_table["ft"];
+            document.querySelector("#miles").innerHTML = base_measure * conversion_table["mi"];
+            document.querySelector("#meters").innerHTML = base_measure * conversion_table["m"];
+            document.querySelector("#kilometers").innerHTML = base_measure * conversion_table["km"];
+            document.querySelector("#yards").innerHTML = base_measure * conversion_table["yd"];
+            document.querySelector("#inches").innerHTML = base_measure * conversion_table["in"];
+        }
+    </script>
+</body>
+
+</html>
