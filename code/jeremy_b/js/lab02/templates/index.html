@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 2a</title>
+    <title>Lab 2b</title>
 </head>
 <body>
-
-<script src="{{ url_for('static', filename='lab02a.js') }}"></script>
+<h3>Enter a number between 1 and 999: </h3>
+<label for="number">Number to translate: </label><input type="text" id="number">
+<input type="submit" id="submitBtn" onclick="get_number()" value="Translate">
+<h4>Translated Number: <span id="translated_number">Click for translated number.</span></h4>
+<script src="{{ url_for('static', filename='lab02b.js') }}"></script>
 </body>
 </html>

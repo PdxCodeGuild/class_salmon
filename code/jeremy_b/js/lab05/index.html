@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Machine</title>
+</head>
+<body>
+<div id="app">
+    <h1>Quote Machine</h1>
+    <br>
+    <h2>Random Quote:</h2>
+    <random-quote></random-quote>
+
+    <br> <br>
+
+    <h3>Quote Search:</h3>
+    <input v-model="searchInput" id="searchTerm" type="text"/>
+    <br> <br>
+    <input type="radio" id="author" name="searchBy" value="author" v-model="searchBy">
+    <label for="author">Author</label>
+    <input type="radio" id="tag" name="searchBy" value="tag" v-model="searchBy">
+    <label for="tag">Tag</label>
+    <input type="radio" id="keyword" name="searchBy" value="keyword" v-model="searchBy">
+    <label for="keyword">Keyword</label>
+    <br><br>
+    <button @click="loadQuotes" id="searchBtn">Search</button>
+
+    <br><br>
+    <div v-if="searchBy === 'keyword'">
+        <ul>
+            <li v-for="quote in results" :key="quote.id">
+                <p>{{ quote.body }}</p>
+                <p>  -- {{ quote.author }}</p>
+            </li>
+        </ul>
+        <button v-if="page > 1" v-on:click="previousPage" id="previousPage">Previous</button>
+        <button v-if="lastPage === false" v-on:click="nextPage" id="nextPage">Next</button>
+    </div>
+    <div v-else-if="searchBy === 'author'">
+        <h3>Results for "{{searchInput}}":</h3>
+        <ul>
+            <li v-for="quote in results" :key="quote.id">
+                <p><a :href="quote.url">{{ quote.body }}</a></p>
+            </li>
+        </ul>
+        <button v-if="page > 1" v-on:click="previousPage" id="previousPage">Previous</button>
+        <button v-if="lastPage === false" v-on:click="nextPage" id="nextPage">Next</button>
+        <ul></ul>
+    </div>
+    <div v-else-if="searchBy === 'tag'">
+        <h3>Results for "{{searchInput}}":</h3>
+        <ul>
+            <li v-for="quote in results" :key="quote.id">
+                <p>{{ quote.body }}</p>
+                <p>  -- {{ quote.author }}</p>
+            </li>
+        </ul>
+        <button v-if="page > 1" v-on:click="previousPage" id="previousPage">Previous</button>
+        <button v-if="lastPage === false" v-on:click="nextPage" id="nextPage">Next</button>
+        <ul></ul>
+    </div>
+    <br><br>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="static/lab05.js"></script>
+</body>
+</html>
