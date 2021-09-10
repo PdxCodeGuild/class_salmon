@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>This was quacked at {{ post.post_created}}</h2>
+    <h3>Quacked by: {{ post.post_author }}</h3>
+    <h3>Absolute URL: {{ post.absolute_url }}</h3>
+{% endblock content %}

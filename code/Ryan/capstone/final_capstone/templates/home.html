@@ -1,0 +1,74 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <!-- <p>Hi {{ user.username }}! <a href="{% url 'logout' %}">Log Out</a></p> -->
+
+  <div id="app">
+
+    <!-- Live pool scrolling box -->
+    <aside class="pools-side-container">
+      <div class="pools-items">
+        <h2><strong><u>Live Pools</u></strong></h2>
+        <section class="pools-list">
+          <ul>
+            <li>Team Name</li>
+            <li>Time Left</li>
+            <li>Pot Size</li>
+          </ul>
+        </section>
+      </div>
+    </aside>
+
+
+    <div class="main-mid-container">
+      <div class="mid-header">
+        user stuff here
+      </div>
+      <div class="mid-square">
+        square top
+        <div class="square-container">
+          <div class="square-side">
+            <div class="side-team">
+              team
+            </div>
+            <div class="side-values">
+              values
+            </div>
+          </div>
+
+          <div class="square-grid">
+            <!-- Main area with populating squares that users can select -->
+            <template v-for="y in 10">
+              <div class="square-units" v-for="x in 10">
+                <button id="grid-button" v-on:click="getCoords(x-1, y-1)">[[ x-1 ]], [[ y-1 ]]</button>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming pool scrolling box -->
+    <aside class="pools-side-container">
+      <div class="pools-items">
+        <h2><strong><u>Upcoming Pools</u></strong></h2>
+        <section class="pools-list">
+          <ul>
+            <li>Team Name</li>
+            <li>Time Until Start</li>
+            <li>Pool Size</li>
+          </ul>
+        </section>
+      </div>
+    </aside>
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+{% endblock %}

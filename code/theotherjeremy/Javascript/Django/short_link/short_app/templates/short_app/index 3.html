@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'short_link/style.css' %}" />
+    <title>Grocery_App</title>
+  </head>
+  <body>
+  <center>
+    <h1>Why do we need short urls, again?</h1>
+    <p>- For secrecy? </p>
+    <p>- To make the computer's job easier? </p>
+    <p>- Just for funsies? </p>
+    <br><br>
+    <hr>
+    <br><br>
+    </center>
+    <form method="post" action="{% url 'short_app:shorten_it' %}">
+      {% csrf_token %}
+      <input type="text" name="long_url" required />
+      <button type="submit">Shorten My Link</button>
+    </form>
+    {% if all_Shortnesses %}
+    <table style="width: 32%">
+      <tr>
+        <th>Short Url</th>
+        <th>Link</th>
+        <th>Your Url</th>
+      </tr>
+      <tr>
+        {%for item in all_Shortnesses %} {% comment %} {%for item in
+        grocery_items%} {% endcomment %} {%comment %}
+        <td>pick the thing from models.py{{item.description}}</td>
+        {%endcomment%}
+
+        <td>{{item.short_url}}</td>
+        {% comment %} check notes in views.py about "which object?" {% endcomment %}
+        <td><a href= {% url 'short_app:redirect' item.id %}><button>Take Me!</button></a></td>
+        <td>{{item.long_url}}</td>
+        <br />
+      </tr>
+    </table>
+    {%endfor%} {% endif %}
+  </body>
+</html>
