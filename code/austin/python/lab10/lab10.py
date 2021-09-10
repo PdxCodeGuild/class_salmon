@@ -85,7 +85,8 @@ with open('contacts.csv', 'w') as f:
     f.write(','.join(keys))
     f.write('\n')
     for key, contact in enumerate(matched_contacts):
-        for k in contact:
+        for i,k in enumerate(contact):
             f.write(contact[k])
-            f.write(',')
+            if i + 1 < len(contact):
+                f.write(',')
         f.write('\n')
