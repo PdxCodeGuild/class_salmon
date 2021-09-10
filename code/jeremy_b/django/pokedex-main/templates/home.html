@@ -1,0 +1,97 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body class="">
+<div id="app">
+{% csrf_token %}
+<section>
+<div class="navbar-fixed">
+    <nav class="nav-wrapper">
+        <div class="brand-logo center">
+            <ul>
+                <li>Poke</li>
+                <li><a href="{% url 'home' %}"><img src="https://img.icons8.com/fluency/96/000000/pokemon.png" alt=""></a></li>
+                <li>Dex</li>
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+            <ul class="right">
+                <li>Welcome {{ user.username }}!</li>
+                <li><a href="{% url 'logout' %}">Logout</a><p>
+                <li><a href="#uncaught">Pokemon</a></li>
+                <li><a href="#caught">Caught List</a></li>
+            </ul>
+        {% else %}
+            <ul class="right">
+                <li>Welcome, visitor!</li>
+                <li>You are not logged in.</li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'users:signup' %}">Sign Up</a></li>
+            </ul>
+        {% endif %}
+    </nav>
+</div>
+</section>
+<section id="uncaught" class="container">
+    <div>
+        <div v-for="poke in pokemon" class="">
+            <div>
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4 "><h4>[[ poke.name ]]</h4><i class="material-icons right">more_vert</i></span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4"><strong>[[ poke.name ]]</strong><i class="material-icons right">close</i></span>
+                        <ul class="pokemon-details">
+                            <li>Number: [[poke.number]]</li>
+                            <li>Height: [[poke.height]]</li>
+                            <li>Weight: [[poke.weight]]</li>
+                            <li>Card Image:</li>
+                            <li><img :src=poke.image_front><img :src=poke.image_back></li>
+                            {% if user.is_authenticated %}
+                                <div><button class="btn-floating btn-large waves-effect waves-light light-green accent-3" v-on:click="catchPokemon(poke.id)"><i class="material-icons">add</i></button></div>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% if user.is_authenticated %}
+<section id="caught" class="container">
+    <div>
+        <h2>Pokemon Caught</h2>
+        <ul>
+            <div v-for="id in caught">
+                <li>[[ id ]] <div><button class="btn-floating btn-small waves-effect waves-light red" v-on:click="releasePokemon(poke.id)"><i class="material-icons">close</i></button></div></li>
+            </div>
+        </ul>
+    </div>
+</section>
+{% endif %}
+</div>
+<!-- Materialize JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- Axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- Vue.js-->
+<script src="https://unpkg.com/vue"></script>
+<!-- Local JS -->
+<script src="{% static 'pokedex.js' %}"></script>
+</body>
+</html>
+

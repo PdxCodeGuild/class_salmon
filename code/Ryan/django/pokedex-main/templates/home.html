@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello, world!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+
+  <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+
+  <header class="banner-login">
+  <!-- User Authenticated Heading -->
+  {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+
+  </header>
+  <!-- Vue app start -->
+  <div id="app">
+
+  <!-- Banner -->
+    <h1 id="banner"><span>Hello, I Am Pokedex!</span></h1>
+
+    <!-- gallery with main pokemon data -->
+    <main class="main-gallery">
+      <div class="pokemon-card" v-for="pokemon in pokemonList" :key="pokemon.id">
+        <div class="image">
+          <img :src="[[ pokemon.image_front ]]">
+          <h4>[[ pokemon.number ]].[[ pokemon.name ]]</h4>
+        </div>
+
+        <div class="stats">
+          <ul>
+            <li>height: [[ pokemon.height ]]m</li>
+            <li>weight: [[ pokemon.weight ]]kg</li>
+            <li>caught by: [[ pokemon.caught_by ]]</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Vue app end -->
+  </div>
+
+  <!-- User Not Authenticated Heading -->
+  {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+  {% endif %}
+
+  <!-- Scripts -->
+  <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Include your code here... -->
+  <script src="/static/vue.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello, world!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+</head>
+<body>
+  <h1>Hello, world!</h1>
+
+<h2>Input Original URL</h2>
+  <form action="{% url 'app_shortURL:input' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="input_URL">
+    <!-- <label for="input_URL">Input URL</label> -->
+    <button type="submit" name="input_url_button"><i class="far fa-arrow-alt-circle-right"></i></button>
+  </form>
+
+<h2>Input Short URL</h2>
+  <form action="{% url 'app_shortURL:encrypt' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="input_URL">
+    <!-- <label for="input_URL">Input URL</label> -->
+    <button type="submit" name="input_url_button"><i class="far fa-arrow-alt-circle-right"></i></button>
+  </form>
+
+{% if link_list %}
+  <div class="links_table">
+    <table>
+      <tr>
+        <th>Destination</th>
+        <th>Short URL</th>
+      </tr>
+      {% for url in link_list %}
+      <tr>
+        <td>{{ url.url }}</td>
+        <td>{{ url.code }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+  </div>
+{% endif %}
+</body>
+</html>

@@ -1,5 +1,5 @@
 # 20210517-Python-FullStack-Day
-Repo for the PDX Code Guild Python Full Stack day course starting 1/25/2021
+Repo for the PDX Code Guild Python Full Stack day course starting 5/17/2021
 
 Class is held from **May 17th, 2021 to August 27th, 2021**
 M-F 9:30 am – 4:30 pm
@@ -7,7 +7,10 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 May 31st -- Memorial Day  
+June 18th -- Too Hot  
 July 5th -- Independence Day  
+August 13th -- Study Day/No Class  
+August 20th -- Study Day/No Class  
 
 ### Staff
 
@@ -22,32 +25,33 @@ July 5th -- Independence Day
 
 ## Capstone Dates:
 
-Capstone proposal due: TBA  
+Capstone proposal due: August 9th, 2021  
 Presentation Day: August 27th, 2021  
 
-<!-- ## JavaScript Labs Assigned:
-
-
-
-#### Optional JavaScript Labs
-
- 
 
 ## Django Labs Assigned:
 
- 
+Lab 01 Todo List  
+Lab 02 URL Shortener  
+Lab 03 Chirp  
+Lab 06 Students API  
+Lab 07 Pokedex  
 
-#### Optional Django Labs
+## JavaScript Labs Assigned:
 
-
+Lab 01-03 Pick 3  
+Lab 04 Vue Todos  
+Lab 05 Quotes in Vue  
+Lab 06 Mini-Capstone  
 
 ## HTML/CSS Labs Assigned:
 
-
-
-#### Optional HTML/CSS Labs -->
-
-
+01 Bio  
+02 Blog  
+03 Company  
+04 Burrito Order Form  
+05 Flask Redo  
+06 Personal Portfolio  
 
 ## Python Labs Assigned:
 
@@ -67,9 +71,6 @@ Presentation Day: August 27th, 2021
 14 Dad Joke API  
 15 Quotes API  
 16 Mini-Capstone
-
-<!-- #### Optional Python Labs -->
-
 
 
 ## Student Presentations

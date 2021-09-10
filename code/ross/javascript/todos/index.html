@@ -20,29 +20,36 @@
     </div>
 
     <div id="list">
-    <ol>
-        <li v-for="todo in todos">
-        {{ todo }}
-        </li>
-    </ol>
-    </div>
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo.id }}:
+                <!-- <input type='button' @click="removeItem" value='-'></input> -->
+                {{ todo.todo }} -- <input type="checkbox" v-model="todo.completed">
+                 -- {{todo.completed ? "complete" : "incomplete"}}
+            </li>
+        </ul>
 
-    <!-- LATER ADD THE USER INPUT FUNCTIONALITY -->
-    <div id="add">
-        <input v-model="newItem" placeholder="Add a To-Do Item">
-        <button v-on:click="todos.push(newItem)">Add to list</button>
-        <p>You just added: {{ newItem }}</p>
-    </div>
+        <!-- USER INPUT FUNCTIONALITY -->
+        <input type="text" v-model="newItem" placeholder="Add a To-Do Item">
+        <button v-on:click="add">Add to list</button>
+        <p>Your most recently added to-do: {{ newItem }}</p>
 
-    <!-- ADD FUNCTIONALITY FOR USER TO REMOVE ITEMS -->
-    <div id="removeI">
+        <!-- USER TO REMOVE ITEMS -->
         <p><h3>If you'd like to remove an item from your list, simply type in it's number to remove it.</h3></p>
-        <input v-model="index" placeholder="Enter item number to be removed">
-        <button v-on:click="todos.splice(index, 1)">Remove</button>
-    </div>
+        <input type="number" v-model="markRemove" placeholder="Enter item number to be removed">
+        <button v-on:click="removeItem">Remove</button>
 
-    <!-- ALLOW USER TO CHOOSE IF A TASK IS COMPLETE -->
-    <div>
+        <!-- ALLOW USER TO CHOOSE IF A TASK IS COMPLETE -->
+        <p><h3>If you'd like to mark an item complete/incomplete, enter the number here.</h3></p>
+        <input type="number" v-model="markComplete" placeholder="Enter item to mark complete">
+        <button v-on:click="completeItem(markComplete)">Mark Complete</button>
+        
+        <h2>Here is your current list of completed items:</h2>
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.completed ? todo.todo : ""}}
+            </li>
+        </ol>
 
     </div>
     

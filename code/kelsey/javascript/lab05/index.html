@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Lab05 FavQs in Vue</title>
+</head>
+<body>
+    <div id="app">
+        <div class="text-center">
+            <h1 >Quoth the Raven...</h1>
+            <label for="terms" class="mr-2">Search by:</label>
+            <select @change="termSelect($event)" name="terms" id="terms" v-model="key" class="mr-2">
+                <option value="body">Keyword</option>
+                <option value="author">Author</option>
+                <option value="tags">Tag</option>
+            </select>
+            <input type="text" @keyup.enter="loadQuotes()" v-model="search" class="mr-2">
+            <button @click="loadQuotes()" class="btn btn-dark mr-2">Get Quotes!</button>
+        </div>
+        <div v-for="quote in quotes">
+            <ul>
+                <li>{{ quote.body }}</li>
+                <li class="blockquote-footer">{{ quote.author }}</li>
+            </ul>
+        </div>
+        <footer class="d-flex justify-content-center">           
+            <previous-page @previouspage="previousPage" v-show="page > 1"></previous-page>
+            <p class="ml-3 mr-3">Page {{ page }}</p>
+            <next-page @nextpage="nextPage"></next-page>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>

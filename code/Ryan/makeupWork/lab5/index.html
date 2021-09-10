@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" class="has-background-grey-light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FavQ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- Top nav bar -->
+        <section class="hero is-info">
+            <div class="hero-body">
+                <nav class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <h1 class="title">FavQ Search API</h1>
+                        </div>
+
+                    </div>
+                    <div class="level-item">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <input class="input" id="searchQuery" type="text" placeholder="Find a post">
+                            </p>
+                            <p class="control">
+                                <div class="dropdown is-hoverable">
+                                    <div class="dropdown-trigger">
+                                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                            <span>Search by</span>
+                                            <span class="icon is-small">
+                                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                        <div class="dropdown-content">
+
+                                            <a class="dropdown-item" @click="loadQuoteByKeyword">
+                                                Keyword
+                                            </a>
+                                            <a class="dropdown-item" @click="loadQuoteByAuthor">
+                                                Author
+                                            </a>
+                                            <a class="dropdown-item" @click="loadQuoteByTag">
+                                                Tag
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="level-item">Page: {{ this.results.page }}</div>
+
+                    <div class="level-item">
+                        <div class="button" @click="testClick">Test</div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+        <!-- End Top Nav Bar -->
+
+        <!-- Main section with quotes -->
+        <!-- <div class="block"></div> -->
+
+        <section class="section">
+            <div class="columns">
+                <div class="column is-narrow">
+                    <!-- pagination -->
+                    <nav class="pagination" role="navigation" aria-label="pagination">
+                        <a class="pagination-previous" @click="decrementPage">Previous</a>
+                    </nav>
+                    <!-- end pagination -->
+                </div>
+
+                <div class="column is-fluid is-flex is-flex-wrap-wrap">
+
+                    <div class="section">
+                        <div class="card m-1" v-for="i in results.quotes" :key="i.id">
+                            <div class="card-content">
+                                <p class="title is-3">
+                                    {{ i.body }}
+                                </p>
+                                <p class="subtitle">
+                                    Author: {{i.author}}
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">
+                                    <span class="icon has-text-danger">
+                                        <i class="fas fa-heart"></i>
+                                    </span>
+                                    <span class="tag is-info is-light">{{ i.favorites_count }}</span>
+                                </p>
+                                <p class="card-footer-item">
+                                    <span class="icon ">
+                                        <i class="far fa-thumbs-up"></i>
+                                    </span>
+                                    <span class="tag is-success is-light">{{ i.upvotes_count }}</span>
+                                </p>
+                                <p class="card-footer-item">
+                                    <span class="icon has-text-dark">
+                                        <i class="far fa-thumbs-down"></i>
+                                    </span>
+                                    <span class="tag is-danger is-light">{{ i.downvotes_count }}</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <section class="container is-fluid is-flex is-flex-wrap-wrap">
+            <div class="columns" v-for="x in 5"  >
+                <div class="column" v-for="y in x" >
+                                <div class="card m-1" v-for="i in results.quotes" :key="i.id">
+                                    <div class="card-content">
+                                        <p class="title is-3">
+                                            {{ i.body }}
+                                        </p>
+                                        <p class="subtitle">
+                                            Author: {{i.author}}
+                                        </p>
+                                    </div>
+                                    <footer class="card-footer">
+                                        <p class="card-footer-item">
+                                            <span class="icon has-text-danger">
+                                                <i class="fas fa-heart"></i>
+                                            </span>
+                                            <span class="tag is-info is-light">{{ i.favorites_count }}</span>
+                                        </p>
+                                        <p class="card-footer-item">
+                                            <span class="icon ">
+                                                <i class="far fa-thumbs-up"></i>
+                                            </span>
+                                            <span class="tag is-success is-light">{{ i.upvotes_count }}</span>
+                                        </p>
+                                        <p class="card-footer-item">
+                                            <span class="icon has-text-dark">
+                                                <i class="far fa-thumbs-down"></i>
+                                            </span>
+                                            <span class="tag is-danger is-light">{{ i.downvotes_count }}</span>
+                                        </p>
+                                    </footer>
+                                </div>
+                    </div>
+            </div>
+        </section> -->
+
+                    <!-- <div class="columns">
+            
+            <div class="column">
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results.quotes[0].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results.quotes[0].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[0].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[0].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[0].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[1].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[1].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[1].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[1].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[1].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[2].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[2].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[2].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[2].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[2].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[3].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[3].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[3].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[3].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[3].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[4].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[4].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[4].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[4].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[4].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+            </div>
+
+            
+            <div class="column">
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[5].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[5].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[5].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[5].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[5].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[6].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[6].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[6].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[6].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[6].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[7].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[7].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[7].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[7].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[7].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[8].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[8].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[8].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[8].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[8].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[9].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[9].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[9].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[9].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[9].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+            </div>
+
+            
+            <div class="column">
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[10].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[10].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[10].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[10].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[10].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[11].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[11].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[11].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[11].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[11].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[12].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[12].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[12].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[12].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[12].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[13].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[13].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[13].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[13].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[13].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[14].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[14].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[14].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[14].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[14].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+            </div>
+
+            
+            <div class="column">
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[15].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[15].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[15].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[15].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[15].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[16].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[16].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[16].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[16].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[16].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[17].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[17].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[17].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[17].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[17].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[18].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[18].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[18].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[18].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[18].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[19].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[19].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[19].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[19].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[19].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+            </div>
+
+            
+            <div class="column">
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[20].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[20].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[20].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[20].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[20].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[21].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[21].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[21].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[21].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[21].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[22].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[22].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[22].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[22].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[22].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[23].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[23].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[23].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[23].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[23].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-content">
+                        <p class="title">
+                            {{ this.results[24].body }}
+                        </p>
+                        <p class="subtitle">
+                            Author: {{this.results[24].author}}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                            <span class="tag is-info is-light">{{ this.results[24].favorites_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon ">
+                                <i class="far fa-thumbs-up"></i>
+                            </span>
+                            <span class="tag is-success is-light">{{ this.results[24].upvotes_count }}</span>
+                        </p>
+                        <p class="card-footer-item">
+                            <span class="icon has-text-dark">
+                                <i class="far fa-thumbs-down"></i>
+                            </span>
+                            <span class="tag is-danger is-light">{{ this.results[24].downvotes_count }}</span>
+                        </p>
+                    </footer>
+                </div>
+
+            </div>
+        </div> -->
+
+                </div>
+                <div class="column is-narrow">
+                    <!-- footer -->
+                    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                        <a class="pagination-next" @click="incrementPage">Next page</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+    <script src="js/secrets.js"></script>
+
+</body>
+
+</html>

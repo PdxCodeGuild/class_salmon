@@ -1,0 +1,11 @@
+<h1>All students<h1>
+{% for student in object_list %}
+    <ul>
+        <li>First name: {{student.first_name}}</li>
+        <li>Last name: {{ student.last_name}}</li>
+        <li>Cohort: {{student.cohort}}</li>
+        <li>Favorite topic: {{ student.favorite_topic}}</li>
+        <li>Favorite teacher: {{student.favorite_teacher}}</li>
+        <li>Capstone: {{ student.capstone}}</li>
+    </ul>
+{% endfor %}

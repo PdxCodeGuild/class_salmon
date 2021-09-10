@@ -30,5 +30,4 @@ let num_avg = num_total/num_list.length;
 // Print data to console.
 console.log("You entered " + num_list.length.toString() + " numbers.")
 console.log("The total sum of numbers entered is " + num_total.toString() + ".")
-console.log("The average of numbers entered is " + num_avg.toFixed(2).toString() + ".")
-
+alert("You entered " + num_list.length.toString() + " numbers.  The total sum of numbers entered is " + num_total.toString() + ". The average of numbers entered is " + num_avg.toFixed(2).toString() + ".")

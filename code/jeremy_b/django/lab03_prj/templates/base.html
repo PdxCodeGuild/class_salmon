@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Chirp</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+</head>
+<body>
+<!-- Nav section -->
+{% if user.is_authenticated %}
+    <section class="container">
+        <nav class="blue">
+            <div class="nav-wrapper">
+                <a href="{% url 'feed' %}" class="brand-logo"><i class="large material-icons">record_voice_over</i>Chirp</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{% url 'feed' %}">Home</a></li>
+                    <li><a href="{% url 'profile' user.username %}">{{ user.username }}'s Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+{% else %}
+    <section class="container">
+        <nav class="blue">
+            <div class="nav-wrapper">
+                <a href="{% url 'feed' %}" class="brand-logo"><i class="material-icons">record_voice_over</i>Chirp</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{% url 'feed' %}">Home</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+{% endif %}
+{% block content %}
+
+{% endblock content %}
+
+<!-- Materialize JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

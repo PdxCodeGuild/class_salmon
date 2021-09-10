@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WAR!</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/757f7f4fda.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <h1><span>FAKE WAR</span></h1>
+      <main>
+        <aside class="sidebar">
+          <div>
+            <button class="button" @click="loadNewDeck">Get New Deck</button>
+            <button class="button" @click="shuffleDeck">Shuffle</button>
+          </div>
+          <ul>
+            <li>Current Deck ID: <strong> {{ deckID }} </strong></li>
+            <li>Shuffled: <strong> {{ isShuffled }} </strong>></li>
+            <li>Cards Remaining: <strong>{{ cardsRemaining }}</strong></li>
+          </ul>
+          <h3>Player 1 Score: {{ player1Score }}</h3>
+          <h3>Player 2 Score: {{ player2Score }}</h3>
+        </aside>
+        <div class="board">
+          <div class="players">
+            <h2>Player 1</h2>
+            <img v-if="player1Cards.cards" v-bind:src="player1Cards.cards[0].image"/>
+            <button class="button" @click="drawCardP1">Player 1 Draw</button>
+          </div>
+          <div class="turnIndicator">
+            <h2 v-if="output"> {{ output }}</h2>
+            <i v-if="output === 'Player 2 Turn'" class="fas fa-arrow-right" style="font-size:64px;color:#f1f5f2"></i>
+            <i v-else-if="output === 'Tie'" class="fas fa-arrows-alt-h" style="font-size:64px;color:#f1f5f2"></i>
+            <i v-else class="fas fa-arrow-left" style="font-size:64px;color:#f1f5f2"></i>
+          </div>
+          <div class="players">
+            <h2>Player 2</h2>
+            <img v-if="player2Cards.cards" v-bind:src="player2Cards.cards[0].image"/>
+            <button class="button" @click="drawCardP2">Player 2 Draw</button>
+          </div>
+      </main>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Include your code here... -->
+    <script src="app.js"></script>
+</body>
+</html>

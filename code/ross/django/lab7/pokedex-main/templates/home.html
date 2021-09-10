@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div class="blue-text text-darken-2"><h1>Welcome, {{ user.username }}!</h1></div>
+{% comment %} <button href='{% url 'users:add' %}'></button> {% endcomment %}
+<p><a href="{% url 'logout' %}">Logout</a><p>
+{% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <br>
+You must be logged in to make changes to the Pokemon list. <br>
+<a href="{% url 'login' %}">Login</a> | <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+
+{% csrf_token %}
+
+{% if user.is_authenticated %}
+<form action="{% url 'users:catch' %}" method="post" id="catchform">
+    <label>Catch a Pokemon!</label>
+    {% csrf_token %}
+    {% comment %} <input type="text" name="username" placeholder="{{ user.username}}" /> {% endcomment %}
+    <input type="number" name="pokemon" placeholder="Enter the number of the Pokemon."/>
+    <!-- <input v-model="poke_num"> -->
+    <input type="submit" value="Catch this Pokemon"></input>
+</form>
+<!-- <select name="pokemon" v-model='poke_num'>
+    <option v-bind:value='{ pokemon:poke.number }'>[[ poke.number ]]: [[ poke.name ]]</option>
+</select>  -->
+<!-- <span>[[ poke_num ]]</span> -->
+{% endif %}
+
+<div id="app">
+    <ul v-for="poke in pokemon">
+        <li class="card-panel red">
+        <h5>Pokemon # [[ poke.number ]]</h5><br>
+        Name: [[ poke.name ]]<br>
+        Type(s): 
+        <ul class="row">
+        <span v-for="type in poke.types">
+        <li class="column">
+        <b>[[  type.type ]]</b>
+        </span>
+        <br>
+        </li>
+        </ul>
+        Height:[[ poke.height ]]<br>
+        Weight: [[ poke.weight ]]<br>
+        Front Photo: <br><img :src="poke.image_front" /><br>
+        Back Photo: <br><img :src="poke.image_back" /><br>
+
+        Caught By: 
+        <ul class="row">
+        <span v-for='user in poke.caught_by_users'>
+        <li class="column">    
+        <b>[[ user.username ]]</b>
+        </li>
+        </span><br>
+        </ul>
+        {% if user.is_authenticated %}
+        <!-- <form action="{% url 'users:catch' %}" method="post" id="catchform">
+            <label>Catch this Pokemon!</label>
+            {% csrf_token %} -->
+            {% comment %} HOW CAN I GET THIS TO PASS THE POKEMON ID TO THE VIEW WITHOUT USER INPUT? CAN I PAIR THE VUE WITH THE DJANGO? {% endcomment %}
+            <!-- <input v-model="poke_num" value='[[ poke.number ]]'></input> -->
+            <!-- <input type="submit" value='[[ poke.number ]]'></input> -->
+            <!-- <input type='submit' v-bind:value='{ poke_num:poke.number }' value='Catch this Pokemon'></option> -->
+        <!-- </form> -->
+        <!-- <select name="pokemon" v-model.number='poke_num' type='number'> -->
+        <!-- </select>  -->
+        <a href="#catchform">Click here to catch this Pokemon! Poke #: [[ poke.number ]]</a>
+        {% endif %}
+        </li>
+    </ul>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            pokemon: [],
+            csrf_token: "",
+            poke_num: 0,
+        },
+        methods: {
+            loadPokemon: function() {
+                axios({
+                    method: 'get',
+                    url: '/apis/v1/pokemon/',
+                }).then(response => {
+                    this.pokemon = response.data
+                })
+            },
+            // postPokemon: function() {
+            //     axios({
+            //         method: 'post',
+            //         url: '/apis/v1/pokemon/',
+            //     }).then(response => {
+            //         this.pokemon = response.data
+            //     })
+            // }
+        },
+        created: function() {
+            this.loadPokemon()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+        }
+    //            {
+    //        let crsf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+    //        axios({
+    //            url: '/apis/v1/pokemon/',
+    //            method: 'get',
+    //            headers: {
+    //                'X-CSRFToken': csrf_token
+    //            }
+    //        }).then(response => this.pokemon = response.data)
+    //    }
+    //    mounted: {{
+    //        axios
+    //            .get('apis/v1/')
+    //            .then(response => (this.pokemon = response))
+    //    }
+    })
+</script>
+
+{% endblock %}

@@ -1,3 +1,4 @@
+
 card_values = {'A' : 1,
 '2' : 2,
 '3' : 3,
@@ -27,60 +28,6 @@ else:
     output = 'Bust'    
 
 print(output)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # user_error = "Error! Please make a valid entry: "
@@ -178,3 +125,4 @@ print(output)
 #             raise ValueError('Incorrect input ')   
 #     except ValueError:
 #         main_menu = main_menu.replace("Enter: ", user_error)
+

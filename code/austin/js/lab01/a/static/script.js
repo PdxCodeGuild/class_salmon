@@ -21,7 +21,6 @@ function pic6() {
     }return numbers
 }
 //console.log(pic6())
-
 function numMatches(){
     let winningNums = pic6();
     let balance = 0
@@ -50,7 +49,11 @@ function numMatches(){
     console.log(balance)
     alert(`The balance after 100,000 games is ${balance}`)
 }
-numMatches()
+
+while(True){
+    numMatches()
+}
+
 //console.log(numMatches())
 /* let a = parseFloat(prompt("first number"))
 let b = parseFloat(prompt("second number"))
