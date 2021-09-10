@@ -40,5 +40,5 @@ play.addEventListener("click", function(event) {
     event.preventDefault()
     let endbalance = numMatches()
     let results = document.getElementById("results")
-    results.innerText = "Your ending balance after 100,000 tickest is $" + endbalance
+    results.innerText = "Your ending balance after 100,000 tickest is $" + endbalance + " and your roi is " + ( endbalance + 200000 -200000 ) / 2000 + "%."
 })
