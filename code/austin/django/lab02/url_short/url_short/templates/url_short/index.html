@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+
+</head>
+
+<body>
+
+    <p>INSTRUCTIONS: Enter a complete url including the http. For example, to visit Google, enter http://www.yahoo.com.</p>
+
+    <form method="post" action="{% url 'url_short:index' %}">
+        {% csrf_token %}
+        <label for="site">Full url: </label>
+        <input type="text" name="site" id="site" placeholder="Enter your URL here" required>
+        <imput type="submit" value="Shorten"> 
+    </form>
+
+    <h3>Your full URL:</h3>
+    <p>{{ site }}</p>
+
+    <h3>Your shortened URL code:</h3>
+    <p>{{ code }}</p>
+
+<br>
+    <form method="post" action="{% url 'url_short:redirect' %}">
+        {% csrf_token %}
+        <label for="redirect">Enter your code here to be redirected: </label>
+        <input type="text" name="code" id="code" placeholder="Enter your code here">
+        <input type="submit" value="Redirect Me">
+    </form>
+
+</body>
+
+</html>
