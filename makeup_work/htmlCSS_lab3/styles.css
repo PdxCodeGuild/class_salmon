@@ -8,7 +8,6 @@
 
 /* This applies from 600px onwards*/
 body {
-    background: red;
     margin: 0;
     padding: 0;
 }
@@ -70,10 +69,148 @@ body {
     border-radius: 10px
 }
 
+.hero {
+    height: 800px;
+    display: grid;
+    grid-template-rows: 3fr 2fr 1fr;
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo img {
+    height: 300px
+}
+
+.cta {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.cta h1 {
+    font-size: 5rem
+}
+
+.cta h2 {
+    font-size: 2.5rem
+}
+
+.cta-buttons {
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cta-buttons .button {
+    width: 25%
+}
+
+button {
+    display: inline-block;
+    background-color: #7b38d8;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    width: 200px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: green;
+}
+
+.about {
+
+    height: 100vh;
+    display: flex;
+    flex-direction: row
+}
+
+.company-pic{
+    display:flex;
+    justify-content: center;
+    align-items: center
+}
+
+.company-pic img {
+    width: 800px
+}
+
+.company-about {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about-title {
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.about-content{
+    font-size: 20px
+}
+
+
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    }
+    form {
+    padding: 25px;
+    margin: 25px;
+    box-shadow: 0 2px 5px #f5f5f5; 
+    background: #f5f5f5; 
+    }
+    .fas {
+    margin: 25px 10px 0;
+    font-size: 72px;
+    color: #fff;
+    }
+    .fa-envelope {
+    transform: rotate(-20deg);
+    }
+    .fa-at , .fa-mail-bulk{
+    transform: rotate(10deg);
+    }
+    input, textarea {
+    width: calc(100% - 18px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #1c87c9;
+    outline: none;
+    }
+    input::placeholder {
+    color: #666;
+    }
+
+footer{
+    height: 100px;
+}
+
 /* This applies from 600px below */
 @media (max-width: 600px) {
     body {
-        background: green;
+        width: 100vw
     }
 
     .toggle-button {
@@ -112,6 +249,7 @@ body {
         display: flex;
         flex-direction: column;
         height: 40rem;
+
     }
 
     .company-logo {
@@ -121,7 +259,13 @@ body {
         width: 100%;
         flex-grow: 1;
     }
-    .cta{
+
+    .company-logo img{
+          width: 100%;
+        height: auto;
+    }
+
+    .cta {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
@@ -129,11 +273,73 @@ body {
 
     }
 
-    .cta-buttons{
-        background-color:blue;
+    .cta-buttons {
         flex-grow: 2;
         display: grid;
         grid-template-columns: auto auto
-        
     }
+
+    button {
+        display: inline-block;
+        background-color: #7b38d8;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 16px;
+        padding: 20px;
+        width: 200px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    button:hover {
+        background-color: green;
+    }
+
+    main .about{
+        width: 100vw;
+
+        display: flex;
+        flex-direction:column;
+        flex-wrap: auto;
+    }
+
+    .company-pic img{
+    display: none;
+    }
+
+    
+    .about-title{
+        font-size:16px
+    }
+
+    .about-content{
+        font-size: 14px
+    }
+
+
+    /* form */
+    .main-block {
+        flex-direction: row;
+        }
+        .left-part, form {
+        width: 50%;
+        }
+        .fa-envelope {
+        margin-top: 0;
+        margin-left: 20%;
+        }
+        .fa-at {
+        margin-top: -10%;
+        margin-left: 65%;
+        }
+        .fa-mail-bulk {
+        margin-top: 2%;
+        margin-left: 28%;
+        }
 }
