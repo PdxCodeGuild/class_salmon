@@ -21,11 +21,3 @@ class UserAppProfileView(DetailView):
 
     def get_object(self):
         return get_object_or_404(User, username=self.kwargs['username'])
-def catch(request):
-    username = request.POST['username']
-    pokemon = request.POST['pokemon']
-    caught = get_object_or_404(Pokemon, pk=pokemon)
-    caught.caught_by_user.add(request.user)
-    caught.save()
-    print(caught)
-    return HttpResponseRedirect('')

@@ -1,0 +1,23 @@
+html {
+    background-color: gray;
+}
+.pokemons {
+    background-color: burlywood;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: space-around;
+    gap: 50px;
+}
+.pokemon {
+    background-color: darkgoldenrod;
+    padding: 1rem;
+    border-style: double;
+    width: 300px;
+    text-align: center;
+    
+}
+.name {
+    display: flex;
+    justify-content: space-between;
+}
