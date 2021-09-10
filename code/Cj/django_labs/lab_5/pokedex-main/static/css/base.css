@@ -1,0 +1,14 @@
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+.search {
+    display: flex; 
+    flex-direction: row;
+    position: fixed;
+    justify-content: center;
+ 
+    bottom: .5rem;
+    width: 100%;
+}

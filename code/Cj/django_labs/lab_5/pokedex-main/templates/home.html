@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div id="app">
+{% comment %} <div id = 'app'> {% endcomment %}
+
+    <div v-for="pokemon in results">
+        <div class='flex-row'>
+            <div class='flex-col'>
+            <div class="col s8">
+            
+                <span class="flex-catch">
+                    <a href="#" @click.prevent="addPokemon(pokemon.id)" class=" pokeball btn-floating white lighten-4 pulse">
+                        <i class="material-icons icon-red">catching_pokemon</i>
+                    </a>
+                    <p class="flex-id">ID:<u>[[ pokemon.number ]]</u></p>
+                </span>
+                <div class="flex-btn">
+                <a class="btn-small" v-if="animate != pokemon.id" @mouseover="plinkTrack"  href="#" @click.prevent="animatePokemon(pokemon.id)">
+                <p class="btn-txt">Animate!</p>
+                </a>
+                <a class="btn-small" v-if="animate == pokemon.id"  href="#" @click.prevent="stopAnimation(pokemon.id)">
+                <p class="btn-txt">Stop</p>
+                </a>
+                </div>
+                <span class="img-span">
+                    <img v-if="animate != pokemon.id" :src='pokemon.image_front' class="responsive-img" alt="" id='poke-pic'/>
+                    <img v-if="animate == pokemon.id" :src='pokemon.gif' class="responsive-img" alt="" id='poke-pic'/>
+                </span>
+                <span class="flex-title"><p><em><b>[[ pokemon.name ]]</b></em></p></span>
+                <div class="flex-title"><p><b>Types:</b></p></div>
+                <span class="types">
+                    <div v-for="type in pokemon.type_detail">
+                        <img :src="type.type_tag" class="type responsive-img" alt="type.type" id="type"/>
+                    </div>
+                </span>
+                <div class="flex-stats">
+                <p class="stat"><b>Height:</b></p><p class="stat">[[ pokemon.height ]]</p>
+                <p class="stat"><b>Weight:</b></p><p class="stat">[[pokemon.weight]]<p>
+                </div>
+                <span class="flex-title"><p><b>Caught By:</b></p></span>
+                <ul class="flex-trainers">
+                    <div class="flex-stats" v-for="trainer in pokemon.trainers">   
+                    <li><b>[[ trainer.username ]]</b><a href="#" @click.prevent="releasePokemon(pokemon.id)" v-if="trainer.username == user.username">  - Release</a></li>
+                    
+                    </div>
+                </ul>
+            </div>  
+            </div>
+        </div>
+
+    </div>
+
+
+{% comment %} </div> {% endcomment %}
+{% endblock content %}
+
+
+
+{% block script %}
+<script>
+
+var backgroundTrack = new Audio('sound_effects/title.mp3')
+
+var plink = new Audio('sound_effects/pressA.wav')
+
+var app = new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'],
+    data: {
+        results: [],
+        pokemon: [],
+        caughtPokemon: [],
+        user: [],
+        csrf_token: '{{ csrf_token }}',
+        animate: '',
+        audio: [],
+
+
+    },
+    methods: {
+        plinkTrack: function() {
+            plink.play
+        },
+        stopAnimation: function(pokemon_id) {
+            console.log(pokemon_id)
+            if (pokemon_id == this.animate) {
+                this.animate = ''
+            }
+        },
+        animatePokemon: function(pokemon_id) {
+            this.plinkTrack()
+            this.animate = ''
+            if (this.animate == '') {
+            this.animate = pokemon_id
+            }
+        },
+        findPokemon: function() {
+            axios({
+            method: 'get',
+            url: '/api/v1/pokemon/'
+        }).then(response => {
+            this.results = response.data
+        })
+
+        },
+        retrieveCurrentUser: function() {
+            axios({
+                method: 'get',
+                url: '/api/v1/currentuser/'
+                }).then(response => {
+                    this.user = response.data
+                })
+        },
+        addPokemon: function(pokemon_id) {
+            let newList = []
+            for (let i=0; i < this.user.caught_pokemon.length; i++) {
+                newList.push(this.user.caught_pokemon[i].id)
+            }
+            newList.push(pokemon_id)
+          
+            axios({
+                method: 'patch',
+                url: `/api/v1/users/${this.user.id}/`,
+                headers: {
+                    'X-CSRFToken': this.csrf_token
+                },
+                data: {
+                    'caught': newList
+                }
+            }).then(response => {
+                this.findPokemon()
+                this.retrieveCurrentUser()
+            })
+            
+        },
+        releasePokemon: function(pokemon_id) {
+            let newList = []
+            for (let i=0; i < this.caughtPokemon.length; i++) {
+                newList.push(this.caughtPokemon[i].id)
+            }
+          
+            let pokemon = newList.indexOf(pokemon_id);
+           
+            newList.splice(pokemon, 1)
+
+            axios({
+                    method: 'patch',
+                    url: `/api/v1/users/${this.user.id}/`,
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: {
+                        'caught': newList
+                    }
+                }).then(response => {
+                    this.findPokemon()
+                    this.retrieveCurrentUser()
+                })
+        }
+    },
+    created: function() {
+        this.findPokemon()
+         axios({
+                method: 'get',
+                url: '/api/v1/currentuser/'
+                }).then(response => {
+                    this.user = response.data
+                    this.caughtPokemon = this.user.caught_pokemon
+
+                })
+         axios({
+                method: 'get',
+                url: '/api/v1/sound_effects/'
+                }).then(response => {
+                    this.audio = response.data
+                })
+    }
+})
+
+Vue.component('display', {
+    data: function() {
+        return {
+            results: [],
+        }
+    },
+    props : ['results', 'pokemon'],
+    template: `
+    <span> 
+        <display-card>
+
+        <div v-if='pokemon.name'>
+        <div class="col s12 m6 center-align">
+        <div class="card blue-grey lighten-4" >
+        <span class="card-title center-align"><h2>{{ pokemon }}</h2></span>
+    
+        <div class='flexbox'>
+        <img v-bind:src='pokemon.image_front' alt="" class='responsive-img' id='poke-pic'>
+        <img v-bind:src='pokemon.image_back' alt="" class='responsive-img' id='poke-pic'>
+        </div>
+        <div class="card-content">
+        <div>
+        <u><p class='right-align'>ID:{{ pokemon.number }}</p></u>
+        <div class="card-action">
+        </div>
+        <div class='row'>
+        <div class='col'>
+        <h4>Height: {{ pokemon.height }}</h4>
+        </div>
+        <div class='col'>
+        <h4>Weight: {{ pokemon.weight }}</h4>
+        </div>
+        </div>
+        <div class='row'>
+        <h4>Caught by:</h4>
+        {{ pokemon.caught_by }}
+
+        </div>
+        </display-card>
+    </span>
+
+    `,
+    methods : {
+
+    }
+
+})
+
+
+Vue.component('search-pokemon', {
+    data: function() {
+        return {
+            search: '',
+            pokemon: {
+                number: 0,
+                name: '',
+                height: 0.0,
+                weight: 0.0,
+                image_front: '',
+                image_back: '',
+                caught_by: [],
+
+            },
+        }
+    },
+    props: ['results',],
+    template:  `
+    <span>
+    <div class='input-field'>
+        <div class='row'>
+            <span class='col'>
+                <input type="text" v-model='search' name="poke-search" id='pokes-search'>
+            </span>
+            <span class='col'>
+                <a @click='SearchPokemon' class='btn orange waves-effect waves-light'>Search</a>
+            </span>
+        </div>
+    </div>
+    </span>
+
+    `,
+    methods: {
+        SearchPokemon: function() {
+            let i = 0
+            for (pokemon in this.results) {
+                // console.log(this.results[i])
+                if (this.results[i].name == this.search) {
+                    this.pokemon.number = this.results[i].number
+                    this.pokemon.name = this.results[i].name
+                    this.pokemon.height = this.results[i].height
+                    this.pokemon.weight = this.results[i].weight
+                    this.pokemon.image_front = this.results[i].image_front
+                    this.pokemon.image_back = this.results[i].image_back
+                    this.pokemon.caught_by = this.results[i].caught_by
+                    this.search = ''
+                    this.$emit('pokemon-found', this.pokemon)
+                    break
+                }
+                i++
+            }
+        },
+}
+})
+
+
+
+
+
+
+
+
+</script>
+
+
+{% endblock script %}

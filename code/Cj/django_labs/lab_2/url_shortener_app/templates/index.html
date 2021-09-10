@@ -1,0 +1,21 @@
+
+<ul>
+    {% for url in url_shortener %}
+    <li>
+        {{ url.short_url }}
+        {{ url.full_url }}
+        {{ url.date_created }}
+    {% endfor %}
+    </li>
+</ul>
+
+<form action="{% url 'url_shortener:add_url'%}" method="post">
+    {% csrf_token %}
+    <input type="text" name="url"></input>
+    <button type="submit" value=''>Shorten url</button>
+</form>
+{% comment %} <form action="{% url 'url_shortener:visit_url' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="visit-url"></input>
+    <button type="submit" value=''>Visit url</button>
+</form> {% endcomment %}
