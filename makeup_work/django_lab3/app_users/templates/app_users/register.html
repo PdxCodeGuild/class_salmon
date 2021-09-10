@@ -1,0 +1,37 @@
+{% extends "app_posts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content%}
+<div class="container">
+  <div class="box">
+    <section class="hero is-small is-primary">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          Join Oinker Today!
+        </p>
+        <p class="subtitle">
+          Share oinks with friends!
+        </p>
+      </div>
+    </section>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="section">
+        {{ form | crispy}}
+      </div>
+
+      <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+          <button class="button is-link" type="submit">Join me up!</button>
+        </div>
+        <div class="control">
+          <a class="button is-link is-light" href="{% url 'login' %}">Already have an account?</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+{% endblock content%}

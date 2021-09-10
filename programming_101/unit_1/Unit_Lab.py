@@ -1,0 +1,1 @@
+print("python" + " is" + " " + "f" "u" "n")

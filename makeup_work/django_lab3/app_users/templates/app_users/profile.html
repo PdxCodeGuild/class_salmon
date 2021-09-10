@@ -1,0 +1,48 @@
+{% extends "app_posts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content%}
+{% csrf_token %}
+<div class="container">
+  <div class="box">
+    <section class="hero is-small is-info">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          Profile Update
+        </p>
+      </div>
+    </section>
+
+    <div class="section has-text-centered">
+      <div class="level">
+        <div class="level-item">
+          <figure class="image is-128x128">
+            <img class="is-rounded" src="{{ user.profile.image.url }}">
+          </figure>
+        </div>
+      </div>
+
+      <h1 class="title">Update Profile information here.</h1>
+    </div>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+      <div class="content">
+
+        {{ u_form | crispy}}
+        <div class="block"></div>
+        {{ p_form | crispy}}
+      </div>
+
+      <div class="field">
+        <p class="control">
+          <button class="button is-success" type="submit">
+            Update
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content%}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShortyURL!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{% url 'app_shortURL:app-home' %}">
+          Home
+        </a>
+      </div>
+    </div>
+  </nav>
+  <section class="section">
+    <div class="container">
+      <section class="hero is-info">
+        <div class="hero-body">
+          <p class="title">
+            URL Shortener
+          </p>
+          <p class="subtitle">
+            Make your urls smaller
+          </p>
+        </div>
+      </section>
+      {% block content%}{% endblock content%}
+    </div>
+  </section>
+</body>
+
+</html>
