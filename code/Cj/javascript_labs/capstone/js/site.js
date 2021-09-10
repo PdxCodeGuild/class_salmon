@@ -126,7 +126,7 @@ Vue.component('pokemon-display', {
            <a href="#" class='btn waves-effect waves-light' @click='goTo' v-if='species.evolves_from_species !== null'> {{ species.evolves_from_species.name }}</a>
         <div class="card-content">
         <div >
-        <u><p class='right-align'>ID:{{ pokemon.id }}<p></u>
+        <u><p class='right-align'>ID:{{ pokemon.id }}</p></u>
         <div class="card-action">
         </div>
         <div class='row'>

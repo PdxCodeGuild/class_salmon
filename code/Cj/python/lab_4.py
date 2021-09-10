@@ -1,17 +1,33 @@
-import random
 
-
-card_values = {
-    'A': 1,
-    'J': 0,
-    'Q': 0,
-    'K': 0,
-    '2': 2,
-    '3': 3,
-    '4': 4,
-    '5': 5,
-    
+card_values = {'A' : 1,
+'2' : 2,
+'3' : 3,
+'4' : 4,
+'5' : 5,
+'6' : 6,
+'7' : 7,
+'8' : 8,
+'9' : 9,
+'J' : 10,
+'Q' : 10,
+'K' : 10
 }
+
+score = 0
+
+for card in range(3):
+    score += card[card]
+
+if score < 17:
+    output = 'Hit'
+elif score >= 17 and score < 21:
+    output = 'Stay'    
+elif score == 21:
+    output = 'Blackjack!'
+else: 
+    output = 'Bust'    
+
+print(output)
 
 
 # user_error = "Error! Please make a valid entry: "
