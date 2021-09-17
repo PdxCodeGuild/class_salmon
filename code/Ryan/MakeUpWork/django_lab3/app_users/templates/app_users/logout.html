@@ -1,0 +1,28 @@
+{% extends "app_posts/base.html" %}
+
+{% block content%}
+
+<div class="container">
+  <div class="box">
+    <section class="hero is-small is-primary">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          Logged out successfully
+        </p>
+      </div>
+    </section>
+    <div class="block"></div>
+      <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+          <a class="button is-link is-light" href="{% url 'login' %}">Go to Login</a>
+        </div>
+        <div class="control">
+          <a class="button is-primary" href="{% url 'register' %}">Join me up!</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock content%}

@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem
+}
+
+.navbar-links {
+    height: 100%;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px
+}
+
+.hero{
+    width: 100%;
+    height: 85vh;
+
+}
+
+.hero .company-logo{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-logo > img {
+    width: 50%;
+    height: auto;
+}
+
+.cta {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta h1 {
+    font-size: 5rem
+}
+
+.cta h2 {
+    font-size: 2.5rem
+}
+
+.cta-buttons {
+    height: 10rem;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    /* margin-bottom: 10rem; */
+}
+
+.cta-buttons .button {
+    width: 25%;
+    height: 100%;
+}
+
+.about{
+    height: 100vh;
+}
+
+.company-pic {
+    
+}
+
+@media (min-width: 1001px) {
+
+    button {
+        display: inline-block;
+        background-color: #7b38d8;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 16px;
+        padding: 20px;
+        width: 200px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    
+    button:hover {
+        background-color: green;
+    }
+
+}
+
+
+
+/* DESKTOP VIEW - This applies from 600px onwards*/
+/* @media (min-width: 1001px) {
+.hero{
+    width: 100%;
+    height: 25vh;
+
+} */
+/* } */
+
+/* @media (min-width: 600px) {
+
+.hero {
+    height: 800px;
+    display: grid;
+    grid-template-rows: 3fr 2fr 1fr;
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo img {
+    height: 300px
+}
+
+.cta {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.cta h1 {
+    font-size: 5rem
+}
+
+.cta h2 {
+    font-size: 2.5rem
+}
+
+.cta-buttons {
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cta-buttons .button {
+    width: 25%
+}
+
+button {
+    display: inline-block;
+    background-color: #7b38d8;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    width: 200px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: green;
+}
+
+.about {
+
+    height: 100vh;
+    display: flex;
+    flex-direction: row
+}
+
+.company-pic{
+    display:flex;
+    justify-content: center;
+    align-items: center
+}
+
+.company-pic img {
+    width: 800px;
+    height: auto;
+}
+
+.company-about {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about-title {
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.about-content{
+    font-size: 20px
+}
+
+
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    }
+    form {
+    padding: 25px;
+    margin: 25px;
+    box-shadow: 0 2px 5px #f5f5f5; 
+    background: #f5f5f5; 
+    }
+    .fas {
+    margin: 25px 10px 0;
+    font-size: 72px;
+    color: #fff;
+    }
+    .fa-envelope {
+    transform: rotate(-20deg);
+    }
+    .fa-at , .fa-mail-bulk{
+    transform: rotate(10deg);
+    }
+    input, textarea {
+    width: calc(100% - 18px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #1c87c9;
+    outline: none;
+    }
+    input::placeholder {
+    color: #666;
+    }
+
+footer{
+    height: 100px;
+}
+} */
+
+/* MOBILE-VIEW - This applies from 600px below */
+@media (max-width: 1000px) {
+
+    body {
+        width: 100vw
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-links li {
+        text-align: center
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        height: 40rem;
+    }
+
+    .company-logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    .company-logo img{
+        width: 90%;
+        height: auto;
+    }
+
+    .cta {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons {
+        flex-grow: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr
+    }
+
+    button {
+        display: inline-block;
+        background-color: #7b38d8;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 16px;
+        /* padding: 20px; */
+        /* width: 200px; */
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    button:hover {
+        background-color: green;
+    }
+
+    main .about{
+        width: 100vw;
+        display: flex;
+        flex-direction:column;
+        flex-wrap: auto;
+    }
+
+    .company-pic img{
+    display: none;
+    }
+
+    
+    .about-title{
+        font-size:16px
+    }
+
+    .about-content{
+        font-size: 14px
+    }
+    
+    .main-block {
+        flex-direction: row;
+        }
+        .left-part, form {
+        width: 50%;
+        }
+        .fa-envelope {
+        margin-top: 0;
+        margin-left: 20%;
+        }
+        .fa-at {
+        margin-top: -10%;
+        margin-left: 65%;
+        }
+        .fa-mail-bulk {
+        margin-top: 2%;
+        margin-left: 28%;
+        }
+}

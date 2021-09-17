@@ -1,0 +1,27 @@
+{% extends "app_posts/base.html" %}
+
+{% block content%}
+
+  <div class="box">
+    <div class="container">
+      <figure class="image is-128x128">
+        <img src="{{ object.author.profile.image.url }}">
+      </figure>
+      <h1 class="title">{{ object.title }}</h1>
+      <p class="subtitle">By {{ object.author }} on <span class="tag is-info is-light">{{ object.date_posted }}</span></p>
+      <p>{{ object.content }}</p>
+    </div>
+  </div>
+
+  {% if object.author == user %}
+
+    <div>
+      <a class="button" href="{% url 'app_posts:postUpdate' object.id %}">Update</a>
+      <a class="button" href="{% url 'app_posts:postDelete' object.id %}">Delete</a>
+    </div>
+
+  {% endif %}
+
+
+
+{% endblock content%}
